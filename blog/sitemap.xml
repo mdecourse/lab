@@ -4,63 +4,63 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>https://lab.mde.tw/blog/</loc>
-<lastmod>2020-05-09T22:10:25-00:00</lastmod>
+<loc>http://lab.mde.tw/blog/</loc>
+<lastmod>2020-05-09T22:32:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://lab.mde.tw/blog/archives.html</loc>
-<lastmod>2020-05-09T22:10:25-00:00</lastmod>
+<loc>http://lab.mde.tw/blog/archives.html</loc>
+<lastmod>2020-05-09T22:32:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://lab.mde.tw/blog/tags.html</loc>
-<lastmod>2020-05-09T22:10:25-00:00</lastmod>
+<loc>http://lab.mde.tw/blog/tags.html</loc>
+<lastmod>2020-05-09T22:32:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://lab.mde.tw/blog/categories.html</loc>
-<lastmod>2020-05-09T22:10:25-00:00</lastmod>
+<loc>http://lab.mde.tw/blog/categories.html</loc>
+<lastmod>2020-05-09T22:32:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://lab.mde.tw/blog/pages/about/</loc>
+<loc>http://lab.mde.tw/blog/pages/about/</loc>
 <lastmod>2020-05-09T20:24:39+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://lab.mde.tw/blog/2020-lab-get-started.html</loc>
+<loc>http://lab.mde.tw/blog/2020-lab-get-started.html</loc>
 <lastmod>2020-05-09T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://lab.mde.tw/blog/category/misc.html</loc>
+<loc>http://lab.mde.tw/blog/category/misc.html</loc>
 <lastmod>2020-05-09T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://lab.mde.tw/blog/tag/2020cv.html</loc>
+<loc>http://lab.mde.tw/blog/tag/2020cv.html</loc>
 <lastmod>2020-05-09T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://lab.mde.tw/blog/author/yen.html</loc>
+<loc>http://lab.mde.tw/blog/author/yen.html</loc>
 <lastmod>2020-05-09T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
