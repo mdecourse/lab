@@ -167,5 +167,49 @@ server {
     ssl_prefer_server_ciphers on;
     try_files $uri $uri/ =404;
 }
+&lt;/pre&gt;
 
-&lt;/pre&gt;</content><category term="Misc"></category><category term="2020CV"></category></entry></feed>
+&lt;p&gt;uwsgi_ini/uwsgi.ini&lt;/p&gt;
+&lt;p&gt;&lt;pre class="brush: jscript"&gt;
+ &lt;a href="https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html"&gt;uwsgi&lt;/a&gt;
+socket = 127.0.0.1:9443
+uid = user_account
+gid = user_account
+plugins-dir = /usr/lib/uwsgi/plugins/
+plugin = python3
+master = true
+process = 4
+threads = 2
+chdir = /home/user_account/labmdetw/cmsimde
+wsgi-file = /home/user_account/labmdetw/cmsimde/wsgi.py
+&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;啟動 uwsgi 指令, 將會逐一啟動 wsgi_ini 目錄中個別 .ini 檔案:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+sudo /usr/bin/uwsgi --emperor /home/user_account/wsgi_ini
+&lt;/pre&gt;
+
+&lt;p&gt;最後則設定 Ubuntu 系統服務, 用來啟動 uwsgi:&lt;/p&gt;
+&lt;p&gt;/etc/systemd/system 的 cmsimde.service 服務啟動檔案內容:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+[Unit]
+Description=uWSGI to serve CMSiMDE
+After=network.target
+
+[Service]
+User=user_account
+Group=user_account
+WorkingDirectory=/home/user_account/uwsgi_ini
+ExecStart=/usr/local/bin/uwsgi --emperor /home/user_account/uwsgi_ini
+
+[Install]
+WantedBy=multi-user.target
+&lt;/pre&gt;
+
+&lt;p&gt;接著將 cmsimde 服務設為隨系統開機啟動:&lt;/p&gt;
+&lt;p&gt;sudo systemctl enable cmsimde&lt;/p&gt;
+&lt;p&gt;若要取消 cmsimde 服務隨系統開機啟動:&lt;/p&gt;
+&lt;p&gt;sudo systemctl disable cmsimde&lt;/p&gt;
+&lt;p&gt;手動啟動 cmsimde.service 服務&lt;/p&gt;
+&lt;p&gt;sudo systemctl start cmsimde&lt;/p&gt;
+&lt;p&gt;手動停止 cmsimde.service 服務&lt;/p&gt;
+&lt;p&gt;sudo systemctl stop cmsimde&lt;/p&gt;</content><category term="Misc"></category><category term="2020CV"></category></entry></feed>

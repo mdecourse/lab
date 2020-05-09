@@ -390,8 +390,52 @@ server {
     ssl_prefer_server_ciphers on;
     try_files $uri $uri/ =404;
 }
-
 </pre>
+
+<p>uwsgi_ini/uwsgi.ini</p>
+<p><pre class="brush: jscript">
+ <a href="https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html">uwsgi</a>
+socket = 127.0.0.1:9443
+uid = user_account
+gid = user_account
+plugins-dir = /usr/lib/uwsgi/plugins/
+plugin = python3
+master = true
+process = 4
+threads = 2
+chdir = /home/user_account/labmdetw/cmsimde
+wsgi-file = /home/user_account/labmdetw/cmsimde/wsgi.py
+</pre></p>
+<p>啟動 uwsgi 指令, 將會逐一啟動 wsgi_ini 目錄中個別 .ini 檔案:</p>
+<pre class="brush: jscript">
+sudo /usr/bin/uwsgi --emperor /home/user_account/wsgi_ini
+</pre>
+
+<p>最後則設定 Ubuntu 系統服務, 用來啟動 uwsgi:</p>
+<p>/etc/systemd/system 的 cmsimde.service 服務啟動檔案內容:</p>
+<pre class="brush: jscript">
+[Unit]
+Description=uWSGI to serve CMSiMDE
+After=network.target
+
+[Service]
+User=user_account
+Group=user_account
+WorkingDirectory=/home/user_account/uwsgi_ini
+ExecStart=/usr/local/bin/uwsgi --emperor /home/user_account/uwsgi_ini
+
+[Install]
+WantedBy=multi-user.target
+</pre>
+
+<p>接著將 cmsimde 服務設為隨系統開機啟動:</p>
+<p>sudo systemctl enable cmsimde</p>
+<p>若要取消 cmsimde 服務隨系統開機啟動:</p>
+<p>sudo systemctl disable cmsimde</p>
+<p>手動啟動 cmsimde.service 服務</p>
+<p>sudo systemctl start cmsimde</p>
+<p>手動停止 cmsimde.service 服務</p>
+<p>sudo systemctl stop cmsimde</p>
             </section>
 
             <section class="post-info">
