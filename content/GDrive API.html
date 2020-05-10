@@ -154,8 +154,34 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">網際圖檔管理 << <a href='網際圖檔管理.html'>Previous</a> <a href='產品設計繪圖.html'>Next</a> >> 產品設計繪圖<br /><h1>電腦輔助設計與實習</h1>
-<br />網際圖檔管理 << <a href='網際圖檔管理.html'>Previous</a> <a href='產品設計繪圖.html'>Next</a> >> 產品設計繪圖</div>
+    <div id="tipue_search_content">活動管理 << <a href='活動管理.html'>Previous</a> <a href='網際內容管理.html'>Next</a> >> 網際內容管理<br /><h1>GDrive API</h1>
+<p><a href="https://developers.google.com/drive/api/v3/enable-drive-api">Enable Google Drive API</a></p>
+<p>Reference: <a href="https://github.com/chingjunetao/medium-article/blob/master/google-drive-with-python/google-drive-with-python.py">https://github.com/chingjunetao/medium-article/blob/master/google-drive-with-python/google-drive-with-python.py</a></p>
+<p>需要設定 Google Drive API credential 並取得 client_secrets.json</p>
+<p>利用</p>
+<p style="padding-left: 30px;">pip install pydrive</p>
+<p>安裝所需模組, 以下程式將會至 client_secrets.json 所對應帳號下的 Google Drive, 列出所有目錄與檔案, 並將 file_to_upload.pdf 上傳至 Google Drive 中的 uploaded 目錄.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from pydrive.auth import GoogleAuth
+from pydrive.drive import GoogleDrive
+
+gauth = GoogleAuth()
+gauth.LocalWebserverAuth() # client_secrets.json need to be in the same directory as the script
+drive = GoogleDrive(gauth)
+
+
+# View all folders and file in your Google Drive
+fileList = drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
+for file in fileList:
+  print('Title: %s, ID: %s' % (file['title'], file['id']))
+  # Get the folder ID that you want
+  if(file['title'] == "uploaded"):
+      fileID = file['id']
+
+file1 = drive.CreateFile({"mimeType": "application/pdf", "parents": [{"kind": "drive#fileLink", "id": fileID}]})
+file1.SetContentFile("file_to_upload.pdf")
+file1.Upload() # Upload the file.
+print('Created file %s with mimeType %s' % (file1['title'], file1['mimeType']))   </pre>
+<p></p><br />活動管理 << <a href='活動管理.html'>Previous</a> <a href='網際內容管理.html'>Next</a> >> 網際內容管理</div>
         
     <!-- footer -->
       <div class="container">
