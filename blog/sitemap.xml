@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lab.mde.tw/blog/</loc>
-<lastmod>2020-05-09T22:47:36-00:00</lastmod>
+<lastmod>2020-05-11T10:13:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lab.mde.tw/blog/archives.html</loc>
-<lastmod>2020-05-09T22:47:36-00:00</lastmod>
+<lastmod>2020-05-11T10:13:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lab.mde.tw/blog/tags.html</loc>
-<lastmod>2020-05-09T22:47:36-00:00</lastmod>
+<lastmod>2020-05-11T10:13:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lab.mde.tw/blog/categories.html</loc>
-<lastmod>2020-05-09T22:47:36-00:00</lastmod>
+<lastmod>2020-05-11T10:13:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -39,6 +39,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://lab.mde.tw/blog/manage-your-cmsimde-site.html</loc>
+<lastmod>2020-05-11T11:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://lab.mde.tw/blog/2020-lab-get-started.html</loc>
 <lastmod>2020-05-09T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -46,14 +53,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://lab.mde.tw/blog/category/misc.html</loc>
-<lastmod>2020-05-09T11:00:00+08:06</lastmod>
+<loc>http://lab.mde.tw/blog/category/github.html</loc>
+<lastmod>2020-05-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lab.mde.tw/blog/tag/2020cv.html</loc>
+<loc>http://lab.mde.tw/blog/tag/cmsimde.html</loc>
+<lastmod>2020-05-11T11:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://lab.mde.tw/blog/tag/deployment.html</loc>
 <lastmod>2020-05-09T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -61,7 +75,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lab.mde.tw/blog/author/yen.html</loc>
-<lastmod>2020-05-09T11:00:00+08:06</lastmod>
+<lastmod>2020-05-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Lab.mde.tw 網誌 - Misc</title><link href="http://lab.mde.tw/blog/" rel="alternate"></link><link href="http://lab.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://lab.mde.tw/blog/</id><updated>2020-05-09T11:00:00+08:00</updated><entry><title>CMSiMDE 部署</title><link href="http://lab.mde.tw/blog/2020-lab-get-started.html" rel="alternate"></link><published>2020-05-09T11:00:00+08:00</published><updated>2020-05-09T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:lab.mde.tw,2020-05-09:/blog/2020-lab-get-started.html</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 所能伺服的內容包含網站, 網誌與簡報, 而網站又分為動態系統與靜態系統, 動態網站建置主要的目的在方便進行 html 文件的編輯, 而靜態網站系統則主要為了能在一般的 WWW 伺服器上進行部署. &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Lab.mde.tw 網誌 - Github</title><link href="http://lab.mde.tw/blog/" rel="alternate"></link><link href="http://lab.mde.tw/blog/feeds/github.atom.xml" rel="self"></link><id>http://lab.mde.tw/blog/</id><updated>2020-05-11T11:00:00+08:00</updated><entry><title>倉儲資料維護與管理</title><link href="http://lab.mde.tw/blog/manage-your-cmsimde-site.html" rel="alternate"></link><published>2020-05-11T11:00:00+08:00</published><updated>2020-05-11T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:lab.mde.tw,2020-05-11:/blog/manage-your-cmsimde-site.html</id><summary type="html">&lt;p&gt;&lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是 2020 春季協同產品設計實習的課程網站, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則是與協同設計課程相關的程式專案, 兩者都採用 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 建立網站. 其中 &lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是典型的動態與網站架構, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則除了網站還包含 Flask 協同產品設計程式的開發.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;&lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是 2020 春季協同產品設計實習的課程網站, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則是與協同設計課程相關的程式專案, 兩者都採用 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 建立網站. 其中 &lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是典型的動態與網站架構, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則除了網站還包含 Flask 協同產品設計程式的開發.&lt;/p&gt;
+
+
+&lt;p&gt;當要從遠端 git clone &lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 倉儲時, 牽涉到系統使用何種協定連線, https 或 ssh?&lt;/p&gt;
+&lt;p&gt;因為不同的連線協定有不同的設定檔案, 而且預計連線的主機並不一定就能提供服務, 因此能否順利完成 git clone 牽涉許多細節. 而這些細節並非一成不變, 而必須按照邏輯順序, 一一查驗才能得到期望中的結果.&lt;/p&gt;
+&lt;p&gt;首先, 因為 &lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 網站的倉儲位於 https://github.com/mdecourse/cd2020.git, 其中帶有 cmsimde 子模組, 因此若要將此倉儲從遠端 git clone 到近端作為工作目錄, 最好的方式就是透過 --recurse-submodules 參數, 將子模組一起 clone 到近端.&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+git clone --recurse-submodules https://github.com/mdecourse/cd2020.git
+&lt;/pre&gt;
+
+&lt;p&gt;由於 KMOLab 的課程鼓勵學員在 Windows 10 操作系統中, 使用隨身程式系統, 而不要被微軟綁定, 因為使用者必須了解所開發的程式必須能在 Mac OS X 與許多 Linux 操作系統執行, Windows 10 不應該是工程師唯一的操作系統.&lt;/p&gt;
+&lt;p&gt;因此, 從隨身系統中的 start.bat 啟動後, Windows 10 就只是機械設計工程師的暫時宿主, 隨時都要準備離開, 所以啟動後必須注意所處的網路連線環境, 假如是在 IPv4 網路環境, 可以直接對 github.com 連線, 但是身處純 IPv6 網路環境中, 目前仍必須透過支援 IPv4 與 IPv6 的網路代理主機, 才能利用 git 或 ssh 對 github.com 連線.&lt;/p&gt;
+&lt;p&gt;以 https 對 github.com 連線, 代理主機的設定是透過:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+git config --global http.proxy=http://[2001::_your_ipv6_proxy]:3128
+&lt;/pre&gt;
+
+&lt;p&gt;假如採 ssh 對 github.com 連線, 則代理主機的設定必須檢查 putty.exe 中 github.com session 中 Connections - Proxy 的代理主機設定.&lt;/p&gt;
+&lt;p&gt;一旦完成 &lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 網站倉儲的 git clone, 使用者就可以使用隨身系統中的命令列視窗, 進入 &lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 倉儲中的 cmsimde 目錄, 以:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+python wsgi.py
+&lt;/pre&gt;
+
+&lt;p&gt;開啟動態網站系統, 並利用瀏覽器連線到 https://localhost:9443 進行動態網站內容的維護, 完成後再利用 generate pages 按鈕將動態網站中的 config/content.htm 轉為 content 目錄中的靜態網頁, 之後再新增, 提交, 推送到遠端, 以完成倉儲改版的流程.&lt;/p&gt;</content><category term="Github"></category><category term="CMSiMDE"></category></entry><entry><title>CMSiMDE 部署</title><link href="http://lab.mde.tw/blog/2020-lab-get-started.html" rel="alternate"></link><published>2020-05-09T11:00:00+08:00</published><updated>2020-05-09T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:lab.mde.tw,2020-05-09:/blog/2020-lab-get-started.html</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 所能伺服的內容包含網站, 網誌與簡報, 而網站又分為動態系統與靜態系統, 動態網站建置主要的目的在方便進行 html 文件的編輯, 而靜態網站系統則主要為了能在一般的 WWW 伺服器上進行部署. &lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 所能伺服的內容包含網站, 網誌與簡報, 而網站又分為動態系統與靜態系統, 動態網站建置主要的目的在方便進行 html 文件的編輯, 而靜態網站系統則主要為了能在一般的 WWW 伺服器上進行部署. &lt;/p&gt;
 
 
@@ -212,4 +236,4 @@ WantedBy=multi-user.target
 &lt;p&gt;手動啟動 cmsimde.service 服務&lt;/p&gt;
 &lt;p&gt;sudo systemctl start cmsimde&lt;/p&gt;
 &lt;p&gt;手動停止 cmsimde.service 服務&lt;/p&gt;
-&lt;p&gt;sudo systemctl stop cmsimde&lt;/p&gt;</content><category term="Misc"></category><category term="2020CV"></category></entry></feed>
+&lt;p&gt;sudo systemctl stop cmsimde&lt;/p&gt;</content><category term="Github"></category><category term="Deployment"></category></entry></feed>
