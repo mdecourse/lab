@@ -154,10 +154,97 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">兩人一組產品開發 << <a href='兩人一組產品開發.html'>Previous</a> <a href='八人一組產品開發.html'>Next</a> >> 八人一組產品開發<br /><h1>四人一組產品開發</h1>
-<p>四人共同快速 (兩週) 開發一組產品設計與實作</p>
-<p>報告與檢討 (一週)</p>
-<br />兩人一組產品開發 << <a href='兩人一組產品開發.html'>Previous</a> <a href='八人一組產品開發.html'>Next</a> >> 八人一組產品開發</div>
+    <div id="tipue_search_content">隨身程式系統 << <a href='隨身程式系統.html'>Previous</a> <a href='Virtualbox.html'>Next</a> >> Virtualbox<br /><h1>Github</h1>
+<h4>Git Commands</h4>
+<p>git add .</p>
+<p>git commit -m "commint message"</p>
+<p>git push</p>
+<p>git clone</p>
+<p>git clone --recurse-submodules url_of_repo</p>
+<p>git status</p>
+<p>git checkout</p>
+<p>git submodule add url_of_repo local_directory</p>
+<p>git branch</p>
+<p>git pull</p>
+<p>git merge</p>
+<h4><a href="https://pages.github.com/">Github Pages</a></h4>
+<p style="padding-left: 30px;"><a href="https://pages.github.com/">Github Pages</a> 為 Github 所提供的倉儲內容網頁伺服器. 使用者可以將倉儲主分支, gh-pages 分支或 docs 目錄中的 HTML, 利用 Github Pages 設定, 轉為以使用者帳號及倉儲名稱所組成的網站.</p>
+<p style="padding-left: 30px;">例如: 將 github_account 中名稱為 repo 的倉儲內容設為 Github Pages 網站後, 其網址為: <a href="https://github_account.github.io/repo">https://github_account.github.io/repo</a>.</p>
+<p style="padding-left: 30px;">若使用者設為 Girhub Pages 之倉儲名稱為 github_account.github.io, 則所設定的 Github Pages 網站名稱將為:</p>
+<p style="padding-left: 30px;">https://github_account.github.io</p>
+<h4>Github SSH</h4>
+<p style="padding-left: 30px;">使用者從近端將工作目錄中的資料推送到 Github, 可以選擇 Https 或 SSH 連線協定.</p>
+<p style="padding-left: 30px;">使用者提交 Github 倉儲內容改版之前, 必須利用 git config 進行身份與代理主機的設定.</p>
+<p style="padding-left: 60px;">git config --edit --system</p>
+<p style="padding-left: 60px;">git config --global user.name "github_account"</p>
+<p style="padding-left: 60px;">git config --global user.email "your_github_account _register email"</p>
+<p style="padding-left: 60px;">git config --global http.proxy=http://proxy_server:3128</p>
+<p style="padding-left: 60px;">若設 IPv6 主機則使用:</p>
+<p style="padding-left: 90px;">git config --global http.proxy=http://[2001::ip_address]:3128</p>
+<p style="padding-left: 60px;">--global 表示要存擋到啟動隨身碟 home 目錄中的 .gitconfig 設定檔</p>
+<p style="padding-left: 60px;">若 git config 不使用 --global 表示該設定僅此命令 session 有效.</p>
+<p style="padding-left: 30px;">假如要在 Windows 10 操作系統中, 將倉儲設定使用 SSH 網路協定推送, 則需完成下列步驟:</p>
+<p>1. 下載 Putty 工具組</p>
+<p style="padding-left: 30px;"><span>從 </span><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/" rel="nofollow">https://www.chiark.greenend.org.uk/~sgtatham/putty/</a><span><span> </span>下載一般版, 或從<span> </span></span><a href="http://jakub.kotrla.net/putty/" rel="nofollow">http://jakub.kotrla.net/putty/</a><span><span> </span>下載特殊的可攜版本.</span></p>
+<p><span>2. 利用 y:\portablegit\bin\sh.exe 進入 shell 命令環境後, 以 <br/></span></p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">ssh-keygen -t rsa -b 4096 -C "使用者學號"</pre>
+<p style="padding-left: 30px;">在 /y/home/.ssh 目錄下建立 id_rsa 與 id_rsa.pub 等 private key 與 public key</p>
+<p style="padding-left: 30px;">之後以 SciTE 開啟 id_rsa.pub 後, 將此 public key 的內容, 以新增添加到 Github.com 帳號下 personal settings -&gt; SSH and GPG keys 頁面下.</p>
+<p>3. 接下來要利用 puttygen.exe 將 id_rsa 轉為 Putty 可以解讀的 .ppk 格式, 並修改隨身系統的啟動批次檔案, 指定利用 putty 目錄下的 plink 執行 git 指令的網路代理設定.</p>
+<p>修改啟動的 start.bat 加入下列設定:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">set GIT_HOME=%Disk%:\portablegit\bin\
+set GIT_SSH=%Disk%:\putty\plink.exe</pre>
+<div>
+<div class="syntaxhighlighter js" id="highlighter_31185"></div>
+</div>
+<p>4. 利用 puttygen.exe 載入第二步驟所建立的 private key, 也就是 id_rsa.</p>
+<p>開啟 puttygen 之後, 以右下方的 load 載入 id_rsa, 成功載入後, 利用 save private key 按鈕, 將已經轉為 putty 格式的 .ppk 存檔. 此一 .ppk 檔案必須在設定 putty 中 github.com session 時, 在 Connection-&gt;SSH-&gt;Auth 項目下, 將轉檔後的 .ppk 指向 private key file for authentication 欄位. </p>
+<p>並在 Connection-&gt;Proxy 項目下, 指定 Proxy type: HTTP, 並將 IPv6 代理主機設為 ::53 或 ::42 埠號設為 3128.</p>
+<p>5. 之後確定 home 下的 .ssh 目錄中的 config 設定檔案為:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false"># no proxy at home
+#ProxyCommand y:/PortableGit/mingw64/bin/connect.exe -H proxy.mde.nfu.edu.tw:3128 %h %p
+# set git_ssh=y:/putty/plink.exe with auth under putty github.com session setup
+ProxyCommand y:/putty/plink.exe github.com %h %p
+  
+Host github.com
+    User git
+    Port 22
+    Hostname github.com
+     
+    # for connect.exe need openssh key format
+    #IdentityFile "y:\home\.ssh\id_rsa_mdecourse"
+    # for plink.exe need rsa key format but set under putty github.com session
+    # plink.exe do not need the following setting
+    #IdentityFile "y:\home\.ssh\mdecourse_putty_private.ppk"
+  
+    TCPKeepAlive yes
+    IdentitiesOnly yes</pre>
+<div>
+<div class="syntaxhighlighter js" id="highlighter_585341"></div>
+</div>
+<p>6. 最後再將 wcmj2020 倉儲中 .git 目錄下的 config 檔案中的連線協定, 由 https 改為採 ssh 連線: 範例如下:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">[core]
+    repositoryformatversion = 0
+    filemode = false
+    bare = false
+    logallrefupdates = true
+    symlinks = false
+    ignorecase = true
+[submodule]
+    active = .
+[remote "origin"]
+    #url = https://github.com/mdecourse/wcmj2020.git
+    url = git@github.com:mdecourse/wcmj2020.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+    remote = origin
+    merge = refs/heads/master
+[submodule "cmsimde"]
+    url = https://github.com/mdecourse/cmsimde.git</pre>
+<div>
+<div class="syntaxhighlighter js" id="highlighter_731483"></div>
+</div>
+<p>之後就可以透過近端的 .ppk private key 與 Github.com 上的 public key 對應, 無需輸入帳號密碼就可以進行 git push.</p><br />隨身程式系統 << <a href='隨身程式系統.html'>Previous</a> <a href='Virtualbox.html'>Next</a> >> Virtualbox</div>
         
     <!-- footer -->
       <div class="container">
