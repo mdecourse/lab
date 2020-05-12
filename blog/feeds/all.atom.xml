@@ -1,5 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Lab.mde.tw 網誌</title><link href="http://lab.mde.tw/blog/" rel="alternate"></link><link href="http://lab.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://lab.mde.tw/blog/</id><updated>2020-05-11T11:00:00+08:00</updated><entry><title>倉儲資料維護與管理</title><link href="http://lab.mde.tw/blog/manage-your-cmsimde-site.html" rel="alternate"></link><published>2020-05-11T11:00:00+08:00</published><updated>2020-05-11T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:lab.mde.tw,2020-05-11:/blog/manage-your-cmsimde-site.html</id><summary type="html">&lt;p&gt;&lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是 2020 春季協同產品設計實習的課程網站, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則是與協同設計課程相關的程式專案, 兩者都採用 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 建立網站. 其中 &lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是典型的動態與網站架構, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則除了網站還包含 Flask 協同產品設計程式的開發.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Lab.mde.tw 網誌</title><link href="http://lab.mde.tw/blog/" rel="alternate"></link><link href="http://lab.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://lab.mde.tw/blog/</id><updated>2020-05-12T11:00:00+08:00</updated><entry><title>打造 Windows 隨身程式系統</title><link href="http://lab.mde.tw/blog/create-portable-win-prog-sys.html" rel="alternate"></link><published>2020-05-12T11:00:00+08:00</published><updated>2020-05-12T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:lab.mde.tw,2020-05-12:/blog/create-portable-win-prog-sys.html</id><summary type="html">&lt;p&gt;在 Windows 操作系統上開發套件, 不僅希望這個套件能夠在 Mac OS X 與 Linux 上運行, 而且整個程式環境都能放入一個 USB 隨身碟, 在任何一台乾淨的 64 位元 Windows 10 操作系統中都能正常運行. 不受限制, 因此需要打造一個隨身程式系統.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;在 Windows 操作系統上開發套件, 不僅希望這個套件能夠在 Mac OS X 與 Linux 上運行, 而且整個程式環境都能放入一個 USB 隨身碟, 在任何一台乾淨的 64 位元 Windows 10 操作系統中都能正常運行. 不受限制, 因此需要打造一個隨身程式系統.&lt;/p&gt;
+
+
+&lt;h2&gt;啟動批次檔案&lt;/h2&gt;
+&lt;p&gt;從以下這個 start.bat 批次啟動檔案, 大致可以看出此一可攜程式系統所包含的內容:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+@echo off
+set Disk=y
+subst %Disk%: "data"
+
+%Disk%:
+
+set HomePath=%Disk%:\home_no_proxy
+set HomeDrive=%Disk%:\home_no_proxy
+set Home=%Disk%:\home_no_proxy
+set USERPROFILE=%Disk%:\home_no_proxy
+
+REM 將系統 Python 程式的 io 設為 utf-8
+set PYTHONIOENCODING="utf-8"
+
+set PYTHONPATH=%Disk%:\Python38\DLLs;%Disk%:\Python38\Lib;%Disk%:\Python38\Lib\site-packages;
+set PYTHONHOME=%Disk%:\Python38
+
+REM for Java and Android SDK
+set java_home=%Disk%:\java\jdk8u222-b10
+set ANDROID_SDK_home=%Disk%:\home_no_proxy
+set GRADLE_USER_home=%Disk%:\home_no_proxy
+set ANDROID_SDK_ROOT=%Disk%:\android\sdk
+set ANDROID_Home=%Disk%:\android\sdk
+set REPO_OS_OVERRIDE=windows
+
+REM 設定跟 Python 有關的命令搜尋路徑
+set path_python=%Disk%:\Python38;%Disk%:\Python38\Scripts;
+REM 設定跟Git 有關的命令搜尋路徑
+set path_git=%Disk%:\portablegit\bin;
+REM 設定 msys2 64 位元的執行路徑
+set path_msys2=%Disk%:\msys64\mingw64\bin;
+REM set for LaTeX
+set path_miketex=%Disk%:\miktex-portable\texmfs\install\miktex\bin\x64;
+REM Flutter path
+set path_flutter=%Disk%:\flutter\bin;%java_home%\bin;%Disk%:\Android\sdk;%Disk%:\Android\sdk\tools;%Disk%:\Android\sdk\tools\bin;%Disk%:\Android\sdk\emulator;%Disk%:\Android\sdk\platform-tools;%Disk%:\flutter\bin\cache\dart-sdk\bin;%Disk%:\vscode;
+
+path=%Disk%:;%path_python%;%path_git%;%path_msys2%;%path_miketex%;%path_flutter%;%path%;
+
+start /MIN cmd.exe
+start /MIN cmd.exe
+start /MIN cmd.exe
+start /MIN cmd.exe
+
+start /MIN %Disk%:\wScite\SciTE.exe
+start /MIN %Disk%:\wScite\SciTE.exe
+
+Exit
+&lt;/pre&gt;
+
+&lt;p&gt;關閉隨身系統的批次檔案 stop.bat, 只將 python, scite 與 dos 命令列關閉, 若需要關閉其他可能開啟的套件, 可以自行加入:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+@echo off
+set Disk=y
+path=%PATH%;
+
+taskkill /IM python.exe /F
+taskkill /IM pythonw.exe /F
+
+taskkill /IM scite.exe /F
+
+REM 終止虛擬硬碟與目錄的對應
+subst %Disk%: /D
+REM 關閉 cmd 指令視窗
+taskkill /IM cmd.exe /F
+
+EXIT
+&lt;/pre&gt;
+
+&lt;p&gt;此一隨身系統安裝配置以 &lt;a href="https://www.msys2.org/"&gt;MSYS2&lt;/a&gt; 與 [Flutter] 較具挑戰性.&lt;/p&gt;
+&lt;h2&gt;&lt;a href="https://www.msys2.org/"&gt;MSYS2&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;首先與 &lt;a href="https://www.msys2.org/"&gt;MSYS2&lt;/a&gt; 的代理主機設定位於 Y:\msys64\etc\wgetrc. 接下來為了可以編譯 C++ 程式, 必須安裝&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+pacman -S mingw-w64-x86_64-gcc
+&lt;/pre&gt;
+
+&lt;p&gt;與&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+pacman -S mingw-w64-x86_64-toolchain
+&lt;/pre&gt;
+
+&lt;p&gt;而列出 &lt;a href="https://www.msys2.org/"&gt;MSYS2&lt;/a&gt; 中所安裝的模組:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+pacman -Q
+&lt;/pre&gt;
+
+&lt;p&gt;為了編譯 [Range3], 必須額外安裝:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+pacman -S mingw-w64-x86_64-ffmpeg
+
+pacman -S mingw-w64-x86_64-qt5
+
+pacman -S mingw-w64-x86_64-qt5-static
+&lt;/pre&gt;
+
+&lt;h2&gt;編譯 Range3&lt;/h2&gt;
+&lt;p&gt;git clone https://github.com/Range-Software/range3.git&lt;/p&gt;
+&lt;p&gt;start Y:\msys64\mingw64.exe&lt;/p&gt;
+&lt;p&gt;cd \y\tmp\fem_ex\range3&lt;/p&gt;
+&lt;p&gt;./scripts/build.sh --clean &amp;amp;&amp;amp; ./scripts/create_package.sh&lt;/p&gt;
+&lt;p&gt;而為了讓 svg 格式的 icons 能夠正確顯示, 必須納入 Qt5Svg.dll&lt;/p&gt;</content><category term="Windows"></category><category term="Portable_system"></category></entry><entry><title>倉儲資料維護與管理</title><link href="http://lab.mde.tw/blog/manage-your-cmsimde-site.html" rel="alternate"></link><published>2020-05-11T11:00:00+08:00</published><updated>2020-05-11T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:lab.mde.tw,2020-05-11:/blog/manage-your-cmsimde-site.html</id><summary type="html">&lt;p&gt;&lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是 2020 春季協同產品設計實習的課程網站, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則是與協同設計課程相關的程式專案, 兩者都採用 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 建立網站. 其中 &lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是典型的動態與網站架構, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則除了網站還包含 Flask 協同產品設計程式的開發.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是 2020 春季協同產品設計實習的課程網站, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則是與協同設計課程相關的程式專案, 兩者都採用 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 建立網站. 其中 &lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是典型的動態與網站架構, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則除了網站還包含 Flask 協同產品設計程式的開發.&lt;/p&gt;
 
 
