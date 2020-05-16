@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Lab.mde.tw 網誌 - git</title><link href="http://lab.mde.tw/blog/" rel="alternate"></link><link href="http://lab.mde.tw/blog/feeds/git.atom.xml" rel="self"></link><id>http://lab.mde.tw/blog/</id><updated>2020-05-16T11:00:00+08:00</updated><entry><title>gitlab 與 github 整合運用</title><link href="http://lab.mde.tw/blog/use-github-and-gitlab-pages.html" rel="alternate"></link><published>2020-05-16T11:00:00+08:00</published><updated>2020-05-16T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:lab.mde.tw,2020-05-16:/blog/use-github-and-gitlab-pages.html</id><summary type="html">&lt;p&gt;由於 &lt;a href="https://github.com"&gt;github&lt;/a&gt; 遲遲不推出支援 IPv6 網站的連線功能, 目前若要在電腦輔助設計室直接透過純 IPv6 網路連線使用 git 分散式版次管理系統, 可以將 &lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt; 上的 &lt;a href="https://github.com/mdecourse/cmsimde.git"&gt;CMSiMDE&lt;/a&gt; 網站, 同步一份倉儲資料到 &lt;a href="https://docs.gitlab.com/ee/user/project/pages/"&gt;Gitlab Pages&lt;/a&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;由於 &lt;a href="https://github.com"&gt;github&lt;/a&gt; 遲遲不推出支援 IPv6 網站的連線功能, 目前若要在電腦輔助設計室直接透過純 IPv6 網路連線使用 git 分散式版次管理系統, 可以將 &lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt; 上的 &lt;a href="https://github.com/mdecourse/cmsimde.git"&gt;CMSiMDE&lt;/a&gt; 網站, 同步一份倉儲資料到 &lt;a href="https://docs.gitlab.com/ee/user/project/pages/"&gt;Gitlab Pages&lt;/a&gt;.&lt;/p&gt;
+
+
+&lt;h2&gt;機械設計工程師的網站&lt;/h2&gt;
+&lt;p&gt;身為使用分散式版次管理系統的機械設計工程師團隊, 除了自行建立的 Linux 伺服器主機之外, &lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt; 是目前用來建立靜態網頁的最佳平台. 但是截至目前只支援 IPv4 網路協定連線的 &lt;a href="https://github.com"&gt;github&lt;/a&gt;, 在上課時僅支援 IPv6 上線的情況下, 造成了許多不便. 因為所有的資料封包都必須透過雙支援的代理主機傳訊.&lt;/p&gt;
+&lt;p&gt;為了讓使用者可以在純 IPv6 環境下, 將 &lt;a href="https://github.com/mdecourse/cmsimde.git"&gt;CMSiMDE&lt;/a&gt; 的靜態網頁部署在廣域雲端平台上, 準備將倉儲資料同步一份到 &lt;a href="https://docs.gitlab.com/ee/user/project/pages/"&gt;Gitlab Pages&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;開放作風的 gitlab&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com"&gt;github&lt;/a&gt; 雖然比 &lt;a href="https://gitlab.com"&gt;gitlab&lt;/a&gt; 早創立幾年, 但是 &lt;a href="https://gitlab.com"&gt;gitlab&lt;/a&gt; 的開源與大器作風, 讓帳面價值達到 76 億美元的 &lt;a href="https://github.com"&gt;github&lt;/a&gt; 失色許多.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt; 將用戶設定的靜態網頁資料分支, 以直覺但隱藏流程的方式進行, 導致許多情況下, 用戶無法就網頁資料轉檔流程進行除錯.&lt;/p&gt;
+&lt;h2&gt;gitlab-ci.yml&lt;/h2&gt;
+&lt;p&gt;而 &lt;a href="https://docs.gitlab.com/ee/user/project/pages/"&gt;Gitlab Pages&lt;/a&gt; 則選擇讓使用自行透過 gitlab-ci.yml 的 YAML 檔案, 自行控制網頁的轉檔流程.&lt;/p&gt;
+&lt;p&gt;以 &lt;a href="https://github.com/mdecourse/cmsimde.git"&gt;CMSiMDE&lt;/a&gt; 網際內容管理中的靜態網頁而言, 只要在倉儲資料根目錄中, 加入一個 gitlab-ci.yml 檔案, 內容如下:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+pages:
+  stage: deploy
+  script:
+  - mkdir .public
+  - cp -r * .public
+  - mv .public public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+&lt;/pre&gt;
+
+&lt;p&gt;就可以順利將倉儲資料中的主分支靜態網頁, 部署在 https://帳號.gitlab.io/倉儲名稱 網址中. 其中最重要的設定參數:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+GIT_SUBMODULE_STRATEGY: recursive
+&lt;/pre&gt;
+
+&lt;p&gt;就是表明要求 &lt;a href="https://gitlab.com"&gt;gitlab&lt;/a&gt; 在將倉儲轉為網頁的過程, 同時以 recursive 的方式將其中的 submodule 目錄, 也納入網頁的內容.&lt;/p&gt;
+&lt;h2&gt;git remote add&lt;/h2&gt;
+&lt;p&gt;針對目前已經部署在 &lt;a href="https://github.com"&gt;github&lt;/a&gt; 的靜態網頁倉儲, 使用者先在主分支的根目錄中, 新增提交推送一個上述的 gitlab-ci.yml 設定檔案, 然後建立與 &lt;a href="https://github.com"&gt;github&lt;/a&gt; 帳號對應的 &lt;a href="https://gitlab.com"&gt;gitlab&lt;/a&gt; 帳號之後, 新增一個與 &lt;a href="https://github.com"&gt;github&lt;/a&gt; 倉儲的同名空專案, 也就是連 README.md 都不建立的 public 空倉儲, 然後在近端倉儲主分支工作目錄中, 以:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+git remote add gitlab https://gitlab.com/帳號/同名倉儲.git
+&lt;/pre&gt;
+
+&lt;p&gt;新增一個網址代號 gitlab, 指到上述 &lt;a href="https://gitlab.com"&gt;gitlab&lt;/a&gt; 系統中的空同名倉儲網址.&lt;/p&gt;
+&lt;p&gt;接下來就可以透過:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+git push gitlab
+&lt;/pre&gt;
+
+&lt;p&gt;將 &lt;a href="https://github.com"&gt;github&lt;/a&gt; 倉儲中的主分支資料, 同步一份到 &lt;a href="https://gitlab.com"&gt;gitlab&lt;/a&gt;, 並且在 gitlab-ci.yml 的設定導引下, 自動產生相應的 &lt;a href="https://docs.gitlab.com/ee/user/project/pages/"&gt;Gitlab Pages&lt;/a&gt; 靜態網頁. 而其網址就是: https://帳號.gitlab.io/倉儲名稱&lt;/p&gt;
+&lt;p&gt;最後, 假如之後的倉儲改版以 &lt;a href="https://gitlab.com"&gt;gitlab&lt;/a&gt; 為主, 只要在近端主分支的工作目錄中, 以:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+git remote add github https://github.com/帳號/同名倉儲.git
+&lt;/pre&gt;
+
+&lt;p&gt;建立一個 github 代號倉儲連結, 就可以透過:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+git push github
+&lt;/pre&gt;
+
+&lt;p&gt;將 &lt;a href="https://github.com"&gt;github&lt;/a&gt; 當作 &lt;a href="https://gitlab.com"&gt;gitlab&lt;/a&gt; 倉儲的備份網站.&lt;/p&gt;</content><category term="git"></category><category term="Github Pages"></category></entry></feed>
