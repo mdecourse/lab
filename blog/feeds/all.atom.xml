@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Lab.mde.tw 網誌</title><link href="http://lab.mde.tw/blog/" rel="alternate"></link><link href="http://lab.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://lab.mde.tw/blog/</id><updated>2020-05-16T11:00:00+08:00</updated><entry><title>gitlab 與 github 整合運用</title><link href="http://lab.mde.tw/blog/use-github-and-gitlab-pages.html" rel="alternate"></link><published>2020-05-16T11:00:00+08:00</published><updated>2020-05-16T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:lab.mde.tw,2020-05-16:/blog/use-github-and-gitlab-pages.html</id><summary type="html">&lt;p&gt;由於 &lt;a href="https://github.com"&gt;github&lt;/a&gt; 遲遲不推出支援 IPv6 網站的連線功能, 目前若要在電腦輔助設計室直接透過純 IPv6 網路連線使用 git 分散式版次管理系統, 可以將 &lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt; 上的 &lt;a href="https://github.com/mdecourse/cmsimde.git"&gt;CMSiMDE&lt;/a&gt; 網站, 同步一份倉儲資料到 &lt;a href="https://docs.gitlab.com/ee/user/project/pages/"&gt;Gitlab Pages&lt;/a&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Lab.mde.tw 網誌</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2020-05-16T12:00:00+08:00</updated><entry><title>Virtualbox Ubuntu 虛擬主機網路設定</title><link href="./virtualbox-ubuntu-nat-network.html" rel="alternate"></link><published>2020-05-16T12:00:00+08:00</published><updated>2020-05-16T12:00:00+08:00</updated><author><name>yen</name></author><id>tag:None,2020-05-16:./virtualbox-ubuntu-nat-network.html</id><summary type="html">&lt;p&gt;利用 &lt;a href="https://www.virtualbox.org/"&gt;Virtualbox&lt;/a&gt; 建立 Ubuntu 20.04 伺服器的虛擬主機, 可以讓使用者透過便捷的網路設定, 了解不同主機連線配置的特性外, 也能同時測試跨操作系統平台套件在 Windows 與 Ubuntu 環境執行的差異.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;利用 &lt;a href="https://www.virtualbox.org/"&gt;Virtualbox&lt;/a&gt; 建立 Ubuntu 20.04 伺服器的虛擬主機, 可以讓使用者透過便捷的網路設定, 了解不同主機連線配置的特性外, 也能同時測試跨操作系統平台套件在 Windows 與 Ubuntu 環境執行的差異.&lt;/p&gt;
+
+
+&lt;p&gt;修課學員只要登入 ＠gm 帳號後, 就可下載 &lt;a href="https://drive.google.com/open?id=1Ff-mPk9kww_04RxkkiS0lb_2Y9z8Ek1Z"&gt;Ubuntu 20.04 虛擬主機&lt;/a&gt;, 並匯入 Windows 10 環境所安裝的 &lt;a href="https://www.virtualbox.org/"&gt;Virtualbox&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;接下來就必須了解如何使用虛擬主機的 NAT Network 網路設定.&lt;/p&gt;
+&lt;h2&gt;讓虛擬主機連上廣域網路&lt;/h2&gt;
+&lt;p&gt;能直接讓 &lt;a href="https://www.virtualbox.org/"&gt;Virtualbox&lt;/a&gt; 虛擬主機連上網路的設定, 可以選擇 NAT, NAT Network 與 Bridged 等三種設定. 詳細的說明可以參考 &lt;a href="https://drive.google.com/open?id=1U8hVabo24eBrkuau5Ev0Za8XC9k_Bzux"&gt;Virtualbox Network Setting&lt;/a&gt;, &lt;a href="https://drive.google.com/open?id=1xRxWmYOw4tQuRAFecsAEOlqu62xPUvMc"&gt;Virtualbox 5.1.22 User Manual&lt;/a&gt;, &lt;a href="https://drive.google.com/open?id=1MX1XT1hlOWYVIZ8bKbtlrTAWBCgRRnSL"&gt;Virtualbox 6.1.8 User Manual&lt;/a&gt; 中的說明.&lt;/p&gt;
+&lt;p&gt;假如需要利用 Python 程式透過 COM 操控 &lt;a href="https://www.virtualbox.org/"&gt;Virtualbox&lt;/a&gt; 中的虛擬主機, 則可以參考 &lt;a href="https://drive.google.com/open?id=1DsVpKWUoDHO-AWnuFxafQ-kYR53_kCT6"&gt;Virtualbox 5.1.22 Programming Guide&lt;/a&gt; 與 &lt;a href="https://drive.google.com/open?id=1jTmj2oWSO8aCpF6DW1rIAYz3iqYQtjPp"&gt;Virtualbox 6.1.8 Programming Guide&lt;/a&gt; 中的說明.&lt;/p&gt;
+&lt;p&gt;在目前的網際內容管理與協同產品設計課程應用上, 以 NAT Network 的設置最合需求. 因為 Ubuntu 20.04 虛擬主機可以透過 Windows 10 Host 的 IPv4 或 IPv6 網路設定連外. 同時 Ｗindows 10 上的瀏覽器與 Python 程式可以透過內部網路對虛擬主機連線.&lt;/p&gt;
+&lt;p&gt;使用 NAT Network 讓虛擬主機上網的另外一個好處是: Host 上 &lt;a href="https://www.virtualbox.org/"&gt;Virtualbox&lt;/a&gt; 的網路設定可以動態生效, 亦即 Ubuntu 20.04 可以一直保持在開機狀態, 使用者在 Host 端更動 &lt;a href="https://www.virtualbox.org/"&gt;Virtualbox&lt;/a&gt; 的 NAT Network 設定後, 即刻可以在 Ubuntu 虛擬主機上進行配合調適, 無需如 Bridged 或 Host Only 虛擬主機的網路設定, 必須關機後才能修改所使用的網路設定.&lt;/p&gt;
+&lt;h2&gt;NAT Network 上的 IPv4 與 IPv6 設定&lt;/h2&gt;
+&lt;p&gt;由於在電腦輔助設計室使用純 IPv6 協定上網, 因此採用 NAT Network 設定的 &lt;a href="https://www.virtualbox.org/"&gt;Virtualbox&lt;/a&gt; 虛擬主機, 也必須能夠透過 IPv6 進行設定.&lt;/p&gt;
+&lt;p&gt;NAT Network 的 DHCP 能同時支援 IPv4 與 IPv6, 但是在 GUI 介面只列出 IPv4 的 DHCP 內定使用 10.0.2.0/24 IP 位址, IPv6 的部分則需要透過指令才可列出:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+C:\Users\kmol2019&gt;"C:\Program Files\Oracle\VirtualBox\VBoxManage" list natnetworks
+NetworkName:    NatNetwork
+IP:             10.0.2.1
+Network:        10.0.2.0/24
+IPv6 Enabled:   Yes
+IPv6 Prefix:    fd17:625c:f037:2::/64
+DHCP Enabled:   Yes
+Enabled:        Yes
+loopback mappings (ipv4)
+        127.0.0.1=2
+&lt;/pre&gt;
+
+&lt;p&gt;換言之, 在 &lt;a href="https://www.virtualbox.org/"&gt;Virtualbox&lt;/a&gt; 採用 NAT Network 設定的虛擬主機, 其 IPv4 gateway 預設為 10.0.2.1, 而 IPv6 的 gateway 則為 fd17:625c:f037:2::1, 了解此一訊息之後, 使用者就可以利用 Ｗindows 10 中的批次檔案 setnatnetwork.bat 來設定後續的網路內容, 主要讓 &lt;a href="https://github.com/mdecourse/cd2020pj1.git"&gt;cd2020pj1&lt;/a&gt; 啟動後的 8443 與 7443 埠號伺服器, 能夠從 Host 瀏覽器中連線:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+"C:\Program Files\Oracle\VirtualBox\VBoxManage" natnetwork modify --netname NatNetwork --port-forward-4 "ssh:tcp:[127.0.0.1]:22:[10.0.2.4]:22"
+
+"C:\Program Files\Oracle\VirtualBox\VBoxManage" natnetwork modify --netname NatNetwork --port-forward-4 "coppeliasim:tcp:[127.0.0.1]:19999:[10.0.2.4]:19999"
+
+"C:\Program Files\Oracle\VirtualBox\VBoxManage" natnetwork modify --netname NatNetwork --port-forward-4 "cmsimde1:tcp:[127.0.0.1]:8443:[10.0.2.4]:8443"
+
+"C:\Program Files\Oracle\VirtualBox\VBoxManage" natnetwork modify --netname NatNetwork --port-forward-4 "cmsimde2:tcp:[127.0.0.1]:7443:[10.0.2.4]:7443"
+
+"C:\Program Files\Oracle\VirtualBox\VBoxManage" natnetwork modify --netname NatNetwork --port-forward-6 "ssh:tcp:[::1]:22:[fd17:625c:f037:2:a00:27ff:fef6:9b8a]:22"
+
+"C:\Program Files\Oracle\VirtualBox\VBoxManage" natnetwork modify --netname NatNetwork --port-forward-6 "cmsimde1:tcp:[::1]:8443:[fd17:625c:f037:2:a00:27ff:fef6:9b8a]:8443"
+
+"C:\Program Files\Oracle\VirtualBox\VBoxManage" natnetwork modify --netname NatNetwork --port-forward-6 "cmsimde2:tcp:[::1]:7443:[fd17:625c:f037:2:a00:27ff:fef6:9b8a]:7443"
+&lt;/pre&gt;
+
+&lt;p&gt;其中 Ubuntu 20.04 虛擬主機的 netplan 網路設定為:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+network:
+    ethernets:
+        enp0s3:
+            dhcp4: true 
+            dhcp6: true 
+            nameservers:
+                addresses:
+                     - 2001:b000:168::1
+    version: 2
+&lt;/pre&gt;
+
+&lt;p&gt;表示兩種網路協定都採用 DHCP, 但是 IPv6 必須設定 DNS 伺服器, 因為學校 DHCP6 所設定的 DNS 無法正確運作的緣故.&lt;/p&gt;</content><category term="ubuntu"></category><category term="Virtualbox"></category></entry><entry><title>gitlab 與 github 整合運用</title><link href="./use-github-and-gitlab-pages.html" rel="alternate"></link><published>2020-05-16T11:00:00+08:00</published><updated>2020-05-16T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:None,2020-05-16:./use-github-and-gitlab-pages.html</id><summary type="html">&lt;p&gt;由於 &lt;a href="https://github.com"&gt;github&lt;/a&gt; 遲遲不推出支援 IPv6 網站的連線功能, 目前若要在電腦輔助設計室直接透過純 IPv6 網路連線使用 git 分散式版次管理系統, 可以將 &lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt; 上的 &lt;a href="https://github.com/mdecourse/cmsimde.git"&gt;CMSiMDE&lt;/a&gt; 網站, 同步一份倉儲資料到 &lt;a href="https://docs.gitlab.com/ee/user/project/pages/"&gt;Gitlab Pages&lt;/a&gt;.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;由於 &lt;a href="https://github.com"&gt;github&lt;/a&gt; 遲遲不推出支援 IPv6 網站的連線功能, 目前若要在電腦輔助設計室直接透過純 IPv6 網路連線使用 git 分散式版次管理系統, 可以將 &lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt; 上的 &lt;a href="https://github.com/mdecourse/cmsimde.git"&gt;CMSiMDE&lt;/a&gt; 網站, 同步一份倉儲資料到 &lt;a href="https://docs.gitlab.com/ee/user/project/pages/"&gt;Gitlab Pages&lt;/a&gt;.&lt;/p&gt;
 
 
@@ -57,7 +114,7 @@ git remote add github https://github.com/帳號/同名倉儲.git
 git push github
 &lt;/pre&gt;
 
-&lt;p&gt;將 &lt;a href="https://github.com"&gt;github&lt;/a&gt; 當作 &lt;a href="https://gitlab.com"&gt;gitlab&lt;/a&gt; 倉儲的備份網站.&lt;/p&gt;</content><category term="git"></category><category term="Github Pages"></category></entry><entry><title>打造 Windows 隨身程式系統</title><link href="http://lab.mde.tw/blog/create-portable-win-prog-sys.html" rel="alternate"></link><published>2020-05-12T11:00:00+08:00</published><updated>2020-05-12T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:lab.mde.tw,2020-05-12:/blog/create-portable-win-prog-sys.html</id><summary type="html">&lt;p&gt;在 Windows 操作系統上開發套件, 不僅希望這個套件能夠在 Mac OS X 與 Linux 上運行, 而且整個程式環境都能放入一個 USB 隨身碟, 在任何一台乾淨的 64 位元 Windows 10 操作系統中都能正常運行. 不受限制, 因此需要打造一個隨身程式系統.&lt;/p&gt;
+&lt;p&gt;將 &lt;a href="https://github.com"&gt;github&lt;/a&gt; 當作 &lt;a href="https://gitlab.com"&gt;gitlab&lt;/a&gt; 倉儲的備份網站.&lt;/p&gt;</content><category term="git"></category><category term="Github Pages"></category></entry><entry><title>打造 Windows 隨身程式系統</title><link href="./create-portable-win-prog-sys.html" rel="alternate"></link><published>2020-05-12T11:00:00+08:00</published><updated>2020-05-12T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:None,2020-05-12:./create-portable-win-prog-sys.html</id><summary type="html">&lt;p&gt;在 Windows 操作系統上開發套件, 不僅希望這個套件能夠在 Mac OS X 與 Linux 上運行, 而且整個程式環境都能放入一個 USB 隨身碟, 在任何一台乾淨的 64 位元 Windows 10 操作系統中都能正常運行. 不受限制, 因此需要打造一個隨身程式系統.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;在 Windows 操作系統上開發套件, 不僅希望這個套件能夠在 Mac OS X 與 Linux 上運行, 而且整個程式環境都能放入一個 USB 隨身碟, 在任何一台乾淨的 64 位元 Windows 10 操作系統中都能正常運行. 不受限制, 因此需要打造一個隨身程式系統.&lt;/p&gt;
 
 
@@ -194,7 +251,7 @@ sdkmanager --sdk_root=y:\android\sdk tools
 flutter doctor --android-licenses
 &lt;/pre&gt;
 
-&lt;p&gt;同意使用授權後, 就可以接續進行 Flutter 套件的開發.&lt;/p&gt;</content><category term="Windows"></category><category term="Portable_system"></category></entry><entry><title>倉儲資料維護與管理</title><link href="http://lab.mde.tw/blog/manage-your-cmsimde-site.html" rel="alternate"></link><published>2020-05-11T11:00:00+08:00</published><updated>2020-05-11T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:lab.mde.tw,2020-05-11:/blog/manage-your-cmsimde-site.html</id><summary type="html">&lt;p&gt;&lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是 2020 春季協同產品設計實習的課程網站, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則是與協同設計課程相關的程式專案, 兩者都採用 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 建立網站. 其中 &lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是典型的動態與網站架構, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則除了網站還包含 Flask 協同產品設計程式的開發.&lt;/p&gt;
+&lt;p&gt;同意使用授權後, 就可以接續進行 Flutter 套件的開發.&lt;/p&gt;</content><category term="Windows"></category><category term="Portable_system"></category></entry><entry><title>倉儲資料維護與管理</title><link href="./manage-your-cmsimde-site.html" rel="alternate"></link><published>2020-05-11T11:00:00+08:00</published><updated>2020-05-11T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:None,2020-05-11:./manage-your-cmsimde-site.html</id><summary type="html">&lt;p&gt;&lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是 2020 春季協同產品設計實習的課程網站, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則是與協同設計課程相關的程式專案, 兩者都採用 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 建立網站. 其中 &lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是典型的動態與網站架構, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則除了網站還包含 Flask 協同產品設計程式的開發.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是 2020 春季協同產品設計實習的課程網站, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則是與協同設計課程相關的程式專案, 兩者都採用 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 建立網站. 其中 &lt;a href="http://mde.tw/cd2020"&gt;cd2020&lt;/a&gt; 是典型的動態與網站架構, 而 &lt;a href="http://mde.tw/cd2020pj1"&gt;cd2020pj1&lt;/a&gt; 則除了網站還包含 Flask 協同產品設計程式的開發.&lt;/p&gt;
 
 
@@ -218,7 +275,7 @@ git config --global http.proxy=http://[2001::_your_ipv6_proxy]:3128
 python wsgi.py
 &lt;/pre&gt;
 
-&lt;p&gt;開啟動態網站系統, 並利用瀏覽器連線到 https://localhost:9443 進行動態網站內容的維護, 完成後再利用 generate pages 按鈕將動態網站中的 config/content.htm 轉為 content 目錄中的靜態網頁, 之後再新增, 提交, 推送到遠端, 以完成倉儲改版的流程.&lt;/p&gt;</content><category term="Github"></category><category term="CMSiMDE"></category></entry><entry><title>CMSiMDE 部署</title><link href="http://lab.mde.tw/blog/2020-lab-get-started.html" rel="alternate"></link><published>2020-05-09T11:00:00+08:00</published><updated>2020-05-09T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:lab.mde.tw,2020-05-09:/blog/2020-lab-get-started.html</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 所能伺服的內容包含網站, 網誌與簡報, 而網站又分為動態系統與靜態系統, 動態網站建置主要的目的在方便進行 html 文件的編輯, 而靜態網站系統則主要為了能在一般的 WWW 伺服器上進行部署. &lt;/p&gt;
+&lt;p&gt;開啟動態網站系統, 並利用瀏覽器連線到 https://localhost:9443 進行動態網站內容的維護, 完成後再利用 generate pages 按鈕將動態網站中的 config/content.htm 轉為 content 目錄中的靜態網頁, 之後再新增, 提交, 推送到遠端, 以完成倉儲改版的流程.&lt;/p&gt;</content><category term="Github"></category><category term="CMSiMDE"></category></entry><entry><title>CMSiMDE 部署</title><link href="./2020-lab-get-started.html" rel="alternate"></link><published>2020-05-09T11:00:00+08:00</published><updated>2020-05-09T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:None,2020-05-09:./2020-lab-get-started.html</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 所能伺服的內容包含網站, 網誌與簡報, 而網站又分為動態系統與靜態系統, 動態網站建置主要的目的在方便進行 html 文件的編輯, 而靜態網站系統則主要為了能在一般的 WWW 伺服器上進行部署. &lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 所能伺服的內容包含網站, 網誌與簡報, 而網站又分為動態系統與靜態系統, 動態網站建置主要的目的在方便進行 html 文件的編輯, 而靜態網站系統則主要為了能在一般的 WWW 伺服器上進行部署. &lt;/p&gt;
 
 
