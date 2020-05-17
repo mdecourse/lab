@@ -4,3 +4,7 @@ __pycache__/
 *$py.class
 *.js.deps
 *.js.map
+# For Blogger API examples
+blogger.dat
+client_secrets.json
+*.DS_Store
