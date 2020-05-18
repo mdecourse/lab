@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lab.mde.tw/blog/</loc>
-<lastmod>2020-05-16T23:12:25-00:00</lastmod>
+<lastmod>2020-05-18T12:50:43-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lab.mde.tw/blog/archives.html</loc>
-<lastmod>2020-05-16T23:12:25-00:00</lastmod>
+<lastmod>2020-05-18T12:50:43-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lab.mde.tw/blog/tags.html</loc>
-<lastmod>2020-05-16T23:12:25-00:00</lastmod>
+<lastmod>2020-05-18T12:50:43-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lab.mde.tw/blog/categories.html</loc>
-<lastmod>2020-05-16T23:12:25-00:00</lastmod>
+<lastmod>2020-05-18T12:50:43-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -34,6 +34,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://lab.mde.tw/blog/pages/about/</loc>
 <lastmod>2020-05-09T20:24:39+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://lab.mde.tw/blog/sync-pelican-and-blogger-content.html</loc>
+<lastmod>2020-05-18T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -95,8 +102,29 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://lab.mde.tw/blog/category/weblog.html</loc>
+<lastmod>2020-05-18T11:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://lab.mde.tw/blog/category/windows.html</loc>
 <lastmod>2020-05-12T11:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://lab.mde.tw/blog/tag/pelican.html</loc>
+<lastmod>2020-05-18T11:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://lab.mde.tw/blog/tag/blogger.html</loc>
+<lastmod>2020-05-18T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -138,7 +166,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lab.mde.tw/blog/author/yen.html</loc>
-<lastmod>2020-05-16T12:00:00+08:06</lastmod>
+<lastmod>2020-05-18T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

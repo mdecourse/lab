@@ -17,7 +17,7 @@ try:
     blogs = service.blogs()
     # 取得使用者所建立網誌名稱
     blogs = blogs.listByUser(userId='self').execute()
-    #print(blogs["items"])
+    print(blogs["items"])
     # blog id is now blogs["items"][0]["id"]
     for blog in blogs['items']:
         print(blog['name'], blog['url'])
@@ -29,11 +29,12 @@ try:
     "id": blogs["items"][0]["id"],
     "title": "透過 Python 程式新增網誌文章3",
     "content":"使用 Google Blogger API 可以利用程式新增網誌文章內容 <a href='http://google.com'>google</a>",
-    "labels": "test"
+    "labels": ["label1", "label2"]
     }
     insert = posts.insert(blogId=blogs["items"][0]["id"], body=body)
     posts_doc = insert.execute()
-    #print(posts_doc)
+    #posts_doc["id"] is the post_id
+    print(posts_doc)
     os.remove("blogger.dat")
 except(client.AccessTokenRefreshError):
     print("error")
