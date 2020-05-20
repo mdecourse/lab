@@ -11,11 +11,12 @@
 <v t="yen.20170108171605.3"><vh>@string initial_split_orientation = horizontal</vh></v>
 </v>
 <v t="yen.20200517131340.1"><vh>About blogger</vh>
-<v t="yen.20200517142620.1"><vh>blog management process</vh></v>
+<v t="yen.20200517142620.1"><vh>blog content</vh></v>
 <v t="yen.20200517131657.1"><vh>python ref</vh></v>
-<v t="yen.20200517233837.1"><vh>Blogger 按鈕</vh></v>
+<v t="yen.20200517233837.1"><vh>Blogger 按鈕</vh>
 <v t="yen.20200518055330.1"><vh>@button add_to_blogger</vh></v>
 <v t="yen.20200518110700.1"><vh>＠button edit_to_blogger</vh></v>
+</v>
 <v t="yen.20200517195613.1"><vh>wordpress ref</vh>
 <v t="yen.20200517200253.1"><vh>new post</vh></v>
 <v t="yen.20200517200409.1"><vh>edit post</vh></v>
@@ -394,17 +395,7 @@ try:
 except(client.AccessTokenRefreshError):
     print("error")</t>
 <t tx="yen.20200517132439.1"></t>
-<t tx="yen.20200517142620.1">pelican add blog
-
-pelican modify blog
-
-pelican delete blog
-
-blogger add blog
-
-blogger modify blog
-
-blogger delete blog</t>
+<t tx="yen.20200517142620.1">當利用 syntaxhighlighter 引用 html 標註時, 必須先使用 CMSiMDE 編輯器將資料轉為 html_entities 格式後, 再導入 pre 標註, 以免產生額外的對應關閉標註符號.</t>
 <t tx="yen.20200517194513.1">https://github.com/googleapis/google-api-python-client/blob/master/googleapiclient/sample_tools.py
 
 def init(
@@ -654,6 +645,7 @@ from oauth2client import client
 from googleapiclient import sample_tools
 import os
 
+os.environ['TZ'] = 'Asia/Taipei'
 argv = ""
 # 認證並建立服務
 # name of the api is "blogger", version is "v3"
@@ -1429,6 +1421,7 @@ from oauth2client import client
 from googleapiclient import sample_tools
 import os
 
+os.environ['TZ'] = 'Asia/Taipei'
 argv = ""
 # 認證並建立服務
 # name of the api is "blogger", version is "v3"
@@ -1729,7 +1722,12 @@ except(client.AccessTokenRefreshError):
 從 Blogger 取回內容
 ----
 
-在 [Pelican 與 Ｗordpress 的內容同步] 中, 可以從 Wordpress 取回網誌內容, 然後新增到 Pelican, 在此因為網誌文章的建立以 [CMSiMDE] 倉儲中的 Pelican 網誌為主, Blogger 只是附屬備份網誌, 所以就不再從新增的 Google Blogger 取回網誌文章.</t>
+在 [Pelican 與 Ｗordpress 的內容同步] 中, 可以從 Wordpress 取回網誌內容, 然後新增到 Pelican, 在此因為網誌文章的建立以 [CMSiMDE] 倉儲中的 Pelican 網誌為主, Blogger 只是附屬備份網誌, 所以就不再從新增的 Google Blogger 取回網誌文章.
+
+參考資料
+----
+
+&lt;a href="https://developers.google.com/blogger"&gt;https://developers.google.com/blogger&lt;/a&gt;</t>
 <t tx="yen.20200518121457.1"></t>
 </tnodes>
 </leo_file>
