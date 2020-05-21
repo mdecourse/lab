@@ -141,6 +141,7 @@ Host github.com
 <h4>電腦程式語言:</h4>
 <h4 style="padding-left: 30px;">Javascript</h4>
 <p style="padding-left: 60px;"><a href="https://drive.google.com/open?id=18StxYXFRbJzQiwOjkiMEAMYToX96-Hyq">Javascript course note.pdf</a></p>
+<p style="padding-left: 60px;">https://javascript.info/</p>
 <p style="padding-left: 60px;"><a href="https://www.khanacademy.org/computing/computer-programming">https://www.khanacademy.org/computing/computer-programming</a></p>
 <h4 style="padding-left: 30px;">C</h4>
 <p style="padding-left: 60px;"><a href="https://modernc.gforge.inria.fr/">https://modernc.gforge.inria.fr/</a> (<a href="https://drive.google.com/open?id=1gEndnExRZ-WR7yPQL1IxIQAN4Btu7dM-">Modern C.pdf</a>)</p>
@@ -164,13 +165,201 @@ Host github.com
 <p>網誌 (Web Blog)</p>
 <p>而拼拼湊湊成的一套系統.</p>
 <h3>Javascript</h3>
-<p>一般建議是將 Javascript 放在 &lt;/body&gt; 標註之前, 也就是所有頁面內容的最後面, 因為這樣會讓瀏覽用戶先看到整個頁面內容之後, 再下載執行頁面所需的 Javascript, 如此, 使用者會"感覺"頁面的資料擷取順暢, 不會頁面載入到中途, 因下載或執行 Javascript 程式碼而停頓.</p><h3>JQuery</h3>
+<p>一般建議是將 Javascript 放在 &lt;/body&gt; 標註之前, 也就是所有頁面內容的最後面, 因為這樣會讓瀏覽用戶先看到整個頁面內容之後, 再下載執行頁面所需的 Javascript, 如此, 使用者會"感覺"頁面的資料擷取順暢, 不會頁面載入到中途, 因下載或執行 Javascript 程式碼而停頓.</p>
+<p>Beginning JavaScript (2019)</p>
+<p style="padding-left: 30px;"><a href="https://link.springer.com/book/10.1007/978-1-4842-4395-4">https://link.springer.com/book/10.1007/978-1-4842-4395-4</a></p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">for (var i=0; i&lt;10; i++)
+    // 將原本列在 console 區的資料導引到下列程式執行輸出區
+    console.log(i + ": Hello, 開始學習 Javascript!");</pre>
+<p>下列範例,  以 <a href="https://www.arc.id.au/CanvasGraphics.html">https://www.arc.id.au/CanvasGraphics.html</a> 繪圖程式庫中的程式碼為例.</p>
+<script src="/downloads/dart_ex/cango/Cango-15v00-min.js"></script>
+<script src="/downloads/dart_ex/cango/CangoAxes-6v01-min.js"></script>
+<script src="/downloads/dart_ex/cango/Cango3D-8v00-min.js"></script>
+<script src="/downloads/dart_ex/cango/gearUtils-09.js"></script>
+<p><!-- 導入 FileSaver 與 filereader --></p>
+<p>
+<script src="/static/ace/FileSaver.min.js" type="text/javascript"></script>
+<script src="/static/ace/filereader.js" type="text/javascript"></script>
+</p>
+<p><!-- 導入 ace --></p>
+<p>
+<script src="/static/ace/ace.js" type="text/javascript"></script>
+<script src="/static/ace/ext-language_tools.js" type="text/javascript"></script>
+<!--
+<script type="text/javascript" src="/static/ace/mode-python3.js"></script>
+<script type="text/javascript" src="/static/ace/snippets/python.js"></script>
+--></p>
+<!-- 嘗試直接使用 ace.js 編寫 Javascript -->
+<div id="js_editor" style="width: 600px; height: 300px;"></div>
+<p>
+<script>
+editor = window.ace.edit("js_editor");
+session = editor.getSession();
+//session.setMode("ace/mode/javascript");
+editor.setOptions({
+// Javascript 中的 true 與 false 為小寫開頭
+             enableLiveAutocompletion: true,
+             enableSnippets: true,
+             highlightActiveLine: false,
+             highlightSelectedWord: true,
+             autoScrollEditorIntoView: true,
+             // 'maxLines': session.getLength() 可以根據程式長度設定 editor 列數
+             // 設定讓使用者最多可以在畫面中顯示 20 行程式碼
+             maxLines: 20,
+             fontSize: '12pt'
+            });
+if (localStorage["js_src"] != null){
+    editor.setValue(localStorage["js_src"]);
+}else{
+    editor.setValue(`
+  var g = new Cango('canvas'),
+      i, data = [];
+
+  g.gridboxPadding(10);
+  g.setWorldCoordsRHC(0, -50, 2*Math.PI, 100);
+  // draw axes
+  g.drawAxes(0, 6.5, -50, 50, {
+    xOrigin:0, yOrigin:0,
+    fontSize:10,
+    strokeColor:'gray'});
+
+  for (i=0; i<=2*Math.PI; i+=0.03) {
+    data.push(i, 50*Math.sin(i));
+  }
+  g.drawPath(data, {strokeColor:'red'});
+  console.log("繪圖完成");
+`);
+}
+editor.scrollToRow(0);
+editor.gotoLine(0);
+
+function runjs(){
+    code = editor.getValue();
+    localStorage['js_src'] = code;
+    // 在目前頁面中執行 code
+    // grabbed from https://stackoverflow.com/questions/6432984/adding-script-element-to-the-dom-and-have-the-javascript-run
+    var script = document.createElement('script');
+    try {
+      script.appendChild(document.createTextNode(code));
+      document.body.appendChild(script);
+    } catch (e) {
+      script.text = code;
+      document.body.appendChild(script);
+    }
+}
+
+// 用於清除 console 輸出區
+function clearBox(elementID)
+{
+    document.getElementById(elementID).innerHTML = "";
+}
+
+// 設定擴大 console 區
+function showConsole()
+{
+    document.getElementById("js_console").cols = 60;
+    document.getElementById("js_console").rows = 10;
+}
+
+// 清除 canvas
+function clearCanvas(canvasID)
+{
+    var canvas = document.getElementById(canvasID);
+    const context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+// redirect console.log to page id="js_console" area
+// https://stackoverflow.com/questions/11403107/capturing-javascript-console-log
+(function(){
+    var oldLog = console.log;
+    console.log = function (message) {
+        document.getElementById("js_console").innerHTML+= message + "\n";
+        oldLog.apply(console, arguments);
+    };
+})();
+
+// get gist data with id
+function getGist(gistid, filename)
+{
+    $.ajax({
+      url: 'https://api.github.com/gists/'+gistid,
+      type: 'GET',
+      dataType: 'jsonp'
+    }).success( function(gistdata) {
+        var content = gistdata.data.files[filename].content;
+            editor.setValue(content);
+      }).error( function(e) {
+      // ajax error
+      console.log("ajax error");
+});
+}
+</script>
+</p>
+<p><!-- 請注意, 這裡使用 Javascript 將 localStorage["js_src"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
+<p>
+<script type="text/javascript">
+function doSave(storage_id, filename){
+    var blob = new Blob([localStorage[storage_id]], {type: "text/plain;charset=utf-8"});
+    filename = document.getElementById(filename).value
+    saveAs(blob, filename+".js");
+}
+</script>
+</p>
+<p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
+<form><label>Filename: <input id="js_filename" placeholder="input file name" type="text"/>.js</label> <input onclick="doSave('js_src', 'js_filename');" type="submit" value="Save"/></form>
+<p><button onclick="runjs()">Run</button><button onclick="showConsole()">Output</button><button onclick="clearBox('js_console')">清除輸出區</button><button onclick="clearCanvas('canvas')">清除繪圖區</button><button onclick="clearBox('html')">清除 html 區</button><button onclick="window.location.reload()">Reload</button></p>
+<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="js_console"></textarea></div>
+<p><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'ROCFlag.js')">ROC Flag</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'plotSin.js')">Plot Sin</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'plotCos.js')">Plot Cos</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'excavator.js')">Excavator</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'bouncingBall.js')">Bouncing Ball</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'editCurve.js')">Edit Curve</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'groupDrag.js')">Group Drag</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'involuteGear1.js')">Involute Gear</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'gearMeshing.js')">Gear Meshing</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'internalGear.js')">Internal Gear</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'threejs_cube.js')">Three.js Cube</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'canvas_drawLine.js')">Canvas Draw Line</button></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/109/three.js">
+</script>
+<div id="html"></div>
+<p><canvas height="400" id="canvas" width="600"></canvas></p><h3>JQuery</h3>
 <p>JQuery 起源於 <a href="https://johnresig.com/blog/selectors-in-javascript/">https://johnresig.com/blog/selectors-in-javascript/,</a> 展示透過 CSS Selector 可以與 Javascript 的元件互動.</p>
 <p>CSS</p>
 <p>Document Object Model (DOM)</p>
 <p>Javascript elements</p><h3>Html</h3>
 <h3>Canvas</h3>
-<h3>WebGL</h3><h2>學號抽點</h2>
+<h3>Dart</h3>
+<p>下列影片說明如何利用 Javascript 建立按鈕, 讓 <a href="https://dartpad.github.io">https://dartpad.github.io</a> 可以直接帶出存放在 <a href="https://github.com/mdecourse/cp2019/tree/master/downloads/dart_ex">downloads</a> 目錄中的 Dart 程式範例. 所引用的程式包含<a href="https://github.com/dartpad/dartpad.github.io/blob/master/embed-dart.html">純 Dart 程式碼</a>, 包含 html 與 css 的<a href="https://github.com/dartpad/dartpad.github.io/blob/master/embed-html.html">網際程式碼</a>, 以及 <a href="https://github.com/dartpad/dartpad.github.io/blob/master/embed-flutter.html">flutter 程式碼</a>等三種.</p>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/hoEUb5NIgrU" width="560"></iframe></p>
+<!-- 透過 getDart(dirname) 取位於 downloads/dart_ex/ 目錄中 dirname 目錄中的 Dart 程式碼 -->
+<script>
+function getDart(dirname){
+    source = "https://dartpad.github.io/embed-dart.html?gh_owner=mdecourse&gh_repo=cp2019&gh_path=downloads/dart_ex/" + dirname + "&theme=dark";
+    document.getElementById("iframe").src = source ;
+}
+
+function getHtmlDart(dirname){
+    source = "https://dartpad.github.io/embed-html.html?gh_owner=mdecourse&gh_repo=cp2019&gh_path=downloads/dart_ex/" + dirname + "&theme=dark";
+document.getElementById("iframe").src = source ;
+}
+
+function getFlutter(dirname){
+    source = "https://dartpad.github.io/embed-flutter.html?gh_owner=mdecourse&gh_repo=cp2019&gh_path=downloads/dart_ex/" + dirname + "&theme=dark";
+document.getElementById("iframe").src = source ;
+}
+
+function largest(){
+document.getElementById("iframe").width = document.body.clientWidth ;
+document.getElementById("iframe").height = document.body.clientWidth*0.5 ;
+}
+
+function original(){
+document.getElementById("iframe").width = 800 ;
+document.getElementById("iframe").height = 600 ;
+}
+</script>
+<!-- 取 Dart 程式的按鈕 -->
+<h4>純 Dart 程式</h4>
+<p><button onclick="getDart('hello')">Hello</button> <button onclick="getDart('for')">For Loop</button> <button onclick="getDart('sum')">Sum</button> <button onclick="getDart('runge_kutta')">Runge-Kutta</button> <button onclick="getDart('rk_ex1')">RK ex1</button> <button onclick="getDart('mass_spring_damping')">Mass Spring Damping</button> <button onclick="getDart('function')">Function</button> <button onclick="getDart('fun_parameter')">Function Parameter</button> <button onclick="getDart('fat_arrow')">Fat Arrow</button> <button onclick="getDart('temp1')">Temp 1</button></p>
+<h4>Html 程式</h4>
+<p><button onclick="getHtmlDart('random_grouping')">亂數分組</button> <button onclick="getHtmlDart('roc_flag')">ROC Flag</button> <button onclick="getHtmlDart('rotROC')">rot ROC</button> <button onclick="getHtmlDart('usaflag')">USA Flag</button> <button onclick="getHtmlDart('grid')">Grid</button> <button onclick="getHtmlDart('xyplot')">X-Y Plot</button> <button onclick="getHtmlDart('slithery')">Slithery</button> <button onclick="getHtmlDart('html_tetris')">Tetris</button></p>
+<h4>Flutter 程式</h4>
+<p><button onclick="getFlutter('flutter0')">Flutter0</button> <button onclick="getFlutter('flutter1')">Flutter1</button> <button onclick="getFlutter('flutter2')">Flutter2</button> <button onclick="getFlutter('flutter3')">Flutter3</button> <button onclick="getFlutter('flutter4')">Flutter4</button> <button onclick="getFlutter('flutter_counter')">Flutter Counter</button> <button onclick="getFlutter('flutter_roc')">ROC Flag</button> <button onclick="getFlutter('flutter_mine1')">踩地雷 1</button> <button onclick="getFlutter('flutter_mine2')">踩地雷 2</button> <button onclick="getFlutter('flutter_mine3')">踩地雷 3</button> <button onclick="getFlutter('flutter_mine4')">踩地雷 4</button> <button onclick="getFlutter('flutter_dropdown')">Dropdown</button> <button onclick="getFlutter('flutter_multiselect')">Multiselect</button> <button onclick="getFlutter('flutter_search')">Search</button> <button onclick="getFlutter('flutter_login')">Login</button> <button onclick="getFlutter('flutter_temp')">溫度轉換</button> <button onclick="getFlutter('flutter_ttt')">Tic-Tac-Toe</button> <button onclick="getFlutter('flutter_calculator')">Calculator</button> <button onclick="getFlutter('flutter_mouse1')">Mouse1</button> <button onclick="getFlutter('flutter_paint1')">Paint1</button></p>
+<!-- 內建放入的 Dart 原始碼 -->
+<p><button onclick="largest()">放大</button> <button onclick="original()">回復</button></p>
+<p><iframe height="600" id="iframe" src="https://dartpad.dartlang.org/embed-dart.html?gh_owner=mdecourse&amp;gh_repo=cp2019&amp;gh_path=downloads/dart_ex/mass_spring_damping&amp;theme=dark" width="800"></iframe></p><h3>WebGL</h3><h2>學號抽點</h2>
 <p>為了編寫能夠進行修課學員學號抽點的程式, 提出下列兩種可行方案:</p>
 <p style="padding-left: 30px;">將原本按照順序排列的學號次序弄亂, 然後按所需抽點的人數,  從已經弄亂的學號中一一取出</p>
 <p style="padding-left: 30px;">依據所要抽點的人數, 建立一個由亂數組成的資料,  然後從順序排列的學號中抽出所要</p>
