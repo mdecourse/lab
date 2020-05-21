@@ -99,7 +99,7 @@
 </v>
 <v t="yen.20200518115509.1"><vh>@clean 20200518.md</vh>
 <v t="yen.20200518120231.1"><vh>按鈕與節點標題</vh></v>
-<v t="yen.20200518121457.1"><vh>4970311296429507727</vh></v>
+<v t="yen.20200521095531.1"><vh>8878835997100511576</vh></v>
 </v>
 </v>
 </v>
@@ -1526,7 +1526,7 @@ Author: yen
 
 [Leo Editor] 中可以設置按鈕執行 Python 程式, 其中搭配節點的標題內容存取, 可以應用在 Pelican 與 Blogger 的網誌內容同步.
 
-由於目前使用的 Pelican, 在 markdown 目錄中編寫 .md 檔案, 然後再設法以 Pelican 指令與設定檔, 將所有的 .md 檔案轉為 blog 目錄中的網誌內容. 其中, 若能將個別的 .md 檔案先轉為 html 後, 在利用 Google Blogger API 的 Python 程式將各網誌 html 檔案送至對應帳號下的 Blogger 網誌系統, 將可以將一份內容分別同步到 Pelican 與 Blogger.
+由於目前使用的 Pelican, 在 markdown 目錄中編寫 .md 檔案, 然後再設法以 Pelican 指令與設定檔, 將所有的 .md 檔案轉為 blog 目錄中的網誌內容. 其中, 若能將個別的 .md 檔案先轉為 html 後, 再利用 Google Blogger API 的 Python 程式將各網誌 html 檔案送至對應帳號下的 Blogger 網誌系統, 將可以將一份內容分別同步到 Pelican 與 Blogger.
 
 
 新增 Blogger 文章
@@ -1728,6 +1728,6 @@ except(client.AccessTokenRefreshError):
 ----
 
 &lt;a href="https://developers.google.com/blogger"&gt;https://developers.google.com/blogger&lt;/a&gt;</t>
-<t tx="yen.20200518121457.1"></t>
+<t tx="yen.20200521095531.1"></t>
 </tnodes>
 </leo_file>
