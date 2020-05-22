@@ -203,7 +203,7 @@ init_mathjax();
         <!-- TODO : Proper class for headline -->
         <span class="post-meta">
                 <a href="http://lab.mde.tw/blog/author/yen.html">Yen</a>
-            | <time datetime="Mon 18 May 2020">Mon 18 May 2020</time>
+            | <time datetime="週一 18 五月 2020">週一 18 五月 2020</time>
         </span>
         <!-- TODO : Modified check -->
             <div class="post-cover cover" style="background-image: url('http://lab.mde.tw/blog/theme/images/post-bg.jpg')">
@@ -263,7 +263,8 @@ def get_cat_tag_content(data):
     # 再將第 9 行之後的資料數列串回成以跳行隔開的資料
     content = "\n".join(data_list[8:])
     # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Blogger 的 <!--more-->
-    content = content.replace('<!-- PELICAN_END_SUMMARY -->', '<!--more-->')
+    # 但是只換第一個
+    content = content.replace('<!-- PELICAN_END_SUMMARY -->', '<!--more-->', 1)
     # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
     #content = content.replace('~~~python', '[code lang="python"]')
     #content = content.replace('~~~', '[/code]')

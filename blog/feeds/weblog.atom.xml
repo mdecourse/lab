@@ -38,7 +38,8 @@ def get_cat_tag_content(data):
     # 再將第 9 行之後的資料數列串回成以跳行隔開的資料
     content = "\n".join(data_list[8:])
     # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Blogger 的 &lt;!--more--&gt;
-    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
+    # 但是只換第一個
+    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;', 1)
     # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
     #content = content.replace('~~~python', '[code lang="python"]')
     #content = content.replace('~~~', '[/code]')

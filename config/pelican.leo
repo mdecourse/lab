@@ -15,7 +15,7 @@
 <v t="yen.20200517131657.1"><vh>python ref</vh></v>
 <v t="yen.20200517233837.1"><vh>Blogger 按鈕</vh>
 <v t="yen.20200518055330.1"><vh>@button add_to_blogger</vh></v>
-<v t="yen.20200518110700.1"><vh>＠button edit_to_blogger</vh></v>
+<v t="yen.20200518110700.1"><vh>@button edit_to_blogger</vh></v>
 </v>
 <v t="yen.20200517195613.1"><vh>wordpress ref</vh>
 <v t="yen.20200517200253.1"><vh>new post</vh></v>
@@ -670,7 +670,8 @@ def get_cat_tag_content(data):
     # 再將第 9 行之後的資料數列串回成以跳行隔開的資料
     content = "\n".join(data_list[8:])
     # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Blogger 的 &lt;!--more--&gt;
-    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
+    # 只換第一個
+    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;', 1)
     # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
     #content = content.replace('~~~python', '[code lang="python"]')
     #content = content.replace('~~~', '[/code]')
@@ -1329,7 +1330,7 @@ git push github
 &lt;/pre&gt;
 
 將 [github] 當作 [gitlab] 倉儲的備份網站.</t>
-<t tx="yen.20200518110131.1">修課學員只要登入 ＠gm 帳號後, 就可下載 [Ubuntu 20.04 虛擬主機], 並匯入 Windows 10 環境所安裝的 [Virtualbox].
+<t tx="yen.20200518110131.1">修課學員只要登入 ＠gm 帳號後, 就可下載 [Ubuntu 20.04 虛擬主機] (或下載 [[Ubuntu 20.04 W12 虛擬主機]), 並匯入 Windows 10 環境所安裝的 [Virtualbox].
 
 接下來就必須了解如何使用虛擬主機的 NAT Network 網路設定.
 
@@ -1402,6 +1403,8 @@ network:
 
 [Ubuntu 20.04 虛擬主機]: https://drive.google.com/open?id=1Ff-mPk9kww_04RxkkiS0lb_2Y9z8Ek1Z
 
+[Ubuntu 20.04 W12 虛擬主機]: https://drive.google.com/open?id=13Gqwyj0CGR6wa9dZg_BmlCLv5cNYWQJ_
+
 [Virtualbox]: https://www.virtualbox.org/
 
 [Virtualbox Network Setting]: https://drive.google.com/open?id=1U8hVabo24eBrkuau5Ev0Za8XC9k_Bzux
@@ -1446,7 +1449,8 @@ def get_cat_tag_content(data):
     # 再將第 9 行之後的資料數列串回成以跳行隔開的資料
     content = "\n".join(data_list[8:])
     # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Blogger 的 &lt;!--more--&gt;
-    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
+    # 只換第一個
+    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;', 1)
     # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
     #content = content.replace('~~~python', '[code lang="python"]')
     #content = content.replace('~~~', '[/code]')
@@ -1564,7 +1568,8 @@ def get_cat_tag_content(data):
     # 再將第 9 行之後的資料數列串回成以跳行隔開的資料
     content = "\n".join(data_list[8:])
     # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Blogger 的 &lt;!--more--&gt;
-    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
+    # 但是只換第一個
+    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;', 1)
     # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
     #content = content.replace('~~~python', '[code lang="python"]')
     #content = content.replace('~~~', '[/code]')
