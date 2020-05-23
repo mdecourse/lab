@@ -201,7 +201,7 @@ init_mathjax();
         <!-- TODO : Proper class for headline -->
         <span class="post-meta">
                 <a href="http://lab.mde.tw/blog/author/yen.html">Yen</a>
-            | <time datetime="週六 09 五月 2020">週六 09 五月 2020</time>
+            | <time datetime="Sat 09 May 2020">Sat 09 May 2020</time>
         </span>
         <!-- TODO : Modified check -->
             <div class="post-cover cover" style="background-image: url('http://lab.mde.tw/blog/theme/images/post-bg.jpg')">
@@ -254,8 +254,8 @@ python3 wsgi.py
 <p><a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 的動態網際內容管理, 將所有網頁內容存入 config 目錄中的 content.htm 檔案, 而在每一次使用者儲存新檔案之前,  會將舊版的 content.htm 複製至 content_backup.htm, 之所以如此是因為 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 採用 <a href="https://pypi.org/project/beautifulsoup4/">bs4</a>, 對 config/content.htm 內容進行分頁, 而分頁是依據 content.htm 由上到下的 h1, h2 與 h3 標註內容而定. 並在將動態網站內容 content.htm 以動態編輯器中的 generate pages 功能 (使用 <a href="https://pypi.org/project/lxml/">lxml</a> 模組功能) 轉為 content 目錄中的各分頁內容時, 可能因分頁失敗而讓整個 content.htm 內容丟失 (這就是非常需要改進的地方之一), 所以才設計 content_backup.htm 的複製進行及時補救.</p>
 <p>另外, 在 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 將操作系統不允許作為檔案名稱的特殊符號自動移除之前 (例如 ":" 號), 使用者應該避免在 h1, h2 與 h3 等標題中使用特殊符號.</p>
 <h2>Github Pages</h2>
-<p>將 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 的動態系統轉為靜態後, 所有靜態頁面的內容存入 content 目錄, 使用者可以將此目錄內容部署到 [Github Pages] 上, 或其他能夠伺服 WWW html 檔案的系統即可完成網站的建立.</p>
-<p>但是一般為了方便, 通常將包含動態系統與靜態網站內容的整個倉儲資料, 直接交由 <a href="https://github.com">Github</a> 管理.  只要將倉儲的 master 分支設為 [Github Pages] 的根目錄, 就可以交由 [Github Pages], 由倉儲主分支倉儲中的 index.html 進行網站導引.</p>
+<p>將 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 的動態系統轉為靜態後, 所有靜態頁面的內容存入 content 目錄, 使用者可以將此目錄內容部署到 <a href="https://pages.github.com/">Github Pages</a> 上, 或其他能夠伺服 WWW html 檔案的系統即可完成網站的建立.</p>
+<p>但是一般為了方便, 通常將包含動態系統與靜態網站內容的整個倉儲資料, 直接交由 <a href="https://github.com">Github</a> 管理.  只要將倉儲的 master 分支設為 <a href="https://pages.github.com/">Github Pages</a> 的根目錄, 就可以交由 <a href="https://pages.github.com/">Github Pages</a>, 由倉儲主分支倉儲中的 index.html 進行網站導引.</p>
 <p>假如使用者將近端的動態網頁內容轉為靜態後, 希望在近端檢視靜態網站內容, 可以在近端倉儲根目錄利用:</p>
 <pre class="brush: jscript">
 python http-server.py
@@ -268,7 +268,7 @@ python3 http-server.py
 
 <p>啟動 https://localhost:8444 近端的靜態網頁伺服系統.</p>
 <h2>Ubuntu 20.04 自架主機</h2>
-<p>上述利用 [Github Pages] 伺服 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 靜態網頁內容的配置流程非常簡單, 但若是要將 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 靜態網頁與動態網站系統部署在自架的 Ubuntu 20.04 主機, 則操作系統除了要安裝前述的 python3, flask, flask_cors, bs4, lxml, markdown 之外, 還需要運用 <a href="https://nginx.org/en/">nginx</a>, <a href="https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html">uwsgi</a>, <a href="https://www.openssl.org/">openssl</a> 進行配置.</p>
+<p>上述利用 <a href="https://pages.github.com/">Github Pages</a> 伺服 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 靜態網頁內容的配置流程非常簡單, 但若是要將 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 靜態網頁與動態網站系統部署在自架的 Ubuntu 20.04 主機, 則操作系統除了要安裝前述的 python3, flask, flask_cors, bs4, lxml, markdown 之外, 還需要運用 <a href="https://nginx.org/en/">nginx</a>, <a href="https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html">uwsgi</a>, <a href="https://www.openssl.org/">openssl</a> 進行配置.</p>
 <p>其中, <a href="https://www.openssl.org/">openssl</a> 用來建立網站認證用的 key 與 certificate, <a href="https://nginx.org/en/">nginx</a> 負責建立 WWW 伺服, 而 <a href="https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html">uwsgi</a> 則負責用來開機執行 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 中的 wsgi.py 伺服程式.</p>
 <p>利用 <a href="https://www.openssl.org/">openssl</a> 建立 cmsimde.key 與 cmsimde.crt 的指令如下:</p>
 <pre class="brush: jscript">

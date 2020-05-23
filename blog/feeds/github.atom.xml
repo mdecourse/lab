@@ -55,8 +55,8 @@ python3 wsgi.py
 &lt;p&gt;&lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 的動態網際內容管理, 將所有網頁內容存入 config 目錄中的 content.htm 檔案, 而在每一次使用者儲存新檔案之前,  會將舊版的 content.htm 複製至 content_backup.htm, 之所以如此是因為 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 採用 &lt;a href="https://pypi.org/project/beautifulsoup4/"&gt;bs4&lt;/a&gt;, 對 config/content.htm 內容進行分頁, 而分頁是依據 content.htm 由上到下的 h1, h2 與 h3 標註內容而定. 並在將動態網站內容 content.htm 以動態編輯器中的 generate pages 功能 (使用 &lt;a href="https://pypi.org/project/lxml/"&gt;lxml&lt;/a&gt; 模組功能) 轉為 content 目錄中的各分頁內容時, 可能因分頁失敗而讓整個 content.htm 內容丟失 (這就是非常需要改進的地方之一), 所以才設計 content_backup.htm 的複製進行及時補救.&lt;/p&gt;
 &lt;p&gt;另外, 在 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 將操作系統不允許作為檔案名稱的特殊符號自動移除之前 (例如 ":" 號), 使用者應該避免在 h1, h2 與 h3 等標題中使用特殊符號.&lt;/p&gt;
 &lt;h2&gt;Github Pages&lt;/h2&gt;
-&lt;p&gt;將 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 的動態系統轉為靜態後, 所有靜態頁面的內容存入 content 目錄, 使用者可以將此目錄內容部署到 [Github Pages] 上, 或其他能夠伺服 WWW html 檔案的系統即可完成網站的建立.&lt;/p&gt;
-&lt;p&gt;但是一般為了方便, 通常將包含動態系統與靜態網站內容的整個倉儲資料, 直接交由 &lt;a href="https://github.com"&gt;Github&lt;/a&gt; 管理.  只要將倉儲的 master 分支設為 [Github Pages] 的根目錄, 就可以交由 [Github Pages], 由倉儲主分支倉儲中的 index.html 進行網站導引.&lt;/p&gt;
+&lt;p&gt;將 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 的動態系統轉為靜態後, 所有靜態頁面的內容存入 content 目錄, 使用者可以將此目錄內容部署到 &lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt; 上, 或其他能夠伺服 WWW html 檔案的系統即可完成網站的建立.&lt;/p&gt;
+&lt;p&gt;但是一般為了方便, 通常將包含動態系統與靜態網站內容的整個倉儲資料, 直接交由 &lt;a href="https://github.com"&gt;Github&lt;/a&gt; 管理.  只要將倉儲的 master 分支設為 &lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt; 的根目錄, 就可以交由 &lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt;, 由倉儲主分支倉儲中的 index.html 進行網站導引.&lt;/p&gt;
 &lt;p&gt;假如使用者將近端的動態網頁內容轉為靜態後, 希望在近端檢視靜態網站內容, 可以在近端倉儲根目錄利用:&lt;/p&gt;
 &lt;pre class="brush: jscript"&gt;
 python http-server.py
@@ -69,7 +69,7 @@ python3 http-server.py
 
 &lt;p&gt;啟動 https://localhost:8444 近端的靜態網頁伺服系統.&lt;/p&gt;
 &lt;h2&gt;Ubuntu 20.04 自架主機&lt;/h2&gt;
-&lt;p&gt;上述利用 [Github Pages] 伺服 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 靜態網頁內容的配置流程非常簡單, 但若是要將 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 靜態網頁與動態網站系統部署在自架的 Ubuntu 20.04 主機, 則操作系統除了要安裝前述的 python3, flask, flask_cors, bs4, lxml, markdown 之外, 還需要運用 &lt;a href="https://nginx.org/en/"&gt;nginx&lt;/a&gt;, &lt;a href="https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html"&gt;uwsgi&lt;/a&gt;, &lt;a href="https://www.openssl.org/"&gt;openssl&lt;/a&gt; 進行配置.&lt;/p&gt;
+&lt;p&gt;上述利用 &lt;a href="https://pages.github.com/"&gt;Github Pages&lt;/a&gt; 伺服 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 靜態網頁內容的配置流程非常簡單, 但若是要將 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 靜態網頁與動態網站系統部署在自架的 Ubuntu 20.04 主機, 則操作系統除了要安裝前述的 python3, flask, flask_cors, bs4, lxml, markdown 之外, 還需要運用 &lt;a href="https://nginx.org/en/"&gt;nginx&lt;/a&gt;, &lt;a href="https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html"&gt;uwsgi&lt;/a&gt;, &lt;a href="https://www.openssl.org/"&gt;openssl&lt;/a&gt; 進行配置.&lt;/p&gt;
 &lt;p&gt;其中, &lt;a href="https://www.openssl.org/"&gt;openssl&lt;/a&gt; 用來建立網站認證用的 key 與 certificate, &lt;a href="https://nginx.org/en/"&gt;nginx&lt;/a&gt; 負責建立 WWW 伺服, 而 &lt;a href="https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html"&gt;uwsgi&lt;/a&gt; 則負責用來開機執行 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;CMSiMDE&lt;/a&gt; 中的 wsgi.py 伺服程式.&lt;/p&gt;
 &lt;p&gt;利用 &lt;a href="https://www.openssl.org/"&gt;openssl&lt;/a&gt; 建立 cmsimde.key 與 cmsimde.crt 的指令如下:&lt;/p&gt;
 &lt;pre class="brush: jscript"&gt;
