@@ -7,7 +7,7 @@
 <hr/>
 <h4>網站部署</h4>
 <p><a href="https://lab.mde.tw">https://lab.mde.tw</a> 目前部署在機械設計工程系工作站室中的 <a href="https://www.hpe.com/au/en/servers/proliant-servers.html">HP ProLiant </a>等級伺服器上, 並將倉儲與網站內容同步至 <a href="https://fossil-scm.org">Fossil SCM</a> (Software Configuration Management), <a href="https://github.com/">Github</a> 與 <a href="https://about.gitlab.com/">Gitlab</a> 雲端倉儲中.</p>
-<h4><a href="http://lab.kmol.info/blog/index.html">KMOlab</a> T-shirt</h4>
+<h4><a href="http://lab.kmol.info/blog/index.html">KMOLab</a> T-shirt</h4>
 <p><img alt="" height="400" src="/images/kmolab_banner_tshirt.jpg" width="400"/></p>
 <p><img alt="" height="400" src="/images/kmolab_rotary_tshirt.jpg" width="400"/></p>
 <p></p>
@@ -58,6 +58,7 @@
 <p>git branch</p>
 <p>git pull</p>
 <p>git merge</p>
+<p>git remote add name url_of_repo</p>
 <h4><a href="https://pages.github.com/">Github Pages</a></h4>
 <p style="padding-left: 30px;"><a href="https://pages.github.com/">Github Pages</a> 為 Github 所提供的倉儲內容網頁伺服器. 使用者可以將倉儲主分支, gh-pages 分支或 docs 目錄中的 HTML, 利用 Github Pages 設定, 轉為以使用者帳號及倉儲名稱所組成的網站.</p>
 <p style="padding-left: 30px;">例如: 將 github_account 中名稱為 repo 的倉儲內容設為 Github Pages 網站後, 其網址為: <a href="https://github_account.github.io/repo">https://github_account.github.io/repo</a>.</p>
@@ -136,8 +137,8 @@ Host github.com
 <div class="syntaxhighlighter js" id="highlighter_731483"></div>
 </div>
 <p>之後就可以透過近端的 .ppk private key 與 Github.com 上的 public key 對應, 無需輸入帳號密碼就可以進行 git push.</p><h2>Virtualbox</h2>
-<p><a href="https://drive.google.com/open?id=143jFMheM1xjLxhLkSAouThLzj3WUYX6_">Ubuntu 20.04 for cd2020pj1.ova</a> (登入 @gm 帳號後下載)</p>
-<p><a href="https://drive.google.com/open?id=1yDdGMWEzVvnuaqZ9a_VXYSAr-N4cer4K">Win10 comsol5.ova</a> (登入 @gm 後下載)</p>
+<p><a href="https://drive.google.com/open?id=143jFMheM1xjLxhLkSAouThLzj3WUYX6_">Ubuntu 20.04 for cd2020pj1.ova</a> (<a href="https://drive.google.com/open?id=13Gqwyj0CGR6wa9dZg_BmlCLv5cNYWQJ_">W12 version)</a> (for @gm users only)</p>
+<p><a href="https://drive.google.com/open?id=1yDdGMWEzVvnuaqZ9a_VXYSAr-N4cer4K">Win10 comsol5.ova</a> (for @gm users only)</p>
 <h4>Ｕbuntu 20.04 安裝 Chrome</h4>
 <p style="padding-left: 30px;">sudo apt install gdebi-core wget</p>
 <p style="padding-left: 30px;">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</p>
@@ -148,7 +149,48 @@ Host github.com
 <p><a href="https://www.pyslvs.com/">https://www.pyslvs.com/</a></p>
 <p>論壇: <a href="https://gitter.im/pyslvs-ui/forum">https://gitter.im/pyslvs-ui/forum</a></p>
 <h2>Fossil SCM</h2>
-<p><a href="http://mde.tw/cp2019/content/Fossil%20SCM.html">http://mde.tw/cp2019/content/Fossil%20SCM.html</a> </p><h1>計算機程式</h1>
+<p><a href="http://mde.tw/cp2019/content/Fossil%20SCM.html">http://mde.tw/cp2019/content/Fossil%20SCM.html</a></p>
+<p>Fossil SCM 是一套軟體組態管理 (Software Configuration Management) 系統, 其中包含分散式版次控管 (DVC, Distributed Version Control) 、Wiki 、Forum、Bug Tracking 與 Technote 等功能, 可以用來控制及追蹤軟體開發專案, 並且紀錄專案開發歷程.</p>
+<h4>安裝 Fossil SCM</h4>
+<h4>Windows</h4>
+<p style="padding-left: 30px;">從 <a href="https://fossil-scm.org/home/uv/download.html">https://fossil-scm.org/home/uv/download.html</a> 下載 Windows 64 位元 2.11 版, 解開壓縮檔案, 將 fossil.exe 放入隨身程式系統的 Y:\ 即可在命令列利用:</p>
+<p style="padding-left: 60px;">fossil version</p>
+<p style="padding-left: 30px;">查詢版本.</p>
+<h4>MacOS</h4>
+<p style="padding-left: 30px;">從 <a href="https://fossil-scm.org/home/uv/download.html">https://fossil-scm.org/home/uv/download.html</a> 下載 MacOS 版本後, 自動解開壓縮取得 fossil 可執行檔案後, 以 env 查詢 PATH 路徑設定, 可以利用:</p>
+<p style="padding-left: 60px;">cd</p>
+<p style="padding-left: 60px;">cd Downloads</p>
+<p style="padding-left: 60px;">sudo mv fossil /opt/local/bin</p>
+<p style="padding-left: 30px;">先更換目錄到帳號 home 之後, 進入 Downloads 目錄, 將 fossil 放到 /opt/local/bin 目錄中, 接著就可以利用:</p>
+<p style="padding-left: 60px;">fossil version</p>
+<p style="padding-left: 30px;">查詢版本.</p>
+<p style="padding-left: 30px;">但若該 fossil 並沒有經由 Apple 公證 (notarized), 則必須至 System Preferences - Security &amp; Privacy - General 中, 針對 "fossil" was blocked from use because it is not from an identified developer 項目, 選擇 "Allow Anyway".</p>
+<p style="padding-left: 30px;">截至 2020.05.23, Fossil SCM 的 MacOS 2.11 與 2.10 版都未經過 Apple 公證.</p>
+<h4>Ubuntu</h4>
+<p style="padding-left: 30px;">從 <a href="https://fossil-scm.org/home/uv/download.html">https://fossil-scm.org/home/uv/download.html</a> 下載 Linux X64 版本後, 解開壓縮檔案後, 將 fossil 放到 /usr/bin 目錄後, 即可利用:</p>
+<p style="padding-left: 60px;">fossil version</p>
+<p style="padding-left: 30px;">查詢版本.</p>
+<p style="padding-left: 30px;">或者利用 sudo apt install fossil 安裝.</p>
+<h3>配置 Fossil SCM</h3>
+<h4>Ubuntu</h4>
+<p style="padding-left: 30px;">sudo apt install fossil stunnel</p>
+<p style="padding-left: 30px;">在 /etc/environment 檔案中加入:</p>
+<p style="padding-left: 60px;">HTTPS=on</p>
+<p style="padding-left: 30px;">在 /etc/default/stunnel4 檔案中加入</p>
+<p style="padding-left: 60px;">ENABLED=1</p>
+<p style="padding-left: 30px;">利用</p>
+<p style="padding-left: 60px;">sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout stunnel.key -out stunnel.crt</p>
+<p style="padding-left: 30px;">在 /etc/stunnel 目錄中建立 stunnel.key 與 stunnel.crt</p>
+<p style="padding-left: 30px;">接著建立 /etc/stunnel/stunnel.conf</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">[https]
+accept=kmol2020:5443
+accept=:::5443
+cert=/etc/stunnel/stunnel.crt
+key=/etc/stunnel/stunnel.key
+exec=/usr/bin/fossil
+execargs=/usr/bin/fossil http /home/kmol2020/repository/ --https --nojail --notfound kmol2020</pre>
+<p>在 /home/kmol2020/ 建立 repository 目錄, 以及 kmol2020.fossil 後, 以 /etc/init.d/stunnel4 restart 重新啟動伺服器.</p>
+<p>管理者可以從 <a href="https://[:1]:5443">https://[::1]:5443</a> 登入.</p><h1>計算機程式</h1>
 <p>計算機程式是工程師解決問題的工具之一, 而工程師希望利用計算機程式解決問題之前需要對電腦與其周遭環境相關的事項有所了解</p>
 <h4>電腦基本軟硬體術語及功能</h4>
 <h4>電腦網路設定與應用</h4>

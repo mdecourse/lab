@@ -154,12 +154,26 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">產品設計繪圖 << <a href='產品設計繪圖.html'>Previous</a> <a href='機電資整合控制.html'>Next</a> >> 機電資整合控制<br /><h1>產品設計分析</h1>
-<h4>Digital Products:</h4>
-<p style="padding-left: 30px;"><a href="https://drive.google.com/open?id=1mQm55d7Z03wCtBXX-rFNlfgVe1xIcIFJ">Computational Intelligence Techniques for New Product Design.pdf</a> (登入 @gm 後下載)</p>
-<p style="padding-left: 30px;"><a href="https://drive.google.com/open?id=11lPfZ4VTGSKPGYSUI17WdyqiRqlArLYb">Digital Products.pdf</a> (登入 @gm 後下載)</p>
-<h4>Computer aided engineering:</h4>
-<p style="padding-left: 30px;"><a href="https://github.com/Range-Software/range3">https://github.com/Range-Software/range3</a> </p><br />產品設計繪圖 << <a href='產品設計繪圖.html'>Previous</a> <a href='機電資整合控制.html'>Next</a> >> 機電資整合控制</div>
+    <div id="tipue_search_content">Fossil SCM << <a href='Fossil SCM.html'>Previous</a> <a href='計算機程式.html'>Next</a> >> 計算機程式<br /><h1>配置 Fossil SCM</h1>
+<h4>Ubuntu</h4>
+<p style="padding-left: 30px;">sudo apt install fossil stunnel</p>
+<p style="padding-left: 30px;">在 /etc/environment 檔案中加入:</p>
+<p style="padding-left: 60px;">HTTPS=on</p>
+<p style="padding-left: 30px;">在 /etc/default/stunnel4 檔案中加入</p>
+<p style="padding-left: 60px;">ENABLED=1</p>
+<p style="padding-left: 30px;">利用</p>
+<p style="padding-left: 60px;">sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout stunnel.key -out stunnel.crt</p>
+<p style="padding-left: 30px;">在 /etc/stunnel 目錄中建立 stunnel.key 與 stunnel.crt</p>
+<p style="padding-left: 30px;">接著建立 /etc/stunnel/stunnel.conf</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">[https]
+accept=kmol2020:5443
+accept=:::5443
+cert=/etc/stunnel/stunnel.crt
+key=/etc/stunnel/stunnel.key
+exec=/usr/bin/fossil
+execargs=/usr/bin/fossil http /home/kmol2020/repository/ --https --nojail --notfound kmol2020</pre>
+<p>在 /home/kmol2020/ 建立 repository 目錄, 以及 kmol2020.fossil 後, 以 /etc/init.d/stunnel4 restart 重新啟動伺服器.</p>
+<p>管理者可以從 <a href="https://[:1]:5443">https://[::1]:5443</a> 登入.</p><br />Fossil SCM << <a href='Fossil SCM.html'>Previous</a> <a href='計算機程式.html'>Next</a> >> 計算機程式</div>
         
     <!-- footer -->
       <div class="container">
