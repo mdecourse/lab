@@ -101,6 +101,7 @@
 <v t="yen.20200518120231.1"><vh>按鈕與節點標題</vh></v>
 <v t="yen.20200521095531.1"><vh>8878835997100511576</vh></v>
 </v>
+<v t="yen.20200528095926.1"><vh>＠clean 20200528.md</vh></v>
 </v>
 </v>
 </v>
@@ -333,6 +334,7 @@ Author: yen
 OAuth 2.0 client IDs 程式類別選擇 other
     
 使用者完成 client_secrets.json 設定後, 必須將檔案存在倉儲目錄外部
+
 
     
 </t>
@@ -1736,5 +1738,63 @@ except(client.AccessTokenRefreshError):
 &lt;a href="https://developers.google.com/blogger"&gt;https://developers.google.com/blogger&lt;/a&gt;
 </t>
 <t tx="yen.20200521095531.1"></t>
+<t tx="yen.20200528095926.1">@language md
+---
+Title: 網際內容管理 Ｗ13
+Date: 2020-05-28 11:00
+Category: WCM
+Tags: Pelican, Blogger, Ubuntu
+Slug: wcm-w13-ubuntu-and-blogs
+Author: yen
+---
+
+之所以在機械設計工程系開設網際內容管理課程, 起源於多年前的所謂製商整合科技教育改進計畫, 當時參與的科系有機械設計系, 自動化工程系, 工業管理系與資訊管理系, 同時開設的課程還有協同產品設計實習, 基因演算與產品生命週期管理.
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+網際內容管理課程目標
+----
+
+這項計畫與其他所謂的跨領域學程的命運沒有太大的差異, 計畫補助經費結束, 大家各自回巢, 留下一堆陳年資訊系統設備, 還有這門網際內容管理與協同產品設計實習.
+
+網際內容管理課程開設在機械科系的主要任務, 是要鼓勵工程師善用全球資訊網的無遠弗屆, 與其他領域工程師執行協同設計, 自 2012 年起 [Onshape] 已經成功在曾經開發 [Solidworks] 的基礎上, 證明瀏覽器, 平板電腦與手機, 都可以是機械設計工程師開發產品的平台, 無需受限於單機安裝, 必須自行看顧版本更新, 徹底脫離沒有產品資料管理系統, 就無法協同進行產品開發的舊時代.
+
+當然, [Onshape] 雖然定位為電腦輔助機械設計與分析管理平台, 但是真正能夠編寫 Web based 程式前後端, 並且與 [Parasolid] 核心程式庫進行圖形介面與觸控互動, 絕非出自通常只上過一門 [計算機程式] 課程的機械工程師, 而是來自一群號稱 Full stack web developers 的資訊科系研究工程師.
+
+[Onshape]: https://www.onshape.com/
+[Solidworks]: https://www.solidworks.com/
+[Parasolid]: https://en.wikipedia.org/wiki/Parasolid
+[Featurescript]: https://cad.onshape.com/FsDoc/
+[CMSiMDE]: https://github.com/mdecourse/cmsimde.git
+[Pelican]: https://github.com/getpelican/pelican
+[Blogger]: https://www.blogger.com/
+[Leo Editor]: https://leoeditor.com/
+[節點指令]: https://leoeditor.com/directives.html
+[clean]: https://leoeditor.com/directives.html#clean-path
+[Markdown]: https://en.wikipedia.org/wiki/Markdown
+[button]: https://leoeditor.com/customizing.html?highlight=button
+[html]: https://en.wikipedia.org/wiki/HTML
+[google-api-python-client]: https://github.com/googleapis/google-api-python-client
+[oauth2client]: https://github.com/googleapis/oauth2client
+
+儘管如此, 對於必須在 [Onshape] 上利用 [Featurescript] 進行各種 2D 與 3D 零組件客製設計的機械工程師, 仍需具備一定程度的網際程式能力.
+
+因此, 在四技部的網際內容管理課程, 定位為接續計算機程式課程, 預計培養未來在電腦輔助設計實習與協同產品設計實習等課程, 負責建置實體與虛擬主機, 搭建網際機械設計管理系統的協同人員, 而五專部的網際內容管理課程, 則定位在承接計算機概論課程, 讓高一程度的學員, 能夠了解網際軟硬體的基本架構外, 也能夠利用分散式版次管理建立網站, 管理網誌並利用基本的程式方法, 讓 Google [Blogger] 與 [CMSiMDE] 中的 [Pelican] 網誌內容同步.
+
+[Leo Editor]
+----
+
+要讓兩套架構完全不同的網誌系統內容同步, 可以採取各種程式方法, 這裡是透過 [Leo Editor] 大綱編輯程式中的節點按鈕與節點編輯特性完成.
+
+[Leo Editor] 允許使用者透過不同的 [節點指令], 進行特定文字檔案的編輯管理, 其中的 [clean] 節點指令, 最適合用來編輯 [Pelican] Blog 的 [Markdown] 文章內容, 因為 [clean] 允許將一篇文章以從屬架構的節點內容分割, 當使用者利用 [button] 中的 Python 程式段, 試圖將 [Pelican] 網誌的文章從 [Markdown] 格式,  轉為 [html] 檔案, 並且通過 Google [Blogger] API 的 credential 認證, 將網誌的 [html] 格式文章, 轉貼到對應的 [Blogger] 系統之後, 可以取得該網誌的 id, 並將此 id 儲存在該 [Pelican] [Markdown] 文章編輯大綱中, [clean] 節點下層的最末端, 之後的內容改版, 就可以依據此一 [Blogger] 文章 id, 循相同的授權模式, 將改版內容送至 Google [Blogger].
+
+按鈕程式所需模組
+----
+
+為了利用 [button] 中的 Python 程式將文章發佈至 Google [Blogger], 可攜程式系統需要安裝 [google-api-python-client] 與 [oauth2client] 模組.
+
+pip install google-api-python-client oauth2client
+
+接下來則是取得與所要同步的 Google [Blogger] 認證檔案.</t>
 </tnodes>
 </leo_file>
