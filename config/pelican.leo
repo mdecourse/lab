@@ -11,11 +11,12 @@
 <v t="yen.20170108171605.3"><vh>@string initial_split_orientation = horizontal</vh></v>
 </v>
 <v t="yen.20200517131340.1"><vh>About blogger</vh>
+<v t="yen.20200529224039.1"><vh>create credential token</vh></v>
 <v t="yen.20200517142620.1"><vh>blog content</vh></v>
 <v t="yen.20200517131657.1"><vh>python ref</vh></v>
 <v t="yen.20200517233837.1"><vh>Blogger 按鈕</vh>
 <v t="yen.20200518055330.1"><vh>@button add_to_blogger</vh></v>
-<v t="yen.20200518110700.1"><vh>＠button edit_to_blogger</vh></v>
+<v t="yen.20200518110700.1"><vh>@button edit_to_blogger</vh></v>
 </v>
 <v t="yen.20200517195613.1"><vh>wordpress ref</vh>
 <v t="yen.20200517200253.1"><vh>new post</vh></v>
@@ -101,7 +102,10 @@
 <v t="yen.20200518120231.1"><vh>按鈕與節點標題</vh></v>
 <v t="yen.20200521095531.1"><vh>8878835997100511576</vh></v>
 </v>
-<v t="yen.20200528095926.1"><vh>＠clean 20200528.md</vh></v>
+<v t="yen.20200528095926.1"><vh>@clean 20200528.md</vh>
+<v t="yen.20200529220132.1"><vh>網際內容管理課程目標</vh></v>
+<v t="yen.20200529230236.1"><vh>6749131689953887785</vh></v>
+</v>
 </v>
 </v>
 </v>
@@ -644,19 +648,18 @@ print(markdown("# Hello World"))
 <t tx="yen.20200518055330.1">@language python
 from markdown import markdown
 from oauth2client import client
-from googleapiclient import sample_tools
+#from googleapiclient import sample_tools
 import os
+# 配合使用 credential token
+import pickle
+from googleapiclient.discovery import build
+#from google_auth_oauthlib.flow import InstalledAppFlow
+#from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-argv = ""
-# 認證並建立服務
-# name of the api is "blogger", version is "v3"
-# description of the api is __doc__
-# file name of the application: location of client_secrets.json
-service, flags = sample_tools.init(
-  argv, 'blogger', 'v3', __doc__, "./../../client_secrets.json",
-  scope='https://www.googleapis.com/auth/blogger')
-
+with open('./../../blogger_credentials.dat', 'rb') as credentials_dat:
+    credentials = pickle.load(credentials_dat)
+service = build('blogger', 'v3', credentials=credentials)
 
 def get_cat_tag_content(data):
     # 請注意, 因為 data 來自 .md 的檔案 內容, 第1行為 ---
@@ -726,7 +729,8 @@ try:
     posts_doc = insert.execute()
     post_id = posts_doc["id"]
     #print(posts_doc)
-    os.remove("blogger.dat")
+    # 改用 credential token 後不會產生 blogger.dat
+    #os.remove("blogger.dat")
     # 利用最後的 child 節點來儲存 post_id
     to_save_post_id = p.insertAsLastChild()   
     # 改為內文為空的節點, id 直接標在 head 標題 
@@ -738,6 +742,7 @@ try:
     g.es("已經將資料送往 Blogger!")
 except(client.AccessTokenRefreshError):
     g.es("error")
+
 </t>
 <t tx="yen.20200518070950.1">@language md
 ---
@@ -1424,19 +1429,18 @@ network:
 <t tx="yen.20200518110700.1">@language python
 from markdown import markdown
 from oauth2client import client
-from googleapiclient import sample_tools
+#from googleapiclient import sample_tools
 import os
+# 配合使用 credential token
+import pickle
+from googleapiclient.discovery import build
+#from google_auth_oauthlib.flow import InstalledAppFlow
+#from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-argv = ""
-# 認證並建立服務
-# name of the api is "blogger", version is "v3"
-# description of the api is __doc__
-# file name of the application: location of client_secrets.json
-service, flags = sample_tools.init(
-  argv, 'blogger', 'v3', __doc__, "./../../client_secrets.json",
-  scope='https://www.googleapis.com/auth/blogger')
-
+with open('./../../blogger_credentials.dat', 'rb') as credentials_dat:
+    credentials = pickle.load(credentials_dat)
+service = build('blogger', 'v3', credentials=credentials)
 
 def get_cat_tag_content(data):
     # 請注意, 因為 data 來自 .md 的檔案 內容, 第1行為 ---
@@ -1497,7 +1501,8 @@ try:
     # need to save postId to outline head
     update = posts.update(blogId=blog_id, postId=post_id, body=body, publish=True)
     update_doc = update.execute()
-    os.remove("blogger.dat")
+    # 使用 credential token 後, 無需刪除 blogger.dat
+    #os.remove("blogger.dat")
     g.es("post_id 為", post_id)
     g.es("已經將更新資料送往 Blogger!")
 except(client.AccessTokenRefreshError):
@@ -1752,7 +1757,8 @@ Author: yen
 
 &lt;!-- PELICAN_END_SUMMARY --&gt;
 
-網際內容管理課程目標
+@others</t>
+<t tx="yen.20200529220132.1">網際內容管理課程目標
 ----
 
 這項計畫與其他所謂的跨領域學程的命運沒有太大的差異, 計畫補助經費結束, 大家各自回巢, 留下一堆陳年資訊系統設備, 還有這門網際內容管理與協同產品設計實習.
@@ -1796,5 +1802,29 @@ Author: yen
 pip install google-api-python-client oauth2client
 
 接下來則是取得與所要同步的 Google [Blogger] 認證檔案.</t>
+<t tx="yen.20200529224039.1">import pickle
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+
+os.environ['TZ'] = 'Asia/Taipei'
+
+
+SCOPES = ['https://www.googleapis.com/auth/blogger', ]
+
+# we check if the file tBo store the credentials exists
+if not os.path.exists('./../../blogger_credentials.dat'):
+
+    flow = InstalledAppFlow.from_client_secrets_file('./../../blogger_client_secrets.json', SCOPES)
+    credentials = flow.run_local_server()
+
+    with open('credentials.dat', 'wb') as credentials_dat:
+        pickle.dump(credentials, credentials_dat)
+else:
+    with open('credentials.dat', 'rb') as credentials_dat:
+        credentials = pickle.load(credentials_dat)
+service = build('blogger', 'v3', credentials=credentials)
+g.es(service)</t>
+<t tx="yen.20200529230236.1"></t>
 </tnodes>
 </leo_file>
