@@ -2,8 +2,20 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+
+# For dart2js
 *.js.deps
 *.js.map
+
 # For Blogger API examples
 blogger.dat
 client_secrets.json
