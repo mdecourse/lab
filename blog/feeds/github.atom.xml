@@ -194,8 +194,8 @@ server {
 &lt;/pre&gt;
 
 &lt;p&gt;uwsgi_ini/uwsgi.ini&lt;/p&gt;
-&lt;p&gt;&lt;pre class="brush: jscript"&gt;
- &lt;a href="https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html"&gt;uwsgi&lt;/a&gt;
+&lt;pre class="brush:js;auto-links:false"&gt;
+[uwsgi]
 socket = 127.0.0.1:9443
 uid = user_account
 gid = user_account
@@ -206,7 +206,8 @@ process = 4
 threads = 2
 chdir = /home/user_account/labmdetw/cmsimde
 wsgi-file = /home/user_account/labmdetw/cmsimde/wsgi.py
-&lt;/pre&gt;&lt;/p&gt;
+&lt;/pre&gt;
+
 &lt;p&gt;啟動 uwsgi 指令, 將會逐一啟動 wsgi_ini 目錄中個別 .ini 檔案:&lt;/p&gt;
 &lt;pre class="brush: jscript"&gt;
 sudo /usr/bin/uwsgi --emperor /home/user_account/wsgi_ini

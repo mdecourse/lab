@@ -158,11 +158,11 @@ Host github.com
 <p style="padding-left: 30px;">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</p>
 <p style="padding-left: 30px;">sudo gdebi google-chrome-stable_current_amd64.deb</p>
 <p style="padding-left: 30px;">google-chrome</p>
-<p style="padding-left: 30px;"> 因為 Ubuntu 中的 Chrome 使用操作系統中的 Proxy 設定, 若採 IPv6 Proxy 使用 fe80::1 格式, 且無需前後加上中括號. 但若修改系統 Proxy 設定後, Chrome 必須重新啟動後才可生效.</p><h2>Pyslvs</h2>
+<p style="padding-left: 30px;"> 因為 Ubuntu 中的 Chrome 使用操作系統中的 Proxy 設定, 若採 IPv6 Proxy 使用 fe80::1 格式, 且無需前後加上中括號. 但若修改系統 Proxy 設定後, Chrome 必須重新啟動後才可生效.</p><h2>Pyslvs-UI</h2>
+<p><a href="https://pypi.org/project/pyslvs-ui/">https://pypi.org/project/pyslvs-ui/</a> </p>
 <p><a href="https://github.com/KmolYuan/Pyslvs-UI">https://github.com/KmolYuan/Pyslvs-UI</a></p>
 <p><a href="https://www.pyslvs.com/">https://www.pyslvs.com/</a></p>
-<p>論壇: <a href="https://gitter.im/pyslvs-ui/forum">https://gitter.im/pyslvs-ui/forum</a></p>
-<h2>Fossil SCM</h2>
+<p>論壇: <a href="https://gitter.im/pyslvs-ui/forum">https://gitter.im/pyslvs-ui/forum</a></p><h2>Fossil SCM</h2>
 <p><a href="http://mde.tw/cp2019/content/Fossil%20SCM.html">http://mde.tw/cp2019/content/Fossil%20SCM.html</a></p>
 <p>Fossil SCM 是一套軟體組態管理 (Software Configuration Management) 系統, 其中包含分散式版次控管 (DVC, Distributed Version Control) 、Wiki 、Forum、Bug Tracking 與 Technote 等功能, 可以用來控制及追蹤軟體開發專案, 並且紀錄專案開發歷程.</p>
 <h4>安裝 Fossil SCM</h4>
@@ -227,14 +227,20 @@ execargs=/usr/bin/fossil http /home/kmol2020/repository/ --https --nojail --notf
 <p style="padding-left: 30px;"><a href="https://opendatastructures.org/ods-cpp.pdf">https://opendatastructures.org/ods-cpp.pdf</a> (C++)</p>
 <p style="padding-left: 30px;"><a href="https://www.cs.auckland.ac.nz/compsci105s1c/resources/ProblemSolvingwithAlgorithmsandDataStructures.pdf">https://www.cs.auckland.ac.nz/compsci105s1c/resources/ProblemSolvingwithAlgorithmsandDataStructures.pdf</a></p>
 <p style="padding-left: 60px;"><a href="https://drive.google.com/open?id=17S_Bb1O7JiMYGHdU6sQ4CYwAhHPC5E8B">利用資料結構與演算法解題.pdf </a>(Python)</p>
-<p></p><h2>ＷＷＷ網頁</h2>
+<p></p><h2>CMSiMDE</h2>
 <p>你需要一個 World Wide Web Page, 帶有分門別類的標題與內容, 能夠紀錄日誌, 可以直接在瀏覽器上進行簡報, 無論是在廣域網路, 區域網路或單一電腦上.</p>
 <p><a href="https://github.com/mdecourse/cmsimde.git">CMSiMDE</a> 就是因應機械設計工程師需要建立上述</p>
-<p>網頁 (Web Page)</p>
-<p>簡報 (Web Presentation)</p>
-<p>網誌 (Web Blog)</p>
+<p style="padding-left: 30px;">網頁 (Web Page)</p>
+<p style="padding-left: 30px;">簡報 (Web Presentation)</p>
+<p style="padding-left: 30px;">網誌 (Web Blog)</p>
 <p>而拼拼湊湊成的一套系統.</p>
-<h3>Javascript</h3>
+<h4>建立靜態網頁</h4>
+<h4 style="padding-left: 30px;">將 CMSiMDE 倉儲設為子模組</h4>
+<h4 style="padding-left: 30px;">直接取用 CMSiMDE 程式內容</h4>
+<h4>建立 CMSiMDE 伺服器</h4>
+<h4 style="padding-left: 30px;">以 Ubuntu 20.04 為例</h4>
+<h4>CMSiMDE 開發</h4>
+<h4 style="padding-left: 30px;">Pelican 與 Blogger 網誌內容同步</h4><h3>Javascript</h3>
 <p>一般建議是將 Javascript 放在 &lt;/body&gt; 標註之前, 也就是所有頁面內容的最後面, 因為這樣會讓瀏覽用戶先看到整個頁面內容之後, 再下載執行頁面所需的 Javascript, 如此, 使用者會"感覺"頁面的資料擷取順暢, 不會頁面載入到中途, 因下載或執行 Javascript 程式碼而停頓.</p>
 <p>Beginning JavaScript (2019)</p>
 <p style="padding-left: 30px;"><a href="https://link.springer.com/book/10.1007/978-1-4842-4395-4">https://link.springer.com/book/10.1007/978-1-4842-4395-4</a></p>
@@ -2710,7 +2716,9 @@ gauth.Auth(code) # Authorize and build service from the code</pre>
 <p style="padding-left: 30px;"><a href="https://drive.google.com/open?id=1mQm55d7Z03wCtBXX-rFNlfgVe1xIcIFJ">Computational Intelligence Techniques for New Product Design.pdf</a> (登入 @gm 後下載)</p>
 <p style="padding-left: 30px;"><a href="https://drive.google.com/open?id=11lPfZ4VTGSKPGYSUI17WdyqiRqlArLYb">Digital Products.pdf</a> (登入 @gm 後下載)</p>
 <h4>Computer aided engineering:</h4>
-<p style="padding-left: 30px;"><a href="https://github.com/Range-Software/range3">https://github.com/Range-Software/range3</a> </p><h2>機電資整合控制</h2>
+<p style="padding-left: 30px;"><a href="https://github.com/Range-Software/range3">https://github.com/Range-Software/range3</a> </p>
+<h3>Cython</h3>
+<p><a href="https://cython.readthedocs.io">https://cython.readthedocs.io</a></p><h2>機電資整合控制</h2>
 <h4>Mechatronic System Design</h4>
 <p>Login to your gm email account and download <a href="https://drive.google.com/file/d/1KRb8vX_LB_3hkLwK1z1LOP8wl_StIZOR/view?usp=sharing">MSModelingAndTFApproaches.pdf</a>.</p>
 <p style="padding-left: 30px;"><span>(Can we build online tools to facilitate these processes?)</span></p>
@@ -2760,3 +2768,4 @@ gauth.Auth(code) # Authorize and build service from the code</pre>
 <h2>三十二人一組產品開發</h2>
 <p>三十二人共同快速 (四週) 開發一組產品設計與實作</p>
 <p>報告與檢討 (一週) 期末考週</p>
+<p></p>

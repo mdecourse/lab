@@ -1002,8 +1002,8 @@ server {
 
  uwsgi_ini/uwsgi.ini
  
- &lt;pre class="brush: jscript"&gt;
- [uwsgi]
+&lt;pre class="brush:js;auto-links:false"&gt;
+[uwsgi]
 socket = 127.0.0.1:9443
 uid = user_account
 gid = user_account
