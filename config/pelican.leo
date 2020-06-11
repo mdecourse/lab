@@ -15,8 +15,12 @@
 <v t="yen.20200517142620.1"><vh>blog content</vh></v>
 <v t="yen.20200517131657.1"><vh>python ref</vh></v>
 <v t="yen.20200517233837.1"><vh>Blogger 按鈕</vh>
-<v t="yen.20200518055330.1"><vh>@button add_to_kblogger</vh></v>
-<v t="yen.20200608205522.1"><vh>@button add_to_mblogger</vh></v>
+<v t="yen.20200518055330.1"><vh>@button add_to_kblogger</vh>
+<v t="yen.20200611222850.1"><vh>@edit ./../../kmolab_blogger_credentials.dat</vh></v>
+</v>
+<v t="yen.20200608205522.1"><vh>@button add_to_mblogger</vh>
+<v t="yen.20200611222924.1"><vh>@edit ./../../mde_pme_blogger_credentials.dat</vh></v>
+</v>
 <v t="yen.20200518110700.1"><vh>@button edit_to_kblogger</vh></v>
 <v t="yen.20200608205624.1"><vh>@button edit_to_mblogger</vh></v>
 </v>
@@ -116,6 +120,14 @@
 <v t="yen.20200608205920.1"><vh>KMOLab 網誌</vh>
 <v t="yen.20200608210003.1"><vh>5378024409689048629</vh></v>
 </v>
+</v>
+<v t="yen.20200611213634.1"><vh>@clean 20200611.md</vh>
+<v t="yen.20200611214052.1"><vh>代理主機維護策略</vh></v>
+<v t="yen.20200611221647.1"><vh>Kblogger</vh>
+<v t="yen.20200611221636.1"><vh>3903152963873891868</vh></v>
+</v>
+<v t="yen.20200611221718.1"><vh>Mblogger</vh></v>
+<v t="yen.20200611223454.1"><vh>4144488991109518272</vh></v>
 </v>
 </v>
 </v>
@@ -723,7 +735,8 @@ try:
     # 取得使用者所建立網誌名稱
     blogs = blogs.listByUser(userId='self').execute()
     # post_id is now blogs["items"][0]["id"]
-    blog_id = blogs["items"][0]["id"]
+    #blog_id = blogs["items"][0]["id"]
+    blog_id = "2403495118140401474"
     #for blog in blogs['items']:
         #print(blog['name'], blog['url'])
     posts = service.posts()
@@ -750,7 +763,7 @@ try:
     # 因為新增節點, commander 必須 redraw
     c.redraw()
     g.es("post_id 為", post_id)
-    g.es("已經將資料送往 Blogger!")
+    g.es("已經將資料送往 KBlogger!")
 except(client.AccessTokenRefreshError):
     g.es("error")
 
@@ -1497,7 +1510,8 @@ try:
     blogs = service.blogs()
     # 取得使用者所建立網誌名稱
     blogs = blogs.listByUser(userId='self').execute()
-    blog_id = blogs["items"][0]["id"]
+    #blog_id = blogs["items"][0]["id"]
+    blog_id = "2403495118140401474"
     # 設法取得原 post 的 id
     postid_outline = p.getLastChild()
     # 直接從標題取得 post 的 id 號碼
@@ -1515,7 +1529,7 @@ try:
     # 使用 credential token 後, 無需刪除 blogger.dat
     #os.remove("blogger.dat")
     g.es("post_id 為", post_id)
-    g.es("已經將更新資料送往 Blogger!")
+    g.es("已經將更新資料送往 K Blogger!")
 except(client.AccessTokenRefreshError):
     g.es("error")
 </t>
@@ -1989,7 +2003,8 @@ try:
     # 取得使用者所建立網誌名稱
     blogs = blogs.listByUser(userId='self').execute()
     # post_id is now blogs["items"][0]["id"]
-    blog_id = blogs["items"][0]["id"]
+    #blog_id = blogs["items"][0]["id"]
+    blog_id = "7949497010793271992"
     #for blog in blogs['items']:
         #print(blog['name'], blog['url'])
     posts = service.posts()
@@ -2016,7 +2031,7 @@ try:
     # 因為新增節點, commander 必須 redraw
     c.redraw()
     g.es("post_id 為", post_id)
-    g.es("已經將資料送往 Blogger!")
+    g.es("已經將資料送往 MBlogger!")
 except(client.AccessTokenRefreshError):
     g.es("error")
 
@@ -2081,7 +2096,8 @@ try:
     blogs = service.blogs()
     # 取得使用者所建立網誌名稱
     blogs = blogs.listByUser(userId='self').execute()
-    blog_id = blogs["items"][0]["id"]
+    #blog_id = blogs["items"][0]["id"]
+    blog_id = "7949497010793271992"
     # 設法取得原 post 的 id
     postid_outline = p.getLastChild()
     # 直接從標題取得 post 的 id 號碼
@@ -2099,11 +2115,144 @@ try:
     # 使用 credential token 後, 無需刪除 blogger.dat
     #os.remove("blogger.dat")
     g.es("post_id 為", post_id)
-    g.es("已經將更新資料送往 Blogger!")
+    g.es("已經將更新資料送往 M Blogger!")
 except(client.AccessTokenRefreshError):
     g.es("error")
 </t>
 <t tx="yen.20200608205920.1"></t>
 <t tx="yen.20200608210003.1"></t>
+<t tx="yen.20200611213634.1">@language md
+---
+Title: 代理主機維護策略
+Date: 2020-06-11 11:00
+Category: Network
+Tags: Proxy
+Slug: stratege-for-proxy-servers
+Author: yen
+---
+
+昨天又失去一台 HP 代理主機, 也就是編號 42 的 Squid Proxy Server. 因此目前只剩下 4, 53 與 69 等三台.
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="yen.20200611214052.1">雙協定支援代理主機的需求
+----
+
+也許大家會存疑, 機械設計科系為何需要自行安裝維護網路代理主機？假如根據學校多年前回覆, 之所以拆掉校級的代理主機設置, 原因是聯外頻寬已經很足夠, 因此不需要網路代理主機.
+
+但是, 這種假設是, 系上的 IPv4 數量足夠, 而大部分的外部伺服器都已經支援 IPv6, 但是對於平日電腦總數量超過 300 台的機械設計系, 希望上課時讓每一位學員都能將課程資料存取於 Github.com, 這兩個條件都不存在.
+
+因此, 從電腦輔助設計室上課的需求來看, 採用 IPv4 NAT 的模式, 並無足夠的頻寬讓 至少 50 台電腦快速直接對 Github.com 連線, 而如眾所知, Github.com 目前尚不支援 IPv6 網路協定.
+
+因此, 2-3 台能夠同時支援 IPv4 與 IPv6 網路協定的代理主機, 似乎是可行的方案之一.
+
+維護全時運作主機的可能方案
+----
+
+假如以電腦輔助設計室每週 40 堂課計算, 其中只有至多 14 堂課需要使用網路代理主機, 理論上並沒有必要全時讓這些代理主機運作, 而只要維持一台連內 (69), 一台連外 (4), 其餘的 IPv4 伺服器 IP 位址, 可以交由每班中至多 5 個分組的組長, 以虛擬主機 bridged 網路的方式各自管理分組中的代理主機, 其中可能的編號將有 (24, 32, 34, 39, 42）等五台.
+
+其中, 因為在上學期的課程有大一的計算機程式與大二的電腦輔助設計實習課程, 而下學期的課程則有大一的網際內容管理與大二的協同產品設計實習, 正好可以在各課程中安排學長與學弟妹共同維護這五台代理主機的互動傳承內容.
+
+Squid 代理主機的安裝
+----
+
+以 Ubuntu 20.04 伺服器主機為例, 安裝 Squid Proxy 伺服器:
+
+sudo apt install squid
+
+接下來, 利用 /etc/squid/squid.conf 進行配置:
+
+&lt;pre class="brush: jscript"&gt;
+# 定義可以連線電腦網路位置範圍或特定 IP
+acl cad_lab src 192.130.17.0/24
+acl cad_lab src 192.127.237.33
+acl cad_lab src 2001:288::/64
+
+# 定義可以連線通過的埠號
+acl SSL_ports port 443
+acl Safe_ports port 80 # http
+acl Safe_ports port 88
+acl Safe_ports port 89
+ 
+#acl Safe_ports port 21 # ftp
+acl SSL_ports port 8843
+acl SSL_ports port 5443
+acl SSL_ports port 8443
+acl Safe_ports port 8443
+ 
+acl SSL_ports port 9443
+acl Safe_ports port 9443
+ 
+acl SSL_ports port 22
+acl Safe_ports port 22
+ 
+acl Safe_ports port 443 # https
+acl Safe_ports port 1025-65535 # unregistered ports
+acl Safe_ports port 280 # http-mgmt
+acl Safe_ports port 488 # gss-http
+acl Safe_ports port 591 # filemaker
+acl Safe_ports port 777 # multiling http
+acl CONNECT method CONNECT
+
+# 除了前面定義的安全埠號外, 一律拒絕連線
+# Deny requests to certain unsafe ports
+http_access deny !Safe_ports
+
+# 除了前面定義的安全埠號外, 一律不准連線
+# Deny CONNECT to other than secure SSL ports
+http_access deny CONNECT !SSL_ports
+ 
+# 只允許前面定義的網路 IP 電腦連線, 其餘一律禁止
+http_access allow cad_lab
+http_access deny all
+# Only allow cachemgr access from localhost
+http_access allow localhost manager
+http_access deny manager
+ 
+#http_access allow localnet
+http_access allow localhost
+ 
+# And finally deny all other access to this proxy
+http_access deny all
+ 
+# Squid normally listens to port 3128
+http_port 3128
+ 
+#cache_dir ufs /var/spool/squid 100 16 256
+icp_port 3130
+icp_access allow all
+ 
+cache_dir ufs /var/spool/squid 2000 16 256
+cache_peer 192.130.17.4 sibling 3128 3130
+cache_peer 192.130.17.42 sibling 3128 3130
+cache_peer 192.130.17.53 sibling 3128 3130
+
+ 
+#
+# Add any of your own refresh_pattern entries above these.
+#
+refresh_pattern ^ftp: 1440 20% 10080
+refresh_pattern ^gopher: 1440 0% 1440
+refresh_pattern -i (/cgi-bin/|\?) 0 0% 0
+refresh_pattern (Release|Packages(.gz)*)$ 0 20% 2880
+refresh_pattern . 0 20% 4320
+
+max_filedesc 40960
+cache_mem 4000 MB
+&lt;/pre&gt;
+
+修改 /etc/squid/squid.conf 後, 以:
+
+sudo systemctl restart squid 重新啟動.
+
+假如要讓 Virtualbox 虛擬主機與 Windows 10 host 啟動開啟虛擬代理主機, 可以設定使用 [VBoxVmService], 但是 5.X 的 Virtualbox 必須與 VBoxVmService  5.X 版配合, 而 6.X 的版本也必須互動升級配置.
+
+[VBoxVmService]: https://github.com/onlyfang/VBoxVmService
+</t>
+<t tx="yen.20200611221636.1"></t>
+<t tx="yen.20200611221647.1"></t>
+<t tx="yen.20200611221718.1"></t>
+<t tx="yen.20200611223454.1"></t>
 </tnodes>
 </leo_file>
