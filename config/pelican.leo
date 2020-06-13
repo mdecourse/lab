@@ -123,11 +123,11 @@
 </v>
 <v t="yen.20200611213634.1"><vh>@clean 20200611.md</vh>
 <v t="yen.20200611214052.1"><vh>代理主機維護策略</vh></v>
-<v t="yen.20200611221647.1"><vh>Kblogger</vh>
-<v t="yen.20200611221636.1"><vh>3903152963873891868</vh></v>
-</v>
-<v t="yen.20200611221718.1"><vh>Mblogger</vh></v>
+<v t="yen.20200611221718.1"><vh>Mblogger</vh>
 <v t="yen.20200611223454.1"><vh>4144488991109518272</vh></v>
+</v>
+<v t="yen.20200611221647.1"><vh>Kblogger</vh></v>
+<v t="yen.20200611221636.1"><vh>3903152963873891868</vh></v>
 </v>
 </v>
 </v>
@@ -680,7 +680,7 @@ from googleapiclient.discovery import build
 #from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../kmolab_blogger_credentials.dat', 'rb') as credentials_dat:
+with open('./../../yen_gm_blogger_token.dat', 'rb') as credentials_dat:
     credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 
@@ -1462,7 +1462,7 @@ from googleapiclient.discovery import build
 #from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../kmolab_blogger_credentials.dat', 'rb') as credentials_dat:
+with open('./../../yen_gm_blogger_token.dat', 'rb') as credentials_dat:
     credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 
@@ -1829,6 +1829,7 @@ pip install google-api-python-client oauth2client
 接下來則是取得與所要同步的 Google [Blogger] 認證檔案.</t>
 <t tx="yen.20200529224039.1">@language python
 # https://developers.google.com/blogger/docs/3.0/using
+# pip install google_auth_oauthlib
 # under Mac command + b to execute
 import pickle
 import os
@@ -1948,7 +1949,7 @@ from googleapiclient.discovery import build
 #from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../mde_pme_blogger_credentials.dat', 'rb') as credentials_dat:
+with open('./../../yen_gm_blogger_token.dat', 'rb') as credentials_dat:
     credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 
@@ -2048,7 +2049,7 @@ from googleapiclient.discovery import build
 #from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../mde_pme_blogger_credentials.dat', 'rb') as credentials_dat:
+with open('./../../yen_gm_blogger_token.dat', 'rb') as credentials_dat:
     credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 
