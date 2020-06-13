@@ -2249,6 +2249,10 @@ sudo systemctl restart squid 重新啟動.
 假如要讓 Virtualbox 虛擬主機與 Windows 10 host 啟動開啟虛擬代理主機, 可以設定使用 [VBoxVmService], 但是 5.X 的 Virtualbox 必須與 VBoxVmService  5.X 版配合, 而 6.X 的版本也必須互動升級配置.
 
 [VBoxVmService]: https://github.com/onlyfang/VBoxVmService
+
+後記:
+
+42 是一台 HP ML 30 gen9 的機器,  2017 安裝的 Ubuntu 在前幾天停止運作後, 直接將 Host 裝上 Win 10, 因無法從 USB 安裝, 只能用 blueray  dvd 重新安裝, 然後外部設為 39, 然後將虛擬 proxy 伺服器設為 42,  目前仍然加入服役中.
 </t>
 <t tx="yen.20200611221636.1"></t>
 <t tx="yen.20200611221647.1"></t>
