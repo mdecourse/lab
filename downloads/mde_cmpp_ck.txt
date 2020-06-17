@@ -1,0 +1,19 @@
+Mechanical Design Engineering
+
+Programming (c vs. k, u vs. d)
+    to use the power of computer
+    to take advantage of virtualization
+Math (c vs. k, u vs. d)
+    to justify your design analytically
+Presentation (output)
+    with spoken language
+    with visual tools (2D, 3D, animation)
+    with text
+    with design prototype
+Communication (input)
+    with colleague
+    with customer
+    with literature
+    
+concept vs. knowledge
+use vs. develop
