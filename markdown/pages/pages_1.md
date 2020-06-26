@@ -1,6 +1,6 @@
 Title: About
 
-## lab.mde.tw 網誌
+## mde.tw/lab 網誌
 
 
 
