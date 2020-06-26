@@ -4,224 +4,224 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>http://mde.tw/lab/blog/</loc>
-<lastmod>2020-06-26T22:31:36-00:00</lastmod>
+<loc>https://mde.tw/lab/blog/</loc>
+<lastmod>2020-06-26T22:34:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/archives.html</loc>
-<lastmod>2020-06-26T22:31:36-00:00</lastmod>
+<loc>https://mde.tw/lab/blog/archives.html</loc>
+<lastmod>2020-06-26T22:34:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/tags.html</loc>
-<lastmod>2020-06-26T22:31:36-00:00</lastmod>
+<loc>https://mde.tw/lab/blog/tags.html</loc>
+<lastmod>2020-06-26T22:34:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/categories.html</loc>
-<lastmod>2020-06-26T22:31:36-00:00</lastmod>
+<loc>https://mde.tw/lab/blog/categories.html</loc>
+<lastmod>2020-06-26T22:34:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/pages/about/</loc>
+<loc>https://mde.tw/lab/blog/pages/about/</loc>
 <lastmod>2020-06-26T21:55:27+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/stratege-for-proxy-servers.html</loc>
+<loc>https://mde.tw/lab/blog/stratege-for-proxy-servers.html</loc>
 <lastmod>2020-06-11T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/high-risk-networking-devices.html</loc>
+<loc>https://mde.tw/lab/blog/high-risk-networking-devices.html</loc>
 <lastmod>2020-06-04T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/wcm-w13-ubuntu-and-blogs.html</loc>
+<loc>https://mde.tw/lab/blog/wcm-w13-ubuntu-and-blogs.html</loc>
 <lastmod>2020-05-28T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/sync-pelican-and-blogger-content.html</loc>
+<loc>https://mde.tw/lab/blog/sync-pelican-and-blogger-content.html</loc>
 <lastmod>2020-05-18T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/virtualbox-ubuntu-nat-network.html</loc>
+<loc>https://mde.tw/lab/blog/virtualbox-ubuntu-nat-network.html</loc>
 <lastmod>2020-05-16T12:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/use-github-and-gitlab-pages.html</loc>
+<loc>https://mde.tw/lab/blog/use-github-and-gitlab-pages.html</loc>
 <lastmod>2020-05-16T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/create-portable-win-prog-sys.html</loc>
+<loc>https://mde.tw/lab/blog/create-portable-win-prog-sys.html</loc>
 <lastmod>2020-05-12T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/manage-your-cmsimde-site.html</loc>
+<loc>https://mde.tw/lab/blog/manage-your-cmsimde-site.html</loc>
 <lastmod>2020-05-11T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/2020-lab-get-started.html</loc>
+<loc>https://mde.tw/lab/blog/2020-lab-get-started.html</loc>
 <lastmod>2020-05-09T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/category/git.html</loc>
+<loc>https://mde.tw/lab/blog/category/git.html</loc>
 <lastmod>2020-05-16T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/category/github.html</loc>
+<loc>https://mde.tw/lab/blog/category/github.html</loc>
 <lastmod>2020-05-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/category/network.html</loc>
+<loc>https://mde.tw/lab/blog/category/network.html</loc>
 <lastmod>2020-06-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/category/ubuntu.html</loc>
+<loc>https://mde.tw/lab/blog/category/ubuntu.html</loc>
 <lastmod>2020-05-16T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/category/wcm.html</loc>
+<loc>https://mde.tw/lab/blog/category/wcm.html</loc>
 <lastmod>2020-05-28T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/category/weblog.html</loc>
+<loc>https://mde.tw/lab/blog/category/weblog.html</loc>
 <lastmod>2020-05-18T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/category/windows.html</loc>
+<loc>https://mde.tw/lab/blog/category/windows.html</loc>
 <lastmod>2020-05-12T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/tag/proxy.html</loc>
+<loc>https://mde.tw/lab/blog/tag/proxy.html</loc>
 <lastmod>2020-06-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/tag/security.html</loc>
+<loc>https://mde.tw/lab/blog/tag/security.html</loc>
 <lastmod>2020-06-04T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/tag/pelican.html</loc>
+<loc>https://mde.tw/lab/blog/tag/pelican.html</loc>
 <lastmod>2020-05-28T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/tag/blogger.html</loc>
+<loc>https://mde.tw/lab/blog/tag/blogger.html</loc>
 <lastmod>2020-05-28T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/tag/ubuntu.html</loc>
+<loc>https://mde.tw/lab/blog/tag/ubuntu.html</loc>
 <lastmod>2020-05-28T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/tag/virtualbox.html</loc>
+<loc>https://mde.tw/lab/blog/tag/virtualbox.html</loc>
 <lastmod>2020-05-16T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/tag/github-pages.html</loc>
+<loc>https://mde.tw/lab/blog/tag/github-pages.html</loc>
 <lastmod>2020-05-16T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/tag/portable_system.html</loc>
+<loc>https://mde.tw/lab/blog/tag/portable_system.html</loc>
 <lastmod>2020-05-12T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/tag/cmsimde.html</loc>
+<loc>https://mde.tw/lab/blog/tag/cmsimde.html</loc>
 <lastmod>2020-05-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/tag/deployment.html</loc>
+<loc>https://mde.tw/lab/blog/tag/deployment.html</loc>
 <lastmod>2020-05-09T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mde.tw/lab/blog/author/yen.html</loc>
+<loc>https://mde.tw/lab/blog/author/yen.html</loc>
 <lastmod>2020-06-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
