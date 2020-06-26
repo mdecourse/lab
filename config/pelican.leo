@@ -16,10 +16,10 @@
 <v t="yen.20200517131657.1"><vh>python ref</vh></v>
 <v t="yen.20200517233837.1"><vh>Blogger 按鈕</vh>
 <v t="yen.20200518055330.1"><vh>@button add_to_kblogger</vh>
-<v t="yen.20200611222850.1"><vh>@edit ./../../kmolab_blogger_credentials.dat</vh></v>
+<v t="yen.20200611222850.1"><vh>@edit ./../../blogger.dat</vh></v>
 </v>
 <v t="yen.20200608205522.1"><vh>@button add_to_mblogger</vh>
-<v t="yen.20200611222924.1"><vh>@edit ./../../mde_pme_blogger_credentials.dat</vh></v>
+<v t="yen.20200611222924.1"><vh>@edit ./../../blogger.dat</vh></v>
 </v>
 <v t="yen.20200518110700.1"><vh>@button edit_to_kblogger</vh></v>
 <v t="yen.20200608205624.1"><vh>@button edit_to_mblogger</vh></v>
