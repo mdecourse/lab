@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>mde.tw/lab 網誌</title><link href="https://mde.tw/lab/blog/" rel="alternate"></link><link href="https://mde.tw/lab/blog/feeds/all.atom.xml" rel="self"></link><id>https://mde.tw/lab/blog/</id><updated>2020-06-11T11:00:00+08:00</updated><entry><title>代理主機維護策略</title><link href="https://mde.tw/lab/blog/stratege-for-proxy-servers.html" rel="alternate"></link><published>2020-06-11T11:00:00+08:00</published><updated>2020-06-11T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2020-06-11:/lab/blog/stratege-for-proxy-servers.html</id><summary type="html">&lt;p&gt;昨天又失去一台 HP 代理主機, 也就是編號 42 的 Squid Proxy Server. 因此目前只剩下 4, 53 與 69 等三台.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>mde.tw/lab 網誌</title><link href="https://mde.tw/lab/blog/" rel="alternate"></link><link href="https://mde.tw/lab/blog/feeds/all.atom.xml" rel="self"></link><id>https://mde.tw/lab/blog/</id><updated>2020-06-30T11:00:00+08:00</updated><entry><title>使用 Leo Editor</title><link href="https://mde.tw/lab/blog/how-to-use-leo-editor.html" rel="alternate"></link><published>2020-06-30T11:00:00+08:00</published><updated>2020-06-30T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2020-06-30:/lab/blog/how-to-use-leo-editor.html</id><summary type="html">&lt;p&gt;&lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 的使用可以從 LEO_EDITOR 的環境變數設定開始, 讓多元的大綱管理流程, 成為您程式開發與資料管理上的一大利器.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;&lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 的使用可以從 LEO_EDITOR 的環境變數設定開始, 讓多元的大綱管理流程, 成為您程式開發與資料管理上的一大利器.&lt;/p&gt;
+
+
+&lt;h2&gt;Leo Editor 與 SciTE&lt;/h2&gt;
+&lt;p&gt;當使用 &lt;a href="http://lab.kmol.info/blog/index.html"&gt;KMOLab&lt;/a&gt; 所建立的 Windows 64 位元操作系統環境下的可攜系統時, 只要在 start.bat 中, 加入 LEO_EDITOR 環境變數的設定, 使用者就可以將大綱中的 Python 程式, C 程式, Dart 程式或 Lua 程式碼, 直接帶到 &lt;a href="https://www.scintilla.org/SciTE.html"&gt;SciTE&lt;/a&gt; 編輯器中執行.&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+REM 設定 Leo 所用的編輯器
+set LEO_EDITOR=%Disk%:\wscite\SciTE.exe
+&lt;/pre&gt;
+
+&lt;p&gt;對於比較簡單的 Python 程式段, 則可以直接在大綱對應的內文區, 直接透過 Ctrl + b 按鈕執行, 而比較複雜需要獨立執行的 Python 程式段, 則建議利用執行緒執行，以免拖累 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 本體的執行.&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+import os
+import subprocess
+import threading
+import http.server, ssl
+
+def domake():
+    # build directory
+    os.chdir("./../")
+    server_address = ('localhost', 5443)
+    httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
+    httpd.socket = ssl.wrap_socket(httpd.socket,
+                                   server_side=True,
+                                   certfile='localhost.crt',
+                                   keyfile='localhost.key',
+                                   ssl_version=ssl.PROTOCOL_TLSv1)
+    print(os.getcwd())
+    print("5443 https server started")
+    httpd.serve_forever()
+
+# 利用執行緒執行 https 伺服器
+make = threading.Thread(target=domake)
+make.start()
+&lt;/pre&gt;
+
+&lt;h2&gt;Leo Editor 的入門不容易&lt;/h2&gt;
+&lt;p&gt;從 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 的&lt;a href="https://leoeditor.com/history.html"&gt;開發歷史&lt;/a&gt;來看, 自 1995 年啟動, 歷經使用 Borland C 與 Tkinter 等階段, 直到 2012 年採 Qt 作為圖形介面之後, 才開始穩定下來. 現在更有 &lt;a href="https://github.com/kaleguy/leovue"&gt;LeoVue&lt;/a&gt; 與 &lt;a href="https://github.com/boltex/leointeg"&gt;LeoInteg&lt;/a&gt; 等兩個專案, 分別利用 Javascript 與 Typescript, 將 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 帶進網際與 Visual Studio Code 的應用領域.&lt;/p&gt;
+&lt;p&gt;假如再加上最近 Qt 喊出的使用授權大變更, 接下來的 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 開發可能即將面臨一波更大的轉變.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 的入門之所以不容易, 源自於其早期訂下的長遠目標, 因為試圖結合大綱編輯器與 &lt;a href="https://en.wikipedia.org/wiki/Literate_programming"&gt;Literate Programming&lt;/a&gt; 本來就是一條艱困的程式開發道路. 而且 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 程式設計的思維大量依賴 Python 語法與 &lt;a href="https://leoeditor.com/vim-theory.html"&gt;Vim 原理&lt;/a&gt;, 同一個 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 版本在不同操作系統的使用流程, 又因為各種原因而導致有許多獨門克服方法. 即便是同時使用 Mac, Linux 與 Windows 的老手, 都可能因為 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 程式碼的快速改版而經常碰壁, 更別提初學者面對各種使用門檻時的無奈與慌亂.&lt;/p&gt;
+&lt;h2&gt;但是又何奈&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://lab.kmol.info/blog/index.html"&gt;KMOLab&lt;/a&gt; 使用 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 的時間已經超過 10 年, 期間仍然找不到其他替代工具. 只能利用 &lt;a href="https://www.scintilla.org/SciTE.html"&gt;SciTE&lt;/a&gt; 來補足 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 在 parse 大檔案過程效率的不足.&lt;/p&gt;</content><category term="Leo Editor"></category><category term="leo editor"></category></entry><entry><title>代理主機維護策略</title><link href="https://mde.tw/lab/blog/stratege-for-proxy-servers.html" rel="alternate"></link><published>2020-06-11T11:00:00+08:00</published><updated>2020-06-11T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2020-06-11:/lab/blog/stratege-for-proxy-servers.html</id><summary type="html">&lt;p&gt;昨天又失去一台 HP 代理主機, 也就是編號 42 的 Squid Proxy Server. 因此目前只剩下 4, 53 與 69 等三台.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;昨天又失去一台 HP 代理主機, 也就是編號 42 的 Squid Proxy Server. 因此目前只剩下 4, 53 與 69 等三台.&lt;/p&gt;
 
 
