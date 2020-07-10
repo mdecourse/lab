@@ -70,27 +70,23 @@
 <script type="text/javascript">SyntaxHighlighter.all();</script>
 
 <!-- 啟用 LaTeX equations 編輯 -->
-<script src="https://scrum-3.github.io/web/math/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
-<script type="text/javascript">
-init_mathjax = function() {
-    if (window.MathJax) {
-        // MathJax loaded
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
-            },
-            displayAlign: 'left', // Change this to 'center' to center equations.
-            "HTML-CSS": {
-                styles: {'.MathJax_Display': {"margin": 0}}
-            }
-        });
-        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+<script>
+  (function () {
+  var body = document.body.textContent;
+  if (body.match(/(?:\$|\\(|\\[|\begin\{.*?})/)) {
+    if (!window.MathJax) {
+      window.MathJax = {
+        tex: {
+          inlineMath: {'[+]': [['$', '$']]}
+        }
+      };
     }
-}
-init_mathjax();
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
+    document.head.appendChild(script);
+  }
+})();
 </script>
-
 <!-- 暫時不用
 <script src="./../cmsimde/static/fengari-web.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
@@ -173,7 +169,8 @@ img.add_border {
 <p style="padding-left: 60px;"><a href="https://dartpad.github.io">https://dartpad.github.io</a></p>
 <p style="padding-left: 60px;"><a href="https://flutter.dev/web">https://flutter.dev/web</a></p>
 <h4 style="padding-left: 30px;">Python</h4>
-<p style="padding-left: 60px;"><a href="https://www.kaggle.com/learn/python">https://www.kaggle.com/learn/python</a> </p>
+<p style="padding-left: 60px;"><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/">https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/</a> </p>
+<p style="padding-left: 60px;"><a href="https://www.kaggle.com/learn/python">https://www.kaggle.com/learn/python</a></p>
 <p style="padding-left: 60px;"><a href="http://do1.dr-chuck.com/pythonlearn/EN_us/pythonlearn.pdf">http://do1.dr-chuck.com/pythonlearn/EN_us/pythonlearn.pdf</a></p>
 <p style="padding-left: 90px;"><a href="https://drive.google.com/open?id=1tYFRytEEkPuuUTE4O9Q6AURaHcU598BV">Python-for-everyone.pdf</a></p>
 <h4>資料結構</h4>
@@ -221,5 +218,13 @@ img.add_border {
                     </script>
             -->
             <script src="../cmsimde/static/chimper/js/main.js"></script>
-        </body></html>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </body></html>
         

@@ -70,27 +70,23 @@
 <script type="text/javascript">SyntaxHighlighter.all();</script>
 
 <!-- 啟用 LaTeX equations 編輯 -->
-<script src="https://scrum-3.github.io/web/math/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
-<script type="text/javascript">
-init_mathjax = function() {
-    if (window.MathJax) {
-        // MathJax loaded
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
-            },
-            displayAlign: 'left', // Change this to 'center' to center equations.
-            "HTML-CSS": {
-                styles: {'.MathJax_Display': {"margin": 0}}
-            }
-        });
-        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+<script>
+  (function () {
+  var body = document.body.textContent;
+  if (body.match(/(?:\$|\\(|\\[|\begin\{.*?})/)) {
+    if (!window.MathJax) {
+      window.MathJax = {
+        tex: {
+          inlineMath: {'[+]': [['$', '$']]}
+        }
+      };
     }
-}
-init_mathjax();
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
+    document.head.appendChild(script);
+  }
+})();
 </script>
-
 <!-- 暫時不用
 <script src="./../cmsimde/static/fengari-web.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
@@ -159,9 +155,9 @@ img.add_border {
     <div id="tipue_search_content">產品生命週期管理 << <a href='產品生命週期管理.html'>Previous</a> <a href='兩人一組產品開發.html'>Next</a> >> 兩人一組產品開發<br /><h1>協同產品設計實習</h1>
 <h4>參考資料:</h4>
 <p style="padding-left: 30px;"><a href="https://en.wikipedia.org/wiki/Digital_twin">Digital Twin</a></p>
-<p style="padding-left: 30px;"><a href="/get_page/%E5%8D%94%E5%90%8C%E7%94%A2%E5%93%81%E8%A8%AD%E8%A8%88%E5%AF%A6%E7%BF%92/A Digital Twin Approach to Improve MachineTools Lifecycle">2019 Twin Control.pdf</a> - A Digital Twin Approach to Improve MachineTools Lifecycle (for @gm users only)</p>
-<p style="padding-left: 30px;"><a href="https://drive.google.com/open?id=12OB79G-XElbCiz2fZ6GyVBpoA1s74qTl">2015 Mac Protocol for Cyber-Physical Systems.pdf</a> (for @gm users only)</p>
-<p style="padding-left: 30px;"><a href="https://colab.research.google.com/notebooks/intro.ipynb">https://colab.research.google.com/notebooks/intro.ipynb</a> </p>
+<p style="padding-left: 30px;"><a href="/get_page/%E5%8D%94%E5%90%8C%E7%94%A2%E5%93%81%E8%A8%AD%E8%A8%88%E5%AF%A6%E7%BF%92/A Digital Twin Approach to Improve MachineTools Lifecycle">2019 Twin Control.pdf</a> - A Digital Twin Approach to Improve MachineTools Lifecycle $($for @gm users only$)$</p>
+<p style="padding-left: 30px;"><a href="https://drive.google.com/open?id=12OB79G-XElbCiz2fZ6GyVBpoA1s74qTl">2015 Mac Protocol for Cyber-Physical Systems.pdf</a> $($for @gm users only$)$</p>
+<p style="padding-left: 30px;"><a href="https://colab.research.google.com/notebooks/intro.ipynb">https://colab.research.google.com/notebooks/intro.ipynb</a></p>
 <p>以未來科技家庭中的先進產品開發為例</p>
 <p>可折疊與拼裝組合的各種用途桌椅</p>
 <p>可折疊與方便居家儲藏與吊掛的家庭成員自行車</p>
@@ -216,5 +212,13 @@ img.add_border {
                     </script>
             -->
             <script src="../cmsimde/static/chimper/js/main.js"></script>
-        </body></html>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </body></html>
         

@@ -70,27 +70,23 @@
 <script type="text/javascript">SyntaxHighlighter.all();</script>
 
 <!-- 啟用 LaTeX equations 編輯 -->
-<script src="https://scrum-3.github.io/web/math/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
-<script type="text/javascript">
-init_mathjax = function() {
-    if (window.MathJax) {
-        // MathJax loaded
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
-            },
-            displayAlign: 'left', // Change this to 'center' to center equations.
-            "HTML-CSS": {
-                styles: {'.MathJax_Display': {"margin": 0}}
-            }
-        });
-        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+<script>
+  (function () {
+  var body = document.body.textContent;
+  if (body.match(/(?:\$|\\(|\\[|\begin\{.*?})/)) {
+    if (!window.MathJax) {
+      window.MathJax = {
+        tex: {
+          inlineMath: {'[+]': [['$', '$']]}
+        }
+      };
     }
-}
-init_mathjax();
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
+    document.head.appendChild(script);
+  }
+})();
 </script>
-
 <!-- 暫時不用
 <script src="./../cmsimde/static/fengari-web.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
@@ -157,8 +153,8 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content"> <a href='Lab logo.html'>Next</a> >> Lab logo<br /><h1>About</h1>
-<p>這裡是國立虎尾科技大學機械設計工程系 (National Formosa University, Dept. of Mechanical Design Engineering, Taiwan) <a href="http://lab.kmol.info/blog/index.html">KMOlab</a> 所屬的網站. 主要提供與計算機程式, 網際內容管理, 電腦輔助設計與實習, 以及協同產品設計實習等課程相關資料.</p>
-<p><a href="http://mde.tw/lab">http://mde.tw/lab</a> 是未來五年, 與 <a href="http://lab.kmol.info/blog/index.html">KMOlab</a> 有關教學課程與研究方向的規劃網站, <a href="https://chiamingyen.github.io/kmolab/blog/pages/about/">KMOLab</a> 是知識管理與最佳化應用實驗室 (Knowledge Management and Optimal utilization Laboratory) 的簡稱, 實驗室的目的在鼓勵技職體系學員, 透過長期的專題學習與研究履歷積累, 進行與機電資整合產品有關的設計工具開發 [<a href="https://www.pyslvs.com">1</a>][<a href="https://github.com/KmolYuan/Pyslvs-UI">2</a>]. 並依此研究成果, 在國內外一流學府取得碩士以上學位.</p>
+<p>這裡是國立虎尾科技大學機械設計工程系 $($National Formosa University, Dept. of Mechanical Design Engineering, Taiwan$)$ <a href="http://lab.kmol.info/blog/index.html">KMOLab</a> 所屬的網站. 主要提供與計算機程式, 網際內容管理, 電腦輔助設計與實習, 以及協同產品設計實習等課程相關資料.</p>
+<p><a href="http://mde.tw/lab">http://mde.tw/lab</a> 是未來五年, 與 <a href="http://lab.kmol.info/blog/index.html">KMOLab</a> 有關教學課程與研究方向的規劃網站, <a href="https://chiamingyen.github.io/kmolab/blog/pages/about/">KMOLab</a> 是知識管理與最佳化應用實驗室 $($Knowledge Management and Optimal utilization Laboratory$)$ 的簡稱, 實驗室的目的在鼓勵技職體系學員, 透過長期的專題學習與研究履歷積累, 進行與機電資整合產品有關的設計工具開發 [<a href="https://www.pyslvs.com">1</a>][<a href="https://github.com/KmolYuan/Pyslvs-UI">2</a>]. 並依此研究成果, 在國內外一流學府取得碩士以上學位.</p>
 <p></p>
 <p></p><br /> <a href='Lab logo.html'>Next</a> >> Lab logo</div>
         
@@ -201,5 +197,13 @@ img.add_border {
                     </script>
             -->
             <script src="../cmsimde/static/chimper/js/main.js"></script>
-        </body></html>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    </body></html>
         
