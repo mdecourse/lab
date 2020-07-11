@@ -2051,7 +2051,9 @@ var width = window.innerWidth;
 <h4>研究主題：</h4>
 <p style="padding-left: 30px;"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">Closures</a></p>
 <p style="padding-left: 30px;"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">Import</a></p>
-<p style="padding-left: 30px;"><a href="https://github.com/getify/You-Dont-Know-JS">https://github.com/getify/You-Dont-Know-JS</a> </p>
+<p style="padding-left: 30px;"><a href="https://github.com/getify/You-Dont-Know-JS">https://github.com/getify/You-Dont-Know-JS</a></p>
+<p style="padding-left: 30px;"><a href="https://www.seas.upenn.edu/~cis197/">https://www.seas.upenn.edu/~cis197/</a></p>
+<p style="padding-left: 30px;"><a href="https://javascript.info/">https://javascript.info/</a> </p>
 <p>一般建議是將 Javascript 放在 &lt;/body&gt; 標註之前, 也就是所有頁面內容的最後面, 因為這樣會讓瀏覽用戶先看到整個頁面內容之後, 再下載執行頁面所需的 Javascript, 如此, 使用者會"感覺"頁面的資料擷取順暢, 不會頁面載入到中途, 因下載或執行 Javascript 程式碼而停頓.</p>
 <p>Beginning JavaScript (2019)</p>
 <p style="padding-left: 30px;"><a href="https://link.springer.com/book/10.1007/978-1-4842-4395-4">https://link.springer.com/book/10.1007/978-1-4842-4395-4</a></p>
@@ -2208,6 +2210,7 @@ function doSave(storage_id, filename){
 <p>Javascript elements</p><h3>Html</h3>
 <h3>Canvas</h3>
 <h3>Dart</h3>
+<p><a href="https://blog.usejournal.com/beginning-programming-with-dart-beginners-3f0348d8baf8">https://blog.usejournal.com/beginning-programming-with-dart-beginners-3f0348d8baf8</a> </p>
 <p>下列影片說明如何利用 Javascript 建立按鈕, 讓 <a href="https://dartpad.github.io">https://dartpad.github.io</a> 可以直接帶出存放在 <a href="https://github.com/mdecourse/cp2019/tree/master/downloads/dart_ex">downloads</a> 目錄中的 Dart 程式範例. 所引用的程式包含<a href="https://github.com/dartpad/dartpad.github.io/blob/master/embed-dart.html">純 Dart 程式碼</a>, 包含 html 與 css 的<a href="https://github.com/dartpad/dartpad.github.io/blob/master/embed-html.html">網際程式碼</a>, 以及 <a href="https://github.com/dartpad/dartpad.github.io/blob/master/embed-flutter.html">flutter 程式碼</a>等三種.</p>
 <p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/hoEUb5NIgrU" width="560"></iframe></p>
 <!-- 透過 getDart(dirname) 取位於 downloads/dart_ex/ 目錄中 dirname 目錄中的 Dart 程式碼 -->
@@ -2251,7 +2254,13 @@ document.getElementById("iframe").height = 600 ;
 <p><a href="https://tenso.rs/">https://tenso.rs/</a></p>
 <p><a href="http://webglacademy.com/uPenn/">http://webglacademy.com/uPenn/ </a></p>
 <p><a href="https://erkaman.github.io/regl-cnn/src/demo">https://erkaman.github.io/regl-cnn/src/demo</a></p>
+<p><a href="https://github.com/mdecourse/WebGL">https://github.com/mdecourse/WebGL</a></p>
+<p><a href="https://github.com/mdecourse/InteractiveWebGL">https://github.com/mdecourse/InteractiveWebGL</a></p>
+<p><a href="https://github.com/mdecourse/Interactive-Computer-Graphics">https://github.com/mdecourse/Interactive-Computer-Graphics</a></p>
+<p><a href="https://courses.engr.illinois.edu/cs418/fa2018/">https://courses.engr.illinois.edu/cs418/fa2018/</a></p>
 <h4>Three.js:</h4>
+<p style="padding-left: 30px;"><a href="https://davidlyons.dev/threejs-intro">https://davidlyons.dev/threejs-intro</a> </p>
+<p style="padding-left: 30px;"><a href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene">https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene</a></p>
 <p style="padding-left: 30px;"><a href="https://github.com/PacktPublishing/Learn-Three.js-Third-Edition">https://github.com/PacktPublishing/Learn-Three.js-Third-Edition</a></p>
 <p style="padding-left: 30px;"><a href="https://github.com/CS559">https://github.com/CS559</a></p>
 <p style="padding-left: 30px;"><a href="https://cs.wellesley.edu/~cs307/threejs/demos/all-demos.html">https://cs.wellesley.edu/~cs307/threejs/demos/all-demos.html</a></p>
@@ -2504,8 +2513,8 @@ init();
 <h4>obj loader:</h4>
 <div id="three-3"></div>
 <script type="module">
-import * as THREE from '/downloads/threejs/three.module.js';
-    import { OBJLoader } from '/downloads/threejs/OBJLoader.js';
+import * as THREE from 'https://mde.tw/lab/downloads/threejs/three.module.js';
+    import { OBJLoader } from 'https://mde.tw/lab/downloads/threejs/OBJLoader.js';
 
 	var container;
 	var camera, scene, renderer;
@@ -2549,7 +2558,7 @@ import * as THREE from '/downloads/threejs/three.module.js';
 
 		var textureLoader = new THREE.TextureLoader( manager );
 
-		var texture = textureLoader.load( '/downloads/threejs/uv_grid_opengl.jpg' );
+		var texture = textureLoader.load( 'https://mde.tw/lab/downloads/threejs/uv_grid_opengl.jpg' );
 
 		// model
 
@@ -2563,7 +2572,7 @@ import * as THREE from '/downloads/threejs/three.module.js';
 
 		function onError() {}
 		var loader = new OBJLoader( manager );
-		loader.load( '/downloads/threejs/human.obj', function ( obj ) {
+		loader.load( 'https://mde.tw/lab/downloads/threejs/human.obj', function ( obj ) {
 		object = obj;
 		}, onProgress, onError );
 
