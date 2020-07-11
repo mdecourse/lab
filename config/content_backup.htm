@@ -212,6 +212,8 @@ execargs=/usr/bin/fossil http /home/kmol2020/repository/ --https --nojail --notf
 <p>管理者可以從 <a href="https://[:1]:5443">https://[::1]:5443</a> 登入.</p><h1>計算機程式</h1>
 <p>計算機程式是工程師解決問題的工具之一, 而工程師希望利用計算機程式解決問題之前需要對電腦與其周遭環境相關的事項有所了解</p>
 <h4>電腦基本軟硬體術語及功能</h4>
+<p style="padding-left: 30px;">html: <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML">https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML</a></p>
+<p style="padding-left: 30px;">css: <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps">https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps</a></p>
 <h4>電腦網路設定與應用</h4>
 <h4>電腦程式語言:</h4>
 <h4 style="padding-left: 30px;">Javascript</h4>
@@ -235,7 +237,7 @@ execargs=/usr/bin/fossil http /home/kmol2020/repository/ --https --nojail --notf
 <p style="padding-left: 30px;"><a href="https://www.cs.auckland.ac.nz/compsci105s1c/resources/ProblemSolvingwithAlgorithmsandDataStructures.pdf">https://www.cs.auckland.ac.nz/compsci105s1c/resources/ProblemSolvingwithAlgorithmsandDataStructures.pdf</a></p>
 <p style="padding-left: 60px;"><a href="https://drive.google.com/open?id=17S_Bb1O7JiMYGHdU6sQ4CYwAhHPC5E8B">利用資料結構與演算法解題.pdf </a>(Python)</p>
 <h4>Reference:</h4>
-<p style="padding-left: 30px;"><a href="https://github.com/TryItOnline/tryitonline">https://github.com/TryItOnline/tryitonline</a> </p><h2>CMSiMDE</h2>
+<p style="padding-left: 30px;"><a href="https://github.com/TryItOnline/tryitonline">https://github.com/TryItOnline/tryitonline</a></p><h2>CMSiMDE</h2>
 <p>你需要一個 World Wide Web Page, 帶有分門別類的標題與內容, 能夠紀錄日誌, 可以直接在瀏覽器上進行簡報, 無論是在廣域網路, 區域網路或單一電腦上.</p>
 <p><a href="https://github.com/mdecourse/cmsimde.git">CMSiMDE</a> 就是因應機械設計工程師需要建立上述</p>
 <p style="padding-left: 30px;">網頁 (Web Page)</p>
@@ -2049,6 +2051,7 @@ var width = window.innerWidth;
 <h4>研究主題：</h4>
 <p style="padding-left: 30px;"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">Closures</a></p>
 <p style="padding-left: 30px;"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">Import</a></p>
+<p style="padding-left: 30px;"><a href="https://github.com/getify/You-Dont-Know-JS">https://github.com/getify/You-Dont-Know-JS</a> </p>
 <p>一般建議是將 Javascript 放在 &lt;/body&gt; 標註之前, 也就是所有頁面內容的最後面, 因為這樣會讓瀏覽用戶先看到整個頁面內容之後, 再下載執行頁面所需的 Javascript, 如此, 使用者會"感覺"頁面的資料擷取順暢, 不會頁面載入到中途, 因下載或執行 Javascript 程式碼而停頓.</p>
 <p>Beginning JavaScript (2019)</p>
 <p style="padding-left: 30px;"><a href="https://link.springer.com/book/10.1007/978-1-4842-4395-4">https://link.springer.com/book/10.1007/978-1-4842-4395-4</a></p>
@@ -2249,6 +2252,9 @@ document.getElementById("iframe").height = 600 ;
 <p><a href="http://webglacademy.com/uPenn/">http://webglacademy.com/uPenn/ </a></p>
 <p><a href="https://erkaman.github.io/regl-cnn/src/demo">https://erkaman.github.io/regl-cnn/src/demo</a></p>
 <h4>Three.js:</h4>
+<p style="padding-left: 30px;"><a href="https://github.com/PacktPublishing/Learn-Three.js-Third-Edition">https://github.com/PacktPublishing/Learn-Three.js-Third-Edition</a></p>
+<p style="padding-left: 30px;"><a href="https://github.com/CS559">https://github.com/CS559</a></p>
+<p style="padding-left: 30px;"><a href="https://cs.wellesley.edu/~cs307/threejs/demos/all-demos.html">https://cs.wellesley.edu/~cs307/threejs/demos/all-demos.html</a></p>
 <p>three-1 source code:</p>
 <pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;div id="three-1"&gt;&lt;/div&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"&gt;&lt;/script&gt;
@@ -2494,6 +2500,110 @@ function init() {
     renderer.render(scene, camera);
 }
 init();
+</script>
+<p>obj loader</p>
+<div id="three-3"></div>
+<script type="module">
+import * as THREE from '/downloads/threejs/three.module.js';
+    import { OBJLoader } from '/downloads/threejs/OBJLoader.js';
+
+	var container;
+	var camera, scene, renderer;
+	var mouseX = 0, mouseY = 0;
+        CANVAS_WIDTH = 400,
+        CANVAS_HEIGHT = 400;
+	var windowHalfX = CANVAS_WIDTH / 2;
+	var windowHalfY = CANVAS_HEIGHT / 2;
+	var object;
+
+	function init() {
+		camera = new THREE.PerspectiveCamera( 45, 400 / 400, 1, 2000 );
+		camera.position.z = 250;
+
+		// scene
+		scene = new THREE.Scene();
+		var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
+		scene.add( ambientLight );
+
+		var pointLight = new THREE.PointLight( 0xffffff, 0.8 );
+		camera.add( pointLight );
+		scene.add( camera );
+
+		// manager
+
+		function loadModel() {
+			object.traverse( function ( child ) {
+			if ( child.isMesh ) child.material.map = texture;
+			} );
+
+			object.position.y = - 95;
+			scene.add( object );
+		}
+
+		var manager = new THREE.LoadingManager( loadModel );
+		manager.onProgress = function ( item, loaded, total ) {
+		console.log( item, loaded, total );
+		};
+
+		// texture
+
+		var textureLoader = new THREE.TextureLoader( manager );
+
+		var texture = textureLoader.load( '/downloads/threejs/uv_grid_opengl.jpg' );
+
+		// model
+
+		function onProgress( xhr ) {
+
+			if ( xhr.lengthComputable ) {
+			var percentComplete = xhr.loaded / xhr.total * 100;
+			console.log( 'model ' + Math.round( percentComplete, 2 ) + '% downloaded' )
+			}
+		}
+
+		function onError() {}
+		var loader = new OBJLoader( manager );
+		loader.load( '/downloads/threejs/human.obj', function ( obj ) {
+		object = obj;
+		}, onProgress, onError );
+
+		//
+		renderer = new THREE.WebGLRenderer();
+		renderer.setPixelRatio( window.devicePixelRatio );
+		renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT);
+		container = document.getElementById( 'three-3' );
+		container.appendChild( renderer.domElement );
+		document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+		//
+		window.addEventListener( 'resize', onWindowResize, false );
+	    } // ends init()
+
+	        function onWindowResize() {
+		    camera.aspect = CANVAS_WIDTH/ CANVAS_HEIGHT;
+		    camera.updateProjectionMatrix();
+		    renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT);
+		}
+
+	        function onDocumentMouseMove( event ) {
+			mouseX = ( event.clientX - windowHalfX  ) / 2;
+			mouseY = ( event.clientY - windowHalfY ) / 2;
+		}
+
+		//
+
+	    function render() {
+			camera.position.x += ( mouseX - camera.position.x ) * .05;
+			camera.position.y += ( - mouseY - camera.position.y ) * .05;
+			camera.lookAt( scene.position );
+			renderer.render( scene, camera );
+			}
+
+	    function animate() {
+			requestAnimationFrame( animate );
+			render();
+			}
+init();
+animate();
 </script><h3>Lua</h3>
 <p><a href="http://www.lua.org/">http://www.lua.org/</a></p>
 <h4>Web based Lua:</h4>
