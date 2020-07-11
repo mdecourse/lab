@@ -153,9 +153,258 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">Dart << <a href='Dart.html'>Previous</a> <a href='Lua.html'>Next</a> >> Lua<br /><h1>WebGL</h1>
+<h4>Web Graphics Library</h4>
 <p><a href="https://tenso.rs/">https://tenso.rs/</a></p>
-<p><a href="http://webglacademy.com/uPenn/">http://webglacademy.com/uPenn/ </a> </p>
-<p><a href="https://erkaman.github.io/regl-cnn/src/demo">https://erkaman.github.io/regl-cnn/src/demo</a> </p><br />Dart << <a href='Dart.html'>Previous</a> <a href='Lua.html'>Next</a> >> Lua</div>
+<p><a href="http://webglacademy.com/uPenn/">http://webglacademy.com/uPenn/ </a></p>
+<p><a href="https://erkaman.github.io/regl-cnn/src/demo">https://erkaman.github.io/regl-cnn/src/demo</a></p>
+<h4>Three.js:</h4>
+<p><a href="https://github.com/PacktPublishing/Learn-Three.js-Third-Edition">https://github.com/PacktPublishing/Learn-Three.js-Third-Edition</a> </p>
+<p>three-1 source code:</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;div id="three-1"&gt;&lt;/div&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;// &lt;![CDATA[
+//已經導入 three.js r118
+//已經建立 html div 標註
+// 清除 html div 標註區 document.getElementById("three-1").innerHTML = "";
+
+var container, camera, scene, renderer, mesh,
+
+mouse = { x: 0, y: 0 },
+objects = [],
+
+count = 0,
+
+CANVAS_WIDTH = 400,
+CANVAS_HEIGHT = 400;
+
+container = document.getElementById( 'three-1' );
+
+renderer = new THREE.WebGLRenderer();
+renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
+container.appendChild( renderer.domElement );
+
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, CANVAS_WIDTH/CANVAS_HEIGHT, 0.1, 1000 );
+
+var geometry = new THREE.BoxGeometry( 3, 3, 3 );
+var material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+
+camera.position.z = 5;
+
+var animate = function () {
+    requestAnimationFrame( animate );
+
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+
+    renderer.render( scene, camera );
+};
+
+animate();
+// ]]&gt;&lt;/script&gt;</pre>
+<div id="three-1"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"></script>
+<script>
+//已經導入 three.js r118
+//已經建立 html div 標註
+// 清除 html div 標註區 document.getElementById("three-1").innerHTML = "";
+
+var container, camera, scene, renderer, mesh,
+
+mouse = { x: 0, y: 0 },
+objects = [],
+
+count = 0,
+
+CANVAS_WIDTH = 400,
+CANVAS_HEIGHT = 400;
+
+container = document.getElementById( 'three-1' );
+
+renderer = new THREE.WebGLRenderer();
+renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
+container.appendChild( renderer.domElement );
+
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, CANVAS_WIDTH/CANVAS_HEIGHT, 0.1, 1000 );
+
+var geometry = new THREE.BoxGeometry( 3, 3, 3 );
+var material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+
+camera.position.z = 5;
+
+var animate = function () {
+    requestAnimationFrame( animate );
+
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+
+    renderer.render( scene, camera );
+};
+
+animate();
+</script>
+<p>three-2 source code:</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;div id="three-2"&gt;&lt;/div&gt;
+&lt;script&gt;// &lt;![CDATA[
+function init() {
+    // create a scene, that will hold all our elements such as objects, cameras and lights.
+    var scene = new THREE.Scene();
+
+    CANVAS_WIDTH = 400,
+    CANVAS_HEIGHT = 400;
+
+    container = document.getElementById( 'three-2' );
+
+    // create a camera, which defines where we're looking at.
+    var camera = new THREE.PerspectiveCamera(45, CANVAS_WIDTH/CANVAS_HEIGHT , 0.1, 1000);
+
+    // create a render and set the size
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setClearColor(new THREE.Color(0x000000));
+    renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
+    container.appendChild( renderer.domElement );
+
+    // show axes in the screen
+    var axes = new THREE.AxesHelper(20);
+    scene.add(axes);
+
+    // create the ground plane
+    var planeGeometry = new THREE.PlaneGeometry(60, 20);
+    var planeMaterial = new THREE.MeshBasicMaterial({
+        color: 0xAAAAAA
+    });
+    var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+
+    // rotate and position the plane
+    plane.rotation.x = -0.5 * Math.PI;
+    plane.position.set(15, 0, 0);
+
+    // add the plane to the scene
+    scene.add(plane);
+
+    // create a cube
+    var cubeGeometry = new THREE.BoxGeometry(4, 4, 4);
+    var cubeMaterial = new THREE.MeshBasicMaterial({
+        color: 0xFF0000,
+        wireframe: true
+    });
+    var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+
+    // position the cube
+    cube.position.set(-4, 3, 0);
+
+    // add the cube to the scene
+    scene.add(cube);
+
+    // create a sphere
+    var sphereGeometry = new THREE.SphereGeometry(4, 20, 20);
+    var sphereMaterial = new THREE.MeshBasicMaterial({
+        color: 0x7777FF,
+        wireframe: true
+    });
+    var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+
+    // position the sphere
+    sphere.position.set(20, 4, 2);
+
+    // add the sphere to the scene
+    scene.add(sphere);
+
+    // position and point the camera to the center of the scene
+    camera.position.set(-30, 40, 30);
+    camera.lookAt(scene.position);
+
+    // add the output of the renderer to the html element
+    //document.getElementById("three-2").appendChild(renderer.domElement);
+
+    // render the scene
+    renderer.render(scene, camera);
+}
+init();
+// ]]&gt;&lt;/script&gt;</pre>
+<div id="three-2"></div>
+<script>
+function init() {
+    // create a scene, that will hold all our elements such as objects, cameras and lights.
+    var scene = new THREE.Scene();
+
+    CANVAS_WIDTH = 400,
+    CANVAS_HEIGHT = 400;
+
+    container = document.getElementById( 'three-2' );
+
+    // create a camera, which defines where we're looking at.
+    var camera = new THREE.PerspectiveCamera(45, CANVAS_WIDTH/CANVAS_HEIGHT , 0.1, 1000);
+
+    // create a render and set the size
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setClearColor(new THREE.Color(0x000000));
+    renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
+    container.appendChild( renderer.domElement );
+
+    // show axes in the screen
+    var axes = new THREE.AxesHelper(20);
+    scene.add(axes);
+
+    // create the ground plane
+    var planeGeometry = new THREE.PlaneGeometry(60, 20);
+    var planeMaterial = new THREE.MeshBasicMaterial({
+        color: 0xAAAAAA
+    });
+    var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+
+    // rotate and position the plane
+    plane.rotation.x = -0.5 * Math.PI;
+    plane.position.set(15, 0, 0);
+
+    // add the plane to the scene
+    scene.add(plane);
+
+    // create a cube
+    var cubeGeometry = new THREE.BoxGeometry(4, 4, 4);
+    var cubeMaterial = new THREE.MeshBasicMaterial({
+        color: 0xFF0000,
+        wireframe: true
+    });
+    var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+
+    // position the cube
+    cube.position.set(-4, 3, 0);
+
+    // add the cube to the scene
+    scene.add(cube);
+
+    // create a sphere
+    var sphereGeometry = new THREE.SphereGeometry(4, 20, 20);
+    var sphereMaterial = new THREE.MeshBasicMaterial({
+        color: 0x7777FF,
+        wireframe: true
+    });
+    var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+
+    // position the sphere
+    sphere.position.set(20, 4, 2);
+
+    // add the sphere to the scene
+    scene.add(sphere);
+
+    // position and point the camera to the center of the scene
+    camera.position.set(-30, 40, 30);
+    camera.lookAt(scene.position);
+
+    // add the output of the renderer to the html element
+    //document.getElementById("three-2").appendChild(renderer.domElement);
+
+    // render the scene
+    renderer.render(scene, camera);
+}
+init();
+</script><br />Dart << <a href='Dart.html'>Previous</a> <a href='Lua.html'>Next</a> >> Lua</div>
         
     <!-- footer -->
       <div class="container">

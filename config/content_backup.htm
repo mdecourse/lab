@@ -2046,6 +2046,9 @@ var width = window.innerWidth;
     updateDottedLines();
 </script>
 </p><h3>Javascript</h3>
+<h4>研究主題：</h4>
+<p style="padding-left: 30px;"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">Closures</a></p>
+<p style="padding-left: 30px;"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">Import</a></p>
 <p>一般建議是將 Javascript 放在 &lt;/body&gt; 標註之前, 也就是所有頁面內容的最後面, 因為這樣會讓瀏覽用戶先看到整個頁面內容之後, 再下載執行頁面所需的 Javascript, 如此, 使用者會"感覺"頁面的資料擷取順暢, 不會頁面載入到中途, 因下載或執行 Javascript 程式碼而停頓.</p>
 <p>Beginning JavaScript (2019)</p>
 <p style="padding-left: 30px;"><a href="https://link.springer.com/book/10.1007/978-1-4842-4395-4">https://link.springer.com/book/10.1007/978-1-4842-4395-4</a></p>
@@ -2241,9 +2244,257 @@ document.getElementById("iframe").height = 600 ;
 <!-- 內建放入的 Dart 原始碼 -->
 <p><button onclick="largest()">放大</button> <button onclick="original()">回復</button></p>
 <p><iframe height="600" id="iframe" src="https://dartpad.dartlang.org/embed-dart.html?gh_owner=mdecourse&amp;gh_repo=lab&amp;gh_path=downloads/dart_ex/mass_spring_damping&amp;theme=dark" width="800"></iframe></p><h3>WebGL</h3>
+<h4>Web Graphics Library</h4>
 <p><a href="https://tenso.rs/">https://tenso.rs/</a></p>
-<p><a href="http://webglacademy.com/uPenn/">http://webglacademy.com/uPenn/ </a> </p>
-<p><a href="https://erkaman.github.io/regl-cnn/src/demo">https://erkaman.github.io/regl-cnn/src/demo</a> </p><h3>Lua</h3>
+<p><a href="http://webglacademy.com/uPenn/">http://webglacademy.com/uPenn/ </a></p>
+<p><a href="https://erkaman.github.io/regl-cnn/src/demo">https://erkaman.github.io/regl-cnn/src/demo</a></p>
+<h4>Three.js:</h4>
+<p>three-1 source code:</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;div id="three-1"&gt;&lt;/div&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;// &lt;![CDATA[
+//已經導入 three.js r118
+//已經建立 html div 標註
+// 清除 html div 標註區 document.getElementById("three-1").innerHTML = "";
+
+var container, camera, scene, renderer, mesh,
+
+mouse = { x: 0, y: 0 },
+objects = [],
+
+count = 0,
+
+CANVAS_WIDTH = 400,
+CANVAS_HEIGHT = 400;
+
+container = document.getElementById( 'three-1' );
+
+renderer = new THREE.WebGLRenderer();
+renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
+container.appendChild( renderer.domElement );
+
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, CANVAS_WIDTH/CANVAS_HEIGHT, 0.1, 1000 );
+
+var geometry = new THREE.BoxGeometry( 3, 3, 3 );
+var material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+
+camera.position.z = 5;
+
+var animate = function () {
+    requestAnimationFrame( animate );
+
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+
+    renderer.render( scene, camera );
+};
+
+animate();
+// ]]&gt;&lt;/script&gt;</pre>
+<div id="three-1"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"></script>
+<script>
+//已經導入 three.js r118
+//已經建立 html div 標註
+// 清除 html div 標註區 document.getElementById("three-1").innerHTML = "";
+
+var container, camera, scene, renderer, mesh,
+
+mouse = { x: 0, y: 0 },
+objects = [],
+
+count = 0,
+
+CANVAS_WIDTH = 400,
+CANVAS_HEIGHT = 400;
+
+container = document.getElementById( 'three-1' );
+
+renderer = new THREE.WebGLRenderer();
+renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
+container.appendChild( renderer.domElement );
+
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, CANVAS_WIDTH/CANVAS_HEIGHT, 0.1, 1000 );
+
+var geometry = new THREE.BoxGeometry( 3, 3, 3 );
+var material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+
+camera.position.z = 5;
+
+var animate = function () {
+    requestAnimationFrame( animate );
+
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+
+    renderer.render( scene, camera );
+};
+
+animate();
+</script>
+<p>three-2 source code:</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;div id="three-2"&gt;&lt;/div&gt;
+&lt;script&gt;// &lt;![CDATA[
+function init() {
+    // create a scene, that will hold all our elements such as objects, cameras and lights.
+    var scene = new THREE.Scene();
+
+    CANVAS_WIDTH = 400,
+    CANVAS_HEIGHT = 400;
+
+    container = document.getElementById( 'three-2' );
+
+    // create a camera, which defines where we're looking at.
+    var camera = new THREE.PerspectiveCamera(45, CANVAS_WIDTH/CANVAS_HEIGHT , 0.1, 1000);
+
+    // create a render and set the size
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setClearColor(new THREE.Color(0x000000));
+    renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
+    container.appendChild( renderer.domElement );
+
+    // show axes in the screen
+    var axes = new THREE.AxesHelper(20);
+    scene.add(axes);
+
+    // create the ground plane
+    var planeGeometry = new THREE.PlaneGeometry(60, 20);
+    var planeMaterial = new THREE.MeshBasicMaterial({
+        color: 0xAAAAAA
+    });
+    var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+
+    // rotate and position the plane
+    plane.rotation.x = -0.5 * Math.PI;
+    plane.position.set(15, 0, 0);
+
+    // add the plane to the scene
+    scene.add(plane);
+
+    // create a cube
+    var cubeGeometry = new THREE.BoxGeometry(4, 4, 4);
+    var cubeMaterial = new THREE.MeshBasicMaterial({
+        color: 0xFF0000,
+        wireframe: true
+    });
+    var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+
+    // position the cube
+    cube.position.set(-4, 3, 0);
+
+    // add the cube to the scene
+    scene.add(cube);
+
+    // create a sphere
+    var sphereGeometry = new THREE.SphereGeometry(4, 20, 20);
+    var sphereMaterial = new THREE.MeshBasicMaterial({
+        color: 0x7777FF,
+        wireframe: true
+    });
+    var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+
+    // position the sphere
+    sphere.position.set(20, 4, 2);
+
+    // add the sphere to the scene
+    scene.add(sphere);
+
+    // position and point the camera to the center of the scene
+    camera.position.set(-30, 40, 30);
+    camera.lookAt(scene.position);
+
+    // add the output of the renderer to the html element
+    //document.getElementById("three-2").appendChild(renderer.domElement);
+
+    // render the scene
+    renderer.render(scene, camera);
+}
+init();
+// ]]&gt;&lt;/script&gt;</pre>
+<div id="three-2"></div>
+<script>
+function init() {
+    // create a scene, that will hold all our elements such as objects, cameras and lights.
+    var scene = new THREE.Scene();
+
+    CANVAS_WIDTH = 400,
+    CANVAS_HEIGHT = 400;
+
+    container = document.getElementById( 'three-2' );
+
+    // create a camera, which defines where we're looking at.
+    var camera = new THREE.PerspectiveCamera(45, CANVAS_WIDTH/CANVAS_HEIGHT , 0.1, 1000);
+
+    // create a render and set the size
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setClearColor(new THREE.Color(0x000000));
+    renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
+    container.appendChild( renderer.domElement );
+
+    // show axes in the screen
+    var axes = new THREE.AxesHelper(20);
+    scene.add(axes);
+
+    // create the ground plane
+    var planeGeometry = new THREE.PlaneGeometry(60, 20);
+    var planeMaterial = new THREE.MeshBasicMaterial({
+        color: 0xAAAAAA
+    });
+    var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+
+    // rotate and position the plane
+    plane.rotation.x = -0.5 * Math.PI;
+    plane.position.set(15, 0, 0);
+
+    // add the plane to the scene
+    scene.add(plane);
+
+    // create a cube
+    var cubeGeometry = new THREE.BoxGeometry(4, 4, 4);
+    var cubeMaterial = new THREE.MeshBasicMaterial({
+        color: 0xFF0000,
+        wireframe: true
+    });
+    var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+
+    // position the cube
+    cube.position.set(-4, 3, 0);
+
+    // add the cube to the scene
+    scene.add(cube);
+
+    // create a sphere
+    var sphereGeometry = new THREE.SphereGeometry(4, 20, 20);
+    var sphereMaterial = new THREE.MeshBasicMaterial({
+        color: 0x7777FF,
+        wireframe: true
+    });
+    var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+
+    // position the sphere
+    sphere.position.set(20, 4, 2);
+
+    // add the sphere to the scene
+    scene.add(sphere);
+
+    // position and point the camera to the center of the scene
+    camera.position.set(-30, 40, 30);
+    camera.lookAt(scene.position);
+
+    // add the output of the renderer to the html element
+    //document.getElementById("three-2").appendChild(renderer.domElement);
+
+    // render the scene
+    renderer.render(scene, camera);
+}
+init();
+</script><h3>Lua</h3>
 <p><a href="http://www.lua.org/">http://www.lua.org/</a></p>
 <h4>Web based Lua:</h4>
 <p style="padding-left: 30px;"><a href="/downloads/lua/index.html">/downloads/lua/index.html</a></p>
@@ -4537,7 +4788,7 @@ gauth.Auth(code) # Authorize and build service from the code</pre>
 <p style="padding-left: 90px;"><a href="/downloads/GearBox-Matt.ppt2007.pdf">Gearbox design ex3.pdf</a></p>
 <p style="padding-left: 90px;"><a href="/downloads/Direct_Gear_Design_method.pdf">Direct Gear Design Method.pdf</a></p>
 <p style="padding-left: 90px;"><a href="/downloads/Direct Gear Design for Asymmetric ToothGears.pdf">Direct Gear Design for Asymmetric Tooth Gears.pdf</a></p>
-<p style="padding-left: 90px;"><a href="/downloads/ANINTEGRATED PRODUCT –PROCESS DEVELOPMENT (IPPD)BASED APPROACH FOR ROTORCRAFT DRIVE SYSTEM SIZING, SYNTHESIS AND DESIGN OPTIMIZATION.pdf">Design Optimization.pdf</a></p>
+<p style="padding-left: 90px;"><a href="/downloads/ippd.pdf">ippd.pdf </a>(整合產品流程開發）</p>
 <p>2. 開發設計</p>
 <p style="padding-left: 30px;">使用部分現有流程與工具, 開發新的設計流程與工具, 配合選擇適合的設計參數, 以達成設計要求</p>
 <p style="padding-left: 30px;">需要整合新技術與新方法, 創造新流程與工具</p>
