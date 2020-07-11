@@ -410,8 +410,8 @@ init();
 <h4>obj loader:</h4>
 <div id="three-3"></div>
 <script type="module">
-import * as THREE from '/downloads/threejs/three.module.js';
-    import { OBJLoader } from '/downloads/threejs/OBJLoader.js';
+import * as THREE from 'https://mde.tw/lab/downloads/threejs/three.module.js';
+    import { OBJLoader } from 'https://mde.tw/lab/downloads/threejs/OBJLoader.js';
 
 	var container;
 	var camera, scene, renderer;
@@ -455,7 +455,7 @@ import * as THREE from '/downloads/threejs/three.module.js';
 
 		var textureLoader = new THREE.TextureLoader( manager );
 
-		var texture = textureLoader.load( '/downloads/threejs/uv_grid_opengl.jpg' );
+		var texture = textureLoader.load( 'https://mde.tw/lab/downloads/threejs/uv_grid_opengl.jpg' );
 
 		// model
 
@@ -469,7 +469,7 @@ import * as THREE from '/downloads/threejs/three.module.js';
 
 		function onError() {}
 		var loader = new OBJLoader( manager );
-		loader.load( '/downloads/threejs/human.obj', function ( obj ) {
+		loader.load( 'https://mde.tw/lab/downloads/threejs/human.obj', function ( obj ) {
 		object = obj;
 		}, onProgress, onError );
 
