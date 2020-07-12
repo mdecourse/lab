@@ -13,6 +13,7 @@
 <v t="yen.20200712124815.1"><vh>About robojs</vh>
 <v t="yen.20200712131954.1"><vh>robot data</vh></v>
 <v t="yen.20200712154358.1"><vh>work with brython</vh></v>
+<v t="yen.20200712162451.1"><vh>work with dart </vh></v>
 </v>
 <v t="yen.20200712115223.1"><vh>@path css</vh>
 <v t="yen.20200712115234.1"><vh>@edit main.css</vh></v>
@@ -227,5 +228,38 @@ Examples
 How Brython works?
 
     https://github.com/brython-dev/brython/wiki/How-Brython-works</t>
+<t tx="yen.20200712162451.1">Dart wraps over javascript library: https://github.com/FirebaseExtended/firebase-dart
+
+
+Dart js package
+
+    https://pub.dev/documentation/js/latest/
+    
+Allow Javascript to call Dart:
+
+    https://pub.dev/packages/js
+
+
+@JS()
+library callable_function;
+
+import 'package:js/js.dart';
+
+/// Allows assigning a function to be callable from `window.functionName()`
+@JS('functionName')
+external set _functionName(void Function() f);
+
+/// Allows calling the assigned function from Dart as well.
+@JS()
+external void functionName();
+
+void _someDartFunction() {
+  print('Hello from Dart!');
+}
+
+void main() {
+  _functionName = allowInterop(_someDartFunction);
+  // JavaScript code may now call `functionName()` or `window.functionName()`.
+}</t>
 </tnodes>
 </leo_file>
