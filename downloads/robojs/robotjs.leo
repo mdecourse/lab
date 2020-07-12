@@ -10,7 +10,10 @@
 <v t="yen.20200712125649.1"><vh>@data qt-gui-plugin-style-sheet</vh></v>
 <v t="yen.20200712125710.1"><vh>@string initial_split_orientation = horizontal</vh></v>
 </v>
-<v t="yen.20200712124815.1"><vh>About robojs</vh></v>
+<v t="yen.20200712124815.1"><vh>About robojs</vh>
+<v t="yen.20200712131954.1"><vh>robot data</vh></v>
+<v t="yen.20200712154358.1"><vh>work with brython</vh></v>
+</v>
 <v t="yen.20200712115223.1"><vh>@path css</vh>
 <v t="yen.20200712115234.1"><vh>@edit main.css</vh></v>
 </v>
@@ -186,5 +189,43 @@ QLineEdit#editorLabel {
 }</t>
 <t tx="yen.20200712125710.1">horizontal: body pane to the left
 vertical: body pane on the botton</t>
+<t tx="yen.20200712131954.1">CONSTANTS.robotWidth 36
+CONSTANTS.robotHeight 36
+
+RobotBase.arenaWidth 800
+RobotBase.arenaHeight 600
+
+Robot.IsAdjustGunForRobotTurn Property
+Sets the gun to turn independent from the robot's turn.
+
+Ok, so this needs some explanation: The gun is mounted on the robot's body. So, normally, if the robot turns 90 degrees to the right, then the gun will turn with it as it is mounted on top of the robot's body. To compensate for this, you can call IsAdjustGunForRobotTurn. When this is set, the gun will turn independent from the robot's turn, i.e. the gun will compensate for the robot's body turn.
+
+Note: This method is additive until you reach the maximum the gun can turn. The "adjust" is added to the amount you set for turning the robot, then capped by the physics of the game. If you turn infinite, then the adjust is ignored (and hence overridden).
+
+Examples
+    Assuming both the robot and gun start Out facing up (0 degrees):
+    Copy to ClipboardPrint
+    
+    // Set gun to turn with the robot's turn
+    SetAdjustGunForRobotTurn(false); // This is the default
+    TurnRight(90);
+    // At this point, both the robot and gun are facing right (90 degrees)
+    TurnLeft(90);
+    // Both are back to 0 degrees
+    
+    
+    // Set gun to turn independent from the robot's turn
+    SetAdjustGunForRobotTurn(true);
+    TurnRight(90);
+    // At this point, the robot is facing right (90 degrees), but the gun is still facing up.
+    TurnLeft(90);
+    // Both are back to 0 degrees.</t>
+<t tx="yen.20200712154358.1">From brython to use javascript object
+
+    https://brython.info/static_doc/en/javascript.html
+
+How Brython works?
+
+    https://github.com/brython-dev/brython/wiki/How-Brython-works</t>
 </tnodes>
 </leo_file>

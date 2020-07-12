@@ -2053,7 +2053,8 @@ var width = window.innerWidth;
 <p style="padding-left: 30px;"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">Import</a></p>
 <p style="padding-left: 30px;"><a href="https://github.com/getify/You-Dont-Know-JS">https://github.com/getify/You-Dont-Know-JS</a></p>
 <p style="padding-left: 30px;"><a href="https://www.seas.upenn.edu/~cis197/">https://www.seas.upenn.edu/~cis197/</a></p>
-<p style="padding-left: 30px;"><a href="https://javascript.info/">https://javascript.info/</a> </p>
+<p style="padding-left: 30px;"><a href="https://javascript.info/">https://javascript.info/</a></p>
+<p style="padding-left: 30px;"><a href="https://anvil.works/blog/python-in-the-browser-talk">https://anvil.works/blog/python-in-the-browser-talk</a> (esp. pypy.js)</p>
 <p>一般建議是將 Javascript 放在 &lt;/body&gt; 標註之前, 也就是所有頁面內容的最後面, 因為這樣會讓瀏覽用戶先看到整個頁面內容之後, 再下載執行頁面所需的 Javascript, 如此, 使用者會"感覺"頁面的資料擷取順暢, 不會頁面載入到中途, 因下載或執行 Javascript 程式碼而停頓.</p>
 <p>Beginning JavaScript (2019)</p>
 <p style="padding-left: 30px;"><a href="https://link.springer.com/book/10.1007/978-1-4842-4395-4">https://link.springer.com/book/10.1007/978-1-4842-4395-4</a></p>
@@ -2199,11 +2200,14 @@ function doSave(storage_id, filename){
 <form><label>Filename: <input id="js_filename" placeholder="input file name" type="text"/>.js</label> <input onclick="doSave('js_src', 'js_filename');" type="submit" value="Save"/></form>
 <p><button onclick="runjs()">Run</button><button onclick="showConsole()">Output</button><button onclick="clearBox('js_console')">清除輸出區</button><button onclick="clearCanvas('canvas')">清除繪圖區</button><button onclick="clearBox('html')">清除 html 區</button><button onclick="window.location.reload()">Reload</button></p>
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="js_console"></textarea></div>
-<p><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'ROCFlag.js')">ROC Flag</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'plotSin.js')">Plot Sin</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'plotCos.js')">Plot Cos</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'excavator.js')">Excavator</button> <button onclick="getGist('e267db237e4ec2c38d208529503b1bbf', 'ajax_get_stud_data.js')">Read Stud List</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'bouncingBall.js')">Bouncing Ball</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'editCurve.js')">Edit Curve</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'groupDrag.js')">Group Drag</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'involuteGear1.js')">Involute Gear</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'gearMeshing.js')">Gear Meshing</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'internalGear.js')">Internal Gear</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'threejs_cube.js')">Three.js Cube</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'canvas_drawLine.js')">Canvas Draw Line</button></p>
+<p><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'ROCFlag.js')">ROC Flag</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'plotSin.js')">Plot Sin</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'plotCos.js')">Plot Cos</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'excavator.js')">Excavator</button> <button onclick="getGist('e267db237e4ec2c38d208529503b1bbf', 'ajax_get_stud_data.js')">Read Stud List</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'bouncingBall.js')">Bouncing Ball</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'editCurve.js')">Edit Curve</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'groupDrag.js')">Group Drag</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'involuteGear1.js')">Involute Gear</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'gearMeshing.js')">Gear Meshing</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'internalGear.js')">Internal Gear</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'threejs_cube.js')">Three.js Cube</button><button onclick="getGist('d2f8b8898ff1a17a078374ee8dc714c4', 'canvas_drawLine.js')">Canvas Draw Line</button><button onclick="getGist('48a95c8c132fd62e257fa60b25569851', 'pypy_ex1.js')">Pypy.js ex1</button></p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/109/three.js">
 </script>
 <div id="html"></div>
-<p><canvas height="400" id="canvas" width="600"></canvas></p><h3>JQuery</h3>
+<p><canvas height="400" id="canvas" width="600"></canvas></p>
+<script src="https://pypyjs.org/pypyjs-release/lib/Promise.min.js"></script>
+<script src="https://pypyjs.org/pypyjs-release/lib/FunctionPromise.js"></script>
+<script src="https://pypyjs.org/pypyjs-release/lib/pypyjs.js"></script><h3>JQuery</h3>
 <p>JQuery 起源於 <a href="https://johnresig.com/blog/selectors-in-javascript/">https://johnresig.com/blog/selectors-in-javascript/,</a> 展示透過 CSS Selector 可以與 Javascript 的元件互動.</p>
 <p>CSS</p>
 <p>Document Object Model (DOM)</p>

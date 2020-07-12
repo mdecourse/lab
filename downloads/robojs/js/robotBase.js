@@ -35,65 +35,83 @@ RobotBase.prototype = {
     onDeath: function() { },
     onWin: function() { },
     
+    // 向右轉
     turnRight: function(radians, onFinished) {
         this.sendMessage('TURN', {angle: radians});
         this.rotationLeft = radians;
         this.queueFollowUp(onFinished);
     },
     
+    // 向左轉
     turnLeft: function(radians, onFinished) {
         this.sendMessage('TURN', {angle: -radians});
         this.rotationLeft = -radians;
         this.queueFollowUp(onFinished);
     },
     
+    // 砲塔轉右
     turnGunRight: function(radians, onFinished) {
         this.sendMessage('TURN_GUN', {angle: radians});
         this.gunRotationLeft = radians;
         this.queueFollowUp(onFinished);
     },
     
+    // 砲塔轉左
     turnGunLeft: function(radians, onFinished) {
         this.sendMessage('TURN_GUN', {angle: -radians});
         this.gunRotationLeft = -radians;
         this.queueFollowUp(onFinished);
     },
     
+    // 雷達轉右
     turnRadarRight: function(radians, onFinished) {
         this.sendMessage('TURN_RADAR', {angle: radians});
         this.radarRotationLeft = radians;
         this.queueFollowUp(onFinished);
     },
     
+    // 雷達轉左
     turnRadarLeft: function(radians, onFinished) {
         this.sendMessage('TURN_RADAR', {angle: -radians});
         this.radarRotationLeft = -radians;
         this.queueFollowUp(onFinished);
     },
     
+    // 向前行
     moveForward: function(distance, onFinished) {
         this.sendMessage('MOVE', {distance: distance});
         this.distanceLeft = distance;
         this.queueFollowUp(onFinished);
     },
     
+    // 往後退
     moveBack: function(distance, onFinished) {
         this.sendMessage('MOVE', {distance: -distance});
         this.distanceLeft = -distance;
         this.queueFollowUp(onFinished);
     },
     
+    // 開火
     fire: function(firingPower) {
         this.sendMessage('FIRE', {firingPower: firingPower});
     },
     
+    /*
+Sets the gun to turn independent from the robot's turn.
+
+Ok, so this needs some explanation: The gun is mounted on the robot's body. So, normally, if the robot turns 90 degrees to the right, then the gun will turn with it as it is mounted on top of the robot's body. To compensate for this, you can call IsAdjustGunForRobotTurn. When this is set, the gun will turn independent from the robot's turn, i.e. the gun will compensate for the robot's body turn.
+
+Note: This method is additive until you reach the maximum the gun can turn. The "adjust" is added to the amount you set for turning the robot, then capped by the physics of the game. If you turn infinite, then the adjust is ignored (and hence overridden). 
+    */
     setAdjustGunForRobotTurn: function(adjust) {
         this.sendMessage('ADJUST_GUN_FOR_ROBOT_TURN', {adjust: adjust});
     },
     
+    //
     setAdjustRadarForGunTurn: function(adjust) {
         this.sendMessage('ADJUST_RADAR_FOR_GUN_TURN', {adjust: adjust});
     },
+    
     
     drawCircle: function(x,y,radius,color) {
         this.sendMessage('DRAW_CIRCLE', {x:x,y:y,radius:radius,color:color});
@@ -197,7 +215,6 @@ RobotBase.prototype = {
     
     sendMessage: function(cmd, params) {
         params._cmd = cmd;
-        
         postMessage(params);
     }
 }
