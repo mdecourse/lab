@@ -125,7 +125,7 @@ RobotHandler.prototype = {
         
         //rotation of the robot
         if(this.data.rotationLeft) {
-            var rotation = Math.min(degrees2radions(10 - 0.75 * Math.abs(this.velocity)), Math.abs(this.data.rotationLeft)) *  Math.sign(this.data.rotationLeft);
+            var rotation = Math.min(degrees2radians(10 - 0.75 * Math.abs(this.velocity)), Math.abs(this.data.rotationLeft)) *  Math.sign(this.data.rotationLeft);
             this.data.rotationLeft -= rotation;
             this.data.angle += rotation;
             this.data.gunAngle += rotation;

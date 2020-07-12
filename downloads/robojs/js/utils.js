@@ -1,3 +1,4 @@
+// Rect 應該是坦克車的長方形範圍?
 var Rect = function(x,y,width,height) {
     this.x = x;
     this.y = y;
@@ -5,6 +6,7 @@ var Rect = function(x,y,width,height) {
     this.height = height;
 }
 
+// 利用 prototype 定義 Rect 的 getCornerVectors, isInside, contains, overlap 函式
 Rect.prototype = {
     getCornerVectors: function() {
         var result = [
@@ -33,11 +35,13 @@ Rect.prototype = {
     }
 }
 
+// 定義 Vector
 var Vector = function(x,y) {
     this.x = x;
     this.y = y;
 }
 
+// 利用 prototype 定義 getAngle, getLength, subtract, angleTo, distanceTo 與 project
 Vector.prototype = {
     getAngle: function() {
         return Math.atan2(this.y,this.x) + Math.PI/2;
@@ -72,18 +76,22 @@ Vector.prototype = {
     }
 }
 
-function degrees2radions(degrees) {
+// 定義 degrees2radians
+function degrees2radians(degrees) {
     return degrees *  Math.PI / 180;
 }
 
+//定義 radian2degrees
 function radians2degrees(radians) {
     return radians /  Math.PI * 180;
 }
 
+// 定義 clamp
 function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));   
 }
 
+// 定義 normalizeAngle
 //normalize angle to [0,2*PI]
 function normalizeAngle(angle) {
     while(angle < 0) {
@@ -96,6 +104,7 @@ function normalizeAngle(angle) {
     return angle;
 }
 
+// 定義 normalizeDiffAngle
 //normalize angle to [0,2*PI]
 function normalizeDiffAngle(angle) {
     while(angle < -Math.PI) {
@@ -108,21 +117,24 @@ function normalizeDiffAngle(angle) {
     return angle;
 }
 
+// 定義 getRotation
 function getRotation(fromAngle, toAngle) {
     return normalizeDiffAngle(toAngle - fromAngle);
 
 }
 
+// 定義 getRotationDir
 //returns -1 for counterClockwise, 1 for Clockwise, 0 for no rotation
 function getRotationDir(fromAngle, toAngle) {
     return Math.sign(getRotation(fromAngle, toAngle));
 }
 
+// 定義 isNear
 function isNear(value, value2) {
     return Math.abs(value-value2) < 0.001;
 }
         
-
+// 定義 getUrlParam 函式內容
 function getUrlParam(parameterName) {
     var queryString = window.location.search.substring(1);
   var parameterName = parameterName + "=";
@@ -140,6 +152,7 @@ function getUrlParam(parameterName) {
   return null;
 }
 
+// 定義 getRandom
 function getRandom(min, max) {
     return Math.random() * (max-min) + min;   
 }

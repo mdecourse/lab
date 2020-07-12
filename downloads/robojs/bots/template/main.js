@@ -54,7 +54,7 @@ completed will immediatly begin declerating the robot and begin the backwards mo
 Physics (speeds, etc.) should be the same as the original robocode (http://robowiki.net/wiki/Robocode/Game_Physics)
 
 Note: All angles are in radians (90 degrees = Math.PI/2, 180 degrees = Math.PI, 360 degrees = 2*Math.PI) 
-conversions can be made using the utility functions degrees2radions(degrees) and radians2degrees(radians)
+conversions can be made using the utility functions degrees2radians(degrees) and radians2degrees(radians)
 
 Turn the Robot right or left
 

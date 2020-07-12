@@ -1,3 +1,4 @@
+// RoboBase 物件內容
 RobotBase = function() {
     this.x=0;           
     this.y=0;
