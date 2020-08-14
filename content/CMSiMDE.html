@@ -68,25 +68,6 @@
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
 <link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
 <script type="text/javascript">SyntaxHighlighter.all();</script>
-
-<!-- 啟用 LaTeX equations 編輯 -->
-<script>
-  (function () {
-  var body = document.body.textContent;
-  if (body.match(/(?:\$|\\(|\\[|\begin\{.*?})/)) {
-    if (!window.MathJax) {
-      window.MathJax = {
-        tex: {
-          inlineMath: {'[+]': [['$', '$']]}
-        }
-      };
-    }
-    var script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
-    document.head.appendChild(script);
-  }
-})();
-</script>
 <!-- 暫時不用
 <script src="./../cmsimde/static/fengari-web.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
@@ -141,7 +122,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Lab logo.html'>Lab logo</a><li><a href='MDE.html'>MDE</a><li><a href='隨身程式系統.html'>隨身程式系統</a><li><a href='Github.html'>Github</a><li><a href='Leo Editor.html'>Leo Editor</a><li><a href='Kaggle Learn.html'>Kaggle Learn</a><li><a href='Pandoc.html'>Pandoc</a><li><a href='Virtualbox.html'>Virtualbox</a><li><a href='Pyslvs-UI.html'>Pyslvs-UI</a><li class='has-children'><a href='Fossil SCM.html'>Fossil SCM</a><ul class='dropdown'><li><a href='配置 Fossil SCM.html'>配置 Fossil SCM</a></li></li></ul></ul><li class='has-children'><a href='計算機程式.html'>計算機程式</a><ul class='dropdown'><li class='has-children'><a href='CMSiMDE.html'>CMSiMDE</a><ul class='dropdown'><li><a href='Python.html'>Python</a><li><a href='Javascript.html'>Javascript</a><li><a href='JQuery.html'>JQuery</a><li><a href='Html.html'>Html</a><li><a href='Canvas.html'>Canvas</a><li><a href='Dart.html'>Dart</a><li><a href='WebGL.html'>WebGL</a><li><a href='Lua.html'>Lua</a></li></ul><li class='has-children'><a href='學號抽點.html'>學號抽點</a><ul class='dropdown'><li><a href='亂數分組.html'>亂數分組</a><li><a href='隨機與基因演算.html'>隨機與基因演算</a><li><a href='隨機與機器學習.html'>隨機與機器學習</a></li></ul><li><a href='調查表單.html'>調查表單</a><li><a href='學習功課表.html'>學習功課表</a><li><a href='解微積分.html'>解微積分</a><li class='has-children'><a href='活動管理.html'>活動管理</a><ul class='dropdown'><li><a href='GDrive API.html'>GDrive API</a></li></li></ul></ul><li class='has-children'><a href='網際內容管理.html'>網際內容管理</a><ul class='dropdown'><li><a href='網際 PDF 檔案管理.html'>網際 PDF 檔案管理</a><li><a href='網際圖檔管理.html'>網際圖檔管理</a><li><a href='線上會議.html'>線上會議</a></li></ul><li class='has-children'><a href='電腦輔助設計與實習.html'>電腦輔助設計與實習</a><ul class='dropdown'><li><a href='產品設計繪圖.html'>產品設計繪圖</a><li class='has-children'><a href='產品設計分析.html'>產品設計分析</a><ul class='dropdown'><li><a href='Machine Learning.html'>Machine Learning</a><li><a href='Cython.html'>Cython</a></li></ul><li><a href='機電資整合控制.html'>機電資整合控制</a><li><a href='產品生命週期管理.html'>產品生命週期管理</a></li></ul><li class='has-children'><a href='協同產品設計實習.html'>協同產品設計實習</a><ul class='dropdown'><li><a href='兩人一組產品開發.html'>兩人一組產品開發</a><li><a href='四人一組產品開發.html'>四人一組產品開發</a><li><a href='八人一組產品開發.html'>八人一組產品開發</a><li><a href='十六人一組產品開發.html'>十六人一組產品開發</a><li><a href='三十二人一組產品開發.html'>三十二人一組產品開發</a></li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Lab logo.html'>Lab logo</a><li><a href='MDE.html'>MDE</a><li><a href='隨身程式系統.html'>隨身程式系統</a><li><a href='Github.html'>Github</a><li><a href='Leo Editor.html'>Leo Editor</a><li><a href='Kaggle Learn.html'>Kaggle Learn</a><li><a href='Pandoc.html'>Pandoc</a><li><a href='Virtualbox.html'>Virtualbox</a><li><a href='Pyslvs-UI.html'>Pyslvs-UI</a><li class='has-children'><a href='Fossil SCM.html'>Fossil SCM</a><ul class='dropdown'><li><a href='配置 Fossil SCM.html'>配置 Fossil SCM</a></li></li></ul></ul><li class='has-children'><a href='計算機程式.html'>計算機程式</a><ul class='dropdown'><li class='has-children'><a href='CMSiMDE.html'>CMSiMDE</a><ul class='dropdown'><li><a href='Python.html'>Python</a><li><a href='Javascript.html'>Javascript</a><li><a href='JQuery.html'>JQuery</a><li><a href='Html.html'>Html</a><li><a href='Canvas.html'>Canvas</a><li><a href='Dart.html'>Dart</a><li><a href='WebGL.html'>WebGL</a><li><a href='Lua.html'>Lua</a></li></ul><li class='has-children'><a href='學號抽點.html'>學號抽點</a><ul class='dropdown'><li><a href='亂數分組.html'>亂數分組</a><li><a href='Grouping.html'>Grouping</a><li><a href='隨機與基因演算.html'>隨機與基因演算</a><li><a href='隨機與機器學習.html'>隨機與機器學習</a></li></ul><li><a href='調查表單.html'>調查表單</a><li><a href='學習功課表.html'>學習功課表</a><li><a href='解微積分.html'>解微積分</a><li class='has-children'><a href='活動管理.html'>活動管理</a><ul class='dropdown'><li><a href='GDrive API.html'>GDrive API</a></li></li></ul></ul><li class='has-children'><a href='網際內容管理.html'>網際內容管理</a><ul class='dropdown'><li><a href='網際 PDF 檔案管理.html'>網際 PDF 檔案管理</a><li><a href='網際圖檔管理.html'>網際圖檔管理</a><li><a href='線上會議.html'>線上會議</a></li></ul><li class='has-children'><a href='電腦輔助設計與實習.html'>電腦輔助設計與實習</a><ul class='dropdown'><li><a href='產品設計繪圖.html'>產品設計繪圖</a><li class='has-children'><a href='產品設計分析.html'>產品設計分析</a><ul class='dropdown'><li><a href='Machine Learning.html'>Machine Learning</a><li><a href='Cython.html'>Cython</a></li></ul><li><a href='機電資整合控制.html'>機電資整合控制</a><li><a href='產品生命週期管理.html'>產品生命週期管理</a></li></ul><li class='has-children'><a href='協同產品設計實習.html'>協同產品設計實習</a><ul class='dropdown'><li><a href='兩人一組產品開發.html'>兩人一組產品開發</a><li><a href='四人一組產品開發.html'>四人一組產品開發</a><li><a href='八人一組產品開發.html'>八人一組產品開發</a><li><a href='十六人一組產品開發.html'>十六人一組產品開發</a><li><a href='三十二人一組產品開發.html'>三十二人一組產品開發</a></li>
                       </ul>
                 </nav>
               </div>
@@ -158,14 +139,32 @@ img.add_border {
 <p style="padding-left: 30px;">網頁 (Web Page)</p>
 <p style="padding-left: 30px;">簡報 (Web Presentation)</p>
 <p style="padding-left: 30px;">網誌 (Web Blog)</p>
-<p>而拼拼湊湊成的一套系統.</p>
-<h4>建立靜態網頁</h4>
-<h4 style="padding-left: 30px;">將 CMSiMDE 倉儲設為子模組</h4>
-<h4 style="padding-left: 30px;">直接取用 CMSiMDE 程式內容</h4>
+<p>而利用 Flask 網路框架所建立的一套系統.</p>
+<p>CMSiMDE 的網頁系統分為動態與靜態等兩部分, 動態網頁主要用於編輯各分頁內容, 而靜態網頁則用於展示.</p>
+<h4>CMSiMDE 架構</h4>
+<p style="padding-left: 30px;">CMSiMDE 的倉儲內容分為用戶資料與程式引擎等兩個部分, 用戶資料存於 CMSMDE 倉儲中的 up_dir, 而其餘部分則屬於內容管理程式引擎.</p>
+<p style="padding-left: 30px;">使用時, 可以將 CMSiMDE 倉儲設為網站的子模組, 也可以直接取用 CMSiMDE 倉儲內容, 設為 cmsimde 子目錄.</p>
+<p style="padding-left: 30px;">用戶資料的靜態網頁位於 content 目錄, 網誌資料位於 blog 目錄, 而簡報資料則位於 reveal 目錄.</p>
+<p style="padding-left: 30px;">CMSiMDE 動態網站的內容存於 config/content.htm, 而網誌的 Leo Editor 專案檔位於 config/pelican.leo, 而簡報的 Leo Editor 專案檔則位於 config/reveal.leo.</p>
+<p style="padding-left: 30px;">在動態網站模式下, 經由瀏覽器上傳的檔案存於 downloads 目錄, 而上傳的影像檔案則存於 images 目錄.</p>
+<p style="padding-left: 30px;">CMSiMDE 的網誌系統採用 Pelican, 用來建立網誌的 Markdown 檔案位於 markdown 目錄, 而與 Pelican 網誌相關的 Plugin 則存於 plugin 目錄. 網誌樣式檔案則存於 theme 目錄.</p>
+<p style="padding-left: 30px;">templates 目錄存放的是延伸 CMSiMDE 程式時, 與 Flask 程式碼配合的頁面樣板檔案.</p>
+<p style="padding-left: 30px;">用戶資料中的 http-server.py 可以讓使用者在近端執行後, 啟動一個以 8444 作為 port number 的 https 近端 WWW 伺服器, 可以用來檢查所編輯完成的靜態網站內容.</p>
+<p style="padding-left: 30px;">當使用者要在近端啟動靜態網站時, 可以在命令列進入 cmsimde 目錄後, 以 python wsgi.py 啟動以 9443 作為埠號的 https 近端 WWW 伺服器, 可用於編輯動態與靜態網站各頁面內容.</p>
+<p style="padding-left: 30px;">CMSiMDE 的頁面分為三階, 在 config/content.htm 可以透過 H1, H2 與 H3 標註加以分頁.</p>
+<p style="padding-left: 30px;">CMSiMDE 的動態網站內容編輯告一段落後, 可以透過編輯表單最右方的 generate_page 按鈕轉為 content 目錄中的靜態分頁檔案.</p>
+<p style="padding-left: 30px;">CMSMDE 的網站標題與管理者密碼可以透過動態網站編輯表單中的 config 按鈕修改.</p>
+<h4>將 CMSiMDE 倉儲設為子模組</h4>
+<p style="padding-left: 30px;">git submodule add <a href="https://github.com/mdecourse/cmsimde.git">https://github.com/mdecourse/cmsimde.git</a> cmsimde</p>
+<h4>直接取用 CMSiMDE 程式內容</h4>
+<p style="padding-left: 30px;">git clone https://github.com/mdecourse/cmsimde.git</p>
 <h4>建立 CMSiMDE 伺服器</h4>
 <h4 style="padding-left: 30px;">以 Ubuntu 20.04 為例</h4>
 <h4>CMSiMDE 開發</h4>
-<h4 style="padding-left: 30px;">Pelican 與 Blogger 網誌內容同步</h4><br />計算機程式 << <a href='計算機程式.html'>Previous</a> <a href='Python.html'>Next</a> >> Python</div>
+<h4 style="padding-left: 30px;">Pelican 與 Blogger 網誌內容同步</h4>
+<h4>頁面導入 mathjax</h4>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;script src="./../cmsimde/static/load_mathjax.js"&gt;&lt;/script&gt;</pre>
+<p></p><br />計算機程式 << <a href='計算機程式.html'>Previous</a> <a href='Python.html'>Next</a> >> Python</div>
         
     <!-- footer -->
       <div class="container">
@@ -208,11 +207,11 @@ img.add_border {
             <script src="../cmsimde/static/chimper/js/main.js"></script>
         
 <!-- 啟用 LaTeX equations 編輯 -->
-  <script>
+  <!-- <script>
   MathJax = {
     tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
   };
   </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
     </body></html>
         

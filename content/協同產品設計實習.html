@@ -68,25 +68,6 @@
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
 <link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
 <script type="text/javascript">SyntaxHighlighter.all();</script>
-
-<!-- 啟用 LaTeX equations 編輯 -->
-<script>
-  (function () {
-  var body = document.body.textContent;
-  if (body.match(/(?:\$|\\(|\\[|\begin\{.*?})/)) {
-    if (!window.MathJax) {
-      window.MathJax = {
-        tex: {
-          inlineMath: {'[+]': [['$', '$']]}
-        }
-      };
-    }
-    var script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
-    document.head.appendChild(script);
-  }
-})();
-</script>
 <!-- 暫時不用
 <script src="./../cmsimde/static/fengari-web.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
@@ -141,7 +122,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Lab logo.html'>Lab logo</a><li><a href='MDE.html'>MDE</a><li><a href='隨身程式系統.html'>隨身程式系統</a><li><a href='Github.html'>Github</a><li><a href='Leo Editor.html'>Leo Editor</a><li><a href='Kaggle Learn.html'>Kaggle Learn</a><li><a href='Pandoc.html'>Pandoc</a><li><a href='Virtualbox.html'>Virtualbox</a><li><a href='Pyslvs-UI.html'>Pyslvs-UI</a><li class='has-children'><a href='Fossil SCM.html'>Fossil SCM</a><ul class='dropdown'><li><a href='配置 Fossil SCM.html'>配置 Fossil SCM</a></li></li></ul></ul><li class='has-children'><a href='計算機程式.html'>計算機程式</a><ul class='dropdown'><li class='has-children'><a href='CMSiMDE.html'>CMSiMDE</a><ul class='dropdown'><li><a href='Python.html'>Python</a><li><a href='Javascript.html'>Javascript</a><li><a href='JQuery.html'>JQuery</a><li><a href='Html.html'>Html</a><li><a href='Canvas.html'>Canvas</a><li><a href='Dart.html'>Dart</a><li><a href='WebGL.html'>WebGL</a><li><a href='Lua.html'>Lua</a></li></ul><li class='has-children'><a href='學號抽點.html'>學號抽點</a><ul class='dropdown'><li><a href='亂數分組.html'>亂數分組</a><li><a href='隨機與基因演算.html'>隨機與基因演算</a><li><a href='隨機與機器學習.html'>隨機與機器學習</a></li></ul><li><a href='調查表單.html'>調查表單</a><li><a href='學習功課表.html'>學習功課表</a><li><a href='解微積分.html'>解微積分</a><li class='has-children'><a href='活動管理.html'>活動管理</a><ul class='dropdown'><li><a href='GDrive API.html'>GDrive API</a></li></li></ul></ul><li class='has-children'><a href='網際內容管理.html'>網際內容管理</a><ul class='dropdown'><li><a href='網際 PDF 檔案管理.html'>網際 PDF 檔案管理</a><li><a href='網際圖檔管理.html'>網際圖檔管理</a><li><a href='線上會議.html'>線上會議</a></li></ul><li class='has-children'><a href='電腦輔助設計與實習.html'>電腦輔助設計與實習</a><ul class='dropdown'><li><a href='產品設計繪圖.html'>產品設計繪圖</a><li class='has-children'><a href='產品設計分析.html'>產品設計分析</a><ul class='dropdown'><li><a href='Machine Learning.html'>Machine Learning</a><li><a href='Cython.html'>Cython</a></li></ul><li><a href='機電資整合控制.html'>機電資整合控制</a><li><a href='產品生命週期管理.html'>產品生命週期管理</a></li></ul><li class='has-children'><a href='協同產品設計實習.html'>協同產品設計實習</a><ul class='dropdown'><li><a href='兩人一組產品開發.html'>兩人一組產品開發</a><li><a href='四人一組產品開發.html'>四人一組產品開發</a><li><a href='八人一組產品開發.html'>八人一組產品開發</a><li><a href='十六人一組產品開發.html'>十六人一組產品開發</a><li><a href='三十二人一組產品開發.html'>三十二人一組產品開發</a></li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Lab logo.html'>Lab logo</a><li><a href='MDE.html'>MDE</a><li><a href='隨身程式系統.html'>隨身程式系統</a><li><a href='Github.html'>Github</a><li><a href='Leo Editor.html'>Leo Editor</a><li><a href='Kaggle Learn.html'>Kaggle Learn</a><li><a href='Pandoc.html'>Pandoc</a><li><a href='Virtualbox.html'>Virtualbox</a><li><a href='Pyslvs-UI.html'>Pyslvs-UI</a><li class='has-children'><a href='Fossil SCM.html'>Fossil SCM</a><ul class='dropdown'><li><a href='配置 Fossil SCM.html'>配置 Fossil SCM</a></li></li></ul></ul><li class='has-children'><a href='計算機程式.html'>計算機程式</a><ul class='dropdown'><li class='has-children'><a href='CMSiMDE.html'>CMSiMDE</a><ul class='dropdown'><li><a href='Python.html'>Python</a><li><a href='Javascript.html'>Javascript</a><li><a href='JQuery.html'>JQuery</a><li><a href='Html.html'>Html</a><li><a href='Canvas.html'>Canvas</a><li><a href='Dart.html'>Dart</a><li><a href='WebGL.html'>WebGL</a><li><a href='Lua.html'>Lua</a></li></ul><li class='has-children'><a href='學號抽點.html'>學號抽點</a><ul class='dropdown'><li><a href='亂數分組.html'>亂數分組</a><li><a href='Grouping.html'>Grouping</a><li><a href='隨機與基因演算.html'>隨機與基因演算</a><li><a href='隨機與機器學習.html'>隨機與機器學習</a></li></ul><li><a href='調查表單.html'>調查表單</a><li><a href='學習功課表.html'>學習功課表</a><li><a href='解微積分.html'>解微積分</a><li class='has-children'><a href='活動管理.html'>活動管理</a><ul class='dropdown'><li><a href='GDrive API.html'>GDrive API</a></li></li></ul></ul><li class='has-children'><a href='網際內容管理.html'>網際內容管理</a><ul class='dropdown'><li><a href='網際 PDF 檔案管理.html'>網際 PDF 檔案管理</a><li><a href='網際圖檔管理.html'>網際圖檔管理</a><li><a href='線上會議.html'>線上會議</a></li></ul><li class='has-children'><a href='電腦輔助設計與實習.html'>電腦輔助設計與實習</a><ul class='dropdown'><li><a href='產品設計繪圖.html'>產品設計繪圖</a><li class='has-children'><a href='產品設計分析.html'>產品設計分析</a><ul class='dropdown'><li><a href='Machine Learning.html'>Machine Learning</a><li><a href='Cython.html'>Cython</a></li></ul><li><a href='機電資整合控制.html'>機電資整合控制</a><li><a href='產品生命週期管理.html'>產品生命週期管理</a></li></ul><li class='has-children'><a href='協同產品設計實習.html'>協同產品設計實習</a><ul class='dropdown'><li><a href='兩人一組產品開發.html'>兩人一組產品開發</a><li><a href='四人一組產品開發.html'>四人一組產品開發</a><li><a href='八人一組產品開發.html'>八人一組產品開發</a><li><a href='十六人一組產品開發.html'>十六人一組產品開發</a><li><a href='三十二人一組產品開發.html'>三十二人一組產品開發</a></li>
                       </ul>
                 </nav>
               </div>
@@ -155,8 +136,8 @@ img.add_border {
     <div id="tipue_search_content">產品生命週期管理 << <a href='產品生命週期管理.html'>Previous</a> <a href='兩人一組產品開發.html'>Next</a> >> 兩人一組產品開發<br /><h1>協同產品設計實習</h1>
 <h4>參考資料:</h4>
 <p style="padding-left: 30px;"><a href="https://en.wikipedia.org/wiki/Digital_twin">Digital Twin</a></p>
-<p style="padding-left: 30px;"><a href="/get_page/%E5%8D%94%E5%90%8C%E7%94%A2%E5%93%81%E8%A8%AD%E8%A8%88%E5%AF%A6%E7%BF%92/A Digital Twin Approach to Improve MachineTools Lifecycle">2019 Twin Control.pdf</a> - A Digital Twin Approach to Improve MachineTools Lifecycle $($for @gm users only$)$</p>
-<p style="padding-left: 30px;"><a href="https://drive.google.com/open?id=12OB79G-XElbCiz2fZ6GyVBpoA1s74qTl">2015 Mac Protocol for Cyber-Physical Systems.pdf</a> $($for @gm users only$)$</p>
+<p style="padding-left: 30px;"><a href="/get_page/%E5%8D%94%E5%90%8C%E7%94%A2%E5%93%81%E8%A8%AD%E8%A8%88%E5%AF%A6%E7%BF%92/A Digital Twin Approach to Improve MachineTools Lifecycle">2019 Twin Control.pdf</a> - A Digital Twin Approach to Improve MachineTools Lifecycle (for @gm users only)</p>
+<p style="padding-left: 30px;"><a href="https://drive.google.com/open?id=12OB79G-XElbCiz2fZ6GyVBpoA1s74qTl">2015 Mac Protocol for Cyber-Physical Systems.pdf</a> (for @gm users only)</p>
 <p style="padding-left: 30px;"><a href="https://colab.research.google.com/notebooks/intro.ipynb">https://colab.research.google.com/notebooks/intro.ipynb</a></p>
 <p>以未來科技家庭中的先進產品開發為例</p>
 <p>可折疊與拼裝組合的各種用途桌椅</p>
@@ -214,11 +195,11 @@ img.add_border {
             <script src="../cmsimde/static/chimper/js/main.js"></script>
         
 <!-- 啟用 LaTeX equations 編輯 -->
-  <script>
+  <!-- <script>
   MathJax = {
     tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
   };
   </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
     </body></html>
         
