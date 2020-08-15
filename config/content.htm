@@ -2068,9 +2068,92 @@ var width = window.innerWidth;
     drawCurves();
     updateDottedLines();
 </script>
-</p><h3>Javascript</h3>
+</p><h3>Heroku</h3>
+<p></p>
+<p><a href="https://www.heroku.com/">Heroku</a> 是一個支援執行 Python Flask 網際程式的雲端環境.</p>
+<h4>使用方法:</h4>
+<p>1. 在 <a href="https://www.heroku.com/">Heroku</a><span><span> 建立一個帳號</span></span></p>
+<p><span><span>2. 在近端隨身系統中納入 <a href="https://drive.google.com/file/d/11okEgAFvjSRc32ueUNw_4Xf4pFbvCs63/view?usp=sharing">Heroku_cli_portable.7z</a>, 並將 y:\heroku\bin 納入命令搜尋路徑</span></span></p>
+<p>3. 加入 y:\heroku 目錄檔案, 並將 y:\heroku\bin 納入 path 後, 以 heroku version 確認取得Heroku 版本, 表示 Heroku cli 指令已經可以正確執行.</p>
+<p>4. 利用瀏覽器登入https://www.heroku.com 後, 利用右上方的 New, Create New App (建立新應用程式), 由於 Heroku 會利用 App 名稱建立網址, 因此在所有 Heroku App 中, 應用程式名稱必須具備唯一性.</p>
+<p>5. 建立 App 後, 必須在近端命令列視窗中, 以 heroku login, 取得以瀏覽器登入驗證並取下放至於 y:\home 目錄下的 _netrc 帳號認證檔案, 而認證檔案中標示所對應的 Heroku 帳號與編碼過的密碼. 只要隨身系統中的 home 目錄下具備合法的 _netrc, 即等同該帳號已經在 Heroku 登入.</p>
+<p>6. App 建立後, 必須以 Heroku 指令以其特殊的 git remote add 的指令指向正確的對應倉儲, 之後即可利用 git 指令將近端的 Flask 程式新增提交並推送到 Heroku.</p>
+<h4>Heroku 網際執行需求</h4>
+<p>在 Heroku 中執行 Flask 網際程式, 需要透過以下檔案進行設定:</p>
+<p>requirements.txt</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">Flask==1.1.2
+gunicorn==20.0.4
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+Werkzeug==1.0.1
+beautifulsoup4==4.9.1</pre>
+<p>Procfile</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">web gunicorn wsgi:app</pre>
+<p>runtime.txt</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">python-3.8.5</pre>
+<p>其中 requirements.txt 是執行程式所需要安裝的模組, Procfile 指定啟動的程式為 wsgi.py, 而 runtime.txt 則選擇所要使用的 Python 版本.</p>
+<h4>資料儲存</h4>
+<p>利用 <a href="https://www.heroku.com/pricing#data-services">https://www.heroku.com/pricing#data-services</a> 與 <a href="https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-heroku-postgres">https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-heroku-postgres</a> 透過:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">heroku addons:create heroku-postgresql:hobby-dev</pre>
+<p>可以免費儲存一萬筆資料, 而 Python 程式可以透過ORM <a href="https://github.com/coleifer/peewee">https://github.com/coleifer/peewee</a> 將資料存入 PostgreSQL 資料庫.</p>
+<h4>Heroku 程式範例</h4>
+<p><a href="https://scrum1-2020cp1.herokuapp.com/">https://scrum1-2020cp1.herokuapp.com/</a></p>
+<p>原始碼</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from flask import Flask, send_from_directory
+
+app = Flask(__name__)
+
+@app.route("/group")
+def group():
+    output = ""
+    with open("./downloads/2a_raw.txt") as fh:
+        # 逐行讀出檔案資料, 並放入數列中
+        lines = fh.readlines()
+        # 設法用迴圈逐數列內容取出字串
+        # 組序變數 g 起始值設為 0
+        g = 0
+        for i in range(len(lines)):
+            # 利用 strip() 去除各行字串最末端的跳行符號
+            #print(lines[i].strip())
+            line = lines[i].strip()
+            # 利用 split() 將以 \t 區隔的字串資料分離後納入 groups 字串
+            groups = line.split("\t")
+            #print(groups)
+            for i in range(len(groups)):
+                # 每組有三名組員
+                if i%3 == 0:
+                    # 每三位組員組序增量 1
+                    g += 1
+                    #print()
+                    output += "&lt;br /&gt;"
+                    #print("第" + str(g) + "組:")
+                    output += "第" + str(g) + "組:"
+                    #print(groups[i])
+                    output += groups[i] + " "
+                else:
+                   output += groups[i] + " "
+    return output
+    
+@app.route("/")
+def index():
+    return '''&lt;a href='/group'&gt;group&lt;/a&gt;&lt;br /&gt;
+    &lt;a href='/downloads/2a_raw.txt'&gt;2a_raw.txt&lt;/a&gt;
+    '''
+
+@app.route('/downloads/&lt;path:path&gt;')
+def downloads(path):
+
+    """Send files in downloads directory
+    """
+
+    return send_from_directory("./downloads/", path)
+    
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=8080, debug=True)
+</pre>
+<p></p><h3>Javascript</h3>
 <h4>研究主題：</h4>
-<p style="padding-left: 30px;"><a href="http://mde.tw/lab/downloads/robojs/index.html?speed=200&amp;bot2=sittingduck&amp;rounds=500">http://mde.tw/lab/downloads/robojs/index.html?speed=200&amp;bot2=sittingduck&amp;rounds=500</a> </p>
+<p style="padding-left: 30px;"><a href="http://mde.tw/lab/downloads/robojs/index.html?speed=200&amp;bot2=sittingduck&amp;rounds=500">http://mde.tw/lab/downloads/robojs/index.html?speed=200&amp;bot2=sittingduck&amp;rounds=500</a></p>
 <p style="padding-left: 30px;"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">Closures</a></p>
 <p style="padding-left: 30px;"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">Import</a></p>
 <p style="padding-left: 30px;"><a href="https://github.com/getify/You-Dont-Know-JS">https://github.com/getify/You-Dont-Know-JS</a></p>
