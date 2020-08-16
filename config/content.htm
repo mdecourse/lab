@@ -271,7 +271,34 @@ execargs=/usr/bin/fossil http /home/kmol2020/repository/ --https --nojail --notf
 <h4 style="padding-left: 30px;">Pelican 與 Blogger 網誌內容同步</h4>
 <h4>頁面導入 mathjax</h4>
 <pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;script src="/static/load_mathjax.js"&gt;&lt;/script&gt;</pre>
-<p></p><h3>Python</h3>
+<h4>靜態網頁伺服</h4>
+<p><a href="https://www.freecodecamp.org/news/how-to-deploy-a-static-website-for-free-in-only-3-minutes-with-google-drive/">https://www.freecodecamp.org/news/how-to-deploy-a-static-website-for-free-in-only-3-minutes-with-google-drive/</a></p>
+<p>Gihut Pages 靜態網頁伺服</p>
+<p style="padding-left: 30px;">任何一個 Github 帳號都可以建立一個名稱為 "Github_帳號.github.io" 的倉儲, 並將CMSiMDE 靜態網站內容提交退送到此一倉儲, 一旦經由 Github Pages 轉換網站資料流程結束後, 就可以透過 <a href="https://Github_帳號.github.io">https://Github_帳號.github.io</a> 連結網站.</p>
+<p style="padding-left: 30px;">至於其他在 Github 的倉儲, 只要進入 Settings, 指定要設為 Github Pages 的對應分支, 就可以將該倉儲的網頁設為 <a href="https://Github_帳號.github.io/倉儲名稱">https://Github_帳號.github.io/倉儲名稱</a>.</p>
+<p style="padding-left: 30px;">Github Pages 將各倉儲資料轉為網頁的過程並未提供讓使用者設定, 而是採內部流程運作, 與 Github Pages 類似的 Gitlab Pages, 則讓使用者在倉儲中加入 .gitlab-ci.yml 設定檔案, 若以在 Gitlab Pages 配置 CMSiMDE submodule 為例, .gitlab-ci.yml 內容如下:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">pages:
+  stage: deploy
+  script:
+  - mkdir .public
+  - cp -r * .public
+  - mv .public public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive</pre>
+<p>Heroku 靜態網頁伺服</p>
+<p style="padding-left: 30px;">將 CMSMDE 靜態網站送到 Heroku 進行網頁伺服的方法是利用其內建使用 Apache 與 PHP 解譯系統處理 index.php 的特性, 只要將送到 Heroku 的 CMSiMDE 靜態網站資料中加入 index.php, 並將頁面導向 index.html 即可, 而 index.php 的內容如下:</p>
+<pre class="brush:php;auto-links:false;toolbar:false" contenteditable="false">&lt;?php header( 'Location: /index.html' ) ;  ?&gt;</pre>
+<p style="padding-left: 30px;">根據此一架構配置完成的 CMSiMDE 網站: <a href="http://scrum1-cmsimde.herokuapp.com/">http://scrum1-cmsimde.herokuapp.com/</a></p>
+<p>Netlify 靜態網頁伺服</p>
+<p style="padding-left: 30px;"><a href="https://www.netlify.com/blog/2016/10/27/a-step-by-step-guide-deploying-a-static-site-or-single-page-app/">https://www.netlify.com/blog/2016/10/27/a-step-by-step-guide-deploying-a-static-site-or-single-page-app/</a></p>
+<p style="padding-left: 30px;"><a href="https://www.netlify.com/blog/2016/05/18/9-reasons-your-site-should-be-static/">https://www.netlify.com/blog/2016/05/18/9-reasons-your-site-should-be-static/</a></p>
+<p style="padding-left: 30px;"><a href="https://getpublii.com/docs/build-a-static-website-with-netlify.html">https://getpublii.com/docs/build-a-static-website-with-netlify.html</a></p>
+<p style="padding-left: 30px;"><a href="https://www.netlify.com/github-pages-vs-netlify/">https://www.netlify.com/github-pages-vs-netlify/</a></p><h3>Python</h3>
 <p>Python Projects for Beginners (2020)</p>
 <p style="padding-left: 30px;"><a href="https://link.springer.com/book/10.1007/978-1-4842-5355-7">https://link.springer.com/book/10.1007/978-1-4842-5355-7</a> </p>
 <p>Hands-on Scikit-Learn for Machine Learning Applications (2020)</p>
