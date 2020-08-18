@@ -169,7 +169,7 @@ img.add_border {
 <p>Gihut Pages 靜態網頁伺服</p>
 <p style="padding-left: 30px;">任何一個 Github 帳號都可以建立一個名稱為 "Github_帳號.github.io" 的倉儲, 並將CMSiMDE 靜態網站內容提交退送到此一倉儲, 一旦經由 Github Pages 轉換網站資料流程結束後, 就可以透過 <a href="https://Github_帳號.github.io">https://Github_帳號.github.io</a> 連結網站.</p>
 <p style="padding-left: 30px;">至於其他在 Github 的倉儲, 只要進入 Settings, 指定要設為 Github Pages 的對應分支, 就可以將該倉儲的網頁設為 <a href="https://Github_帳號.github.io/倉儲名稱">https://Github_帳號.github.io/倉儲名稱</a>.</p>
-<p style="padding-left: 30px;">Github Pages 將各倉儲資料轉為網頁的過程並未提供讓使用者設定, 而是採內部流程運作, 與 Github Pages 類似的 Gitlab Pages, 則讓使用者在倉儲中加入 .gitlab-ci.yml 設定檔案, 若以在 Gitlab Pages 配置 CMSiMDE submodule 為例, .gitlab-ci.yml 內容如下:</p>
+<p style="padding-left: 30px;">Github Pages 將各倉儲資料轉為網頁的過程, 可以透過 <a href="https://github.com/marketplace/actions/deploy-to-github-pages">Deploy Action</a> 進行客製化定, 與 Github Pages 類似的 Gitlab Pages, 也允許使用者在倉儲中加入 .gitlab-ci.yml 設定檔案, 若以在 Gitlab Pages 配置 CMSiMDE submodule 為例, .gitlab-ci.yml 內容如下:</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">pages:
   stage: deploy
   script:
@@ -191,7 +191,11 @@ variables:
 <p style="padding-left: 30px;"><a href="https://www.netlify.com/blog/2016/10/27/a-step-by-step-guide-deploying-a-static-site-or-single-page-app/">https://www.netlify.com/blog/2016/10/27/a-step-by-step-guide-deploying-a-static-site-or-single-page-app/</a></p>
 <p style="padding-left: 30px;"><a href="https://www.netlify.com/blog/2016/05/18/9-reasons-your-site-should-be-static/">https://www.netlify.com/blog/2016/05/18/9-reasons-your-site-should-be-static/</a></p>
 <p style="padding-left: 30px;"><a href="https://getpublii.com/docs/build-a-static-website-with-netlify.html">https://getpublii.com/docs/build-a-static-website-with-netlify.html</a></p>
-<p style="padding-left: 30px;"><a href="https://www.netlify.com/github-pages-vs-netlify/">https://www.netlify.com/github-pages-vs-netlify/</a></p><br />計算機程式 << <a href='計算機程式.html'>Previous</a> <a href='Python.html'>Next</a> >> Python</div>
+<p style="padding-left: 30px;"><a href="https://www.netlify.com/github-pages-vs-netlify/">https://www.netlify.com/github-pages-vs-netlify/</a></p>
+<p>參考資料</p>
+<p style="padding-left: 30px;"><a href="https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow">https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow</a></p>
+<p style="padding-left: 30px;"><a href="https://www.innoq.com/en/blog/github-actions-automation/">https://www.innoq.com/en/blog/github-actions-automation/</a></p>
+<p style="padding-left: 30px;"><a href="https://dotblogs.com.tw/explooosion/2019/09/06/152105#4">https://dotblogs.com.tw/explooosion/2019/09/06/152105#4</a></p><br />計算機程式 << <a href='計算機程式.html'>Previous</a> <a href='Python.html'>Next</a> >> Python</div>
         
     <!-- footer -->
       <div class="container">
