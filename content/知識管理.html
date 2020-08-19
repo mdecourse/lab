@@ -133,42 +133,15 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">活動管理 << <a href='活動管理.html'>Previous</a> <a href='知識管理.html'>Next</a> >> 知識管理<br /><h1>GDrive API</h1>
-<p><a href="https://developers.google.com/drive/api/v3/enable-drive-api">Enable Google Drive API</a></p>
-<p>Reference: <a href="https://github.com/chingjunetao/medium-article/blob/master/google-drive-with-python/google-drive-with-python.py">https://github.com/chingjunetao/medium-article/blob/master/google-drive-with-python/google-drive-with-python.py</a></p>
-<p>需要設定 Google Drive API credential 並取得 client_secrets.json</p>
-<p>利用</p>
-<p style="padding-left: 30px;">pip install pydrive</p>
-<p>安裝所需模組, 以下程式將會至 client_secrets.json 所對應帳號下的 Google Drive, 列出所有目錄與檔案, 並將 file_to_upload.pdf 上傳至 Google Drive 中的 uploaded 目錄.</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
-
-gauth = GoogleAuth()
-gauth.LocalWebserverAuth() # client_secrets.json need to be in the same directory as the script
-drive = GoogleDrive(gauth)
-
-
-# View all folders and file in your Google Drive
-fileList = drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
-for file in fileList:
-  print('Title: %s, ID: %s' % (file['title'], file['id']))
-  # Get the folder ID that you want
-  if(file['title'] == "uploaded"):
-      fileID = file['id']
-
-file1 = drive.CreateFile({"mimeType": "application/pdf", "parents": [{"kind": "drive#fileLink", "id": fileID}]})
-file1.SetContentFile("file_to_upload.pdf")
-file1.Upload() # Upload the file.
-print('Created file %s with mimeType %s' % (file1['title'], file1['mimeType']))   </pre>
-<p>For example, you might want to integrate your existing website with Drive API. In that case, you can customize authentication flow as follwing:<br/><br/>1. Get authentication Url from GetAuthUrl().<br/>2. Ask users to visit the authentication Url and grant access to your application. Retrieve authentication code manually by user or automatically by building your own oauth2callback.<br/>3. Call Auth(code) with the authentication code you retrieved from step 2.<br/><br/>Your settings.yaml will work for your customized authentication flow, too.</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from pydrive.auth import GoogleAuth
-
-gauth = GoogleAuth()
-auth_url = gauth.GetAuthUrl() # Create authentication url user needs to visit
-code = AskUserToVisitLinkAndGiveCode(auth_url) # Your customized authentication flow
-gauth.Auth(code) # Authorize and build service from the code</pre>
-<p></p>
-<br />活動管理 << <a href='活動管理.html'>Previous</a> <a href='知識管理.html'>Next</a> >> 知識管理</div>
+    <div id="tipue_search_content">GDrive API << <a href='GDrive API.html'>Previous</a> <a href='網際內容管理.html'>Next</a> >> 網際內容管理<br /><h1>知識管理</h1>
+<p>Gitter 有 API: <a href="https://developer.gitter.im">https://developer.gitter.im</a> </p>
+<p>也有 REST API: <a href="https://developer.gitter.im/docs/rest-api">https://developer.gitter.im/docs/rest-api</a> </p>
+<p>已經有人用 node.js 從 gitter 撈出 room 資料: <a href="https://github.com/boneskull/gitter-export-room">https://github.com/boneskull/gitter-export-room</a> </p>
+<p>這裡有 Gitter API Python 介面: <a href="https://github.com/myuz/GitterPy">https://github.com/myuz/GitterPy</a> </p>
+<p>這裡是 Gitter API 相關討論區: <a href="https://gitter.im/gitter/api?at=5a15feb30cef4fed2ebd9b7a">https://gitter.im/gitter/api?at=5a15feb30cef4fed2ebd9b7a</a> </p>
+<p>Discourse 也有 API: <a href="https://docs.discourse.org/">https://docs.discourse.org/</a> </p>
+<p>也有 Discourse API Python 介面: <a href="https://pypi.org/project/pydiscourse/">https://pypi.org/project/pydiscourse/</a> </p>
+<p>因為兩者都採 Markdown 格式編輯, 因此:<br/>若能有個 Python 程式先將 gitter room 中既有的討論串取出, 透過 Pelican, Blogger, 以及 Discourse 加以再整理或納入倉儲版次管理, 就可以將其中所討論的主題加值為團隊有用的協同知識庫.</p><br />GDrive API << <a href='GDrive API.html'>Previous</a> <a href='網際內容管理.html'>Next</a> >> 網際內容管理</div>
         
     <!-- footer -->
       <div class="container">

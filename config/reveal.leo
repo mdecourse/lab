@@ -33,7 +33,7 @@
 <v t="leo.20200818171344.1"><vh>slide 9</vh></v>
 <v t="leo.20200818171412.1"><vh>slide 10</vh></v>
 <v t="leo.20200818194721.1"><vh>slide 11</vh></v>
-<v t="leo.20200818194751.1"><vh>slide 12</vh></v>
+<v t="leo.20200818194751.1"><vh>slide 12 (Markdown)</vh></v>
 <v t="leo.20200818194812.1"><vh>slide 13</vh>
 <v t="leo.20200818194908.1"><vh>slide 13-1</vh></v>
 <v t="leo.20200818194933.1"><vh>slide 13-2</vh></v>
