@@ -68,25 +68,6 @@
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
 <link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
 <script type="text/javascript">SyntaxHighlighter.all();</script>
-
-<!-- 啟用 LaTeX equations 編輯 -->
-<script>
-  (function () {
-  var body = document.body.textContent;
-  if (body.match(/(?:\$|\\(|\\[|\begin\{.*?})/)) {
-    if (!window.MathJax) {
-      window.MathJax = {
-        tex: {
-          inlineMath: {'[+]': [['$', '$']]}
-        }
-      };
-    }
-    var script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
-    document.head.appendChild(script);
-  }
-})();
-</script>
 <!-- 暫時不用
 <script src="./../cmsimde/static/fengari-web.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
@@ -353,8 +334,9 @@ def studlist():
      
     url = 'https://osa.nfu.edu.tw/query/studlist_ajax.php'
     post_var = {'pselyr': semester, 'pseqno': courseno}
- 
-    result = requests.post(url, data = post_var)
+
+    headers = {'X-Requested-With': 'XMLHttpRequest'}
+    result = requests.post(url, data = post_var, headers = headers)
  
     soup = bs4.BeautifulSoup(result.content, 'lxml')
     table = soup.find('table', {'class': 'tbcls'})
@@ -601,8 +583,7 @@ for i in range(len(group)):
        
     gth = gth + 1
      
-print(output)</pre>
-<br />學號抽點 << <a href='學號抽點.html'>Previous</a> <a href='隨機與基因演算.html'>Next</a> >> 隨機與基因演算</div>
+print(output)</pre><br />學號抽點 << <a href='學號抽點.html'>Previous</a> <a href='隨機與基因演算.html'>Next</a> >> 隨機與基因演算</div>
         
     <!-- footer -->
       <div class="container">
@@ -645,11 +626,11 @@ print(output)</pre>
             <script src="../cmsimde/static/chimper/js/main.js"></script>
         
 <!-- 啟用 LaTeX equations 編輯 -->
-  <script>
+  <!-- <script>
   MathJax = {
     tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
   };
   </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
     </body></html>
         

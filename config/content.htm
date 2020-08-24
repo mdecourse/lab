@@ -2842,8 +2842,9 @@ def studlist():
      
     url = 'https://osa.nfu.edu.tw/query/studlist_ajax.php'
     post_var = {'pselyr': semester, 'pseqno': courseno}
- 
-    result = requests.post(url, data = post_var)
+
+    headers = {'X-Requested-With': 'XMLHttpRequest'}
+    result = requests.post(url, data = post_var, headers = headers)
  
     soup = bs4.BeautifulSoup(result.content, 'lxml')
     table = soup.find('table', {'class': 'tbcls'})
@@ -3090,8 +3091,7 @@ for i in range(len(group)):
        
     gth = gth + 1
      
-print(output)</pre>
-<h3>隨機與基因演算</h3>
+print(output)</pre><h3>隨機與基因演算</h3>
 <p><a href="http://lab.kmol.info/blog/2015-cadp-w16.html">http://lab.kmol.info/blog/2015-cadp-w16.html</a></p>
 <p><a href="https://github.com/DEAP/deap">https://github.com/DEAP/deap</a></p>
 <p><a href="/downloads/ga/A genetic algorithm for bin packaging.pdf">A genetic algorithm for bin packaging.pdf</a></p>

@@ -1,4 +1,4 @@
-console.log()
+//console.log()
 // 透過 getUrlParam 取得 url 變數值, 分別為 bo1, bot2, rounds 與 speed
 var bot1 = getUrlParam('bot1');
 var bot2 = getUrlParam('bot2');

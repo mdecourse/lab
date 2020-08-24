@@ -11,12 +11,14 @@
 <v t="yen.20200712125710.1"><vh>@string initial_split_orientation = horizontal</vh></v>
 </v>
 <v t="yen.20200712124815.1"><vh>About robojs</vh>
+<v t="yen.20200712222704.1"><vh>修改意見</vh></v>
 <v t="yen.20200712131954.1"><vh>robot data</vh></v>
 <v t="yen.20200712154358.1"><vh>work with brython</vh></v>
 <v t="yen.20200712162451.1"><vh>work with dart </vh></v>
 </v>
 <v t="yen.20200712115223.1"><vh>@path css</vh>
 <v t="yen.20200712115234.1"><vh>@edit main.css</vh></v>
+<v t="yen.20200712212252.1"><vh>@edit runner.css</vh></v>
 </v>
 <v t="yen.20200712115420.1"><vh>@path js</vh>
 <v t="yen.20200712115535.1"><vh>@edit main.js</vh></v>
@@ -47,6 +49,9 @@
 </v>
 <v t="yen.20200712115022.1"><vh>@path testbot2</vh>
 <v t="yen.20200712115116.1"><vh>@edit main.js</vh></v>
+</v>
+<v t="yen.20200712213856.1"><vh>@path testbot3</vh>
+<v t="yen.20200712213920.1"><vh>@edit main.js</vh></v>
 </v>
 <v t="yen.20200712115030.1"><vh>@path tracker</vh>
 <v t="yen.20200712115132.1"><vh>@edit main.js</vh></v>
@@ -261,5 +266,11 @@ void main() {
   _functionName = allowInterop(_someDartFunction);
   // JavaScript code may now call `functionName()` or `window.functionName()`.
 }</t>
+<t tx="yen.20200712213856.1"></t>
+<t tx="yen.20200712222704.1">理論上 power 應該包含油箱與彈藥, 油箱容量供應戰車行動, 而彈藥容量則供應砲塔發射攻擊敵人
+
+網際伺服器的對戰 session 應該要有時間序, 開戰後透過特定戰場 (arena) 序號可以觀看特定戰場情況
+
+先以 Flask 建構伺服器端, 提供參賽者上傳 robot, 各 robot 存放在不同目錄或以特定亂數編號</t>
 </tnodes>
 </leo_file>
