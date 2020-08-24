@@ -1,0 +1,269 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>mde.tw/lab</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container-fluid">
+                <div class="row align-items-center">
+                <h1>mde.tw/lab - KMOLab</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">mde.tw/lab - KMOLab</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">Site Map</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Lab logo.html'>Lab logo</a><li><a href='MDE.html'>MDE</a><li><a href='隨身程式系統.html'>隨身程式系統</a><li><a href='Github.html'>Github</a><li><a href='Leo Editor.html'>Leo Editor</a><li><a href='Kaggle Learn.html'>Kaggle Learn</a><li><a href='Pandoc.html'>Pandoc</a><li><a href='Virtualbox.html'>Virtualbox</a><li><a href='Pyslvs-UI.html'>Pyslvs-UI</a><li class='has-children'><a href='Fossil SCM.html'>Fossil SCM</a><ul class='dropdown'><li><a href='配置 Fossil SCM.html'>配置 Fossil SCM</a></li></li></ul></ul><li class='has-children'><a href='計算機程式.html'>計算機程式</a><ul class='dropdown'><li class='has-children'><a href='CMSiMDE.html'>CMSiMDE</a><ul class='dropdown'><li><a href='Python.html'>Python</a><li><a href='Heroku.html'>Heroku</a><li><a href='Javascript.html'>Javascript</a><li><a href='JQuery.html'>JQuery</a><li><a href='Html.html'>Html</a><li><a href='Canvas.html'>Canvas</a><li><a href='Dart.html'>Dart</a><li><a href='WebGL.html'>WebGL</a><li><a href='Lua.html'>Lua</a></li></ul><li class='has-children'><a href='學號抽點.html'>學號抽點</a><ul class='dropdown'><li><a href='亂數分組.html'>亂數分組</a><li><a href='Grouping.html'>Grouping</a><li><a href='隨機與基因演算.html'>隨機與基因演算</a><li><a href='隨機與機器學習.html'>隨機與機器學習</a></li></ul><li><a href='調查表單.html'>調查表單</a><li><a href='學習功課表.html'>學習功課表</a><li><a href='解微積分.html'>解微積分</a><li class='has-children'><a href='活動管理.html'>活動管理</a><ul class='dropdown'><li><a href='GDrive API.html'>GDrive API</a></li></ul><li><a href='知識管理.html'>知識管理</a></li></ul><li class='has-children'><a href='網際內容管理.html'>網際內容管理</a><ul class='dropdown'><li><a href='網際 PDF 檔案管理.html'>網際 PDF 檔案管理</a><li><a href='網際圖檔管理.html'>網際圖檔管理</a><li><a href='線上會議.html'>線上會議</a></li></ul><li class='has-children'><a href='電腦輔助設計與實習.html'>電腦輔助設計與實習</a><ul class='dropdown'><li><a href='產品設計繪圖.html'>產品設計繪圖</a><li class='has-children'><a href='產品設計分析.html'>產品設計分析</a><ul class='dropdown'><li><a href='Machine Learning.html'>Machine Learning</a><li><a href='Cython.html'>Cython</a></li></ul><li><a href='機電資整合控制.html'>機電資整合控制</a><li><a href='產品生命週期管理.html'>產品生命週期管理</a></li></ul><li class='has-children'><a href='協同產品設計實習.html'>協同產品設計實習</a><ul class='dropdown'><li><a href='兩人一組產品開發.html'>兩人一組產品開發</a><li><a href='四人一組產品開發.html'>四人一組產品開發</a><li><a href='八人一組產品開發.html'>八人一組產品開發</a><li><a href='十六人一組產品開發.html'>十六人一組產品開發</a><li><a href='三十二人一組產品開發.html'>三十二人一組產品開發</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">Python << <a href='Python.html'>Previous</a> <a href='Javascript.html'>Next</a> >> Javascript<br /><h1>Heroku</h1>
+<p></p>
+<p><a href="https://www.heroku.com/">Heroku</a> 是一個支援執行 Python Flask 網際程式的雲端環境.</p>
+<h4>使用方法:</h4>
+<p>1. 在 <a href="https://www.heroku.com/">Heroku</a><span><span> 建立一個帳號</span></span></p>
+<p><span><span>2. 在近端隨身系統中納入 <a href="https://drive.google.com/file/d/11okEgAFvjSRc32ueUNw_4Xf4pFbvCs63/view?usp=sharing">Heroku_cli_portable.7z</a>, 並將 y:\heroku\bin 納入命令搜尋路徑</span></span></p>
+<p>3. 加入 y:\heroku 目錄檔案, 並將 y:\heroku\bin 納入 path 後, 以 heroku version 確認取得Heroku 版本, 表示 Heroku cli 指令已經可以正確執行.</p>
+<p>4. 利用瀏覽器登入https://www.heroku.com 後, 利用右上方的 New, Create New App (建立新應用程式), 由於 Heroku 會利用 App 名稱建立網址, 因此在所有 Heroku App 中, 應用程式名稱必須具備唯一性.</p>
+<p>5. 建立 App 後, 必須在近端命令列視窗中, 以 heroku login, 取得以瀏覽器登入驗證並取下放至於 y:\home 目錄下的 _netrc 帳號認證檔案, 而認證檔案中標示所對應的 Heroku 帳號與編碼過的密碼. 只要隨身系統中的 home 目錄下具備合法的 _netrc, 即等同該帳號已經在 Heroku 登入.</p>
+<p>6. App 建立後, 必須以 Heroku 指令以其特殊的 git remote add 的指令指向正確的對應倉儲, 之後即可利用 git 指令將近端的 Flask 程式新增提交並推送到 Heroku.</p>
+<h4>Heroku 網際執行需求</h4>
+<p>在 Heroku 中執行 Flask 網際程式, 需要透過以下檔案進行設定:</p>
+<p>requirements.txt</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">Flask==1.1.2
+gunicorn==20.0.4
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+Werkzeug==1.0.1
+beautifulsoup4==4.9.1</pre>
+<p>Procfile</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">web gunicorn wsgi:app</pre>
+<p>runtime.txt</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">python-3.8.5</pre>
+<p>其中 requirements.txt 是執行程式所需要安裝的模組, Procfile 指定啟動的程式為 wsgi.py, 而 runtime.txt 則選擇所要使用的 Python 版本.</p>
+<h4>資料儲存</h4>
+<p>利用 <a href="https://www.heroku.com/pricing#data-services">https://www.heroku.com/pricing#data-services</a> 與 <a href="https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-heroku-postgres">https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-heroku-postgres</a> 透過:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">heroku addons:create heroku-postgresql:hobby-dev</pre>
+<p>可以免費儲存一萬筆資料, 而 Python 程式可以透過ORM <a href="https://github.com/coleifer/peewee">https://github.com/coleifer/peewee</a> 將資料存入 PostgreSQL 資料庫.</p>
+<h4>Heroku 程式範例</h4>
+<p><a href="https://scrum1-2020cp1.herokuapp.com/">https://scrum1-2020cp1.herokuapp.com/</a></p>
+<p>原始碼</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from flask import Flask, send_from_directory
+
+app = Flask(__name__)
+
+@app.route("/group")
+def group():
+    output = ""
+    with open("./downloads/2a_raw.txt") as fh:
+        # 逐行讀出檔案資料, 並放入數列中
+        lines = fh.readlines()
+        # 設法用迴圈逐數列內容取出字串
+        # 組序變數 g 起始值設為 0
+        g = 0
+        for i in range(len(lines)):
+            # 利用 strip() 去除各行字串最末端的跳行符號
+            #print(lines[i].strip())
+            line = lines[i].strip()
+            # 利用 split() 將以 \t 區隔的字串資料分離後納入 groups 字串
+            groups = line.split("\t")
+            #print(groups)
+            for i in range(len(groups)):
+                # 每組有三名組員
+                if i%3 == 0:
+                    # 每三位組員組序增量 1
+                    g += 1
+                    #print()
+                    output += "&lt;br /&gt;"
+                    #print("第" + str(g) + "組:")
+                    output += "第" + str(g) + "組:"
+                    #print(groups[i])
+                    output += groups[i] + " "
+                else:
+                   output += groups[i] + " "
+    return output
+    
+@app.route("/")
+def index():
+    return '''&lt;a href='/group'&gt;group&lt;/a&gt;&lt;br /&gt;
+    &lt;a href='/downloads/2a_raw.txt'&gt;2a_raw.txt&lt;/a&gt;
+    '''
+
+@app.route('/downloads/&lt;path:path&gt;')
+def downloads(path):
+
+    """Send files in downloads directory
+    """
+
+    return send_from_directory("./downloads/", path)
+    
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=8080, debug=True)
+</pre>
+<p></p><br />Python << <a href='Python.html'>Previous</a> <a href='Javascript.html'>Next</a> >> Javascript</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
