@@ -159,6 +159,7 @@ Host github.com
 <h2>Pandoc</h2>
 <p><a href="https://pandoc.org/MANUAL.html">https://pandoc.org/MANUAL.html</a> </p><h2>Virtualbox</h2>
 <p><a href="https://drive.google.com/open?id=143jFMheM1xjLxhLkSAouThLzj3WUYX6_">Ubuntu 20.04 for cd2020pj1.ova</a> (<a href="https://drive.google.com/open?id=13Gqwyj0CGR6wa9dZg_BmlCLv5cNYWQJ_">W12 version)</a> (for @gm users only)</p>
+<p><a href="https://drive.google.com/file/d/1lnMvowqRTWVgfaMClj2skGjURi148n71/view?usp=sharing">Ubuntu20.04_coppeliasim_cmsimde_pyslvs_range3_ngsolve_jupyter_fcitx.vdi</a> (for kmolers only)</p>
 <p><a href="https://drive.google.com/open?id=1yDdGMWEzVvnuaqZ9a_VXYSAr-N4cer4K">Win10 comsol5.ova</a> (for @gm users only)</p>
 <h4>Ｕbuntu 20.04 安裝 Chrome</h4>
 <p style="padding-left: 30px;">sudo apt install gdebi-core wget</p>
@@ -5507,7 +5508,21 @@ gauth.Auth(code) # Authorize and build service from the code</pre>
 <p>也有 Discourse API Python 介面: <a href="https://pypi.org/project/pydiscourse/">https://pypi.org/project/pydiscourse/</a> </p>
 <p>因為兩者都採 Markdown 格式編輯, 因此:<br/>若能有個 Python 程式先將 gitter room 中既有的討論串取出, 透過 Pelican, Blogger, 以及 Discourse 加以再整理或納入倉儲版次管理, 就可以將其中所討論的主題加值為團隊有用的協同知識庫.</p><h1>網際內容管理</h1>
 <p>Leo Editor: <a href="https://leoeditor.com/">https://leoeditor.com/</a></p>
-<p>Leo Editor 簡介: <a href="https://kaleguy.github.io/leovue/#dashboard">https://kaleguy.github.io/leovue/#dashboard</a></p><h2>網際 PDF 檔案管理</h2>
+<p>Leo Editor 簡介: <a href="https://kaleguy.github.io/leovue/#dashboard">https://kaleguy.github.io/leovue/#dashboard</a></p><h2>LaTeX</h2>
+<p>使用 LaTeX 進行文書處理的主要目的是方便進行協同編輯.</p>
+<p>安裝 MikTeX 時設定自動安裝編譯過程所需模組.</p>
+<p><a href="https://miktex.org/howto/portable-edition">https://miktex.org/howto/portable-edition</a> 下載安裝後設定命令搜尋路徑:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">REM set for LaTeX
+set path_miketex=%Disk%:\miktex-portable\texmfs\install\miktex\bin\x64;</pre>
+<p>接著建立 test.tex</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">\documentclass{article}
+\usepackage{xeCJK}
+\setCJKmainfont{mingliu.ttc}
+
+\begin{document}
+利用 \LaTeX 處理中文資料
+\end{document}</pre>
+<p>最後再使用 xelatex test.tex 就會產生 <a href="/downloads/test.pdf">test.pdf</a></p><h2>網際 PDF 檔案管理</h2>
 <h4>Project</h4>
 <p>Build an online pdf file manipulation system.</p>
 <p style="padding-left: 30px;">pdf file upload</p>
