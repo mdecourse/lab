@@ -145,6 +145,16 @@
 <v t="leo.20200907151131.1"><vh>2954087361983949396</vh></v>
 </v>
 </v>
+<v t="leo.20210210102942.1"><vh>@clean 20210210.md</vh>
+<v t="leo.20210210103150.1"><vh>2021 開春</vh>
+<v t="leo.20210210040142.1"><vh>kblogger</vh>
+<v t="leo.20210210114545.1"><vh>7144358748564329698</vh></v>
+</v>
+<v t="leo.20210210040226.1"><vh>mblogger</vh>
+<v t="leo.20210210034636.1"><vh>7059676961344698606</vh></v>
+</v>
+</v>
+</v>
 </v>
 </v>
 </v>
@@ -444,6 +454,26 @@ except(client.AccessTokenRefreshError):
 
 </t>
 <t tx="leo.20200907151131.1"></t>
+<t tx="leo.20210210034636.1"></t>
+<t tx="leo.20210210040142.1"></t>
+<t tx="leo.20210210040226.1"></t>
+<t tx="leo.20210210102942.1">@language md
+---
+Title: 2021 開春
+Date: 2021-02-10 11:00
+Category: Weblog
+Tags: 202102
+Slug: starting-2021
+Author: yen
+---
+
+2021 年伊始, 機器學習的程式從原先簡單的演化, 進展到能夠有效控制具有亂數的決策系統, 科技的發展讓人類的工作更加兩極化, 一方可持續開發指使電腦軟硬體從事工作, 而另一方則幾乎必須完全按照電腦軟硬體的指示與命令行事.
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20210210103150.1">這樣的發展似乎已經沒了退路.</t>
+<t tx="leo.20210210114545.1"></t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/
@@ -2111,6 +2141,7 @@ pip install google-api-python-client oauth2client
 
 接下來則是取得與所要同步的 Google [Blogger] 認證檔案.</t>
 <t tx="yen.20200529224039.1">@language python
+# get secrets: https://console.developers.google.com
 # https://developers.google.com/blogger/docs/3.0/using
 # pip install google_auth_oauthlib
 # under Mac command + b to execute
