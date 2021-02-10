@@ -358,6 +358,33 @@ from apiclient.http import MediaFileUpload
 <p>針對 Github 與 Gitlab 的操作, 可以參考 <a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a>, 但是 <a href="https://fossil-scm.org">Fossil SCM</a> 的參考資料則相對較少, 以下將針對 <a href="https://fossil-scm.org">Fossil SCM</a> 的應用稍加說明, 為了因應未來上述各種網際免費數位儲存資料系統的更迭, 在近端配置 <a href="https://fossil-scm.org">Fossil SCM</a>, 並用 <a href="https://en.wikipedia.org/wiki/Blu-ray_Disc_recordable">BD-R or BD-RE</a> (25GB) 進行備份, 也是一個不錯的資料永續儲存方案.</p>
 <p><a href="https://fossil-scm.org">Fossil SCM</a> 的使用非常簡單, 只要配合操作系統從 <a href="https://fossil-scm.org/home/uv/download.html">https://fossil-scm.org/home/uv/download.html</a> 下載相應版本, 並讓系統可以執行 fossil.exe (以 Windows 10 為例) 即可, 唯一要注意的是若操作過程牽涉兩個不同操作系統, 必須透過 fossil version 查驗雙方的版本是否相同.</p>
 <p>有關 <a href="https://fossil-scm.org">Fossil SCM</a> 的先前參考資料, 可參閱 <a href="http://mde.tw/2017springcd/blog/intro-fossil-scm.html">Fossil SCM 簡介</a>.</p>
+<h2>Ubuntu 安裝 fossil scm</h2>
+<p>使用 sudo apt install fossil 安裝 <a href="https://fossil-scm.org">Fossil SCM</a> 所取得的版本可以利用 fossil version 檢查. 若版本並非最新版本或與 Windows 10 所用的版本相同, 可以至 <a href="https://fossil-scm.org/home/uv/download.html">https://fossil-scm.org/home/uv/download.html</a> 下載最新的 fossil 後, 以 sudo cp /home/user/fossil /usr/bin/, 然後再透過 fossil version 查驗是否已經更新為最新版本.</p>
+<h2>安裝 stunnel4</h2>
+<p>由於 <a href="https://fossil-scm.org">Fossil SCM</a> 並無 https 啟動功能的設置, 因此在實作上必須透過 stunnel SSL 代理主機啟動 https 伺服功能.</p>
+<p>首先安裝 stunnel4:</p>
+<p>sudo apt install stunnel4</p>
+<p>接下來將系統環境設為 HTTPS:</p>
+<p>sudo vi /etc/environment</p>
+<p>加入 HTTPS=on</p>
+<p>並且在 /etc/default/stunnel4 中加入 ENABLED=1</p>
+<p>然後透過 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt, 在 /etc/stunnel/ 目錄中建立所需的 localhost.key 與 localhost.crt</p>
+<p>同時建立 /etc/stunnel/stunnel.conf 如下:</p>
+<pre class="brush: jscript">
+[https]
+accept = your_IPv4_ip:443
+accept = :::443
+cert = /etc/stunnel/localhost.crt
+key = /etc/stunnel/localhost.key
+exec = /usr/bin/fossil
+execargs = /usr/bin/fossil http /home/user/repository/ --https --nojail --notfound cd2021
+</pre>
+
+<p>execargs = /usr/bin/fossil http /home/user/repository/ --https --nojail --notfound cd2021 設定的意思為 stunnel 代理啟動的指令為 fossil http, 指定 /home/yser/repository/ 作為倉儲目錄, 可以透過 URL 加上倉儲名稱伺服多個 repo.fossil 倉儲, 隨後的 --https 表示要使用 https 協定擷取資料, --nojail 表示不要使用 root 權限啟動, 且不進入 jail 模式, --notfound cd2021 表示內定  https URL 擷取的倉儲為 /home/user/repository/cd2021.fossil</p>
+<h2>啟動-停止-重新啟動 stunnel4.service</h2>
+<p>sudo systemctl start stunnel4.service</p>
+<p>sudo systemctl stop stunnel4.service</p>
+<p>sutod systemctl restart stunnel4.service</p>
             </section>
 
             <section class="post-info">

@@ -642,6 +642,54 @@ Github, Gitlab 與 Fossil SCM
 
 有關 [Fossil SCM] 的先前參考資料, 可參閱 [Fossil SCM 簡介].
 
+Ubuntu 安裝 fossil scm
+----
+
+使用 sudo apt install fossil 安裝 [Fossil SCM] 所取得的版本可以利用 fossil version 檢查. 若版本並非最新版本或與 Windows 10 所用的版本相同, 可以至 &lt;https://fossil-scm.org/home/uv/download.html&gt; 下載最新的 fossil 後, 以 sudo cp /home/user/fossil /usr/bin/, 然後再透過 fossil version 查驗是否已經更新為最新版本.
+
+安裝 stunnel4
+----
+
+由於 [Fossil SCM] 並無 https 啟動功能的設置, 因此在實作上必須透過 stunnel SSL 代理主機啟動 https 伺服功能.
+
+首先安裝 stunnel4:
+
+sudo apt install stunnel4
+
+接下來將系統環境設為 HTTPS:
+
+sudo vi /etc/environment
+
+加入 HTTPS=on
+
+並且在 /etc/default/stunnel4 中加入 ENABLED=1
+
+然後透過 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt, 在 /etc/stunnel/ 目錄中建立所需的 localhost.key 與 localhost.crt
+
+同時建立 /etc/stunnel/stunnel.conf 如下:
+
+&lt;pre class="brush: jscript"&gt;
+[https]
+accept = your_IPv4_ip:443
+accept = :::443
+cert = /etc/stunnel/localhost.crt
+key = /etc/stunnel/localhost.key
+exec = /usr/bin/fossil
+execargs = /usr/bin/fossil http /home/user/repository/ --https --nojail --notfound cd2021
+&lt;/pre&gt;
+
+execargs = /usr/bin/fossil http /home/user/repository/ --https --nojail --notfound cd2021 設定的意思為 stunnel 代理啟動的指令為 fossil http, 指定 /home/yser/repository/ 作為倉儲目錄, 可以透過 URL 加上倉儲名稱伺服多個 repo.fossil 倉儲, 隨後的 --https 表示要使用 https 協定擷取資料, --nojail 表示不要使用 root 權限啟動, 且不進入 jail 模式, --notfound cd2021 表示內定  https URL 擷取的倉儲為 /home/user/repository/cd2021.fossil
+
+啟動-停止-重新啟動 stunnel4.service
+----
+
+sudo systemctl start stunnel4.service
+
+sudo systemctl stop stunnel4.service
+
+sutod systemctl restart stunnel4.service
+
+
 [Fossil SCM 簡介]: http://mde.tw/2017springcd/blog/intro-fossil-scm.html
 </t>
 <t tx="leo.20210210090616.1"></t>

@@ -594,7 +594,34 @@ from apiclient.http import MediaFileUpload
 &lt;h2&gt;Github, Gitlab 與 Fossil SCM&lt;/h2&gt;
 &lt;p&gt;針對 Github 與 Gitlab 的操作, 可以參考 &lt;a href="https://git-scm.com/book/en/v2"&gt;https://git-scm.com/book/en/v2&lt;/a&gt;, 但是 &lt;a href="https://fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 的參考資料則相對較少, 以下將針對 &lt;a href="https://fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 的應用稍加說明, 為了因應未來上述各種網際免費數位儲存資料系統的更迭, 在近端配置 &lt;a href="https://fossil-scm.org"&gt;Fossil SCM&lt;/a&gt;, 並用 &lt;a href="https://en.wikipedia.org/wiki/Blu-ray_Disc_recordable"&gt;BD-R or BD-RE&lt;/a&gt; (25GB) 進行備份, 也是一個不錯的資料永續儲存方案.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 的使用非常簡單, 只要配合操作系統從 &lt;a href="https://fossil-scm.org/home/uv/download.html"&gt;https://fossil-scm.org/home/uv/download.html&lt;/a&gt; 下載相應版本, 並讓系統可以執行 fossil.exe (以 Windows 10 為例) 即可, 唯一要注意的是若操作過程牽涉兩個不同操作系統, 必須透過 fossil version 查驗雙方的版本是否相同.&lt;/p&gt;
-&lt;p&gt;有關 &lt;a href="https://fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 的先前參考資料, 可參閱 &lt;a href="http://mde.tw/2017springcd/blog/intro-fossil-scm.html"&gt;Fossil SCM 簡介&lt;/a&gt;.&lt;/p&gt;</content><category term="Weblog"></category><category term="202102"></category></entry><entry><title>2021 開春</title><link href="https://mde.tw/lab/blog/starting-2021.html" rel="alternate"></link><published>2021-02-10T11:00:00+08:00</published><updated>2021-02-10T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2021-02-10:/lab/blog/starting-2021.html</id><summary type="html">&lt;p&gt;2021 年伊始, 機器學習的程式從原先簡單的演化, 進展到能夠有效控制具有亂數的決策系統, 科技的發展讓人類的工作更加兩極化, 一方可持續開發指使電腦軟硬體從事工作, 而另一方則幾乎必須完全按照電腦軟硬體的指示與命令行事.&lt;/p&gt;
+&lt;p&gt;有關 &lt;a href="https://fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 的先前參考資料, 可參閱 &lt;a href="http://mde.tw/2017springcd/blog/intro-fossil-scm.html"&gt;Fossil SCM 簡介&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Ubuntu 安裝 fossil scm&lt;/h2&gt;
+&lt;p&gt;使用 sudo apt install fossil 安裝 &lt;a href="https://fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 所取得的版本可以利用 fossil version 檢查. 若版本並非最新版本或與 Windows 10 所用的版本相同, 可以至 &lt;a href="https://fossil-scm.org/home/uv/download.html"&gt;https://fossil-scm.org/home/uv/download.html&lt;/a&gt; 下載最新的 fossil 後, 以 sudo cp /home/user/fossil /usr/bin/, 然後再透過 fossil version 查驗是否已經更新為最新版本.&lt;/p&gt;
+&lt;h2&gt;安裝 stunnel4&lt;/h2&gt;
+&lt;p&gt;由於 &lt;a href="https://fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 並無 https 啟動功能的設置, 因此在實作上必須透過 stunnel SSL 代理主機啟動 https 伺服功能.&lt;/p&gt;
+&lt;p&gt;首先安裝 stunnel4:&lt;/p&gt;
+&lt;p&gt;sudo apt install stunnel4&lt;/p&gt;
+&lt;p&gt;接下來將系統環境設為 HTTPS:&lt;/p&gt;
+&lt;p&gt;sudo vi /etc/environment&lt;/p&gt;
+&lt;p&gt;加入 HTTPS=on&lt;/p&gt;
+&lt;p&gt;並且在 /etc/default/stunnel4 中加入 ENABLED=1&lt;/p&gt;
+&lt;p&gt;然後透過 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt, 在 /etc/stunnel/ 目錄中建立所需的 localhost.key 與 localhost.crt&lt;/p&gt;
+&lt;p&gt;同時建立 /etc/stunnel/stunnel.conf 如下:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+[https]
+accept = your_IPv4_ip:443
+accept = :::443
+cert = /etc/stunnel/localhost.crt
+key = /etc/stunnel/localhost.key
+exec = /usr/bin/fossil
+execargs = /usr/bin/fossil http /home/user/repository/ --https --nojail --notfound cd2021
+&lt;/pre&gt;
+
+&lt;p&gt;execargs = /usr/bin/fossil http /home/user/repository/ --https --nojail --notfound cd2021 設定的意思為 stunnel 代理啟動的指令為 fossil http, 指定 /home/yser/repository/ 作為倉儲目錄, 可以透過 URL 加上倉儲名稱伺服多個 repo.fossil 倉儲, 隨後的 --https 表示要使用 https 協定擷取資料, --nojail 表示不要使用 root 權限啟動, 且不進入 jail 模式, --notfound cd2021 表示內定  https URL 擷取的倉儲為 /home/user/repository/cd2021.fossil&lt;/p&gt;
+&lt;h2&gt;啟動-停止-重新啟動 stunnel4.service&lt;/h2&gt;
+&lt;p&gt;sudo systemctl start stunnel4.service&lt;/p&gt;
+&lt;p&gt;sudo systemctl stop stunnel4.service&lt;/p&gt;
+&lt;p&gt;sutod systemctl restart stunnel4.service&lt;/p&gt;</content><category term="Weblog"></category><category term="202102"></category></entry><entry><title>2021 開春</title><link href="https://mde.tw/lab/blog/starting-2021.html" rel="alternate"></link><published>2021-02-10T11:00:00+08:00</published><updated>2021-02-10T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2021-02-10:/lab/blog/starting-2021.html</id><summary type="html">&lt;p&gt;2021 年伊始, 機器學習的程式從原先簡單的演化, 進展到能夠有效控制具有亂數的決策系統, 科技的發展讓人類的工作更加兩極化, 一方可持續開發指使電腦軟硬體從事工作, 而另一方則幾乎必須完全按照電腦軟硬體的指示與命令行事.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2021 年伊始, 機器學習的程式從原先簡單的演化, 進展到能夠有效控制具有亂數的決策系統, 科技的發展讓人類的工作更加兩極化, 一方可持續開發指使電腦軟硬體從事工作, 而另一方則幾乎必須完全按照電腦軟硬體的指示與命令行事.&lt;/p&gt;
 
 
