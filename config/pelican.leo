@@ -678,6 +678,20 @@ exec = /usr/bin/fossil
 execargs = /usr/bin/fossil http /home/user/repository/ --https --nojail --notfound cd2021
 &lt;/pre&gt;
 
+實際配置下, 使用 :::443 並無法讓 stunnel 綁定至系統的 ipv6 網址, 必須使用:
+
+&lt;pre class="brush: jscript"&gt;
+[https]
+accept = 140.xxx.xxx.xxx:443
+accept = 2001:288:6004:xx::1:443
+cert = /etc/stunnel/localhost.crt
+key = /etc/stunnel/localhost.key
+exec = /usr/bin/fossil
+execargs = /usr/bin/fossil http /home/user/repository/ --https --nojail --notfound cd2021
+&lt;/pre&gt;
+
+似乎 stunnel 會自動取最後的 :443 作為 port, 而無需如 https://[ipv6 address]:443 中以 [] 隔開 ipv6 網址與埠號.
+
 execargs = /usr/bin/fossil http /home/user/repository/ --https --nojail --notfound cd2021 設定的意思為 stunnel 代理啟動的指令為 fossil http, 指定 /home/yser/repository/ 作為倉儲目錄, 可以透過 URL 加上倉儲名稱伺服多個 repo.fossil 倉儲, 隨後的 --https 表示要使用 https 協定擷取資料, --nojail 表示不要使用 root 權限啟動, 且不進入 jail 模式, --notfound cd2021 表示內定  https URL 擷取的倉儲為 /home/user/repository/cd2021.fossil
 
 啟動-停止-重新啟動 stunnel4.service
