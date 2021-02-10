@@ -89,8 +89,9 @@
 <v t="leo.20180115115910.1"><vh>2020</vh>
 <v t="leo.20180423103639.1"><vh>lab.mde.tw</vh>
 <v t="yen.20200518070950.1"><vh>@clean 20200509.md</vh>
-<v t="yen.20200518101418.1"><vh>CMSiMDE 網站與網誌</vh></v>
+<v t="yen.20200518101418.1"><vh>CMSiMDE 網站與網誌</vh>
 <v t="yen.20200518115111.1"><vh>6590225703398928368</vh></v>
+</v>
 </v>
 <v t="yen.20200518071032.1"><vh>@clean 20200511.md</vh>
 <v t="yen.20200518105911.1"><vh>以 ssh 進行倉儲維護</vh></v>
@@ -153,6 +154,15 @@
 <v t="leo.20210210040226.1"><vh>mblogger</vh>
 <v t="leo.20210210034636.1"><vh>7059676961344698606</vh></v>
 </v>
+</v>
+</v>
+<v t="leo.20210210041040.1"><vh>@clean 20200210-1.md</vh>
+<v t="leo.20210210041539.1"><vh>資料儲存的永續性</vh></v>
+<v t="leo.20210210090621.1"><vh>kblogger</vh>
+<v t="leo.20210210090616.1"><vh>8984536477325368541</vh></v>
+</v>
+<v t="leo.20210210090743.1"><vh>mblogger</vh>
+<v t="leo.20210210090739.1"><vh>9047840174442464443</vh></v>
 </v>
 </v>
 </v>
@@ -457,6 +467,178 @@ except(client.AccessTokenRefreshError):
 <t tx="leo.20210210034636.1"></t>
 <t tx="leo.20210210040142.1"></t>
 <t tx="leo.20210210040226.1"></t>
+<t tx="leo.20210210041040.1">@language md
+---
+Title: 資料儲存的永續性
+Date: 2021-02-10 11:10
+Category: Weblog
+Tags: 202102
+Slug: data-sustainablity
+Author: yen
+---
+
+假如將時間倒轉 20 年, 看看當時的電腦程式課程在教些什麼? 大家是如何上課, 結果應該會讓現在這些初出茅廬, 剛剛成年的大一生非常驚訝. 是的, 當年並沒有人手一機, 上課是需要抄筆記的......
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20210210041539.1">而且當時全球科技界正度過所謂的千禧年之禍, 利用電腦程式產生中文字仍處於 Big-5 的陰影下, 倚天中文仍然到處可見, 即使處在所謂的數位科技前緣, 某些人手上已經有小而美的易利信手機, 口袋裡也放著一個由 HTC 打造的頗有重量 HP [PDA], 但所謂數位資料的永續性, 距離仍然很遠, 因此二十年多年後, 當時能留下與上課有關的數位資料非常有限.
+
+[PDA]: https://en.wikipedia.org/wiki/Personal_digital_assistant
+[Openshift]: https://en.wikipedia.org/wiki/Heroku
+[Heroku]: https://en.wikipedia.org/wiki/Heroku
+
+之後就在 Google 逐漸成熟, 而 Facebook 騰空出世 7 年後的 2011年, Red Hat 推出可以免費使用的 [Openshift], 不僅能夠伺服 PHP 與 Python, 還可免費存放各種數位資料, 當時以為資料終於可以永續存放的假象, 到 2016 年夢想逐漸破滅, 還好 2016 年之後有 Github 接手, Heroku 也很意外地從 2007 年活到現在, 目前, Github 與 Heroku (只能儲存 500 MB), 加上 Gitlab 的同步資料備份與 Google Drive 上的大檔案存放, 全球網友前撲後繼用隱私換取數位資料免費存放的所謂永續性,  似乎終於有了眉目.
+
+目前教育版的 Google Drive 仍不限容量, 但也許未來的某一天這樣的所謂永續仍會畫上休止符, 大家仍必須有所因應.
+
+資料存至 Google Drive
+----
+
+從 &lt;https://github.com/mdecourse/cd2020pj1/blob/master/myflaskapp.py&gt; 可以看出如何利用 Google Drive API, 在網際環境中將數位檔案送到特定伺服器之外, 還能利用 AJAX 存備份至特定 Google Drive 目錄.
+
+&lt;pre class="brush: python"&gt;
+@app.route('/saveToDB' , methods=['POST'])
+@login_required
+def saveToDB():
+
+    """axuploader.js 將檔案上傳後, 將上傳檔案名稱數列, 以 post 回傳到 Flask server.
+    
+    截至這裡, 表示檔案已經從 client 上傳至 server, 可以再設法通過認證, 將 server 上的檔案上傳到對應的 Google Drive, 並且在上傳後的 GDrive 目錄, 設定特定擷取權限 (例如: 只允許 @gm 用戶下載.
+    以下則可將 server 上傳後的擷取目錄與 GDrive 各檔案 ID 存入資料庫, 而檔案擷取則分為 server 擷取與 GDrive 擷取等兩種 url 連結設定
+    """
+
+    if request.method == "POST":
+        files = request.form["files"]
+        # split files string
+        files = files.split(",")
+        # files 為上傳檔案名稱所組成的數列
+        for i in range(len(files)):
+            # 逐一將已經存在 server downloads 目錄的檔案, 上傳到 GDrive uploaded 目錄
+            fileName = files[i]
+            fileLocation = _curdir + "/downloads/" + fileName
+            mimeType = mimetypes.MimeTypes().guess_type(fileLocation)[0]
+            # for GDrive v2
+            #gdriveID = uploadToGdrive(fileName, mimeType)
+            # for GDrive v3
+            gdriveID = uploadToGdrive3(fileName, mimeType)
+            fileSize = str(round(os.path.getsize(fileLocation)/(1024*1024.0), 2)) + " MB"
+            date = datetime.datetime.now().strftime("%b %d, %Y - %H:%M:%S")
+            user = session.get("user")
+            print(user + "|" + str(fileSize) + "|" + str(mimeType) + "|"  + gdriveID)
+            # 逐一將上傳檔案名稱存入資料庫, 同時存入mimeType, fileSize 與 gdriveID
+            # 資料庫欄位
+            #g.db.execute('insert into grouping (user , date, fileName, mimeType, fileSize, memo) values (?, ?, ?, ?, ?, ?)',(user, date, fileName, mimeType, fileSize, "memo"))
+            #g.db.commit()
+            #flash('已經新增一筆 upload 資料!')
+    return "Uploaded fileName and gdriveID save to database"
+def uploadToGdrive(fileName, mimeType):
+    gauth = GoogleAuth()
+    # 必須使用 desktop 版本的 client_secrets.json
+    gauth.LoadClientConfigFile("./../gdrive_desktop_client_secrets.json")
+    drive = GoogleDrive(gauth)
+    
+    '''
+    # View all folders and file in your Google Drive
+    fileList = drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
+    for file in fileList:
+      print('Title: %s, ID: %s' % (file['title'], file['id']))
+      # Get the folder ID that you want
+      # 檔案會上傳到根目錄下的 uploaded  目錄中
+      if(file['title'] == "uploaded"):
+          fileID = file['id']
+    '''
+    # GDrive 上 uploaded 目錄的 fileID
+    with open("./../gdrive_uploaded_id.txt", 'r') as content_file:
+        fileID = content_file.read()
+    
+    # 由上述目錄外的檔案讀取 uploaded 目錄對應 ID
+    #fileID = "your_folder_file_ID"
+    # 上傳檔案名稱為輸入變數
+    #fileName = "DemoFile.pdf"
+    filePath = _curdir + "/downloads/"
+    # parents 為所在 folder, 亦即 uploaded 目錄, fileID 為 uploaded 目錄的 ID
+    file1 = drive.CreateFile({"mimeType": mimeType, "parents": [{"kind": "drive#fileLink", "id": fileID}], "title":  fileName})
+    file1.SetContentFile(filePath + fileName)
+    file1.Upload() # Upload the file.
+    # 傳回與上傳檔案對應的 GDrive ID, 將會存入資料庫 gdiveID 欄位
+    return file1['id']
+    #print('Created file %s with mimeType %s' % (file1['title'], file1['mimeType']))   
+    #print("upload fileID:" + str(file1['id']))
+    # 以下為下載檔案測試
+    # file2 = drive.CreateFile({'id': file1['id']})
+    #file2.GetContentFile('./test/downloaded_ModernC.pdf') # Download file as 'downloaded_ModernC.pdf under directory test'.
+    
+    '''
+    file1.Trash()  # Move file to trash.
+    file1.UnTrash()  # Move file out of trash.
+    file1.Delete()  # Permanently delete the file.
+    '''
+def uploadToGdrive3(fileName, mimeType):
+    # get upload folder id
+    # GDrive 上 uploaded 目錄的 fileID
+    with open("./../gdrive_uploaded_id.txt", 'r') as content_file:
+        folderID = content_file.read()
+
+    creds = None
+    with open('./../gdrive_write_token.pickle', 'rb') as token:
+        creds = pickle.load(token)
+    # 讀進既有的 token, 建立 service
+    driveService = build('drive', 'v3', credentials=creds)
+
+    metadata = {
+        'name': fileName,
+        'mimeType': mimeType,
+        # 注意: 必須提供數列格式資料
+        'parents': [folderID]
+        }
+
+    filePath = _curdir + "/downloads/" + fileName
+    media = MediaFileUpload(filePath,
+                                            mimetype=mimeType,
+                                            chunksize=1024*1024,
+                                            resumable=True
+                                            )
+
+    gdFile = driveService.files().create(
+        body=metadata,
+        media_body=media,
+        fields='id'
+    ).execute()
+    fileID = gdFile.get("id")
+
+    return fileID
+&lt;/pre&gt;
+
+上述程式利用較新的 GDrive V3 上傳資料之前, 可攜系統必須安裝 google-api-python-client:
+
+&lt;pre class="brush:python"&gt;
+# for uploadToGDrive3
+# pip install google-api-python-client
+# https://github.com/googleapis/google-api-python-client
+import pickle
+from googleapiclient.discovery import build
+from apiclient.http import MediaFileUpload
+&lt;/pre&gt;
+
+[Fossil SCM]: https://fossil-scm.org
+[BD-R or BD-RE]: https://en.wikipedia.org/wiki/Blu-ray_Disc_recordable
+
+Github, Gitlab 與 Fossil SCM
+----
+
+針對 Github 與 Gitlab 的操作, 可以參考 &lt;https://git-scm.com/book/en/v2&gt;, 但是 [Fossil SCM] 的參考資料則相對較少, 以下將針對 [Fossil SCM] 的應用稍加說明, 為了因應未來上述各種網際免費數位儲存資料系統的更迭, 在近端配置 [Fossil SCM], 並用 [BD-R or BD-RE] (25GB) 進行備份, 也是一個不錯的資料永續儲存方案.
+
+[Fossil SCM] 的使用非常簡單, 只要配合操作系統從 &lt;https://fossil-scm.org/home/uv/download.html&gt; 下載相應版本, 並讓系統可以執行 fossil.exe (以 Windows 10 為例) 即可, 唯一要注意的是若操作過程牽涉兩個不同操作系統, 必須透過 fossil version 查驗雙方的版本是否相同.
+
+有關 [Fossil SCM] 的先前參考資料, 可參閱 [Fossil SCM 簡介].
+
+[Fossil SCM 簡介]: http://mde.tw/2017springcd/blog/intro-fossil-scm.html
+</t>
+<t tx="leo.20210210090616.1"></t>
+<t tx="leo.20210210090621.1"></t>
+<t tx="leo.20210210090739.1"></t>
+<t tx="leo.20210210090743.1"></t>
 <t tx="leo.20210210102942.1">@language md
 ---
 Title: 2021 開春

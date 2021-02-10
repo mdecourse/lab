@@ -1,5 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>mde.tw/lab 網誌</title><link href="https://mde.tw/lab/blog/" rel="alternate"></link><link href="https://mde.tw/lab/blog/feeds/all.atom.xml" rel="self"></link><id>https://mde.tw/lab/blog/</id><updated>2021-02-10T11:00:00+08:00</updated><entry><title>2021 開春</title><link href="https://mde.tw/lab/blog/starting-2021.html" rel="alternate"></link><published>2021-02-10T11:00:00+08:00</published><updated>2021-02-10T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2021-02-10:/lab/blog/starting-2021.html</id><summary type="html">&lt;p&gt;2021 年伊始, 機器學習的程式從原先簡單的演化, 進展到能夠有效控制具有亂數的決策系統, 科技的發展讓人類的工作更加兩極化, 一方可持續開發指使電腦軟硬體從事工作, 而另一方則幾乎必須完全按照電腦軟硬體的指示與命令行事.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>mde.tw/lab 網誌</title><link href="https://mde.tw/lab/blog/" rel="alternate"></link><link href="https://mde.tw/lab/blog/feeds/all.atom.xml" rel="self"></link><id>https://mde.tw/lab/blog/</id><updated>2021-02-10T11:10:00+08:00</updated><entry><title>資料儲存的永續性</title><link href="https://mde.tw/lab/blog/data-sustainablity.html" rel="alternate"></link><published>2021-02-10T11:10:00+08:00</published><updated>2021-02-10T11:10:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2021-02-10:/lab/blog/data-sustainablity.html</id><summary type="html">&lt;p&gt;假如將時間倒轉 20 年, 看看當時的電腦程式課程在教些什麼? 大家是如何上課, 結果應該會讓現在這些初出茅廬, 剛剛成年的大一生非常驚訝. 是的, 當年並沒有人手一機, 上課是需要抄筆記的......&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;假如將時間倒轉 20 年, 看看當時的電腦程式課程在教些什麼? 大家是如何上課, 結果應該會讓現在這些初出茅廬, 剛剛成年的大一生非常驚訝. 是的, 當年並沒有人手一機, 上課是需要抄筆記的......&lt;/p&gt;
+
+
+&lt;p&gt;而且當時全球科技界正度過所謂的千禧年之禍, 利用電腦程式產生中文字仍處於 Big-5 的陰影下, 倚天中文仍然到處可見, 即使處在所謂的數位科技前緣, 某些人手上已經有小而美的易利信手機, 口袋裡也放著一個由 HTC 打造的頗有重量 HP &lt;a href="https://en.wikipedia.org/wiki/Personal_digital_assistant"&gt;PDA&lt;/a&gt;, 但所謂數位資料的永續性, 距離仍然很遠, 因此二十年多年後, 當時能留下與上課有關的數位資料非常有限.&lt;/p&gt;
+&lt;p&gt;之後就在 Google 逐漸成熟, 而 Facebook 騰空出世 7 年後的 2011年, Red Hat 推出可以免費使用的 &lt;a href="https://en.wikipedia.org/wiki/Heroku"&gt;Openshift&lt;/a&gt;, 不僅能夠伺服 PHP 與 Python, 還可免費存放各種數位資料, 當時以為資料終於可以永續存放的假象, 到 2016 年夢想逐漸破滅, 還好 2016 年之後有 Github 接手, Heroku 也很意外地從 2007 年活到現在, 目前, Github 與 Heroku (只能儲存 500 MB), 加上 Gitlab 的同步資料備份與 Google Drive 上的大檔案存放, 全球網友前撲後繼用隱私換取數位資料免費存放的所謂永續性,  似乎終於有了眉目.&lt;/p&gt;
+&lt;p&gt;目前教育版的 Google Drive 仍不限容量, 但也許未來的某一天這樣的所謂永續仍會畫上休止符, 大家仍必須有所因應.&lt;/p&gt;
+&lt;h2&gt;資料存至 Google Drive&lt;/h2&gt;
+&lt;p&gt;從 &lt;a href="https://github.com/mdecourse/cd2020pj1/blob/master/myflaskapp.py"&gt;https://github.com/mdecourse/cd2020pj1/blob/master/myflaskapp.py&lt;/a&gt; 可以看出如何利用 Google Drive API, 在網際環境中將數位檔案送到特定伺服器之外, 還能利用 AJAX 存備份至特定 Google Drive 目錄.&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+@app.route('/saveToDB' , methods=['POST'])
+@login_required
+def saveToDB():
+
+    """axuploader.js 將檔案上傳後, 將上傳檔案名稱數列, 以 post 回傳到 Flask server.
+
+    截至這裡, 表示檔案已經從 client 上傳至 server, 可以再設法通過認證, 將 server 上的檔案上傳到對應的 Google Drive, 並且在上傳後的 GDrive 目錄, 設定特定擷取權限 (例如: 只允許 @gm 用戶下載.
+    以下則可將 server 上傳後的擷取目錄與 GDrive 各檔案 ID 存入資料庫, 而檔案擷取則分為 server 擷取與 GDrive 擷取等兩種 url 連結設定
+    """
+
+    if request.method == "POST":
+        files = request.form["files"]
+        # split files string
+        files = files.split(",")
+        # files 為上傳檔案名稱所組成的數列
+        for i in range(len(files)):
+            # 逐一將已經存在 server downloads 目錄的檔案, 上傳到 GDrive uploaded 目錄
+            fileName = files[i]
+            fileLocation = _curdir + "/downloads/" + fileName
+            mimeType = mimetypes.MimeTypes().guess_type(fileLocation)[0]
+            # for GDrive v2
+            #gdriveID = uploadToGdrive(fileName, mimeType)
+            # for GDrive v3
+            gdriveID = uploadToGdrive3(fileName, mimeType)
+            fileSize = str(round(os.path.getsize(fileLocation)/(1024*1024.0), 2)) + " MB"
+            date = datetime.datetime.now().strftime("%b %d, %Y - %H:%M:%S")
+            user = session.get("user")
+            print(user + "|" + str(fileSize) + "|" + str(mimeType) + "|"  + gdriveID)
+            # 逐一將上傳檔案名稱存入資料庫, 同時存入mimeType, fileSize 與 gdriveID
+            # 資料庫欄位
+            #g.db.execute('insert into grouping (user , date, fileName, mimeType, fileSize, memo) values (?, ?, ?, ?, ?, ?)',(user, date, fileName, mimeType, fileSize, "memo"))
+            #g.db.commit()
+            #flash('已經新增一筆 upload 資料!')
+    return "Uploaded fileName and gdriveID save to database"
+def uploadToGdrive(fileName, mimeType):
+    gauth = GoogleAuth()
+    # 必須使用 desktop 版本的 client_secrets.json
+    gauth.LoadClientConfigFile("./../gdrive_desktop_client_secrets.json")
+    drive = GoogleDrive(gauth)
+
+    '''
+    # View all folders and file in your Google Drive
+    fileList = drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
+    for file in fileList:
+      print('Title: %s, ID: %s' % (file['title'], file['id']))
+      # Get the folder ID that you want
+      # 檔案會上傳到根目錄下的 uploaded  目錄中
+      if(file['title'] == "uploaded"):
+          fileID = file['id']
+    '''
+    # GDrive 上 uploaded 目錄的 fileID
+    with open("./../gdrive_uploaded_id.txt", 'r') as content_file:
+        fileID = content_file.read()
+
+    # 由上述目錄外的檔案讀取 uploaded 目錄對應 ID
+    #fileID = "your_folder_file_ID"
+    # 上傳檔案名稱為輸入變數
+    #fileName = "DemoFile.pdf"
+    filePath = _curdir + "/downloads/"
+    # parents 為所在 folder, 亦即 uploaded 目錄, fileID 為 uploaded 目錄的 ID
+    file1 = drive.CreateFile({"mimeType": mimeType, "parents": [{"kind": "drive#fileLink", "id": fileID}], "title":  fileName})
+    file1.SetContentFile(filePath + fileName)
+    file1.Upload() # Upload the file.
+    # 傳回與上傳檔案對應的 GDrive ID, 將會存入資料庫 gdiveID 欄位
+    return file1['id']
+    #print('Created file %s with mimeType %s' % (file1['title'], file1['mimeType']))   
+    #print("upload fileID:" + str(file1['id']))
+    # 以下為下載檔案測試
+    # file2 = drive.CreateFile({'id': file1['id']})
+    #file2.GetContentFile('./test/downloaded_ModernC.pdf') # Download file as 'downloaded_ModernC.pdf under directory test'.
+
+    '''
+    file1.Trash()  # Move file to trash.
+    file1.UnTrash()  # Move file out of trash.
+    file1.Delete()  # Permanently delete the file.
+    '''
+def uploadToGdrive3(fileName, mimeType):
+    # get upload folder id
+    # GDrive 上 uploaded 目錄的 fileID
+    with open("./../gdrive_uploaded_id.txt", 'r') as content_file:
+        folderID = content_file.read()
+
+    creds = None
+    with open('./../gdrive_write_token.pickle', 'rb') as token:
+        creds = pickle.load(token)
+    # 讀進既有的 token, 建立 service
+    driveService = build('drive', 'v3', credentials=creds)
+
+    metadata = {
+        'name': fileName,
+        'mimeType': mimeType,
+        # 注意: 必須提供數列格式資料
+        'parents': [folderID]
+        }
+
+    filePath = _curdir + "/downloads/" + fileName
+    media = MediaFileUpload(filePath,
+                                            mimetype=mimeType,
+                                            chunksize=1024*1024,
+                                            resumable=True
+                                            )
+
+    gdFile = driveService.files().create(
+        body=metadata,
+        media_body=media,
+        fields='id'
+    ).execute()
+    fileID = gdFile.get("id")
+
+    return fileID
+&lt;/pre&gt;
+
+&lt;p&gt;上述程式利用較新的 GDrive V3 上傳資料之前, 可攜系統必須安裝 google-api-python-client:&lt;/p&gt;
+&lt;pre class="brush:python"&gt;
+# for uploadToGDrive3
+# pip install google-api-python-client
+# https://github.com/googleapis/google-api-python-client
+import pickle
+from googleapiclient.discovery import build
+from apiclient.http import MediaFileUpload
+&lt;/pre&gt;
+
+&lt;h2&gt;Github, Gitlab 與 Fossil SCM&lt;/h2&gt;
+&lt;p&gt;針對 Github 與 Gitlab 的操作, 可以參考 &lt;a href="https://git-scm.com/book/en/v2"&gt;https://git-scm.com/book/en/v2&lt;/a&gt;, 但是 &lt;a href="https://fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 的參考資料則相對較少, 以下將針對 &lt;a href="https://fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 的應用稍加說明, 為了因應未來上述各種網際免費數位儲存資料系統的更迭, 在近端配置 &lt;a href="https://fossil-scm.org"&gt;Fossil SCM&lt;/a&gt;, 並用 &lt;a href="https://en.wikipedia.org/wiki/Blu-ray_Disc_recordable"&gt;BD-R or BD-RE&lt;/a&gt; (25GB) 進行備份, 也是一個不錯的資料永續儲存方案.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 的使用非常簡單, 只要配合操作系統從 &lt;a href="https://fossil-scm.org/home/uv/download.html"&gt;https://fossil-scm.org/home/uv/download.html&lt;/a&gt; 下載相應版本, 並讓系統可以執行 fossil.exe (以 Windows 10 為例) 即可, 唯一要注意的是若操作過程牽涉兩個不同操作系統, 必須透過 fossil version 查驗雙方的版本是否相同.&lt;/p&gt;
+&lt;p&gt;有關 &lt;a href="https://fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 的先前參考資料, 可參閱 &lt;a href="http://mde.tw/2017springcd/blog/intro-fossil-scm.html"&gt;Fossil SCM 簡介&lt;/a&gt;.&lt;/p&gt;</content><category term="Weblog"></category><category term="202102"></category></entry><entry><title>2021 開春</title><link href="https://mde.tw/lab/blog/starting-2021.html" rel="alternate"></link><published>2021-02-10T11:00:00+08:00</published><updated>2021-02-10T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2021-02-10:/lab/blog/starting-2021.html</id><summary type="html">&lt;p&gt;2021 年伊始, 機器學習的程式從原先簡單的演化, 進展到能夠有效控制具有亂數的決策系統, 科技的發展讓人類的工作更加兩極化, 一方可持續開發指使電腦軟硬體從事工作, 而另一方則幾乎必須完全按照電腦軟硬體的指示與命令行事.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2021 年伊始, 機器學習的程式從原先簡單的演化, 進展到能夠有效控制具有亂數的決策系統, 科技的發展讓人類的工作更加兩極化, 一方可持續開發指使電腦軟硬體從事工作, 而另一方則幾乎必須完全按照電腦軟硬體的指示與命令行事.&lt;/p&gt;
 
 
