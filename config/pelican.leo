@@ -714,11 +714,11 @@ Author: yen
 <t tx="leo.20210210103150.1">這樣的發展似乎已經沒了退路.</t>
 <t tx="leo.20210210113926.1">@language md
 ---
-Title: Pelican 與 Blogger 內容同步
+Title: Pelican 與 Blogger 內容同步2
 Date: 2021-02-10 11:20
 Category: Weblog
 Tags: 202102
-Slug: sync-pelican-and-blogger-content
+Slug: sync-pelican-and-blogger-content2
 Author: yen
 ---
 

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>打造 Windows 隨身程式系統</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+  <link href="https://mde.tw/lab/blog/" rel="canonical" />
+
+  <!-- Feed -->
+        <link href="https://mde.tw/lab/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="mde.tw/lab 網誌 Full Atom Feed" />
+          <link href="https://mde.tw/lab/blog/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="mde.tw/lab 網誌 Categories Atom Feed" />
+
+  <link href="https://mde.tw/lab/blog/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="https://mde.tw/lab/blog/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
+
+  
+    <link href="https://mde.tw/lab/blog/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+    <link href="https://mde.tw/lab/blog/create-portable-win-prog-sys.html" rel="canonical" />
+
+        <meta name="description" content="在 Windows 操作系統上開發套件, 不僅希望這個套件能夠在 Mac OS X 與 Linux 上運行, 而且整個程式環境都能放入一個 USB 隨身碟, 在任何一台乾淨的 64 位元 Windows 10 操作系統中都能正常運行. 不受限制, 因此需要打造一個隨身程式系統.">
+
+        <meta name="author" content="yen">
+
+        <meta name="tags" content="Portable_system">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="mde.tw/lab 網誌"/>
+<meta property="og:title" content="打造 Windows 隨身程式系統"/>
+<meta property="og:description" content="在 Windows 操作系統上開發套件, 不僅希望這個套件能夠在 Mac OS X 與 Linux 上運行, 而且整個程式環境都能放入一個 USB 隨身碟, 在任何一台乾淨的 64 位元 Windows 10 操作系統中都能正常運行. 不受限制, 因此需要打造一個隨身程式系統."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://mde.tw/lab/blog/create-portable-win-prog-sys.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-05-12 11:00:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://mde.tw/lab/blog/author/yen.html">
+<meta property="article:section" content="Windows"/>
+<meta property="article:tag" content="Portable_system"/>
+<meta property="og:image" content="https://mde.tw/lab/blog/theme/images/post-bg.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "打造 Windows 隨身程式系統",
+  "headline": "打造 Windows 隨身程式系統",
+  "datePublished": "2020-05-12 11:00:00+08:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "yen",
+    "url": "https://mde.tw/lab/blog/author/yen.html"
+  },
+  "image": "https://mde.tw/lab/blog/theme/images/post-bg.jpg",
+  "url": "https://mde.tw/lab/blog/create-portable-win-prog-sys.html",
+  "description": "在 Windows 操作系統上開發套件, 不僅希望這個套件能夠在 Mac OS X 與 Linux 上運行, 而且整個程式環境都能放入一個 USB 隨身碟, 在任何一台乾淨的 64 位元 Windows 10 操作系統中都能正常運行. 不受限制, 因此需要打造一個隨身程式系統."
+}
+</script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "./../cmsimde/static/syntaxhighlighter/css/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "./../cmsimde/static/syntaxhighlighter/css/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+
+<!-- for LaTeX equations -->
+<script src="https://scrum-3.github.io/web/math/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+    <!--
+
+              <li role="presentation"><a href="https://mde.tw/lab/blog/pages/about/">About</a></li>
+      -->
+
+            <li><a href="https://mde.tw/lab/blog/pages/about/index.html">About</span></a></li>
+            
+            <li><a href="https://mde.tw/lab/blog/archives.html">Archives</span></a></li>
+            
+            <li><a href="https://mde.tw/lab/blog/categories.html">Categories</span></a></li>
+            
+            <li><a href="https://mde.tw/lab/blog/tags.html">Tags</span></a></li>
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="https://mde.tw/lab/blog/index.html" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">打造 Windows 隨身程式系統</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="https://mde.tw/lab/blog/author/yen.html">Yen</a>
+            | <time datetime="週二 12 五月 2020">週二 12 五月 2020</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="background-image: url('https://mde.tw/lab/blog/theme/images/post-bg.jpg')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+<section class="search">
+      <form class="navbar-search" action="https://mde.tw/lab/blog/search.html">
+      <input type="text"  placeholder="Search" name="q" id="tipue_search_input" required>
+    </form>
+</section>
+
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <p>在 Windows 操作系統上開發套件, 不僅希望這個套件能夠在 Mac OS X 與 Linux 上運行, 而且整個程式環境都能放入一個 USB 隨身碟, 在任何一台乾淨的 64 位元 Windows 10 操作系統中都能正常運行. 不受限制, 因此需要打造一個隨身程式系統.</p>
+
+
+<h2>啟動批次檔案</h2>
+<p>從以下這個 start.bat 批次啟動檔案, 大致可以看出此一可攜程式系統所包含的內容:</p>
+<pre class="brush: jscript">
+@echo off
+set Disk=y
+subst %Disk%: "data"
+
+%Disk%:
+
+set HomePath=%Disk%:\home_no_proxy
+set HomeDrive=%Disk%:\home_no_proxy
+set Home=%Disk%:\home_no_proxy
+set USERPROFILE=%Disk%:\home_no_proxy
+
+REM 將系統 Python 程式的 io 設為 utf-8
+set PYTHONIOENCODING="utf-8"
+
+set PYTHONPATH=%Disk%:\Python38\DLLs;%Disk%:\Python38\Lib;%Disk%:\Python38\Lib\site-packages;
+set PYTHONHOME=%Disk%:\Python38
+
+REM for Java and Android SDK
+set java_home=%Disk%:\java\jdk8u222-b10
+set ANDROID_SDK_home=%Disk%:\home_no_proxy
+set GRADLE_USER_home=%Disk%:\home_no_proxy
+set ANDROID_SDK_ROOT=%Disk%:\android\sdk
+set ANDROID_Home=%Disk%:\android\sdk
+set REPO_OS_OVERRIDE=windows
+
+REM 設定跟 Python 有關的命令搜尋路徑
+set path_python=%Disk%:\Python38;%Disk%:\Python38\Scripts;
+REM 設定跟Git 有關的命令搜尋路徑
+set path_git=%Disk%:\portablegit\bin;
+REM 設定 msys2 64 位元的執行路徑
+set path_msys2=%Disk%:\msys64\mingw64\bin;
+REM set for LaTeX
+set path_miketex=%Disk%:\miktex-portable\texmfs\install\miktex\bin\x64;
+REM Flutter path
+set path_flutter=%Disk%:\flutter\bin;%java_home%\bin;%Disk%:\Android\sdk;%Disk%:\Android\sdk\tools;%Disk%:\Android\sdk\tools\bin;%Disk%:\Android\sdk\emulator;%Disk%:\Android\sdk\platform-tools;%Disk%:\flutter\bin\cache\dart-sdk\bin;%Disk%:\vscode;
+
+path=%Disk%:;%path_python%;%path_git%;%path_msys2%;%path_miketex%;%path_flutter%;%path%;
+
+start /MIN cmd.exe
+start /MIN cmd.exe
+start /MIN cmd.exe
+start /MIN cmd.exe
+
+start /MIN %Disk%:\wScite\SciTE.exe
+start /MIN %Disk%:\wScite\SciTE.exe
+
+Exit
+</pre>
+
+<p>關閉隨身系統的批次檔案 stop.bat, 只將 python, scite 與 dos 命令列關閉, 若需要關閉其他可能開啟的套件, 可以自行加入:</p>
+<pre class="brush: jscript">
+@echo off
+set Disk=y
+path=%PATH%;
+
+taskkill /IM python.exe /F
+taskkill /IM pythonw.exe /F
+
+taskkill /IM scite.exe /F
+
+REM 終止虛擬硬碟與目錄的對應
+subst %Disk%: /D
+REM 關閉 cmd 指令視窗
+taskkill /IM cmd.exe /F
+
+EXIT
+</pre>
+
+<p>此一隨身系統安裝配置以 <a href="https://www.msys2.org/">MSYS2</a> 與 <a href="https://flutter.dev/">Flutter</a> 較具挑戰性.</p>
+<h2><a href="https://www.msys2.org/">MSYS2</a></h2>
+<p>首先與 <a href="https://www.msys2.org/">MSYS2</a> 的代理主機設定位於 Y:\msys64\etc\wgetrc. 接下來為了可以編譯 C++ 程式, 必須安裝</p>
+<pre class="brush: jscript">
+pacman -S mingw-w64-x86_64-gcc
+</pre>
+
+<p>與</p>
+<pre class="brush: jscript">
+pacman -S mingw-w64-x86_64-toolchain
+</pre>
+
+<p>而列出 <a href="https://www.msys2.org/">MSYS2</a> 中所安裝的模組:</p>
+<pre class="brush: jscript">
+pacman -Q
+</pre>
+
+<p>為了編譯 [Range3], 必須額外安裝:</p>
+<pre class="brush: jscript">
+pacman -S mingw-w64-x86_64-ffmpeg
+
+pacman -S mingw-w64-x86_64-qt5
+
+pacman -S mingw-w64-x86_64-qt5-static
+</pre>
+
+<h2>編譯 Range3</h2>
+<p>git clone https://github.com/Range-Software/range3.git</p>
+<p>start Y:\msys64\mingw64.exe</p>
+<p>cd \y\tmp\fem_ex\range3</p>
+<p>./scripts/build.sh --clean &amp;&amp; ./scripts/create_package.sh</p>
+<p>而為了讓 svg 格式的 icons 能夠正確顯示, 必須納入 Qt5Svg.dll</p>
+<h2>Flutter</h2>
+<p>至於現階段 <a href="https://flutter.dev/">Flutter</a> 的安裝配置問題源自 <a href="https://developer.android.com/studio">Android</a> sdk 的最新版 tools 與最新版的 <a href="https://flutter.dev/">Flutter</a> 並不相容. 具體原因是: 目前的 <a href="https://flutter.dev/">Flutter</a> 必須使用舊版的 <a href="https://developer.android.com/studio">Android</a> sdk 中的舊版 tools.</p>
+<p>使用者若從 <a href="https://developer.android.com/studio">Android</a> 官方網站下載 tools 工具, 試圖與 <a href="https://flutter.dev/">Flutter</a> 配合, 將會在執行:</p>
+<pre class="brush: jscript">
+flutter doctor
+</pre>
+
+<p>時將出現 Android sdk licenses 尚未完成.  但是若再以:</p>
+<pre class="brush: jscript">
+flutter doctor --android-licenses
+</pre>
+
+<p>就會出現 Java setting 錯誤.</p>
+<h2>解決方案</h2>
+<p>處理上述 <a href="https://flutter.dev/">Flutter</a> 與最新版 <a href="https://developer.android.com/studio">Android</a> 無法相容的問題, 必須借助:</p>
+<pre class="brush: jscript">
+sdkmanager --sdk_root=y:\android\sdk tools
+</pre>
+
+<p>安裝舊版的 <a href="https://developer.android.com/studio">Android</a> sdk tools, 問題是 sdkmanager 工具就位於 tools 目錄中, 因此必須先將新版的 tools 目錄改名為 tools_new, 並配合將 tools_new/bin 設為 start.bat 中的 PATH, 可攜系統啟動後, 以:</p>
+<pre class="brush: jscript">
+sdkmanager --sdk_root=y:\android\sdk tools
+</pre>
+
+<p>安裝舊版的 <a href="https://developer.android.com/studio">Android</a> sdk tools 後, 再將 PATH 路徑改為舊版 tools/bin.</p>
+<p>之後再以</p>
+<pre class="brush: jscript">
+flutter doctor --android-licenses
+</pre>
+
+<p>同意使用授權後, 就可以接續進行 Flutter 套件的開發.</p>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=打造 Windows 隨身程式系統&amp;url=https://mde.tw/lab/blog/create-portable-win-prog-sys.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://mde.tw/lab/blog/create-portable-win-prog-sys.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=https://mde.tw/lab/blog/create-portable-win-prog-sys.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="https://mde.tw/lab/blog/tag/portable_system.html">Portable_system</a>                </aside>
+
+                <div class="clear"></div>
+
+
+                </section>
+
+                <script type="text/javascript">
+                    var disqus = 'kmolab-github';
+                    var disqus_shortname = 'kmolab-github';
+                    var disqus_identifier = '/create-portable-win-prog-sys.html';
+                    var disqus_url = 'https://mde.tw/lab/blog/create-portable-win-prog-sys.html';
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+                <section class="post-comments">
+                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="/create-portable-win-prog-sys.html" >Show Comments</a>
+                    <div id="disqus_thread"></div>
+                </section>
+
+                <aside class="post-nav">
+                    <a class="post-nav-next" href="https://mde.tw/lab/blog/use-github-and-gitlab-pages.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-left"></i>
+                                <h2 class="post-nav-title">gitlab 與 github 整合運用</h2>
+                            <p class="post-nav-excerpt">由於 github 遲遲不推出支援 IPv6 網站的連線功能, 目前若要在電腦輔助設計室直接透過純 IPv6 網路連線使用 git 分散式版次管理系統, 可以將...</p>
+                        </section>
+                    </a>
+                    <a class="post-nav-prev" href="https://mde.tw/lab/blog/manage-your-cmsimde-site.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-right"></i>
+                                <h2 class="post-nav-title">倉儲資料維護與管理</h2>
+                            <p class="post-nav-excerpt">cd2020 是 2020 春季協同產品設計實習的課程網站, 而 cd2020pj1 則是與協同設計課程相關的程式專案, 兩者都採用 CMSiMDE 建立網站. 其中...</p>
+                        </section>
+                    </a>
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+  
+  <script type="text/javascript" src="https://mde.tw/lab/blog/theme/js/script.js"></script>
+
+<script type="text/javascript">
+    var disqus_shortname = 'kmolab-github';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+ 
+
+
+</body>
+</html>
