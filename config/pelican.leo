@@ -1155,6 +1155,8 @@ Slug: fossil-scm-use-case
 Author: yen
 ---
 
+請注意: &lt;http://fossil.kmol.info&gt; 僅支援 IPv6 網路協定.
+
 [Fossil SCM] 的 &lt;https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki&gt; 可以與靜態網頁結合應用, 唯一必須注意的是 &lt;https://fossil-scm.org/home/doc/trunk/www/defcsp.md&gt; 議題.
 
 [Fossil SCM]: https://www.fossil-scm.org
