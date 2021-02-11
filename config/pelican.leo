@@ -183,6 +183,15 @@
 <v t="leo.20210211110239.1"><vh>7184156228296520978</vh></v>
 </v>
 </v>
+<v t="leo.20210211133326.1"><vh>@clean 20210211-1.md</vh>
+<v t="leo.20210211134529.1"><vh>Fossil SCM 使用案例</vh></v>
+<v t="leo.20210211141444.1"><vh>kblog</vh>
+<v t="leo.20210211141441.1"><vh>4819583018228146647</vh></v>
+</v>
+<v t="leo.20210211141512.1"><vh>mblog</vh>
+<v t="leo.20210211141509.1"><vh>7197980596693849809</vh></v>
+</v>
+</v>
 </v>
 </v>
 </v>
@@ -1136,6 +1145,79 @@ rewrite ^/(.*)$ https://fossil.kmol.info/$1 permanent;
 <t tx="leo.20210211110222.1"></t>
 <t tx="leo.20210211110239.1"></t>
 <t tx="leo.20210211110243.1"></t>
+<t tx="leo.20210211133326.1">@language md
+---
+Title: Fossil SCM 使用案例
+Date: 2021-02-11 11:10
+Category: Weblog
+Tags: 202102
+Slug: fossil-scm-use-case
+Author: yen
+---
+
+[Fossil SCM] 的 &lt;https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki&gt; 可以與靜態網頁結合應用, 唯一必須注意的是 &lt;https://fossil-scm.org/home/doc/trunk/www/defcsp.md&gt; 議題.
+
+[Fossil SCM]: https://www.fossil-scm.org
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20210211134529.1">[Fossil SCM] documentation 功能
+----
+先前已經建議 [Fossil SCM] 的倉儲可以放在 /home/user/repository/ 目錄中, 以這裡的範例分別為 /home/user/repository/cd2021.fossil 與 /home/user/repository/lab.fossil, 而這兩個倉儲的展開內容分別位於 /home/user/repository/wd/cd2021 與 /home/user/repository/wd/lab 等目錄.
+
+透過 [Fossil SCM] 的 &lt;https://fossil-scm.org/home/help/http&gt; 指令與 [stunnel] 的結合運用可以伺服為:
+
+&lt;http://fossil.kmol.info/cd2021/doc/trunk/index.html&gt;
+
+與
+
+&lt;http://fossil.kmol.info/lab/doc/trunk/index.html&gt;
+
+而這兩個 [Fossil SCM] 倉儲的靜態網頁與 &lt;https://mde.tw/cd2021&gt; 及 &lt;https://mde.tw/lab&gt; 內容保持同步. 且 [Fossil SCM] 的靜態網頁可以直接將網址中的 trunk (表示為最新版本) 換為 [Fossil SCM] 倉儲內容的對應版本號, 就可以直接顯示各舊版本的靜態網頁內容, 這一個功能至今連 &lt;https://pages.github.com/&gt; 或 &lt;https://docs.gitlab.com/ee/user/project/pages/&gt; 都還無法直接在網際介面中完成.
+
+[Fossil SCM] open, add 與 commit
+----
+
+之前已經提過, 建立 [Fossil SCM] 倉儲的方法:
+
+fossil init cd2021.fossil
+
+而這個指令若直接在 /home/user/repository/ 目錄中執行, 則可以建立 cd2021.fossil 空倉儲.
+
+這裡的規劃是將這些倉儲以 fossil open 指令, 在 /home/user/repository/wd 目錄中設法展開內容, 而且以倉儲的名稱作為展開後的目錄, 並將展開內容置入.
+
+例如:
+
+/home/user/repository/cd2021.fossil 可以透過:
+
+在 /home/user/repository/wd/cd2021/ 目錄中執行 fossil open ./../../cd2021.fossil 而將內容展開.
+
+而 /home/user/repository/lab.fossil 則在 /home/user/repository/wd/lab 目錄中展開內容.
+
+若從 Github 以:
+
+git clone --recurse-submodules https://github.com/mdecourse/cd2021.git 
+
+將 cd2021 倉儲內容取下, 而且放入 /home/user/repository/wd/cd2021/ 目錄中.
+
+使用者就可以在 /home/user/repository/wd/cd2021/ 目錄中執行:
+
+fossil add .
+
+fossil commit -m "add cd2021 git repository content"
+
+則 [Fossil SCM] 會將 /home/user/repository/wd/cd2021/ 已經改版的內容壓進 /home/user/repository/cd2021.fossil 倉儲中, 並透過 [Fossil SCM] http 將靜態網頁以 project documentation 功能伺服到 &lt;https://fossil.kmol.info/cd2021/doc/trunk/index.html&gt;.
+
+而根據網站內容, 必須將 https://fonts.googleapis.com 放入 settings -&gt; default-csp 設定欄位中, [Fossil SCM] doc 網站才會允許 default-csp 設定的網站進行跨網站擷取所需的資料.
+
+採取相同的操作步驟, 就可以將 &lt;https://mde.tw/lab&gt; 網站資料同步至 &lt;&lt;http://fossil.kmol.info/lab/doc/trunk/index.html&gt;
+
+[stunnel]: https://www.stunnel.org/</t>
+<t tx="leo.20210211141441.1"></t>
+<t tx="leo.20210211141444.1"></t>
+<t tx="leo.20210211141509.1"></t>
+<t tx="leo.20210211141512.1"></t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/
