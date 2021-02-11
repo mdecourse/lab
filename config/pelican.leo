@@ -1090,7 +1090,7 @@ sudo systemctl stop stunnel4.service
 
 sudo systemctl restart stunnel4.service
 
-重新啟動 [stunne].
+重新啟動 [stunnel].
 
 擷取 fullchain.pem 與 privkey.pem
 ----

@@ -34,7 +34,7 @@ execargs = /usr/bin/fossil http /home/user/repository/ --https --nojail --notfou
 &lt;p&gt;sudo systemctl stop stunnel4.service&lt;/p&gt;
 &lt;p&gt;關閉 &lt;a href="https://www.stunnel.org/"&gt;stunnel&lt;/a&gt;, 或利用:&lt;/p&gt;
 &lt;p&gt;sudo systemctl restart stunnel4.service&lt;/p&gt;
-&lt;p&gt;重新啟動 [stunne].&lt;/p&gt;
+&lt;p&gt;重新啟動 &lt;a href="https://www.stunnel.org/"&gt;stunnel&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;擷取 fullchain.pem 與 privkey.pem&lt;/h2&gt;
 &lt;p&gt;這個步驟主要按照 &lt;a href="https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx"&gt;https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx&lt;/a&gt; 中的指令操作, 由於 Ubuntu 20.04 已經內建 snap, 因此只要執行:&lt;/p&gt;
 &lt;p&gt;sudo snap install core; sudo snap refresh core&lt;/p&gt;
