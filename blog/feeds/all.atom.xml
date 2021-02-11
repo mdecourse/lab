@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>mde.tw/lab 網誌</title><link href="https://mde.tw/lab/blog/" rel="alternate"></link><link href="https://mde.tw/lab/blog/feeds/all.atom.xml" rel="self"></link><id>https://mde.tw/lab/blog/</id><updated>2021-02-10T11:20:00+08:00</updated><entry><title>Pelican 與 Blogger 內容同步2</title><link href="https://mde.tw/lab/blog/sync-pelican-and-blogger-content2.html" rel="alternate"></link><published>2021-02-10T11:20:00+08:00</published><updated>2021-02-10T11:20:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2021-02-10:/lab/blog/sync-pelican-and-blogger-content2.html</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/mdecourse/cmsimde"&gt;cmsimde&lt;/a&gt; 中的 Pelican blog 內容建議採用 config 目錄中的 pelican.leo 進行管理, 主要的資料管理架構採用 [Leo Editor] 中的 &lt;a href="https://leoeditor.com/directives.html#clean-path"&gt;@clean&lt;/a&gt; 標題指令, 能夠與內文指令 &lt;a href="https://leoeditor.com/directives.html#part-2-all-and-others"&gt;@others&lt;/a&gt; 配合, 利用階層式的文章管理, 區隔網誌摘要與各段內容.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>mde.tw/lab 網誌</title><link href="https://mde.tw/lab/blog/" rel="alternate"></link><link href="https://mde.tw/lab/blog/feeds/all.atom.xml" rel="self"></link><id>https://mde.tw/lab/blog/</id><updated>2021-02-11T11:00:00+08:00</updated><entry><title>Fossil SCM on Ubuntu</title><link href="https://mde.tw/lab/blog/fossil-scm-on-ubuntu.html" rel="alternate"></link><published>2021-02-11T11:00:00+08:00</published><updated>2021-02-11T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2021-02-11:/lab/blog/fossil-scm-on-ubuntu.html</id><summary type="html">&lt;p&gt;&lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 是一套完整的&lt;a href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86"&gt;軟體組態管理系統&lt;/a&gt; (&lt;a href="https://en.wikipedia.org/wiki/Software_configuration_management"&gt;Software Configuration Management&lt;/a&gt;), 以 ANSI C 編寫, 其中利用 &lt;a href="https://en.wikipedia.org/wiki/Tcl"&gt;TCL&lt;/a&gt; 作為 Scripting 語言. 接下來將要說明如何在 Ubuntu 20.04 中安裝與配置 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;&lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 是一套完整的&lt;a href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86"&gt;軟體組態管理系統&lt;/a&gt; (&lt;a href="https://en.wikipedia.org/wiki/Software_configuration_management"&gt;Software Configuration Management&lt;/a&gt;), 以 ANSI C 編寫, 其中利用 &lt;a href="https://en.wikipedia.org/wiki/Tcl"&gt;TCL&lt;/a&gt; 作為 Scripting 語言. 接下來將要說明如何在 Ubuntu 20.04 中安裝與配置 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt;.&lt;/p&gt;
+
+
+&lt;p&gt;這裡所要介紹的 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 為 &lt;a href="http://fossil.kmol.info"&gt;http://fossil.kmol.info&lt;/a&gt; (只配置 IPv6 網路協定), http 網際伺服器前端採用 &lt;a href="https://nginx.org/"&gt;nginx&lt;/a&gt;, https 代理伺服器採用 &lt;a href="https://www.stunnel.org/"&gt;stunnel&lt;/a&gt;, 主要伺服的 &lt;a href="https://en.wikipedia.org/wiki/Software_configuration_management"&gt;Software Configuration Management&lt;/a&gt; 套件則為 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;安裝 &lt;a href="https://nginx.org/"&gt;nginx&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;在 Ubuntu 20.04 中安裝 &lt;a href="https://nginx.org/"&gt;nginx&lt;/a&gt; 非常簡單, 只要執行 sudo apt install nginx 即可.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://nginx.org/"&gt;nginx&lt;/a&gt; 的基本設定檔案位於 /etc/nginx/sites-available/default&lt;/p&gt;
+&lt;p&gt;安裝 &lt;a href="https://nginx.org/"&gt;nginx&lt;/a&gt; 有兩個目的, 一方面回應 &lt;a href="http://fossil.kmol.info"&gt;http://fossil.kmol.info&lt;/a&gt;, 也就是 port 80 的 WWW 伺服器. 而另外一方面則是配合 &lt;a href="https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx"&gt;https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx&lt;/a&gt; 以手動模式取得 &lt;a href="https://www.stunnel.org/"&gt;stunnel&lt;/a&gt; https 伺服所需要的 fullchain.pem 與 privkey.prm 等兩個檔案.&lt;/p&gt;
+&lt;h2&gt;安裝 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;在 Ubuntu 20.04 安裝 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 也非常簡單, 只要執行 sudo apt install fossil 即可. 但是所安裝的版本可能不是最新版, 由於安裝的 fossil 執行檔案位於 /usr/bin/fossil, 假如希望與 Windows 10 64 位元操作系統中的 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 對應, 可以至 &lt;a href="https://fossil-scm.org/home/uv/download.html"&gt;https://fossil-scm.org/home/uv/download.html&lt;/a&gt; 下載 Linux 最新版本的 fossil, 然後以 sudo cp fossil /urs/bin/ 即可. 若要查驗 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 的版本, 可以使用 fossil version 指令.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 整個系統就只有一個 fossil 執行檔案, 而倉儲檔案則只全部壓縮在一個 &lt;a href="https://www.sqlite.org"&gt;SQLite&lt;/a&gt; 資料庫檔案中.&lt;/p&gt;
+&lt;p&gt;接下來為了配置一套可以伺服多個 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 倉儲的 Ubuntu 20.04 系統, 在 /home/user/ 目錄下建立 repository 目錄, 之後的所有要從遠端擷取的 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 倉儲都可以放在此一用戶目錄下. 至於要在此目錄下建立一個內定的 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 倉儲, 可以進入 /home/user/repository 目錄後 (這裡的 user 為 Ubuntu 20.04 下的用戶帳號名稱), 以 fossil init cd2021.fossil 建立一個 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 倉儲, 執行完後系統就會直接在命令列中顯示用來管理此一倉儲的用戶 (會使用建立倉儲的帳號, 也就是 user) 登入管理的密碼.&lt;/p&gt;
+&lt;p&gt;使用者可以選擇將此一與 user 對應的管理密碼記起來, 或者之後再使用 sqlite3 指令進入 cd2021.fossil 查詢.&lt;/p&gt;
+&lt;p&gt;假如使用者需要在 Ubuntu 環境中直接對 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 倉儲改版, 則建議在 /home/user/repository 目錄中再建立一個 wd 目錄 (為 working directory 的縮寫), 之後可以將位於 /home/user/repository 目錄中的各個 .fossil 內容, 在 /home/user/repository/wd 目錄中展開, 若以 /home/user/repository/cd2021.fossil 為例, 展開後將位於 /home/user/repository/wd/cd2021.&lt;/p&gt;
+&lt;h2&gt;安裝 &lt;a href="https://www.stunnel.org/"&gt;stunnel&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;安裝 &lt;a href="https://www.stunnel.org/"&gt;stunnel&lt;/a&gt; 也很簡單, 只要執行 sudo apt install stunnel4 即可, 安裝後若要隨系統開機啟動, 則需要 sudo vi /etc/default/stunnel4, 並在檔案中加入 ENABLED=1 後存檔.&lt;/p&gt;
+&lt;p&gt;另外, 還需要 sudo vi /etc/environment, 並在檔案中加入 HTTPS=on 後存檔.&lt;/p&gt;
+&lt;p&gt;接下來為了由 &lt;a href="https://www.stunnel.org/"&gt;stunnel&lt;/a&gt; 代理 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 的 https 伺服, 必須加入 /etc/stunnel/stunnel.conf&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+[https]
+accept = 140.130.your_ipv4.ip:443
+accept = 2001:288:6004:your:ipv6::ip:443
+cert = /etc/stunnel/fullchain.pem
+key = /etc/stunnel/privkey.pem
+exec = /usr/bin/fossil
+execargs = /usr/bin/fossil http /home/user/repository/ --https --nojail --notfound cd2021
+&lt;/pre&gt;
+
+&lt;p&gt;上述的 fullchain.pem 與 privkey.pem 由於尚未配置 &lt;a href="https://certbot.eff.org/"&gt;certbot&lt;/a&gt;, 必須要取得合法的數位簽章檔案後, 再利用:&lt;/p&gt;
+&lt;p&gt;sudo systemctl start stunnel4.service &lt;/p&gt;
+&lt;p&gt;啟動 &lt;a href="https://www.stunnel.org/"&gt;stunnel&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;sudo systemctl stop stunnel4.service&lt;/p&gt;
+&lt;p&gt;關閉 &lt;a href="https://www.stunnel.org/"&gt;stunnel&lt;/a&gt;, 或利用:&lt;/p&gt;
+&lt;p&gt;sudo systemctl restart stunnel4.service&lt;/p&gt;
+&lt;p&gt;重新啟動 [stunne].&lt;/p&gt;
+&lt;h2&gt;擷取 fullchain.pem 與 privkey.pem&lt;/h2&gt;
+&lt;p&gt;這個步驟主要按照 &lt;a href="https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx"&gt;https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx&lt;/a&gt; 中的指令操作, 由於 Ubuntu 20.04 已經內建 snap, 因此只要執行:&lt;/p&gt;
+&lt;p&gt;sudo snap install core; sudo snap refresh core&lt;/p&gt;
+&lt;p&gt;sudo snap install --classic certbot&lt;/p&gt;
+&lt;p&gt;sudo ln -s /snap/bin/certbot /usr/bin/certbot&lt;/p&gt;
+&lt;p&gt;sudo certbot certonly --nginx&lt;/p&gt;
+&lt;p&gt;就可以在 /etc/letsencrypt/live/fossil.kmol.info/ 目錄中找到 fullchain.pem 與 privkey.pem 等兩個數位簽章檔案, 接著將此兩個檔案複製至 /etc/stunnel/ 目錄, 以便配合 /etc/stunnel/stunnel.conf 隨電腦開機啟動.&lt;/p&gt;
+&lt;p&gt;因為 &lt;a href="https://certbot.eff.org/"&gt;certbot&lt;/a&gt; 的數位簽章每 90 天都要更新一次, 屆時若要手動更新可以先模擬執行:&lt;/p&gt;
+&lt;p&gt;sudo certbot renew --dry-run&lt;/p&gt;
+&lt;h2&gt;nginx http 跳轉 https&lt;/h2&gt;
+&lt;p&gt;最後一個步驟是讓 &lt;a href="https://nginx.org/"&gt;nginx&lt;/a&gt; 所伺服的 &lt;a href="http://fossil.kmol.info"&gt;http://fossil.kmol.info&lt;/a&gt; 能夠自動跳轉到 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 與 &lt;a href="https://www.stunnel.org/"&gt;stunnel&lt;/a&gt; 結合的 &lt;a href="https://fossil.kmol.info"&gt;https://fossil.kmol.info&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;修改 /etc/nginx/sites-available/default 中的設定如下:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+server {
+listen 80;
+server_name fossil.kmol.info;
+rewrite ^/(.*)$ https://fossil.kmol.info/$1 permanent;
+}
+&lt;/pre&gt;</content><category term="Weblog"></category><category term="202102"></category></entry><entry><title>Pelican 與 Blogger 內容同步2</title><link href="https://mde.tw/lab/blog/sync-pelican-and-blogger-content2.html" rel="alternate"></link><published>2021-02-10T11:20:00+08:00</published><updated>2021-02-10T11:20:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2021-02-10:/lab/blog/sync-pelican-and-blogger-content2.html</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/mdecourse/cmsimde"&gt;cmsimde&lt;/a&gt; 中的 Pelican blog 內容建議採用 config 目錄中的 pelican.leo 進行管理, 主要的資料管理架構採用 [Leo Editor] 中的 &lt;a href="https://leoeditor.com/directives.html#clean-path"&gt;@clean&lt;/a&gt; 標題指令, 能夠與內文指令 &lt;a href="https://leoeditor.com/directives.html#part-2-all-and-others"&gt;@others&lt;/a&gt; 配合, 利用階層式的文章管理, 區隔網誌摘要與各段內容.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/mdecourse/cmsimde"&gt;cmsimde&lt;/a&gt; 中的 Pelican blog 內容建議採用 config 目錄中的 pelican.leo 進行管理, 主要的資料管理架構採用 [Leo Editor] 中的 &lt;a href="https://leoeditor.com/directives.html#clean-path"&gt;@clean&lt;/a&gt; 標題指令, 能夠與內文指令 &lt;a href="https://leoeditor.com/directives.html#part-2-all-and-others"&gt;@others&lt;/a&gt; 配合, 利用階層式的文章管理, 區隔網誌摘要與各段內容.&lt;/p&gt;
 
 
