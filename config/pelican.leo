@@ -1235,7 +1235,7 @@ fossil commit -m "add cd2021 git repository content"
 建立 fosgit 倉儲
 ----
 
-在 Github 登入後, 新增 fosgit 倉儲時, 在上方 template 選單, 選擇以 https://github.com/mdecourse/cmstemplate&gt; 作為 template, 意即要直接利用 CMSiMDE 建立一個動態網站與靜態網站, 名稱為 fosgit.
+在 Github 登入後, 新增 fosgit 倉儲時, 在上方 template 選單, 選擇以 &lt;https://github.com/mdecourse/cmstemplate&gt; 作為 template, 意即要直接利用 CMSiMDE 建立一個動態網站與靜態網站, 名稱為 fosgit.
 
 完成後的倉儲位於 &lt;https://github.com/mdecourse/fosgit&gt;, 透過 Github 的設定將 main 分支設為 Github Pages 的 root, 接著就可以設法將倉儲以:
 
@@ -1263,7 +1263,7 @@ Fossil SCM .fslckout
 
 上述的規劃, 若從 cmsimde/ 目錄中執行 python wsgi.py, 可以在近端對倉儲內容作變更, 其中可能包括刪除倉儲中的某些檔案. 這時若要讓系統自動將已經刪除的檔案納入版次管理, 可以使用 [git addremove] 指令.
 
-[git addremove): https://fossil-scm.org/home/help/addremove</t>
+[git addremove]: https://fossil-scm.org/home/help/addremove</t>
 <t tx="leo.20210212070240.1"></t>
 <t tx="leo.20210212070247.1"></t>
 <t tx="leo.20210212070300.1"></t>
