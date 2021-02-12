@@ -156,7 +156,7 @@
 </v>
 </v>
 </v>
-<v t="leo.20210210041040.1"><vh>@clean 20200210-1.md</vh>
+<v t="leo.20210210041040.1"><vh>@clean 20210210-1.md</vh>
 <v t="leo.20210210041539.1"><vh>資料儲存的永續性</vh></v>
 <v t="leo.20210210090621.1"><vh>kblogger</vh>
 <v t="leo.20210210090616.1"><vh>8984536477325368541</vh></v>
@@ -165,7 +165,7 @@
 <v t="leo.20210210090739.1"><vh>9047840174442464443</vh></v>
 </v>
 </v>
-<v t="leo.20210210113926.1"><vh>@clean 20200210-2.md</vh>
+<v t="leo.20210210113926.1"><vh>@clean 20210210-2.md</vh>
 <v t="leo.20210210114619.1"><vh>Pelican and Blogger</vh></v>
 <v t="leo.20210210122050.1"><vh>kblogger</vh>
 <v t="leo.20210210122043.1"><vh>4028954074708761875</vh></v>
@@ -174,7 +174,7 @@
 <v t="leo.20210210122108.1"><vh>1017934646200675480</vh></v>
 </v>
 </v>
-<v t="leo.20210211095825.1"><vh>@clean 20200211.md</vh>
+<v t="leo.20210211095825.1"><vh>@clean 20210211.md</vh>
 <v t="leo.20210211100816.1"><vh>Fossil SCM on Ubuntu</vh></v>
 <v t="leo.20210211110222.1"><vh>kblog</vh>
 <v t="leo.20210211110217.1"><vh>5532982030328039326</vh></v>
@@ -192,6 +192,7 @@
 <v t="leo.20210211141509.1"><vh>7197980596693849809</vh></v>
 </v>
 </v>
+<v t="leo.20210212104928.1"><vh>@clean 20210212.md</vh></v>
 </v>
 </v>
 </v>
@@ -782,6 +783,7 @@ Author: yen
 [Google developer console]: https://console.developers.google.com
 [Pelican blog]: https://blog.getpelican.com/
 [Blogger]: https://www.blogger.com
+[Leo Editor]: https://leoeditor.com/
 
 將 secrets.json 轉為 token.dat
 ----
@@ -1211,15 +1213,32 @@ fossil commit -m "add cd2021 git repository content"
 
 則 [Fossil SCM] 會將 /home/user/repository/wd/cd2021/ 已經改版的內容壓進 /home/user/repository/cd2021.fossil 倉儲中, 並透過 [Fossil SCM] http 將靜態網頁以 project documentation 功能伺服到 &lt;https://fossil.kmol.info/cd2021/doc/trunk/index.html&gt;.
 
-而根據網站內容, 必須將 https://fonts.googleapis.com 放入 settings -&gt; default-csp 設定欄位中, [Fossil SCM] doc 網站才會允許 default-csp 設定的網站進行跨網站擷取所需的資料.
+而根據網站內容, 必須將 https://fonts.googleapis.com 放入 settings - default-csp 設定欄位中, [Fossil SCM] doc 網站才會允許 default-csp 設定的網站進行跨網站擷取所需的資料.
 
-採取相同的操作步驟, 就可以將 &lt;https://mde.tw/lab&gt; 網站資料同步至 &lt;&lt;http://fossil.kmol.info/lab/doc/trunk/index.html&gt;
+採取相同的操作步驟, 就可以將 &lt;https://mde.tw/lab&gt; 網站資料同步至 &lt;http://fossil.kmol.info/lab/doc/trunk/index.html&gt;
 
 [stunnel]: https://www.stunnel.org/</t>
 <t tx="leo.20210211141441.1"></t>
 <t tx="leo.20210211141444.1"></t>
 <t tx="leo.20210211141509.1"></t>
 <t tx="leo.20210211141512.1"></t>
+<t tx="leo.20210212104928.1">@language md
+---
+Title: Fossil SCM 與 Github
+Date: 2021-02-12 11:10
+Category: Weblog
+Tags: 202102
+Slug: fossil-scm-and-github
+Author: yen
+---
+
+請注意: &lt;http://fossil.kmol.info&gt; 僅支援 IPv6 網路協定.
+
+[Fossil SCM] 的 &lt;https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki&gt; 可以與靜態網頁結合應用, 唯一必須注意的是 &lt;https://fossil-scm.org/home/doc/trunk/www/defcsp.md&gt; 議題.
+
+[Fossil SCM]: https://www.fossil-scm.org
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;</t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/

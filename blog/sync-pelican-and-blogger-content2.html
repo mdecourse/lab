@@ -42,7 +42,7 @@
 
     <link href="https://mde.tw/lab/blog/sync-pelican-and-blogger-content2.html" rel="canonical" />
 
-        <meta name="description" content="cmsimde 中的 Pelican blog 內容建議採用 config 目錄中的 pelican.leo 進行管理, 主要的資料管理架構採用 [Leo Editor] 中的 @clean 標題指令, 能夠與內文指令 @others 配合, 利用階層式的文章管理,...">
+        <meta name="description" content="cmsimde 中的 Pelican blog 內容建議採用 config 目錄中的 pelican.leo 進行管理, 主要的資料管理架構採用 Leo Editor 中的 @clean 標題指令, 能夠與內文指令 @others 配合, 利用階層式的文章管理, 區隔網誌摘要與各段內容.">
 
         <meta name="author" content="yen">
 
@@ -54,7 +54,7 @@
 <!-- Open Graph -->
 <meta property="og:site_name" content="mde.tw/lab 網誌"/>
 <meta property="og:title" content="Pelican 與 Blogger 內容同步2"/>
-<meta property="og:description" content="cmsimde 中的 Pelican blog 內容建議採用 config 目錄中的 pelican.leo 進行管理, 主要的資料管理架構採用 [Leo Editor] 中的 @clean 標題指令, 能夠與內文指令 @others 配合, 利用階層式的文章管理,..."/>
+<meta property="og:description" content="cmsimde 中的 Pelican blog 內容建議採用 config 目錄中的 pelican.leo 進行管理, 主要的資料管理架構採用 Leo Editor 中的 @clean 標題指令, 能夠與內文指令 @others 配合, 利用階層式的文章管理, 區隔網誌摘要與各段內容."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="https://mde.tw/lab/blog/sync-pelican-and-blogger-content2.html"/>
 <meta property="og:type" content="article"/>
@@ -82,7 +82,7 @@
   },
   "image": "https://mde.tw/lab/blog/theme/images/post-bg.jpg",
   "url": "https://mde.tw/lab/blog/sync-pelican-and-blogger-content2.html",
-  "description": "cmsimde 中的 Pelican blog 內容建議採用 config 目錄中的 pelican.leo 進行管理, 主要的資料管理架構採用 [Leo Editor] 中的 @clean 標題指令, 能夠與內文指令 @others 配合, 利用階層式的文章管理,..."
+  "description": "cmsimde 中的 Pelican blog 內容建議採用 config 目錄中的 pelican.leo 進行管理, 主要的資料管理架構採用 Leo Editor 中的 @clean 標題指令, 能夠與內文指令 @others 配合, 利用階層式的文章管理, 區隔網誌摘要與各段內容."
 }
 </script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
@@ -223,11 +223,11 @@ init_mathjax();
         <article class="post">
         <div class="inner">
             <section class="post-content">
-                <p><a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 中的 Pelican blog 內容建議採用 config 目錄中的 pelican.leo 進行管理, 主要的資料管理架構採用 [Leo Editor] 中的 <a href="https://leoeditor.com/directives.html#clean-path">@clean</a> 標題指令, 能夠與內文指令 <a href="https://leoeditor.com/directives.html#part-2-all-and-others">@others</a> 配合, 利用階層式的文章管理, 區隔網誌摘要與各段內容.</p>
+                <p><a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 中的 Pelican blog 內容建議採用 config 目錄中的 pelican.leo 進行管理, 主要的資料管理架構採用 <a href="https://leoeditor.com/">Leo Editor</a> 中的 <a href="https://leoeditor.com/directives.html#clean-path">@clean</a> 標題指令, 能夠與內文指令 <a href="https://leoeditor.com/directives.html#part-2-all-and-others">@others</a> 配合, 利用階層式的文章管理, 區隔網誌摘要與各段內容.</p>
 
 
 <h2>Google Developer Console</h2>
-<p>為了能夠將 <a href="https://blog.getpelican.com/">Pelican blog</a> 在 [Leo Editor] 中的網誌文章推向 <a href="https://www.blogger.com">Blogger</a>, 必須要從 <a href="https://console.developers.google.com">Google developer console</a> 取得
+<p>為了能夠將 <a href="https://blog.getpelican.com/">Pelican blog</a> 在 <a href="https://leoeditor.com/">Leo Editor</a> 中的網誌文章推向 <a href="https://www.blogger.com">Blogger</a>, 必須要從 <a href="https://console.developers.google.com">Google developer console</a> 取得
 與 <a href="https://www.blogger.com">Blogger</a> 擷取權限對應的 secret json 檔案. 實際操作流程如下:</p>
 <p>進入 Library - &gt; ENABLE APIS AND SERVICES -&gt; 啟用 Blogger API v3</p>
 <p>設定 OAuth consent screen </p>
@@ -235,7 +235,7 @@ init_mathjax();
 <h2>將 secrets.json 轉為 token.dat</h2>
 <p>轉換前必須確定系統已經安裝 google_auth_oauthlib</p>
 <p>pip install google_auth_oauthlib</p>
-<p>接著利用下列程式將 secrets.json 轉為 token.dat, 隨後使用者就可利用此一  token.dat 將 [Leo Editor] 中的網誌文章內容傳送到對應的 <a href="https://www.blogger.com">Blogger</a>.</p>
+<p>接著利用下列程式將 secrets.json 轉為 token.dat, 隨後使用者就可利用此一  token.dat 將 <a href="https://leoeditor.com/">Leo Editor</a> 中的網誌文章內容傳送到對應的 <a href="https://www.blogger.com">Blogger</a>.</p>
 <p>下列程式在轉換過程會透過操作系統的內定瀏覽器讓使用者登入與 secrets.json 對應的帳號, 一旦通過認證就可以完成 secrets.json 轉為 token.dat 的流程.</p>
 <pre class="brush: python">
 # get secrets: https://console.developers.google.com

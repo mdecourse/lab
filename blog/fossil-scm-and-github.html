@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+      <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-  <title>mde.tw/lab 網誌 - Categories</title>
+  <title>Fossil SCM 與 Github</title>
 
 
   <meta name="HandheldFriendly" content="True" />
@@ -18,6 +18,7 @@
 
   <!-- Feed -->
         <link href="https://mde.tw/lab/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="mde.tw/lab 網誌 Full Atom Feed" />
+          <link href="https://mde.tw/lab/blog/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="mde.tw/lab 網誌 Categories Atom Feed" />
 
   <link href="https://mde.tw/lab/blog/theme/css/style.css" type="text/css" rel="stylesheet" />
 
@@ -38,6 +39,52 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
+
+    <link href="https://mde.tw/lab/blog/fossil-scm-and-github.html" rel="canonical" />
+
+        <meta name="description" content="請注意: http://fossil.kmol.info 僅支援 IPv6 網路協定. Fossil SCM 的 https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki 可以與靜態網頁結合應用,...">
+
+        <meta name="author" content="yen">
+
+        <meta name="tags" content="202102">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="mde.tw/lab 網誌"/>
+<meta property="og:title" content="Fossil SCM 與 Github"/>
+<meta property="og:description" content="請注意: http://fossil.kmol.info 僅支援 IPv6 網路協定. Fossil SCM 的 https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki 可以與靜態網頁結合應用,..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://mde.tw/lab/blog/fossil-scm-and-github.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-02-12 11:10:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://mde.tw/lab/blog/author/yen.html">
+<meta property="article:section" content="Weblog"/>
+<meta property="article:tag" content="202102"/>
+<meta property="og:image" content="https://mde.tw/lab/blog/theme/images/post-bg.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Fossil SCM 與 Github",
+  "headline": "Fossil SCM 與 Github",
+  "datePublished": "2021-02-12 11:10:00+08:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "yen",
+    "url": "https://mde.tw/lab/blog/author/yen.html"
+  },
+  "image": "https://mde.tw/lab/blog/theme/images/post-bg.jpg",
+  "url": "https://mde.tw/lab/blog/fossil-scm-and-github.html",
+  "description": "請注意: http://fossil.kmol.info 僅支援 IPv6 網路協定. Fossil SCM 的 https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki 可以與靜態網頁結合應用,..."
+}
+</script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
@@ -133,9 +180,14 @@ init_mathjax();
     </ul>
   </div>
 </nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header id="blog-header" class="has-cover">
+    <header id="post-header" class="has-cover">
       <div class="inner">
         <nav id="navigation">
             <span id="home-button" class="nav-button">
@@ -145,7 +197,13 @@ init_mathjax();
             <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
           </span>
         </nav>
-        <h1 class="post-title">mde.tw/lab 網誌 - Categories</h1>
+        <h1 class="post-title">Fossil SCM 與 Github</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="https://mde.tw/lab/blog/author/yen.html">Yen</a>
+            | <time datetime="週五 12 二月 2021">週五 12 二月 2021</time>
+        </span>
+        <!-- TODO : Modified check -->
             <div class="post-cover cover" style="background-image: url('https://mde.tw/lab/blog/theme/images/post-bg.jpg')">
       </div>
     </header>
@@ -159,46 +217,65 @@ init_mathjax();
     </form>
 </section>
 
-    <article class="post">
-      <div class="inner">
-        <a href="https://mde.tw/lab/blog/category/git.html">git</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="https://mde.tw/lab/blog/category/github.html">Github</a> (2)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="https://mde.tw/lab/blog/category/leo-editor.html">Leo Editor</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="https://mde.tw/lab/blog/category/network.html">Network</a> (2)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="https://mde.tw/lab/blog/category/ubuntu.html">ubuntu</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="https://mde.tw/lab/blog/category/wcm.html">WCM</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="https://mde.tw/lab/blog/category/weblog.html">Weblog</a> (7)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="https://mde.tw/lab/blog/category/windows.html">Windows</a> (1)
-      </div>
-    </article>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <p>請注意: <a href="http://fossil.kmol.info">http://fossil.kmol.info</a> 僅支援 IPv6 網路協定.</p>
+<p><a href="https://www.fossil-scm.org">Fossil SCM</a> 的 <a href="https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki">https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki</a> 可以與靜態網頁結合應用, 唯一必須注意的是 <a href="https://fossil-scm.org/home/doc/trunk/www/defcsp.md">https://fossil-scm.org/home/doc/trunk/www/defcsp.md</a> 議題.</p>
+
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=Fossil SCM 與 Github&amp;url=https://mde.tw/lab/blog/fossil-scm-and-github.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://mde.tw/lab/blog/fossil-scm-and-github.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=https://mde.tw/lab/blog/fossil-scm-and-github.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="https://mde.tw/lab/blog/tag/202102.html">202102</a>                </aside>
+
+                <div class="clear"></div>
+
+
+                </section>
+
+                <script type="text/javascript">
+                    var disqus = 'kmolab-github';
+                    var disqus_shortname = 'kmolab-github';
+                    var disqus_identifier = '/fossil-scm-and-github.html';
+                    var disqus_url = 'https://mde.tw/lab/blog/fossil-scm-and-github.html';
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+                <section class="post-comments">
+                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="/fossil-scm-and-github.html" >Show Comments</a>
+                    <div id="disqus_thread"></div>
+                </section>
+
+                <aside class="post-nav">
+                    <a class="post-nav-prev" href="https://mde.tw/lab/blog/fossil-scm-use-case.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-right"></i>
+                                <h2 class="post-nav-title">Fossil SCM 使用案例</h2>
+                            <p class="post-nav-excerpt">請注意: http://fossil.kmol.info 僅支援 IPv6 網路協定. Fossil SCM 的...</p>
+                        </section>
+                    </a>
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
       <!-- TODO : Body class -->
     <div id="body-class" style="display: none;" class=""></div>
 
