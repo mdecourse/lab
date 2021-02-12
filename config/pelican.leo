@@ -1230,7 +1230,7 @@ fossil commit -m "add cd2021 git repository content"
 <t tx="leo.20210211141444.1"></t>
 <t tx="leo.20210211141509.1"></t>
 <t tx="leo.20210211141512.1"></t>
-<t tx="leo.20210212045441.1">一開始, 利用 &lt;https://github.com/mdecourse/cmstemplate&gt; 作為樣板, 建立一個 &lt;https://github.com/mdecourse/fosgit&gt; 倉儲, 並且分別在 Ubuntu 與 Windows 10 中進行操作, 目標是分別利用 [Fossil SCM] 與 Github 管理 &lt;https://mde.tw/fosgit&gt; 與 &lt;http://fossil.github.com/fosgit/doc/trunk/index.html&gt; 兩個網站的對應倉儲.
+<t tx="leo.20210212045441.1">一開始, 利用 &lt;https://github.com/mdecourse/cmstemplate&gt; 作為樣板, 建立一個 &lt;https://github.com/mdecourse/fosgit&gt; 倉儲, 並且分別在 Ubuntu 與 Windows 10 中進行操作, 目標是分別利用 [Fossil SCM] 與 Github 管理 &lt;https://mde.tw/fosgit&gt; 與 &lt;http://fossil.kmol.info/fosgit/doc/trunk/index.html&gt; 兩個網站的對應倉儲.
 
 建立 fosgit 倉儲
 ----

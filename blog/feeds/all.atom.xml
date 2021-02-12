@@ -5,7 +5,7 @@
 &lt;p&gt;為了實際了解 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 與 Github 的同一倉儲內容資料, 應該如何整合, 特別建立了一個 fosgit 倉儲作為測試.&lt;/p&gt;
 
 
-&lt;p&gt;一開始, 利用 &lt;a href="https://github.com/mdecourse/cmstemplate"&gt;https://github.com/mdecourse/cmstemplate&lt;/a&gt; 作為樣板, 建立一個 &lt;a href="https://github.com/mdecourse/fosgit"&gt;https://github.com/mdecourse/fosgit&lt;/a&gt; 倉儲, 並且分別在 Ubuntu 與 Windows 10 中進行操作, 目標是分別利用 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 與 Github 管理 &lt;a href="https://mde.tw/fosgit"&gt;https://mde.tw/fosgit&lt;/a&gt; 與 &lt;a href="http://fossil.github.com/fosgit/doc/trunk/index.html"&gt;http://fossil.github.com/fosgit/doc/trunk/index.html&lt;/a&gt; 兩個網站的對應倉儲.&lt;/p&gt;
+&lt;p&gt;一開始, 利用 &lt;a href="https://github.com/mdecourse/cmstemplate"&gt;https://github.com/mdecourse/cmstemplate&lt;/a&gt; 作為樣板, 建立一個 &lt;a href="https://github.com/mdecourse/fosgit"&gt;https://github.com/mdecourse/fosgit&lt;/a&gt; 倉儲, 並且分別在 Ubuntu 與 Windows 10 中進行操作, 目標是分別利用 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt; 與 Github 管理 &lt;a href="https://mde.tw/fosgit"&gt;https://mde.tw/fosgit&lt;/a&gt; 與 &lt;a href="http://fossil.kmol.info/fosgit/doc/trunk/index.html"&gt;http://fossil.kmol.info/fosgit/doc/trunk/index.html&lt;/a&gt; 兩個網站的對應倉儲.&lt;/p&gt;
 &lt;h2&gt;建立 fosgit 倉儲&lt;/h2&gt;
 &lt;p&gt;在 Github 登入後, 新增 fosgit 倉儲時, 在上方 template 選單, 選擇以 &lt;a href="https://github.com/mdecourse/cmstemplate"&gt;https://github.com/mdecourse/cmstemplate&lt;/a&gt; 作為 template, 意即要直接利用 CMSiMDE 建立一個動態網站與靜態網站, 名稱為 fosgit.&lt;/p&gt;
 &lt;p&gt;完成後的倉儲位於 &lt;a href="https://github.com/mdecourse/fosgit"&gt;https://github.com/mdecourse/fosgit&lt;/a&gt;, 透過 Github 的設定將 main 分支設為 Github Pages 的 root, 接著就可以設法將倉儲以:&lt;/p&gt;
