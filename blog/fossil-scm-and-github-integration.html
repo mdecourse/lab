@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-  <title>Fossil SCM 與 Github</title>
+  <title>Fossil SCM 與 Github 整合</title>
 
 
   <meta name="HandheldFriendly" content="True" />
@@ -40,9 +40,9 @@
   <![endif]-->
 
 
-    <link href="https://mde.tw/lab/blog/fossil-scm-and-github.html" rel="canonical" />
+    <link href="https://mde.tw/lab/blog/fossil-scm-and-github-integration.html" rel="canonical" />
 
-        <meta name="description" content="請注意: http://fossil.kmol.info 僅支援 IPv6 網路協定. Fossil SCM 的 https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki 可以與靜態網頁結合應用,...">
+        <meta name="description" content="請注意: http://fossil.kmol.info 僅支援 IPv6 網路協定. 為了實際了解 Fossil SCM 與 Github 的同一倉儲內容資料, 應該如何整合, 特別建立了一個 fosgit 倉儲作為測試.">
 
         <meta name="author" content="yen">
 
@@ -53,12 +53,12 @@
 
 <!-- Open Graph -->
 <meta property="og:site_name" content="mde.tw/lab 網誌"/>
-<meta property="og:title" content="Fossil SCM 與 Github"/>
-<meta property="og:description" content="請注意: http://fossil.kmol.info 僅支援 IPv6 網路協定. Fossil SCM 的 https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki 可以與靜態網頁結合應用,..."/>
+<meta property="og:title" content="Fossil SCM 與 Github 整合"/>
+<meta property="og:description" content="請注意: http://fossil.kmol.info 僅支援 IPv6 網路協定. 為了實際了解 Fossil SCM 與 Github 的同一倉儲內容資料, 應該如何整合, 特別建立了一個 fosgit 倉儲作為測試."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://mde.tw/lab/blog/fossil-scm-and-github.html"/>
+<meta property="og:url" content="https://mde.tw/lab/blog/fossil-scm-and-github-integration.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2021-02-12 11:10:00+08:00"/>
+<meta property="article:published_time" content="2021-02-12 11:00:00+08:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="https://mde.tw/lab/blog/author/yen.html">
 <meta property="article:section" content="Weblog"/>
@@ -71,9 +71,9 @@
 {
   "@context": "http://schema.org",
   "@type": "Article",
-  "name": "Fossil SCM 與 Github",
-  "headline": "Fossil SCM 與 Github",
-  "datePublished": "2021-02-12 11:10:00+08:00",
+  "name": "Fossil SCM 與 Github 整合",
+  "headline": "Fossil SCM 與 Github 整合",
+  "datePublished": "2021-02-12 11:00:00+08:00",
   "dateModified": "",
   "author": {
     "@type": "Person",
@@ -81,8 +81,8 @@
     "url": "https://mde.tw/lab/blog/author/yen.html"
   },
   "image": "https://mde.tw/lab/blog/theme/images/post-bg.jpg",
-  "url": "https://mde.tw/lab/blog/fossil-scm-and-github.html",
-  "description": "請注意: http://fossil.kmol.info 僅支援 IPv6 網路協定. Fossil SCM 的 https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki 可以與靜態網頁結合應用,..."
+  "url": "https://mde.tw/lab/blog/fossil-scm-and-github-integration.html",
+  "description": "請注意: http://fossil.kmol.info 僅支援 IPv6 網路協定. 為了實際了解 Fossil SCM 與 Github 的同一倉儲內容資料, 應該如何整合, 特別建立了一個 fosgit 倉儲作為測試."
 }
 </script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
@@ -197,7 +197,7 @@ init_mathjax();
             <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
           </span>
         </nav>
-        <h1 class="post-title">Fossil SCM 與 Github</h1>
+        <h1 class="post-title">Fossil SCM 與 Github 整合</h1>
         <!-- TODO : Proper class for headline -->
         <span class="post-meta">
                 <a href="https://mde.tw/lab/blog/author/yen.html">Yen</a>
@@ -224,19 +224,36 @@ init_mathjax();
         <div class="inner">
             <section class="post-content">
                 <p>請注意: <a href="http://fossil.kmol.info">http://fossil.kmol.info</a> 僅支援 IPv6 網路協定.</p>
-<p><a href="https://www.fossil-scm.org">Fossil SCM</a> 的 <a href="https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki">https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki</a> 可以與靜態網頁結合應用, 唯一必須注意的是 <a href="https://fossil-scm.org/home/doc/trunk/www/defcsp.md">https://fossil-scm.org/home/doc/trunk/www/defcsp.md</a> 議題.</p>
+<p>為了實際了解 <a href="https://www.fossil-scm.org">Fossil SCM</a> 與 Github 的同一倉儲內容資料, 應該如何整合, 特別建立了一個 fosgit 倉儲作為測試.</p>
 
+
+<p>一開始, 利用 <a href="https://github.com/mdecourse/cmstemplate">https://github.com/mdecourse/cmstemplate</a> 作為樣板, 建立一個 <a href="https://github.com/mdecourse/fosgit">https://github.com/mdecourse/fosgit</a> 倉儲, 並且分別在 Ubuntu 與 Windows 10 中進行操作, 目標是分別利用 <a href="https://www.fossil-scm.org">Fossil SCM</a> 與 Github 管理 <a href="https://mde.tw/fosgit">https://mde.tw/fosgit</a> 與 <a href="http://fossil.github.com/fosgit/doc/trunk/index.html">http://fossil.github.com/fosgit/doc/trunk/index.html</a> 兩個網站的對應倉儲.</p>
+<h2>建立 fosgit 倉儲</h2>
+<p>在 Github 登入後, 新增 fosgit 倉儲時, 在上方 template 選單, 選擇以 https://github.com/mdecourse/cmstemplate&gt; 作為 template, 意即要直接利用 CMSiMDE 建立一個動態網站與靜態網站, 名稱為 fosgit.</p>
+<p>完成後的倉儲位於 <a href="https://github.com/mdecourse/fosgit">https://github.com/mdecourse/fosgit</a>, 透過 Github 的設定將 main 分支設為 Github Pages 的 root, 接著就可以設法將倉儲以:</p>
+<p>git clone --recurse-submodules https://github.com/mdecourse/fosgit.git</p>
+<p>取下倉儲資料到 Ubuntu 或 Windows 10 操作系統中, 之所以需要使用 --recurse-submodules 選項的原因是 cmstemplate 倉儲帶有子模組, 使用者可以直接透過上述指令取下包含子模組的倉儲所有資料.</p>
+<h2>Ubuntu 端操作</h2>
+<p>由於 fosgit 倉儲在 <a href="https://www.fossil-scm.org">Fossil SCM</a> 端希望透過 <a href="http://fossil.kmol.info/fosgit">http://fossil.kmol.info/fosgit</a> 進行管理, 為了方便, 可以直接以 ssh 登入 fossil.kmol.info 主機進行操作.</p>
+<p>首先就是在 /home/user/repository/ 目錄中, 以  fossil init fosgit.fossil 建立 fosgit.fossil 空的倉儲檔案.</p>
+<p>接著進入 /home/user/repository/wd/ 目錄中, 以 git clone --recurse-submodules https://github.com/mdecourse/fosgit.git 將 Github 端的倉儲 clone 至 /home/user/repository/wd/fosgit 目錄.</p>
+<h2>Fossil SCM .fslckout</h2>
+<p>由於 Ubuntu <a href="https://www.fossil-scm.org">Fossil SCM</a> 倉儲的內容存在 .fslckout 檔案中, 因此  /home/user/repository/wd/fosgit 目錄中雖然已經有與 Github 遠端倉儲對應的 .git 目錄, 但還需要能與 <a href="http://fossil.kmol.info/fosgit">http://fossil.kmol.info/fosgit</a> 對應的 .fslckout, 為了取得此一資料檔案. 可以進入 fossil.kmol.info 主機中的 /home/user/repository/ 目錄, 以 fossil init fosgit.fossil 建立, 隨後則進入 /home/user/repository/wd/fosgit 目錄執行 fossil open ./../../fosgit.fossil, 將 fosgit.fossil 對應的 .fslckout 放入  /home/user/repository/wd/fosgit 目錄.</p>
+<p>這時, 因為 <a href="http://fossil.kmol.info/fosgit">http://fossil.kmol.info/fosgit</a> settings 已經勾選 dotfiles (V), 因此 <a href="https://www.fossil-scm.org">Fossil SCM</a> 倉儲會導入 .git 目錄, 同時 <a href="https://www.fossil-scm.org">Fossil SCM</a> 的版本資料 .fslckout (或隨後的 <em>FOSSIL</em>) 也會被 Github 納管.</p>
+<h2><a href="https://www.fossil-scm.org">Fossil SCM</a> addremove 指令</h2>
+<p>上述的規劃, 若從 cmsimde/ 目錄中執行 python wsgi.py, 可以在近端對倉儲內容作變更, 其中可能包括刪除倉儲中的某些檔案. 這時若要讓系統自動將已經刪除的檔案納入版次管理, 可以使用 [git addremove] 指令.</p>
+<p>[git addremove): https://fossil-scm.org/home/help/addremove</p>
             </section>
 
             <section class="post-info">
                 <div class="post-share">
-                    <a class="twitter" href="https://twitter.com/share?text=Fossil SCM 與 Github&amp;url=https://mde.tw/lab/blog/fossil-scm-and-github.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <a class="twitter" href="https://twitter.com/share?text=Fossil SCM 與 Github 整合&amp;url=https://mde.tw/lab/blog/fossil-scm-and-github-integration.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
                     </a>
-                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://mde.tw/lab/blog/fossil-scm-and-github.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://mde.tw/lab/blog/fossil-scm-and-github-integration.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
                     </a>
-                    <a class="googleplus" href="https://plus.google.com/share?url=https://mde.tw/lab/blog/fossil-scm-and-github.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <a class="googleplus" href="https://plus.google.com/share?url=https://mde.tw/lab/blog/fossil-scm-and-github-integration.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
                     </a>
                     <div class="clear"></div>
@@ -253,12 +270,12 @@ init_mathjax();
                 <script type="text/javascript">
                     var disqus = 'kmolab-github';
                     var disqus_shortname = 'kmolab-github';
-                    var disqus_identifier = '/fossil-scm-and-github.html';
-                    var disqus_url = 'https://mde.tw/lab/blog/fossil-scm-and-github.html';
+                    var disqus_identifier = '/fossil-scm-and-github-integration.html';
+                    var disqus_url = 'https://mde.tw/lab/blog/fossil-scm-and-github-integration.html';
                 </script>
                 <noscript>Please enable JavaScript to view the comments.</noscript>
                 <section class="post-comments">
-                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="/fossil-scm-and-github.html" >Show Comments</a>
+                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="/fossil-scm-and-github-integration.html" >Show Comments</a>
                     <div id="disqus_thread"></div>
                 </section>
 

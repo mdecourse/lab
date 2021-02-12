@@ -192,7 +192,15 @@
 <v t="leo.20210211141509.1"><vh>7197980596693849809</vh></v>
 </v>
 </v>
-<v t="leo.20210212104928.1"><vh>@clean 20210212.md</vh></v>
+<v t="leo.20210212104928.1"><vh>@clean 20210212.md</vh>
+<v t="leo.20210212045441.1"><vh>Fossil SCM 與 Github 整合</vh></v>
+<v t="leo.20210212070247.1"><vh>kblog</vh>
+<v t="leo.20210212070240.1"><vh>6431823803723457102</vh></v>
+</v>
+<v t="leo.20210212070300.1"><vh>mblog</vh>
+<v t="leo.20210212070342.1"><vh>8811682943280171936</vh></v>
+</v>
+</v>
 </v>
 </v>
 </v>
@@ -1222,23 +1230,63 @@ fossil commit -m "add cd2021 git repository content"
 <t tx="leo.20210211141444.1"></t>
 <t tx="leo.20210211141509.1"></t>
 <t tx="leo.20210211141512.1"></t>
+<t tx="leo.20210212045441.1">一開始, 利用 &lt;https://github.com/mdecourse/cmstemplate&gt; 作為樣板, 建立一個 &lt;https://github.com/mdecourse/fosgit&gt; 倉儲, 並且分別在 Ubuntu 與 Windows 10 中進行操作, 目標是分別利用 [Fossil SCM] 與 Github 管理 &lt;https://mde.tw/fosgit&gt; 與 &lt;http://fossil.github.com/fosgit/doc/trunk/index.html&gt; 兩個網站的對應倉儲.
+
+建立 fosgit 倉儲
+----
+
+在 Github 登入後, 新增 fosgit 倉儲時, 在上方 template 選單, 選擇以 https://github.com/mdecourse/cmstemplate&gt; 作為 template, 意即要直接利用 CMSiMDE 建立一個動態網站與靜態網站, 名稱為 fosgit.
+
+完成後的倉儲位於 &lt;https://github.com/mdecourse/fosgit&gt;, 透過 Github 的設定將 main 分支設為 Github Pages 的 root, 接著就可以設法將倉儲以:
+
+git clone --recurse-submodules https://github.com/mdecourse/fosgit.git
+
+取下倉儲資料到 Ubuntu 或 Windows 10 操作系統中, 之所以需要使用 --recurse-submodules 選項的原因是 cmstemplate 倉儲帶有子模組, 使用者可以直接透過上述指令取下包含子模組的倉儲所有資料.
+
+Ubuntu 端操作
+----
+
+由於 fosgit 倉儲在 [Fossil SCM] 端希望透過 &lt;http://fossil.kmol.info/fosgit&gt; 進行管理, 為了方便, 可以直接以 ssh 登入 fossil.kmol.info 主機進行操作.
+
+首先就是在 /home/user/repository/ 目錄中, 以  fossil init fosgit.fossil 建立 fosgit.fossil 空的倉儲檔案.
+
+接著進入 /home/user/repository/wd/ 目錄中, 以 git clone --recurse-submodules https://github.com/mdecourse/fosgit.git 將 Github 端的倉儲 clone 至 /home/user/repository/wd/fosgit 目錄.
+
+Fossil SCM .fslckout
+----
+由於 Ubuntu [Fossil SCM] 倉儲的內容存在 .fslckout 檔案中, 因此  /home/user/repository/wd/fosgit 目錄中雖然已經有與 Github 遠端倉儲對應的 .git 目錄, 但還需要能與 &lt;http://fossil.kmol.info/fosgit&gt; 對應的 .fslckout, 為了取得此一資料檔案. 可以進入 fossil.kmol.info 主機中的 /home/user/repository/ 目錄, 以 fossil init fosgit.fossil 建立, 隨後則進入 /home/user/repository/wd/fosgit 目錄執行 fossil open ./../../fosgit.fossil, 將 fosgit.fossil 對應的 .fslckout 放入  /home/user/repository/wd/fosgit 目錄.
+
+這時, 因為 &lt;http://fossil.kmol.info/fosgit&gt; settings 已經勾選 dotfiles (V), 因此 [Fossil SCM] 倉儲會導入 .git 目錄, 同時 [Fossil SCM] 的版本資料 .fslckout (或隨後的 _FOSSIL_) 也會被 Github 納管.
+
+[Fossil SCM] addremove 指令
+----
+
+上述的規劃, 若從 cmsimde/ 目錄中執行 python wsgi.py, 可以在近端對倉儲內容作變更, 其中可能包括刪除倉儲中的某些檔案. 這時若要讓系統自動將已經刪除的檔案納入版次管理, 可以使用 [git addremove] 指令.
+
+[git addremove): https://fossil-scm.org/home/help/addremove</t>
+<t tx="leo.20210212070240.1"></t>
+<t tx="leo.20210212070247.1"></t>
+<t tx="leo.20210212070300.1"></t>
+<t tx="leo.20210212070342.1"></t>
 <t tx="leo.20210212104928.1">@language md
 ---
-Title: Fossil SCM 與 Github
-Date: 2021-02-12 11:10
+Title: Fossil SCM 與 Github 整合
+Date: 2021-02-12 11:00
 Category: Weblog
 Tags: 202102
-Slug: fossil-scm-and-github
+Slug: fossil-scm-and-github-integration
 Author: yen
 ---
 
 請注意: &lt;http://fossil.kmol.info&gt; 僅支援 IPv6 網路協定.
 
-[Fossil SCM] 的 &lt;https://fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki&gt; 可以與靜態網頁結合應用, 唯一必須注意的是 &lt;https://fossil-scm.org/home/doc/trunk/www/defcsp.md&gt; 議題.
+為了實際了解 [Fossil SCM] 與 Github 的同一倉儲內容資料, 應該如何整合, 特別建立了一個 fosgit 倉儲作為測試.
 
 [Fossil SCM]: https://www.fossil-scm.org
 
-&lt;!-- PELICAN_END_SUMMARY --&gt;</t>
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/
