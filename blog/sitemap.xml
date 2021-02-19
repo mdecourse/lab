@@ -4,308 +4,308 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>./</loc>
-<lastmod>2021-02-19T08:22:57-00:00</lastmod>
+<loc>https://mde.tw/lab/blog/</loc>
+<lastmod>2021-02-19T08:31:03-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./archives.html</loc>
-<lastmod>2021-02-19T08:22:57-00:00</lastmod>
+<loc>https://mde.tw/lab/blog/archives.html</loc>
+<lastmod>2021-02-19T08:31:03-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./tags.html</loc>
-<lastmod>2021-02-19T08:22:57-00:00</lastmod>
+<loc>https://mde.tw/lab/blog/tags.html</loc>
+<lastmod>2021-02-19T08:31:03-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./categories.html</loc>
-<lastmod>2021-02-19T08:22:57-00:00</lastmod>
+<loc>https://mde.tw/lab/blog/categories.html</loc>
+<lastmod>2021-02-19T08:31:03-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./pages/about/</loc>
+<loc>https://mde.tw/lab/blog/pages/about/</loc>
 <lastmod>2021-02-09T22:45:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./2021-kmolab-pelican-setup-modification.html</loc>
+<loc>https://mde.tw/lab/blog/2021-kmolab-pelican-setup-modification.html</loc>
 <lastmod>2021-02-19T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./2021-spring-course-planning.html</loc>
+<loc>https://mde.tw/lab/blog/2021-spring-course-planning.html</loc>
 <lastmod>2021-02-16T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./fossil-scm-and-github-integration.html</loc>
+<loc>https://mde.tw/lab/blog/fossil-scm-and-github-integration.html</loc>
 <lastmod>2021-02-12T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./fossil-scm-use-case.html</loc>
+<loc>https://mde.tw/lab/blog/fossil-scm-use-case.html</loc>
 <lastmod>2021-02-11T11:10:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./fossil-scm-on-ubuntu.html</loc>
+<loc>https://mde.tw/lab/blog/fossil-scm-on-ubuntu.html</loc>
 <lastmod>2021-02-11T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./sync-pelican-and-blogger-content2.html</loc>
+<loc>https://mde.tw/lab/blog/sync-pelican-and-blogger-content2.html</loc>
 <lastmod>2021-02-10T11:20:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./data-sustainablity.html</loc>
+<loc>https://mde.tw/lab/blog/data-sustainablity.html</loc>
 <lastmod>2021-02-10T11:10:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./starting-2021.html</loc>
+<loc>https://mde.tw/lab/blog/starting-2021.html</loc>
 <lastmod>2021-02-10T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./how-to-use-leo-editor.html</loc>
+<loc>https://mde.tw/lab/blog/how-to-use-leo-editor.html</loc>
 <lastmod>2020-06-30T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./stratege-for-proxy-servers.html</loc>
+<loc>https://mde.tw/lab/blog/stratege-for-proxy-servers.html</loc>
 <lastmod>2020-06-11T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./high-risk-networking-devices.html</loc>
+<loc>https://mde.tw/lab/blog/high-risk-networking-devices.html</loc>
 <lastmod>2020-06-04T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./wcm-w13-ubuntu-and-blogs.html</loc>
+<loc>https://mde.tw/lab/blog/wcm-w13-ubuntu-and-blogs.html</loc>
 <lastmod>2020-05-28T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./sync-pelican-and-blogger-content.html</loc>
+<loc>https://mde.tw/lab/blog/sync-pelican-and-blogger-content.html</loc>
 <lastmod>2020-05-18T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./virtualbox-ubuntu-nat-network.html</loc>
+<loc>https://mde.tw/lab/blog/virtualbox-ubuntu-nat-network.html</loc>
 <lastmod>2020-05-16T12:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./use-github-and-gitlab-pages.html</loc>
+<loc>https://mde.tw/lab/blog/use-github-and-gitlab-pages.html</loc>
 <lastmod>2020-05-16T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./create-portable-win-prog-sys.html</loc>
+<loc>https://mde.tw/lab/blog/create-portable-win-prog-sys.html</loc>
 <lastmod>2020-05-12T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./manage-your-cmsimde-site.html</loc>
+<loc>https://mde.tw/lab/blog/manage-your-cmsimde-site.html</loc>
 <lastmod>2020-05-11T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./2020-lab-get-started.html</loc>
+<loc>https://mde.tw/lab/blog/2020-lab-get-started.html</loc>
 <lastmod>2020-05-09T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./category/git.html</loc>
+<loc>https://mde.tw/lab/blog/category/git.html</loc>
 <lastmod>2020-05-16T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./category/github.html</loc>
+<loc>https://mde.tw/lab/blog/category/github.html</loc>
 <lastmod>2020-05-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./category/leo-editor.html</loc>
+<loc>https://mde.tw/lab/blog/category/leo-editor.html</loc>
 <lastmod>2020-06-30T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./category/network.html</loc>
+<loc>https://mde.tw/lab/blog/category/network.html</loc>
 <lastmod>2020-06-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./category/ubuntu.html</loc>
+<loc>https://mde.tw/lab/blog/category/ubuntu.html</loc>
 <lastmod>2020-05-16T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./category/wcm.html</loc>
+<loc>https://mde.tw/lab/blog/category/wcm.html</loc>
 <lastmod>2020-05-28T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./category/weblog.html</loc>
+<loc>https://mde.tw/lab/blog/category/weblog.html</loc>
 <lastmod>2021-02-19T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./category/windows.html</loc>
+<loc>https://mde.tw/lab/blog/category/windows.html</loc>
 <lastmod>2020-05-12T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./tag/202102.html</loc>
+<loc>https://mde.tw/lab/blog/tag/202102.html</loc>
 <lastmod>2021-02-19T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./tag/leo-editor.html</loc>
+<loc>https://mde.tw/lab/blog/tag/leo-editor.html</loc>
 <lastmod>2020-06-30T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./tag/proxy.html</loc>
+<loc>https://mde.tw/lab/blog/tag/proxy.html</loc>
 <lastmod>2020-06-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./tag/security.html</loc>
+<loc>https://mde.tw/lab/blog/tag/security.html</loc>
 <lastmod>2020-06-04T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./tag/pelican.html</loc>
+<loc>https://mde.tw/lab/blog/tag/pelican.html</loc>
 <lastmod>2020-05-28T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./tag/blogger.html</loc>
+<loc>https://mde.tw/lab/blog/tag/blogger.html</loc>
 <lastmod>2020-05-28T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./tag/ubuntu.html</loc>
+<loc>https://mde.tw/lab/blog/tag/ubuntu.html</loc>
 <lastmod>2020-05-28T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./tag/virtualbox.html</loc>
+<loc>https://mde.tw/lab/blog/tag/virtualbox.html</loc>
 <lastmod>2020-05-16T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./tag/github-pages.html</loc>
+<loc>https://mde.tw/lab/blog/tag/github-pages.html</loc>
 <lastmod>2020-05-16T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./tag/portable_system.html</loc>
+<loc>https://mde.tw/lab/blog/tag/portable_system.html</loc>
 <lastmod>2020-05-12T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./tag/cmsimde.html</loc>
+<loc>https://mde.tw/lab/blog/tag/cmsimde.html</loc>
 <lastmod>2020-05-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./tag/deployment.html</loc>
+<loc>https://mde.tw/lab/blog/tag/deployment.html</loc>
 <lastmod>2020-05-09T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>./author/yen.html</loc>
+<loc>https://mde.tw/lab/blog/author/yen.html</loc>
 <lastmod>2021-02-19T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
