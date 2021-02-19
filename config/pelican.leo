@@ -210,6 +210,15 @@
 <v t="leo.20210219033130.1"><vh>427109942903154379</vh></v>
 </v>
 </v>
+<v t="leo.20210219075408.1"><vh>@clean 20210219.md</vh>
+<v t="leo.20210219075856.1"><vh>2021 Pelican 設定修改</vh></v>
+<v t="leo.20210219082223.1"><vh>kblog</vh>
+<v t="leo.20210219082217.1"><vh>4906733030754918917</vh></v>
+</v>
+<v t="leo.20210219082242.1"><vh>mblog</vh>
+<v t="leo.20210219082240.1"><vh>1393216202742162615</vh></v>
+</v>
+</v>
 </v>
 </v>
 </v>
@@ -1364,6 +1373,57 @@ Spring 的網際內容管理課程分別開設在五專一精密機械工程科�
 <t tx="leo.20210219033115.1"></t>
 <t tx="leo.20210219033130.1"></t>
 <t tx="leo.20210219033133.1"></t>
+<t tx="leo.20210219075408.1">@language md
+---
+Title: 2021 Pelican 設定修改
+Date: 2021-02-19 11:00
+Category: Weblog
+Tags: 202102
+Slug: 2021-kmolab-pelican-setup-modification
+Author: yen
+---
+
+請注意: &lt;http://fossil.kmol.info&gt; 僅支援 IPv6 網路協定.
+
+利用 [Leo Editor] 開啟 [CMSiMDE] 中的 config/pelican.leo, 然後利用 control + i 插入一個新的節點, 將節點標題改為 @clean 20210219.md, 表示要利用 @clean 指令在 markdown 目錄中新增一個 20210219.md 的 Markdown 格式檔案.
+
+[Fossil SCM]: https://www.fossil-scm.org
+[Github]: https://github.com/
+[Gitlab]: https://gitlab.com/
+[Heroku]: https://www.heroku.com/
+[Blogger]: https://www.blogger.com/
+[KMOLab]: http://mde.tw
+[Leo Editor]: https://leoeditor.com/
+[CMSiMDE]: https://github.com/mdecourse/cmsimde
+[Pelican Blog]: https://blog.getpelican.com/
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20210219075856.1">接著從先前的網誌中複製網誌文章的標頭格式資料, 修改標題與日期, 並且留意 slug 中必須要採用唯一的檔案名稱, 然後就可以先寫網誌的摘要, 之後再利用 @others 標註將隨後子節點中的內文區全部整合到 20200219.md 檔案中.
+
+然後就可以開始寫特定主題的網誌內容.
+
+slug 名稱必須唯一
+----
+
+假如你曾經見過網路上的網路文章除了英文標題外, 隨後還有一串不短的數字, 這一串數字就是與前面的文章主題結合, 然後可能用做該文章儲存的檔案名稱, 主要用來確認該主題加上數字的字串在系統中具有唯一性.
+
+所謂同步
+----
+
+其實在各網誌間的所謂同步, 並非及時同步, 而是在各種可能的情況下儘量讓多方的資料內容保持相同. 那麼在完全同步之間的影響因素就是時間, 因為將資料從一系統轉到另一個系統需要時間. 以 [CMSiMDE] 上的 [Pelican Blog] 轉到 [Blogger], 需要在 [Leo Editor] 以程式按鈕執行, 而實際操作過程需要將滑鼠停留在網誌文章節點, 然後點擊新增 [Blogger] 或編輯 [Blogger] 的程式按鈕, 一旦 [Pelican Blog] 的網誌文章正確存入對應的 [Blogger] 系統後, [Blogger] 會傳回 blog id, 並且透過程式安排將此一 blog id 存為該網誌文章的子節點標題, 而且是沒有內容的文章標題, 因此這些用來標註所屬 [Blogger] 與 blog id 的資料並不會影響 @others 導入子節點文章內容的功能.
+
+由於目前的程式只會從網誌文章的最後一個節點存取 blog id, 因此若將同一篇網誌文章同步公開到多麼 [Blogger], 新增或編輯時除了要注意滑鼠是否停留在文章主節點外, 還必須在新增與編輯過程手動搬遷這些 blog id.
+
+修改為近端相對目錄設定並加上 Disqus
+----
+
+先前在建立 [CMSiMDE] 中 [Pelican Blog] 時, 一方面要兼顧 search 的回覆連結外, 還需要在導入 Disqus 時區分近端相對 URL 與遠端絕對 URL 的做法, 目前似乎可以直接採用相對目錄 URL, 並且直接加上 Disqus 相對目錄設定即可.</t>
+<t tx="leo.20210219082217.1"></t>
+<t tx="leo.20210219082223.1"></t>
+<t tx="leo.20210219082240.1"></t>
+<t tx="leo.20210219082242.1"></t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/
