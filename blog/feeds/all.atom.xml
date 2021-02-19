@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>mde.tw/lab 網誌</title><link href="https://mde.tw/lab/blog/" rel="alternate"></link><link href="https://mde.tw/lab/blog/feeds/all.atom.xml" rel="self"></link><id>https://mde.tw/lab/blog/</id><updated>2021-02-16T11:00:00+08:00</updated><entry><title>2021 Spring 課程規劃</title><link href="https://mde.tw/lab/blog/2021-spring-course-planning.html" rel="alternate"></link><published>2021-02-16T11:00:00+08:00</published><updated>2021-02-16T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2021-02-16:/lab/blog/2021-spring-course-planning.html</id><summary type="html">&lt;p&gt;請注意: &lt;a href="http://fossil.kmol.info"&gt;http://fossil.kmol.info&lt;/a&gt; 僅支援 IPv6 網路協定.&lt;/p&gt;
-&lt;p&gt;每年的 Spring [KMOLab] 共開兩門課程, 網際內容管理與協同產品設計實習, 基本的課程規劃仍以承接 Fall 的計算機程式及電腦輔助設計實習為主.&lt;/p&gt;
+&lt;p&gt;每年的 Spring &lt;a href="http://mde.tw"&gt;KMOLab&lt;/a&gt; 共開兩門課程, 網際內容管理與協同產品設計實習, 基本的課程規劃仍以承接 Fall 的計算機程式及電腦輔助設計實習為主.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;請注意: &lt;a href="http://fossil.kmol.info"&gt;http://fossil.kmol.info&lt;/a&gt; 僅支援 IPv6 網路協定.&lt;/p&gt;
-&lt;p&gt;每年的 Spring [KMOLab] 共開兩門課程, 網際內容管理與協同產品設計實習, 基本的課程規劃仍以承接 Fall 的計算機程式及電腦輔助設計實習為主.&lt;/p&gt;
+&lt;p&gt;每年的 Spring &lt;a href="http://mde.tw"&gt;KMOLab&lt;/a&gt; 共開兩門課程, 網際內容管理與協同產品設計實習, 基本的課程規劃仍以承接 Fall 的計算機程式及電腦輔助設計實習為主.&lt;/p&gt;
 
 
 &lt;h2&gt;重新導入 &lt;a href="https://www.fossil-scm.org"&gt;Fossil SCM&lt;/a&gt;&lt;/h2&gt;

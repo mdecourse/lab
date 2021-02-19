@@ -1315,6 +1315,7 @@ Author: yen
 [Gitlab]: https://gitlab.com/
 [Heroku]: https://www.heroku.com/
 [Blogger]: https://www.blogger.com/
+[KMOLab]: http://mde.tw
 
 &lt;!-- PELICAN_END_SUMMARY --&gt;
 
