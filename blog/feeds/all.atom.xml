@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>mde.tw/lab 網誌</title><link href="https://mde.tw/lab/blog/" rel="alternate"></link><link href="https://mde.tw/lab/blog/feeds/all.atom.xml" rel="self"></link><id>https://mde.tw/lab/blog/</id><updated>2021-02-22T11:00:00+08:00</updated><entry><title>2021 工作流程</title><link href="https://mde.tw/lab/blog/2021-kmolab-prefered-working-flow.html" rel="alternate"></link><published>2021-02-22T11:00:00+08:00</published><updated>2021-02-22T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2021-02-22:/lab/blog/2021-kmolab-prefered-working-flow.html</id><summary type="html">&lt;p&gt;請注意: &lt;a href="http://fossil.kmol.info"&gt;http://fossil.kmol.info&lt;/a&gt; 僅支援 IPv6 網路協定.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>mde.tw/lab 網誌</title><link href="https://mde.tw/lab/blog/" rel="alternate"></link><link href="https://mde.tw/lab/blog/feeds/all.atom.xml" rel="self"></link><id>https://mde.tw/lab/blog/</id><updated>2021-02-24T11:00:00+08:00</updated><entry><title>2021 nuklear</title><link href="https://mde.tw/lab/blog/2021-kmolab-using-nuklear.html" rel="alternate"></link><published>2021-02-24T11:00:00+08:00</published><updated>2021-02-24T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2021-02-24:/lab/blog/2021-kmolab-using-nuklear.html</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/Immediate-Mode-UI/Nuklear"&gt;Nuklear&lt;/a&gt; 是一套以 C 建立的 GUI 套件, 這裡希望透過 &lt;a href="https://www.msys2.org/"&gt;Msys2&lt;/a&gt; 導入. 所完成的程式可以在 Windows 10 與 Ubuntu 中執行.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/Immediate-Mode-UI/Nuklear"&gt;Nuklear&lt;/a&gt; 是一套以 C 建立的 GUI 套件, 這裡希望透過 &lt;a href="https://www.msys2.org/"&gt;Msys2&lt;/a&gt; 導入. 所完成的程式可以在 Windows 10 與 Ubuntu 中執行.&lt;/p&gt;
+
+
+&lt;h2&gt;安裝 nuklear&lt;/h2&gt;
+&lt;p&gt;從 &lt;a href="https://github.com/Immediate-Mode-UI/Nuklear"&gt;Nuklear&lt;/a&gt; 取得 nuklear.h 放入 Y:\msys64\mingw64\include 目錄便完成安裝.&lt;/p&gt;
+&lt;h2&gt;Msys2 加裝 glew 與 glfw&lt;/h2&gt;
+&lt;p&gt;啟動 Y:\msys64\mingw64.exe, 然後執行:&lt;/p&gt;
+&lt;p&gt;pacman -S mingw-w64-x86_64-glew&lt;/p&gt;
+&lt;p&gt;pacman -S mingw-w64-x86_64-glfw&lt;/p&gt;
+&lt;p&gt;直接進入 Y:\tmp\Nuklear\demo\glfw_opengl2, 以&lt;/p&gt;
+&lt;p&gt;gcc main.c -std=c99 -pedantic -O2 -o demo.exe -lglfw3 -lopengl32 -lm -lGLU32&lt;/p&gt;
+&lt;p&gt;建立 demo.exe 配合 Y:\msys64\mingw64\bin 目錄中的 glfw3.dll 就可以執行.&lt;/p&gt;
+&lt;p&gt;若是在 IPv6 協定機器中, pacman 安裝需要透過 proxy server, 可在  Y:\msys64\etc\wgetrc 中以&lt;/p&gt;
+&lt;p&gt;https_proxy = http://[2001:288:6004:XX::69]:3128/
+http_proxy = http://[2001:288:6004:XX::69]:3128/
+ftp_proxy = http://[2001:288:6004:XX::69]:3128/&lt;/p&gt;
+&lt;p&gt;進行設定.&lt;/p&gt;</content><category term="Weblog"></category><category term="202102"></category></entry><entry><title>2021 工作流程</title><link href="https://mde.tw/lab/blog/2021-kmolab-prefered-working-flow.html" rel="alternate"></link><published>2021-02-22T11:00:00+08:00</published><updated>2021-02-22T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:mde.tw,2021-02-22:/lab/blog/2021-kmolab-prefered-working-flow.html</id><summary type="html">&lt;p&gt;請注意: &lt;a href="http://fossil.kmol.info"&gt;http://fossil.kmol.info&lt;/a&gt; 僅支援 IPv6 網路協定.&lt;/p&gt;
 &lt;p&gt;2021 年起的工作流程已經逐步確立, 其中為了因應 G Suite for Education 改名為 Google Workspace for Education 後, 免費的 GDrive 已經不再提供 unlimited 使用, 因此 @gm 上的儲存空間將只提供當學期所使用的下載服務.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;請注意: &lt;a href="http://fossil.kmol.info"&gt;http://fossil.kmol.info&lt;/a&gt; 僅支援 IPv6 網路協定.&lt;/p&gt;
 &lt;p&gt;2021 年起的工作流程已經逐步確立, 其中為了因應 G Suite for Education 改名為 Google Workspace for Education 後, 免費的 GDrive 已經不再提供 unlimited 使用, 因此 @gm 上的儲存空間將只提供當學期所使用的下載服務.&lt;/p&gt;

@@ -219,13 +219,22 @@
 <v t="leo.20210219082240.1"><vh>1393216202742162615</vh></v>
 </v>
 </v>
-<v t="leo.20210222144701.1"><vh>@clean 20200222.md</vh>
+<v t="leo.20210222144701.1"><vh>@clean 20210222.md</vh>
 <v t="leo.20210222151517.1"><vh>2021 工作流程</vh></v>
 <v t="leo.20210222162542.1"><vh>kblog</vh>
 <v t="leo.20210222162539.1"><vh>6045688493427353593</vh></v>
 </v>
 <v t="leo.20210222162607.1"><vh>mblog</vh>
 <v t="leo.20210222162602.1"><vh>7673398879237838185</vh></v>
+</v>
+</v>
+<v t="leo.20210224100246.1"><vh>@clean 20210224.md</vh>
+<v t="leo.20210224101026.1"><vh>2021nuklear</vh></v>
+<v t="leo.20210224102437.1"><vh>kblog</vh>
+<v t="leo.20210224102432.1"><vh>6352829255600809999</vh></v>
+</v>
+<v t="leo.20210224102509.1"><vh>mblog</vh>
+<v t="leo.20210224102501.1"><vh>3638907969329314948</vh></v>
 </v>
 </v>
 </v>
@@ -1507,6 +1516,55 @@ fossil 端 wd 中設法利用 fossil open 開啟從 fossil init 所建立的 fos
 <t tx="leo.20210222162542.1"></t>
 <t tx="leo.20210222162602.1"></t>
 <t tx="leo.20210222162607.1"></t>
+<t tx="leo.20210224100246.1">@language md
+---
+Title: 2021 nuklear
+Date: 2021-02-24 11:00
+Category: Weblog
+Tags: 202102
+Slug: 2021-kmolab-using-nuklear
+Author: yen
+---
+
+[Nuklear] 是一套以 C 建立的 GUI 套件, 這裡希望透過 [Msys2] 導入. 所完成的程式可以在 Windows 10 與 Ubuntu 中執行.
+
+[Nuklear]: https://github.com/Immediate-Mode-UI/Nuklear
+[Msys2]: https://www.msys2.org/
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20210224101026.1">安裝 nuklear
+----
+
+從 [Nuklear] 取得 nuklear.h 放入 Y:\msys64\mingw64\include 目錄便完成安裝.
+
+Msys2 加裝 glew 與 glfw
+----
+
+啟動 Y:\msys64\mingw64.exe, 然後執行:
+
+pacman -S mingw-w64-x86_64-glew
+
+pacman -S mingw-w64-x86_64-glfw
+
+直接進入 Y:\tmp\Nuklear\demo\glfw_opengl2, 以
+
+gcc main.c -std=c99 -pedantic -O2 -o demo.exe -lglfw3 -lopengl32 -lm -lGLU32
+
+建立 demo.exe 配合 Y:\msys64\mingw64\bin 目錄中的 glfw3.dll 就可以執行.
+
+若是在 IPv6 協定機器中, pacman 安裝需要透過 proxy server, 可在  Y:\msys64\etc\wgetrc 中以
+
+https_proxy = http://[2001:288:6004:XX::69]:3128/
+http_proxy = http://[2001:288:6004:XX::69]:3128/
+ftp_proxy = http://[2001:288:6004:XX::69]:3128/
+
+進行設定.</t>
+<t tx="leo.20210224102432.1"></t>
+<t tx="leo.20210224102437.1"></t>
+<t tx="leo.20210224102501.1"></t>
+<t tx="leo.20210224102509.1"></t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/
