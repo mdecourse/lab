@@ -237,6 +237,15 @@
 <v t="leo.20210224102501.1"><vh>3638907969329314948</vh></v>
 </v>
 </v>
+<v t="leo.20210306102210.1"><vh>@clean 20210306.md</vh>
+<v t="leo.20210306102233.1"><vh>2021 cmsimde 修改</vh></v>
+<v t="leo.20210306110554.1"><vh>kblog</vh>
+<v t="leo.20210306110551.1"><vh>3499065018744387110</vh></v>
+</v>
+<v t="leo.20210306110613.1"><vh>mblog</vh>
+<v t="leo.20210306110610.1"><vh>3332700928136370365</vh></v>
+</v>
+</v>
 </v>
 </v>
 </v>
@@ -1565,6 +1574,83 @@ ftp_proxy = http://[2001:288:6004:XX::69]:3128/
 <t tx="leo.20210224102437.1"></t>
 <t tx="leo.20210224102501.1"></t>
 <t tx="leo.20210224102509.1"></t>
+<t tx="leo.20210306102210.1">@language md
+---
+Title: 2021 cmsimde 修改
+Date: 2021-03-06 11:00
+Category: Weblog
+Tags: 202103
+Slug: 2021-kmolab-cmsimde-modification-add-three-bats
+Author: yen
+---
+
+修改動機
+----
+
+[cmsimde] 由 [KMOLab] 編寫, 是一套用於課程教學使用的網際內容管理系統, 從 2013 年底起配合各相關課程的內容與教學進度拼湊而成. 原始的內容分頁方式採自 [cmsimple], 也就是利用 content.htm 中的 H1~H3 標註分頁, 經過多年的修修改改, 其中納入 [Pelican] 與 [Reveal.js] 的應用. 
+
+[cmsimde]: https://github.com/mdecourse/cmsimde
+[KMOLab]: http://mde.tw
+[cmsimple]: https://www.cmsimple.org/en/
+[Pelican]: https://blog.getpelican.com/
+[Reveal.js]: https://revealjs.com/
+
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20210306102233.1">由於使用過程牽涉動態網站與靜態網站的分散式版次管理, 使用者必須在命令提示字元中進出 cmsimde 目錄, 因此經常造成初學者弄亂倉儲中 [cmsimde] 子模組的版次, 而無法讓 [Github Pages] 中的靜態網頁正常轉檔. 這時可以採[刪除重建子模組] ([操作影片]) 或[重新 checkout cmsime 版本] 的方式進行修正. 有鑑於學員發生錯誤的次數實在太多, 因此促成本次的 [cmsimde] 用法修改.
+
+[Github Pages]: https://pages.github.com/
+[[刪除重建子模組]: http://mde.tw/cad2020/content/W5Video.html
+[操作影片]: https://drive.google.com/file/d/1TvkSOMRAUaGE4xL2b_5xOb4xbm8O_pi0/view
+[[重新 checkout cmsime 版本]: http://mde.tw/cp2020/content/cmsimde%20%E5%95%8F%E9%A1%8C.html
+
+在倉儲目錄開啟動態網站
+----
+
+要修正上述使用者可能在 cmsimde 子模組目錄進行倉儲改版推送所造成的問題, 就是不需要讓使用者以命令列進出 cmsimde 目錄, 只要使用者是透過 [cmstemplate], 以 [Github] [template] 功能建立倉儲, 就無需處理 git submodule add 指令與 up_dir 目錄內容的複製. 或許就能避開上述可能造成的問題.
+
+要讓使用者在倉儲目錄開啟 [cmsimde] 動態網站, 只需要新增一個 cms.bat, 內容為:
+
+&lt;pre class="brush=js"&gt;
+python cmsimde/wsgi.py
+&lt;/pre&gt;
+
+但由於是在倉儲目錄中執行此一 batch file, 所以用來建立 https 數位簽章用的 localhost.crt 與 localhost.key 檔案必須透過下列 portablegit/bin/sh.exe Shell 指令完成:
+
+&lt;pre class="brush=js"&gt;
+openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout localhost.key -out localhost.crt
+&lt;/pre&gt;
+
+也就是 localhost.crt 與 localhost.key 必須從 cmsimde 子模組的根目錄移至 up_dir 目錄中, 並且也將 cms.bat 放入 up_dir 目錄.
+
+另外又建立 up.bat 用於手動以 git submodule add 時, 必須將 up_dir 目錄內容複製至倉儲根目錄的流程:
+
+&lt;pre class="brush=js"&gt;
+@echo off
+robocopy up_dir ./../ /E
+&lt;/pre&gt;
+
+最後針對採 openssh 對 [Github] 推送的需要 (無需輸入使用者的帳號與密碼), 建立一個 acp.bat (Add, Commit, Push):
+
+&lt;pre class="brush=js"&gt;
+echo off
+set message=%1
+git add .
+git commit -m %message%
+git push
+&lt;/pre&gt;
+
+執行時只需要將提交訊息字串放在 acp.bat 執行指令後面即可.
+
+[cmstemplate]: https://github.com/mdecourse/cmstemplate
+[Github]: https://github.com/
+[template]: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-template-repository</t>
+<t tx="leo.20210306110551.1"></t>
+<t tx="leo.20210306110554.1"></t>
+<t tx="leo.20210306110610.1"></t>
+<t tx="leo.20210306110613.1"></t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/
