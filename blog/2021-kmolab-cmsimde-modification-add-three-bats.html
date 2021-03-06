@@ -235,19 +235,19 @@ python cmsimde/wsgi.py
 </pre>
 
 <p>但由於是在倉儲目錄中執行此一 batch file, 所以用來建立 https 數位簽章用的 localhost.crt 與 localhost.key 檔案必須透過下列 portablegit/bin/sh.exe Shell 指令完成:</p>
-<pre class="brush=js">
+<pre class="brush: javascript">
 openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout localhost.key -out localhost.crt
 </pre>
 
 <p>也就是 localhost.crt 與 localhost.key 必須從 cmsimde 子模組的根目錄移至 up_dir 目錄中, 並且也將 cms.bat 放入 up_dir 目錄.</p>
 <p>另外又建立 up.bat 用於手動以 git submodule add 時, 必須將 up_dir 目錄內容複製至倉儲根目錄的流程:</p>
-<pre class="brush=js">
+<pre class="brush: javascript">
 @echo off
 robocopy up_dir ./../ /E
 </pre>
 
 <p>最後針對採 openssh 對 <a href="https://github.com/">Github</a> 推送的需要 (無需輸入使用者的帳號與密碼), 建立一個 acp.bat (Add, Commit, Push):</p>
-<pre class="brush=js">
+<pre class="brush: javascript">
 echo off
 set message=%1
 git add .
