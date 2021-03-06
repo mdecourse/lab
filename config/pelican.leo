@@ -1599,9 +1599,9 @@ Author: yen
 <t tx="leo.20210306102233.1">由於使用過程牽涉動態網站與靜態網站的分散式版次管理, 使用者必須在命令提示字元中進出 cmsimde 目錄, 因此經常造成初學者弄亂倉儲中 [cmsimde] 子模組的版次, 而無法讓 [Github Pages] 中的靜態網頁正常轉檔. 這時可以採[刪除重建子模組] ([操作影片]) 或[重新 checkout cmsime 版本] 的方式進行修正. 有鑑於學員發生錯誤的次數實在太多, 因此促成本次的 [cmsimde] 用法修改.
 
 [Github Pages]: https://pages.github.com/
-[[刪除重建子模組]: http://mde.tw/cad2020/content/W5Video.html
+[刪除重建子模組]: http://mde.tw/cad2020/content/W5Video.html
 [操作影片]: https://drive.google.com/file/d/1TvkSOMRAUaGE4xL2b_5xOb4xbm8O_pi0/view
-[[重新 checkout cmsime 版本]: http://mde.tw/cp2020/content/cmsimde%20%E5%95%8F%E9%A1%8C.html
+[重新 checkout cmsime 版本]: http://mde.tw/cp2020/content/cmsimde%20%E5%95%8F%E9%A1%8C.html
 
 在倉儲目錄開啟動態網站
 ----
