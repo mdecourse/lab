@@ -1584,9 +1584,6 @@ Slug: 2021-kmolab-cmsimde-modification-add-three-bats
 Author: yen
 ---
 
-修改動機
-----
-
 [cmsimde] 由 [KMOLab] 編寫, 是一套用於課程教學使用的網際內容管理系統, 從 2013 年底起配合各相關課程的內容與教學進度拼湊而成. 原始的內容分頁方式採自 [cmsimple], 也就是利用 content.htm 中的 H1~H3 標註分頁, 經過多年的修修改改, 其中納入 [Pelican] 與 [Reveal.js] 的應用. 
 
 [cmsimde]: https://github.com/mdecourse/cmsimde
