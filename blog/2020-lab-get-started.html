@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>CMSiMDE 部署</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+  <link href="https://mde.tw/lab/blog/" rel="canonical" />
+
+  <!-- Feed -->
+        <link href="https://mde.tw/lab/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="mde.tw/lab 網誌 Full Atom Feed" />
+          <link href="https://mde.tw/lab/blog/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="mde.tw/lab 網誌 Categories Atom Feed" />
+
+  <link href="https://mde.tw/lab/blog/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="https://mde.tw/lab/blog/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
+
+  
+    <link href="https://mde.tw/lab/blog/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+    <link href="https://mde.tw/lab/blog/2020-lab-get-started.html" rel="canonical" />
+
+        <meta name="description" content="CMSiMDE 所能伺服的內容包含網站, 網誌與簡報, 而網站又分為動態系統與靜態系統, 動態網站建置主要的目的在方便進行 html 文件的編輯, 而靜態網站系統則主要為了能在一般的 WWW 伺服器上進行部署.">
+
+        <meta name="author" content="yen">
+
+        <meta name="tags" content="Deployment">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="mde.tw/lab 網誌"/>
+<meta property="og:title" content="CMSiMDE 部署"/>
+<meta property="og:description" content="CMSiMDE 所能伺服的內容包含網站, 網誌與簡報, 而網站又分為動態系統與靜態系統, 動態網站建置主要的目的在方便進行 html 文件的編輯, 而靜態網站系統則主要為了能在一般的 WWW 伺服器上進行部署."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://mde.tw/lab/blog/2020-lab-get-started.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-05-09 11:00:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://mde.tw/lab/blog/author/yen.html">
+<meta property="article:section" content="Github"/>
+<meta property="article:tag" content="Deployment"/>
+<meta property="og:image" content="https://mde.tw/lab/blog/theme/images/post-bg.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "CMSiMDE 部署",
+  "headline": "CMSiMDE 部署",
+  "datePublished": "2020-05-09 11:00:00+08:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "yen",
+    "url": "https://mde.tw/lab/blog/author/yen.html"
+  },
+  "image": "https://mde.tw/lab/blog/theme/images/post-bg.jpg",
+  "url": "https://mde.tw/lab/blog/2020-lab-get-started.html",
+  "description": "CMSiMDE 所能伺服的內容包含網站, 網誌與簡報, 而網站又分為動態系統與靜態系統, 動態網站建置主要的目的在方便進行 html 文件的編輯, 而靜態網站系統則主要為了能在一般的 WWW 伺服器上進行部署."
+}
+</script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "./../cmsimde/static/syntaxhighlighter/css/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "./../cmsimde/static/syntaxhighlighter/css/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+
+<!-- for LaTeX equations -->
+<script src="https://scrum-3.github.io/web/math/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+    <!--
+
+              <li role="presentation"><a href="https://mde.tw/lab/blog/pages/about/">About</a></li>
+      -->
+
+            <li><a href="https://mde.tw/lab/blog/pages/about/index.html">About</span></a></li>
+            
+            <li><a href="https://mde.tw/lab/blog/archives.html">Archives</span></a></li>
+            
+            <li><a href="https://mde.tw/lab/blog/categories.html">Categories</span></a></li>
+            
+            <li><a href="https://mde.tw/lab/blog/tags.html">Tags</span></a></li>
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="https://mde.tw/lab/blog/index.html" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">CMSiMDE 部署</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="https://mde.tw/lab/blog/author/yen.html">Yen</a>
+            | <time datetime="週六 09 五月 2020">週六 09 五月 2020</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="background-image: url('https://mde.tw/lab/blog/theme/images/post-bg.jpg')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+<section class="search">
+      <form class="navbar-search" action="https://mde.tw/lab/blog/search.html">
+      <input type="text"  placeholder="Search" name="q" id="tipue_search_input" required>
+    </form>
+</section>
+
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <p><a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 所能伺服的內容包含網站, 網誌與簡報, 而網站又分為動態系統與靜態系統, 動態網站建置主要的目的在方便進行 html 文件的編輯, 而靜態網站系統則主要為了能在一般的 WWW 伺服器上進行部署. </p>
+
+
+<h2>網站</h2>
+<p><a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 的網站編輯採用 Flask 框架編寫, 目前所需要的模組包含 flask, flask_cors, lxml, bs4 與 markdown. 使用者可以選擇將 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 當作 submodule 或者單獨部署在倉儲內容中的 cmsimde 目錄後, 再將 cmsimde 目錄中的 up_dir 目錄內容複製到倉儲主目錄即可.</p>
+<p><a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 倉儲資料包含引擎內容 (也就是 cmsimde 中的資料) 與使用者內容 (也就是 up_dir 中的資料) 等兩類, 許多的網際功能都是配合歷年上課時敲敲打打修改而成, 因此整體架構相當鬆散, 就所謂的網際內容管理功能而言, 只能算勉強堪用, 還有很大的修改空間.</p>
+<h2>網誌</h2>
+<p><a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 的網誌系統採用 <a href="https://github.com/getpelican/pelican">Pelican</a>, 編輯網誌的架構採用 <a href="https://github.com/leo-editor/leo-editor">Leo Editor</a> 管理, 而網誌專案檔位於 config 目錄中的 pelican.leo.</p>
+<p><a href="https://github.com/leo-editor/leo-editor">Leo Editor</a> 其實是一套值得大力推廣的整合開發系統與文件編輯器, 但可能因為曲高因此和寡, 真正能夠運用上手的全球用戶, 數量始終偏低. 但是其大綱編輯模式非常適合處理複雜的工程設計流程所產生的各種文字資料, 因此非常希望 Python 新手能夠以看懂 <a href="https://github.com/leo-editor/leo-editor">Leo Editor</a> 的設計架構與處理問題的細節作為遠大的目標.</p>
+<h2>簡報</h2>
+<p><a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 的網誌簡報採用 <a href="https://github.com/hakimel/reveal.js/">reveal.js</a>. 而簡報的編輯檔案也是採用 <a href="https://github.com/leo-editor/leo-editor">Leo Editor</a>, 簡報專案位於 config 目錄中的 reveal.leo.</p>
+<h2>網站建構流程</h2>
+<p><a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 的網站建構流程, 可以從建立初始的 <a href="https://github.com">Github</a> 倉儲開始. 亦即在 <a href="https://github.com">Github</a> 建立一個僅含 README.md 檔案的倉儲, 然後 git clone 該倉儲到近端後, 以命令列進入該倉儲後再以 </p>
+<pre class="brush: jscript">
+git submodule add https://github.com/mdecourse/cmsimde.git cmsimde
+</pre>
+
+<p>將 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 倉儲內容納為子模組, 且命名為 cmsimde 目錄. 接下來將 cmsimde 目錄中, 名稱為 up_dir 的目錄內容, 複製到倉儲的根目錄中. 若近端隨身系統或操作系統已經安裝 Python3 與相應的 flask, flask_cors, lxml, bs4, markdown 等模組後, 就可以在命令列中, 進入 cmsimde 子目錄, 以:</p>
+<pre class="brush: jscript">
+python wsgi.py
+</pre>
+
+<p>假如是在 OS X 或 Linux 操作系統, 則必須使用 Python 3 指令:</p>
+<p><pre class="brush: jscript">
+python3 wsgi.py
+</pre></p>
+<p>在近端啟動動態網站, 以瀏覽器 https://localhost:9443 開啟.</p>
+<h2>網站內容管理</h2>
+<p><a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 的動態網際內容管理, 將所有網頁內容存入 config 目錄中的 content.htm 檔案, 而在每一次使用者儲存新檔案之前,  會將舊版的 content.htm 複製至 content_backup.htm, 之所以如此是因為 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 採用 <a href="https://pypi.org/project/beautifulsoup4/">bs4</a>, 對 config/content.htm 內容進行分頁, 而分頁是依據 content.htm 由上到下的 h1, h2 與 h3 標註內容而定. 並在將動態網站內容 content.htm 以動態編輯器中的 generate pages 功能 (使用 <a href="https://pypi.org/project/lxml/">lxml</a> 模組功能) 轉為 content 目錄中的各分頁內容時, 可能因分頁失敗而讓整個 content.htm 內容丟失 (這就是非常需要改進的地方之一), 所以才設計 content_backup.htm 的複製進行及時補救.</p>
+<p>另外, 在 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 將操作系統不允許作為檔案名稱的特殊符號自動移除之前 (例如 ":" 號), 使用者應該避免在 h1, h2 與 h3 等標題中使用特殊符號.</p>
+<h2>Github Pages</h2>
+<p>將 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 的動態系統轉為靜態後, 所有靜態頁面的內容存入 content 目錄, 使用者可以將此目錄內容部署到 <a href="https://pages.github.com/">Github Pages</a> 上, 或其他能夠伺服 WWW html 檔案的系統即可完成網站的建立.</p>
+<p>但是一般為了方便, 通常將包含動態系統與靜態網站內容的整個倉儲資料, 直接交由 <a href="https://github.com">Github</a> 管理.  只要將倉儲的 master 分支設為 <a href="https://pages.github.com/">Github Pages</a> 的根目錄, 就可以交由 <a href="https://pages.github.com/">Github Pages</a>, 由倉儲主分支倉儲中的 index.html 進行網站導引.</p>
+<p>假如使用者將近端的動態網頁內容轉為靜態後, 希望在近端檢視靜態網站內容, 可以在近端倉儲根目錄利用:</p>
+<pre class="brush: jscript">
+python http-server.py
+</pre>
+
+<p>或在 OS X 及 Linux 操作系統中以:</p>
+<pre class="brush: jscript">
+python3 http-server.py
+</pre>
+
+<p>啟動 https://localhost:8444 近端的靜態網頁伺服系統.</p>
+<h2>Ubuntu 20.04 自架主機</h2>
+<p>上述利用 <a href="https://pages.github.com/">Github Pages</a> 伺服 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 靜態網頁內容的配置流程非常簡單, 但若是要將 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 靜態網頁與動態網站系統部署在自架的 Ubuntu 20.04 主機, 則操作系統除了要安裝前述的 python3, flask, flask_cors, bs4, lxml, markdown 之外, 還需要運用 <a href="https://nginx.org/en/">nginx</a>, <a href="https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html">uwsgi</a>, <a href="https://www.openssl.org/">openssl</a> 進行配置.</p>
+<p>其中, <a href="https://www.openssl.org/">openssl</a> 用來建立網站認證用的 key 與 certificate, <a href="https://nginx.org/en/">nginx</a> 負責建立 WWW 伺服, 而 <a href="https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html">uwsgi</a> 則負責用來開機執行 <a href="https://github.com/mdecourse/cmsimde">CMSiMDE</a> 中的 wsgi.py 伺服程式.</p>
+<p>利用 <a href="https://www.openssl.org/">openssl</a> 建立 cmsimde.key 與 cmsimde.crt 的指令如下:</p>
+<pre class="brush: jscript">
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cmsimde.key -out cmsimde.crt
+</pre>
+
+<p>與 <a href="https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html">uwsgi</a> 有關的 Ubuntu 系統安裝則包括:</p>
+<pre class="brush: jscript">
+// 安裝 pip3
+sudo apt install python3-pip
+// 安裝 python 編譯開發系統
+sudo apt install build-essential python3-dev
+// 安裝 uwsgi 模組
+sudo pip3 install uwsgi
+// 安裝 nginx 伺服套件與 uwsgi python3 plugin 程式庫
+sudo apt install nginx uwsgi-plugin-python3
+</pre>
+
+<p>/etc/nginx/sites-available/default</p>
+<pre class="brush: jscript">
+# for lab.mde.tw static site, use nginx to serve
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /home/user_account/labmdetw;
+    index index.html index.htm;
+    server_name _;
+
+    location /static {
+            alias /home/user_account/labmdetw/cmsimde/static/;
+        }
+        location /downloads {
+            alias /home/user_account/labmdetw/downloads/;
+        }
+
+        location /images {
+            alias /home/user_account/labmdetw/images/;
+        }
+
+        location /blog {
+            alias /home/user_account/labmdetw/blog/;
+        }
+
+        location /reveal {
+            alias /home/user_account/labmdetw/reveal/;
+        }
+
+    location / {
+        # First attempt to serve request as file, then
+        # as directory, then fall back to displaying a 404.
+        try_files $uri $uri/ =404;
+    }
+
+}
+
+# https://lab.mde.tw use nginx to serve
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    root /home/user_account/labmdetw;
+    index index.html index.htm;
+    server_name _;
+
+    location /static {
+            alias /home/user_account/labmdetw/cmsimde/static/;
+        }
+        location /downloads {
+            alias /home/user_account/labmdetw/downloads/;
+        }
+
+        location /images {
+            alias /home/user_account/labmdetw/images/;
+        }
+
+        location /blog {
+            alias /home/user_account/labmdetw/blog/;
+        }
+
+        location /reveal {
+            alias /home/user_account/labmdetw/reveal/;
+        }
+
+    location / {
+    # First attempt to serve request as file, then
+    # as directory, then fall back to displaying a 404.
+    try_files $uri $uri/ =404;
+    }
+
+    ssl_certificate /etc/nginx/nginx.crt;
+    ssl_certificate_key /etc/nginx/nginx.key;
+    ssl_session_timeout 5m;
+    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
+    ssl_prefer_server_ciphers on;
+    try_files $uri $uri/ =404;
+}
+
+# dynamic https://lab.mde.tw:7443 use nginx for ssl and uwsgi for wsgi serving
+server {
+
+    listen 7443 ssl;
+    listen [::]:7443 ssl;
+
+    location /static {
+        alias /home/user_account/labmdetw/cmsimde/static/;
+    }
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass  127.0.0.1:9443;
+    }
+
+    ssl_certificate /etc/nginx/nginx.crt;
+    ssl_certificate_key /etc/nginx/nginx.key;
+    ssl_session_timeout 5m;
+    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
+    ssl_prefer_server_ciphers on;
+    try_files $uri $uri/ =404;
+}
+</pre>
+
+<p>uwsgi_ini/uwsgi.ini</p>
+<pre class="brush:js;auto-links:false">
+[uwsgi]
+socket = 127.0.0.1:9443
+uid = user_account
+gid = user_account
+plugins-dir = /usr/lib/uwsgi/plugins/
+plugin = python3
+master = true
+process = 4
+threads = 2
+chdir = /home/user_account/labmdetw/cmsimde
+wsgi-file = /home/user_account/labmdetw/cmsimde/wsgi.py
+</pre>
+
+<p>啟動 uwsgi 指令, 將會逐一啟動 wsgi_ini 目錄中個別 .ini 檔案:</p>
+<pre class="brush: jscript">
+sudo /usr/bin/uwsgi --emperor /home/user_account/wsgi_ini
+</pre>
+
+<p>最後則設定 Ubuntu 系統服務, 用來啟動 uwsgi:</p>
+<p>/etc/systemd/system 的 cmsimde.service 服務啟動檔案內容:</p>
+<pre class="brush: jscript">
+[Unit]
+Description=uWSGI to serve CMSiMDE
+After=network.target
+
+[Service]
+User=user_account
+Group=user_account
+WorkingDirectory=/home/user_account/uwsgi_ini
+ExecStart=/usr/local/bin/uwsgi --emperor /home/user_account/uwsgi_ini
+
+[Install]
+WantedBy=multi-user.target
+</pre>
+
+<p>接著將 cmsimde 服務設為隨系統開機啟動:</p>
+<p>sudo systemctl enable cmsimde</p>
+<p>若要取消 cmsimde 服務隨系統開機啟動:</p>
+<p>sudo systemctl disable cmsimde</p>
+<p>手動啟動 cmsimde.service 服務</p>
+<p>sudo systemctl start cmsimde</p>
+<p>手動停止 cmsimde.service 服務</p>
+<p>sudo systemctl stop cmsimde</p>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=CMSiMDE 部署&amp;url=https://mde.tw/lab/blog/2020-lab-get-started.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://mde.tw/lab/blog/2020-lab-get-started.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=https://mde.tw/lab/blog/2020-lab-get-started.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="https://mde.tw/lab/blog/tag/deployment.html">Deployment</a>                </aside>
+
+                <div class="clear"></div>
+
+
+                </section>
+
+                <script type="text/javascript">
+                    var disqus = 'kmolab-github';
+                    var disqus_shortname = 'kmolab-github';
+                    var disqus_identifier = '/2020-lab-get-started.html';
+                    var disqus_url = 'https://mde.tw/lab/blog/2020-lab-get-started.html';
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+                <section class="post-comments">
+                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="/2020-lab-get-started.html" >Show Comments</a>
+                    <div id="disqus_thread"></div>
+                </section>
+
+                <aside class="post-nav">
+                    <a class="post-nav-next" href="https://mde.tw/lab/blog/manage-your-cmsimde-site.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-left"></i>
+                                <h2 class="post-nav-title">倉儲資料維護與管理</h2>
+                            <p class="post-nav-excerpt">cd2020 是 2020 春季協同產品設計實習的課程網站, 而 cd2020pj1 則是與協同設計課程相關的程式專案, 兩者都採用 CMSiMDE 建立網站. 其中...</p>
+                        </section>
+                    </a>
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+  
+  <script type="text/javascript" src="https://mde.tw/lab/blog/theme/js/script.js"></script>
+
+<script type="text/javascript">
+    var disqus_shortname = 'kmolab-github';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+ 
+
+
+</body>
+</html>

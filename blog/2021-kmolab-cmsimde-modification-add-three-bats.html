@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>2021 cmsimde 修改</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+  <link href="https://mde.tw/lab/blog/" rel="canonical" />
+
+  <!-- Feed -->
+        <link href="https://mde.tw/lab/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="mde.tw/lab 網誌 Full Atom Feed" />
+          <link href="https://mde.tw/lab/blog/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="mde.tw/lab 網誌 Categories Atom Feed" />
+
+  <link href="https://mde.tw/lab/blog/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="https://mde.tw/lab/blog/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
+
+  
+    <link href="https://mde.tw/lab/blog/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+    <link href="https://mde.tw/lab/blog/2021-kmolab-cmsimde-modification-add-three-bats.html" rel="canonical" />
+
+        <meta name="description" content="cmsimde 由 KMOLab 編寫, 是一套用於課程教學使用的網際內容管理系統, 從 2013 年底起配合各相關課程的內容與教學進度拼湊而成. 原始的內容分頁方式採自 cmsimple, 也就是利用 content.htm 中的 H1~H3 標註分頁,...">
+
+        <meta name="author" content="yen">
+
+        <meta name="tags" content="202103">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="mde.tw/lab 網誌"/>
+<meta property="og:title" content="2021 cmsimde 修改"/>
+<meta property="og:description" content="cmsimde 由 KMOLab 編寫, 是一套用於課程教學使用的網際內容管理系統, 從 2013 年底起配合各相關課程的內容與教學進度拼湊而成. 原始的內容分頁方式採自 cmsimple, 也就是利用 content.htm 中的 H1~H3 標註分頁,..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://mde.tw/lab/blog/2021-kmolab-cmsimde-modification-add-three-bats.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-03-06 11:00:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://mde.tw/lab/blog/author/yen.html">
+<meta property="article:section" content="Weblog"/>
+<meta property="article:tag" content="202103"/>
+<meta property="og:image" content="https://mde.tw/lab/blog/theme/images/post-bg.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "2021 cmsimde 修改",
+  "headline": "2021 cmsimde 修改",
+  "datePublished": "2021-03-06 11:00:00+08:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "yen",
+    "url": "https://mde.tw/lab/blog/author/yen.html"
+  },
+  "image": "https://mde.tw/lab/blog/theme/images/post-bg.jpg",
+  "url": "https://mde.tw/lab/blog/2021-kmolab-cmsimde-modification-add-three-bats.html",
+  "description": "cmsimde 由 KMOLab 編寫, 是一套用於課程教學使用的網際內容管理系統, 從 2013 年底起配合各相關課程的內容與教學進度拼湊而成. 原始的內容分頁方式採自 cmsimple, 也就是利用 content.htm 中的 H1~H3 標註分頁,..."
+}
+</script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "./../cmsimde/static/syntaxhighlighter/css/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "./../cmsimde/static/syntaxhighlighter/css/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+
+<!-- for LaTeX equations -->
+<script src="https://scrum-3.github.io/web/math/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+    <!--
+
+              <li role="presentation"><a href="https://mde.tw/lab/blog/pages/about/">About</a></li>
+      -->
+
+            <li><a href="https://mde.tw/lab/blog/pages/about/index.html">About</span></a></li>
+            
+            <li><a href="https://mde.tw/lab/blog/archives.html">Archives</span></a></li>
+            
+            <li><a href="https://mde.tw/lab/blog/categories.html">Categories</span></a></li>
+            
+            <li><a href="https://mde.tw/lab/blog/tags.html">Tags</span></a></li>
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="https://mde.tw/lab/blog/index.html" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">2021 cmsimde 修改</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="https://mde.tw/lab/blog/author/yen.html">Yen</a>
+            | <time datetime="週六 06 三月 2021">週六 06 三月 2021</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="background-image: url('https://mde.tw/lab/blog/theme/images/post-bg.jpg')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+<section class="search">
+      <form class="navbar-search" action="https://mde.tw/lab/blog/search.html">
+      <input type="text"  placeholder="Search" name="q" id="tipue_search_input" required>
+    </form>
+</section>
+
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <p><a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 由 <a href="http://mde.tw">KMOLab</a> 編寫, 是一套用於課程教學使用的網際內容管理系統, 從 2013 年底起配合各相關課程的內容與教學進度拼湊而成. 原始的內容分頁方式採自 <a href="https://www.cmsimple.org/en/">cmsimple</a>, 也就是利用 content.htm 中的 H1~H3 標註分頁, 經過多年的修修改改, 其中納入 <a href="https://blog.getpelican.com/">Pelican</a> 與 <a href="https://revealjs.com/">Reveal.js</a> 的應用. </p>
+
+
+<p>由於使用過程牽涉動態網站與靜態網站的分散式版次管理, 使用者必須在命令提示字元中進出 cmsimde 目錄, 因此經常造成初學者弄亂倉儲中 <a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 子模組的版次, 而無法讓 <a href="https://pages.github.com/">Github Pages</a> 中的靜態網頁正常轉檔. 這時可以採<a href="http://mde.tw/cad2020/content/W5Video.html">刪除重建子模組</a> (<a href="https://drive.google.com/file/d/1TvkSOMRAUaGE4xL2b_5xOb4xbm8O_pi0/view">操作影片</a>) 或<a href="http://mde.tw/cp2020/content/cmsimde%20%E5%95%8F%E9%A1%8C.html">重新 checkout cmsime 版本</a> 的方式進行修正. 有鑑於學員發生錯誤的次數實在太多, 因此促成本次的 <a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 用法修改.</p>
+<h2>在倉儲目錄開啟動態網站</h2>
+<p>要修正上述使用者可能在 cmsimde 子模組目錄進行倉儲改版推送所造成的問題, 就是不需要讓使用者以命令列進出 cmsimde 目錄, 只要使用者是透過 <a href="https://github.com/mdecourse/cmstemplate">cmstemplate</a>, 以 <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-template-repository">Github</a> 功能建立倉儲, 就無需處理 git submodule add 指令與 up_dir 目錄內容的複製. 或許就能避開上述可能造成的問題.</p>
+<p>要讓使用者在倉儲目錄開啟 <a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 動態網站, 只需要新增一個 cms.bat, 內容為:</p>
+<pre class="brush=js">
+python cmsimde/wsgi.py
+</pre>
+
+<p>但由於是在倉儲目錄中執行此一 batch file, 所以用來建立 https 數位簽章用的 localhost.crt 與 localhost.key 檔案必須透過下列 portablegit/bin/sh.exe Shell 指令完成:</p>
+<pre class="brush: javascript">
+openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout localhost.key -out localhost.crt
+</pre>
+
+<p>也就是 localhost.crt 與 localhost.key 必須從 cmsimde 子模組的根目錄移至 up_dir 目錄中, 並且也將 cms.bat 放入 up_dir 目錄.</p>
+<p>另外又建立 up.bat 用於手動以 git submodule add 時, 必須將 up_dir 目錄內容複製至倉儲根目錄的流程:</p>
+<pre class="brush: javascript">
+@echo off
+robocopy up_dir ./../ /E
+</pre>
+
+<p>最後針對採 openssh 對 <a href="https://github.com/">Github</a> 推送的需要 (無需輸入使用者的帳號與密碼), 建立一個 acp.bat (Add, Commit, Push):</p>
+<pre class="brush: javascript">
+echo off
+set message=%1
+git add .
+git commit -m %message%
+git push
+</pre>
+
+<p>執行時只需要將提交訊息字串放在 acp.bat 執行指令後面即可.</p>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=2021 cmsimde 修改&amp;url=https://mde.tw/lab/blog/2021-kmolab-cmsimde-modification-add-three-bats.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://mde.tw/lab/blog/2021-kmolab-cmsimde-modification-add-three-bats.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=https://mde.tw/lab/blog/2021-kmolab-cmsimde-modification-add-three-bats.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="https://mde.tw/lab/blog/tag/202103.html">202103</a>                </aside>
+
+                <div class="clear"></div>
+
+
+                </section>
+
+                <script type="text/javascript">
+                    var disqus = 'kmolab-github';
+                    var disqus_shortname = 'kmolab-github';
+                    var disqus_identifier = '/2021-kmolab-cmsimde-modification-add-three-bats.html';
+                    var disqus_url = 'https://mde.tw/lab/blog/2021-kmolab-cmsimde-modification-add-three-bats.html';
+                </script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+                <section class="post-comments">
+                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="/2021-kmolab-cmsimde-modification-add-three-bats.html" >Show Comments</a>
+                    <div id="disqus_thread"></div>
+                </section>
+
+                <aside class="post-nav">
+                    <a class="post-nav-next" href="https://mde.tw/lab/blog/2021-kmolab-wth-is-this.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-left"></i>
+                                <h2 class="post-nav-title">2001年讀書心得</h2>
+                            <p class="post-nav-excerpt">現在還寫得出這種文章嗎?哈!! 當然不行, 絕對不可能!!</p>
+                        </section>
+                    </a>
+                    <a class="post-nav-prev" href="https://mde.tw/lab/blog/2021-kmolab-using-nuklear.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-right"></i>
+                                <h2 class="post-nav-title">2021 nuklear</h2>
+                            <p class="post-nav-excerpt">Nuklear 是一套以 C 建立的 GUI 套件, 這裡希望透過 Msys2 導入. 所完成的程式可以在 Windows 10 與 Ubuntu 中執行.</p>
+                        </section>
+                    </a>
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+  
+  <script type="text/javascript" src="https://mde.tw/lab/blog/theme/js/script.js"></script>
+
+<script type="text/javascript">
+    var disqus_shortname = 'kmolab-github';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+ 
+
+
+</body>
+</html>
