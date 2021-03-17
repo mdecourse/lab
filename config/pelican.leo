@@ -115,7 +115,12 @@
 </v>
 <v t="yen.20200528095926.1"><vh>@clean 20200528.md</vh>
 <v t="yen.20200529220132.1"><vh>網際內容管理課程目標</vh></v>
-<v t="yen.20200529230236.1"><vh>6749131689953887785</vh></v>
+<v t="leo.20210317102957.1"><vh>mblog</vh>
+<v t="leo.20210317023310.1"><vh>4247626056991609910</vh></v>
+</v>
+<v t="leo.20210317023355.1"><vh>kblog</vh>
+<v t="leo.20210317023351.1"><vh>7326071056728571682</vh></v>
+</v>
 </v>
 <v t="yen.20200608161509.1"><vh>@clean 20200608.md</vh>
 <v t="yen.20200608161548.1"><vh>Ubuntu 伺服器</vh></v>
@@ -254,6 +259,9 @@
 <v t="leo.20210306153329.1"><vh>mblog</vh>
 <v t="leo.20210306153326.1"><vh>8048058378627697211</vh></v>
 </v>
+</v>
+<v t="leo.20210314151746.1"><vh>@@clean 20210314.md</vh>
+<v t="leo.20210314151949.1"><vh>Fossil SCM 研究</vh></v>
 </v>
 </v>
 </v>
@@ -1685,6 +1693,52 @@ Author: yen
 <t tx="leo.20210306153302.1"></t>
 <t tx="leo.20210306153326.1"></t>
 <t tx="leo.20210306153329.1"></t>
+<t tx="leo.20210314151746.1">@language md
+---
+Title: Fossil SCM 研究
+Date: 2021-03-14 12:00
+Category: Fossil_SCM
+Tags: 202103
+Slug: 2021-kmol-fossil-scm-study
+Author: yen
+---
+
+[Fossil SCM] 是一套分散式版次管理系統, 專門為了管理 [SQLite] 而寫.
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others
+</t>
+<t tx="leo.20210314151949.1">[Fossil SCM] 利用 C89 ANSI C 所寫, 其中使用 [Tcl] 作為 command language.
+
+當然寫到這裡, 仍然很難體會 [Tcl] 究竟在 [Fossil SCM] 的開發中扮演什麼角色? 但是在 1990 年代 [Python] 啟動開發之際, 也仰賴 [Tcl], 可見這套所謂的 Tool Command Language 在 1980-1990 年代具有舉足輕重的地位.
+
+從 &lt;https://en.wikipedia.org/wiki/Tcl&gt; 可以得知, Tcl is commonly used embedded into C applications, for rapid prototyping, scripted applications, GUIs, and testing.
+
+Tcl 發展歷史
+----
+
+&lt;http://www.tcl.tk/about/history.html&gt;
+
+編譯 Tcl
+----
+
+&lt;https://wiki.tcl-lang.org/page/Building+Tcl+and+Tk+for+Windows+with+MSYS2&gt;
+
+&lt;https://github.com/waddella/Tclbuild&gt;
+
+&lt;http://wookie.tcl.tk/14828&gt;
+
+
+[Fossil SCM]: https://fossil-scm.org
+[SQLite]: https://www.sqlite.org
+[Tcl]: https://www.tcl-lang.org/
+[Python]: https://www.python.org
+</t>
+<t tx="leo.20210317023310.1"></t>
+<t tx="leo.20210317023351.1"></t>
+<t tx="leo.20210317023355.1"></t>
+<t tx="leo.20210317102957.1"></t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/
@@ -3316,6 +3370,7 @@ Author: yen
 
 當然, [Onshape] 雖然定位為電腦輔助機械設計與分析管理平台, 但是真正能夠編寫 Web based 程式前後端, 並且與 [Parasolid] 核心程式庫進行圖形介面與觸控互動, 絕非出自通常只上過一門 [計算機程式] 課程的機械工程師, 而是來自一群號稱 Full stack web developers 的資訊科系研究工程師.
 
+[計算機程式]: http://mde.tw/lab/content/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A8%8B%E5%BC%8F.html
 [Onshape]: https://www.onshape.com/
 [Solidworks]: https://www.solidworks.com/
 [Parasolid]: https://en.wikipedia.org/wiki/Parasolid
@@ -3378,7 +3433,6 @@ else:
         credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 g.es(service)</t>
-<t tx="yen.20200529230236.1"></t>
 <t tx="yen.20200608161509.1">@language md
 ---
 Title: 高風險聯網設備
