@@ -1,0 +1,455 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>mde.tw/lab</title>
+        <meta charset="utf-8">
+<meta property="head" content="H2">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container-fluid">
+                <div class="row align-items-center">
+                <h1>mde.tw/lab - KMOLab</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">mde.tw/lab - KMOLab</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">Site Map</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Lab logo.html'>Lab logo</a><li><a href='MDE.html'>MDE</a><li><a href='隨身程式系統.html'>隨身程式系統</a><li><a href='Github.html'>Github</a><li><a href='Leo Editor.html'>Leo Editor</a><li><a href='Kaggle Learn.html'>Kaggle Learn</a><li><a href='Pandoc.html'>Pandoc</a><li><a href='Virtualbox.html'>Virtualbox</a><li><a href='Pyslvs-UI.html'>Pyslvs-UI</a><li class='has-children'><a href='Fossil SCM.html'>Fossil SCM</a><ul class='dropdown'><li><a href='配置 Fossil SCM.html'>配置 Fossil SCM</a></li></li></ul></ul><li class='has-children'><a href='計算機程式.html'>計算機程式</a><ul class='dropdown'><li class='has-children'><a href='CMSiMDE.html'>CMSiMDE</a><ul class='dropdown'><li><a href='Python.html'>Python</a><li><a href='Heroku.html'>Heroku</a><li><a href='Javascript.html'>Javascript</a><li><a href='JQuery.html'>JQuery</a><li><a href='Html.html'>Html</a><li><a href='Canvas.html'>Canvas</a><li><a href='Dart.html'>Dart</a><li><a href='WebGL.html'>WebGL</a><li><a href='Lua.html'>Lua</a></li></ul><li><a href='RoboDK.html'>RoboDK</a><li class='has-children'><a href='學號抽點.html'>學號抽點</a><ul class='dropdown'><li><a href='亂數分組.html'>亂數分組</a><li><a href='Grouping.html'>Grouping</a><li><a href='隨機與基因演算.html'>隨機與基因演算</a><li><a href='隨機與機器學習.html'>隨機與機器學習</a></li></ul><li><a href='調查表單.html'>調查表單</a><li><a href='學習功課表.html'>學習功課表</a><li><a href='解微積分.html'>解微積分</a><li class='has-children'><a href='活動管理.html'>活動管理</a><ul class='dropdown'><li><a href='GDrive API.html'>GDrive API</a></li></ul><li><a href='知識管理.html'>知識管理</a></li></ul><li class='has-children'><a href='網際內容管理.html'>網際內容管理</a><ul class='dropdown'><li><a href='LaTeX.html'>LaTeX</a><li><a href='網際 PDF 檔案管理.html'>網際 PDF 檔案管理</a><li><a href='網際圖檔管理.html'>網際圖檔管理</a><li><a href='線上會議.html'>線上會議</a></li></ul><li class='has-children'><a href='電腦輔助設計與實習.html'>電腦輔助設計與實習</a><ul class='dropdown'><li><a href='產品設計繪圖.html'>產品設計繪圖</a><li class='has-children'><a href='產品設計分析.html'>產品設計分析</a><ul class='dropdown'><li><a href='Machine Learning.html'>Machine Learning</a><li><a href='Cython.html'>Cython</a></li></ul><li><a href='機電資整合控制.html'>機電資整合控制</a><li><a href='產品生命週期管理.html'>產品生命週期管理</a></li></ul><li class='has-children'><a href='協同產品設計實習.html'>協同產品設計實習</a><ul class='dropdown'><li><a href='兩人一組產品開發.html'>兩人一組產品開發</a><li><a href='四人一組產品開發.html'>四人一組產品開發</a><li><a href='八人一組產品開發.html'>八人一組產品開發</a><li><a href='十六人一組產品開發.html'>十六人一組產品開發</a><li><a href='三十二人一組產品開發.html'>三十二人一組產品開發</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">Lua << <a href='Lua.html'>Previous</a> <a href='學號抽點.html'>Next</a> >> 學號抽點<br /><h1>RoboDK</h1>
+<p>利用 RoboDK Free 版本學習 Python:</p>
+<p>下載 RoboDK 免費版本 (無存檔功能) 的可攜程式套件後, 就可以利用 Python 3.9 控制模擬環境中的 Robot. 從中學習如何應用 Python 於自動化製造流程.</p>
+<p style="padding-left: 30px;"><a href="http://a.kmol.info:88/kmol2021_spring_v4_robodk.7z">http://a.kmol.info:88/kmol2021_spring_v4_robodk.7z</a> (下載可攜 RoboDK)</p>
+<p style="padding-left: 30px;"><a href="./../downloads/pidk_and_place.7z">pidk_and_place.7z</a> (Python 3.9.2 for RoboDK 5.2.2)</p>
+<p style="padding-left: 30px;"><a href="https://robodk.com/Python-API-examples">https://robodk.com/Python-API-examples</a></p>
+<p style="padding-left: 30px;"><a href="./../downloads/6-axis-serial-robot-2.pdf">6-axis-serial-robot-2.pdf</a></p>
+<p style="padding-left: 30px;"><a href="https://github.com/zenetio/RoboND-Kinematics-Project">https://github.com/zenetio/RoboND-Kinematics-Project</a></p>
+<p style="padding-left: 30px;"><a href="https://github.com/lanius/tinyik">https://github.com/lanius/tinyik</a></p>
+<p style="padding-left: 30px;"><a href="https://github.com/Phylliade/ikpy">https://github.com/Phylliade/ikpy</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Draw a hexagon around Target 1
+from robolink import *    # RoboDK's API
+from robodk import *      # Math toolbox for robots
+ 
+# Start the RoboDK API:
+RDK = Robolink()
+ 
+# Get the robot (first robot found):
+robot = RDK.Item('', ITEM_TYPE_ROBOT)
+ 
+# Get the reference target by name:
+target = RDK.Item('Target 1')
+target_pose = target.Pose()
+xyz_ref = target_pose.Pos()
+ 
+# Move the robot to the reference point:
+robot.MoveJ(target)
+ 
+# Draw a hexagon around the reference target:
+for i in range(7):
+    ang = i*2*pi/6 # Angle = 0,60,120,...,360
+    R = 200        # Polygon radius
+    
+    # Calculate the new position:
+    x = xyz_ref[0] + R*cos(ang) # new X coordinate
+    y = xyz_ref[1] + R*sin(ang) # new Y coordinate
+    z = xyz_ref[2]              # new Z coordinate
+    target_pose.setPos([x,y,z])
+    
+    # Move to the new target:
+    robot.MoveL(target_pose)
+ 
+# Trigger a program call at the end of the movement
+robot.RunInstruction('Program_Done')
+ 
+# Move back to the reference target:
+robot.MoveL(target)
+</pre>
+<p>Pick Object:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># This macro shows how to generate a station event to pick a specific object with a specific tool
+# Using a macro like this one is an alternative to the Event instruction. 
+# By default, the Event instruction in RoboDK picks the closest object within a certain distance
+
+# Set the tool to use as a gripper
+TOOL_NAME = 'Tool Gripper'
+
+# Set the object to pick
+OBJECT_PICK = 'Part'
+
+#---------------------------------------------------
+# Start the RoboDK API
+from robolink import *   
+RDK = Robolink()
+
+# Select the tool and object, then, grab it
+tool = RDK.Item(TOOL_NAME, ITEM_TYPE_TOOL)
+obj = RDK.Item(OBJECT_PICK, ITEM_TYPE_OBJECT)
+
+# Maintain the absolute position of the object
+obj.setParentStatic(tool)
+
+# Keep the relative position of the object (existing relationship)
+#obj.setParent(tool)
+
+# Example to set the relative position
+#obj.setPose(transl(0,0,0)*rotz(pi))
+
+# Example to set the absolute position
+#obj.setPoseAbs(transl(0,0,0)*rotz(pi))</pre>
+<p>pick and place.py</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># KMOLab Portable RoboDK pick and place
+from robolink import *    # API to communicate with robodk
+from robodk import *      # robodk robotics toolbox
+
+# Setup global parameters
+BALL_DIAMETER = 100 # diameter of one ball
+APPROACH = 100      # approach distance to grab each part, in mm
+nTCPs = 6           # number of TCP's in the tool
+
+#----------------------------------------------
+# Function definitions
+
+def box_calc(BALLS_SIDE=4, BALLS_MAX=None):
+    """Calculate a list of points (ball center) as if the balls were stored in a box"""
+    if BALLS_MAX is None: BALLS_MAX = BALLS_SIDE**3
+    xyz_list = []
+    for h in range(BALLS_SIDE):
+        for i in range(BALLS_SIDE):
+            for j in range(BALLS_SIDE):
+                xyz_list = xyz_list + [[(i+0.5)*BALL_DIAMETER, (j+0.5)*BALL_DIAMETER, (h+0.5)*BALL_DIAMETER]]
+                if len(xyz_list) &gt;= BALLS_MAX:
+                    return xyz_list
+    return xyz_list
+
+def pyramid_calc(BALLS_SIDE=4):
+    """Calculate a list of points (ball center) as if the balls were place in a pyramid"""
+    #the number of balls can be calculated as: int(BALLS_SIDE*(BALLS_SIDE+1)*(2*BALLS_SIDE+1)/6)
+    BALL_DIAMETER = 100
+    xyz_list = []
+    sqrt2 = 2**(0.5)
+    for h in range(BALLS_SIDE):
+        for i in range(BALLS_SIDE-h):
+            for j in range(BALLS_SIDE-h):
+                height = h*BALL_DIAMETER/sqrt2 + BALL_DIAMETER/2
+                xyz_list = xyz_list + [[i*BALL_DIAMETER + (h+1)*BALL_DIAMETER*0.5, j*BALL_DIAMETER + (h+1)*BALL_DIAMETER*0.5, height]]
+    return xyz_list
+
+def balls_setup(frame, positions):
+    """Place a list of balls in a reference frame. The reference object (ball) must have been previously copied to the clipboard."""
+    nballs = len(positions)
+    step = 1.0/(nballs - 1)
+    for i in range(nballs):
+        newball = frame.Paste()
+        newball.setName('ball ' + str(i)) #set item name
+        newball.setPose(transl(positions[i])) #set item position with respect to parent
+        newball.setVisible(True, False) #make item visible but hide the reference frame
+        newball.Recolor([1-step*i, step*i, 0.2, 1]) #set RGBA color
+
+def cleanup_balls(parentnodes):
+    """Delete all child items whose name starts with \"ball\", from the provided list of parent items."""
+    todelete = []
+    for item in parentnodes:
+        todelete = todelete + item.Childs()
+
+    for item in todelete:
+        if item.Name().startswith('ball'):
+            item.Delete()
+
+def TCP_On(toolitem, tcp_id):
+    """Attach the closest object to the toolitem Htool pose,
+    furthermore, it will output appropriate function calls on the generated robot program (call to TCP_On)"""
+    toolitem.AttachClosest()
+    toolitem.RDK().RunMessage('Set air valve %i on' % (tcp_id+1))
+    toolitem.RDK().RunProgram('TCP_On(%i)' % (tcp_id+1));
+        
+def TCP_Off(toolitem, tcp_id, itemleave=0):
+    """Detaches the closest object attached to the toolitem Htool pose,
+    furthermore, it will output appropriate function calls on the generated robot program (call to TCP_Off)"""
+    toolitem.DetachAll(itemleave)
+    toolitem.RDK().RunMessage('Set air valve %i off' % (tcp_id+1))
+    toolitem.RDK().RunProgram('TCP_Off(%i)' % (tcp_id+1));
+
+
+#----------------------------------------------------------
+# The program starts here:
+
+# Any interaction with RoboDK must be done through RDK:
+RDK = Robolink()
+
+# Turn off automatic rendering (faster)
+RDK.Render(False)
+
+#RDK.Set_Simulation_Speed(500); # set the simulation speed
+
+# Gather required items from the station tree
+robot = RDK.Item('Fanuc M-710iC/50')
+robot_tools = robot.Childs()
+#robottool = RDK.Item('MainTool')
+frame1 = RDK.Item('Table 1')
+frame2 = RDK.Item('Table 2')
+
+# Copy a ball as an object (same as CTRL+C)
+ballref = RDK.Item('reference ball')
+ballref.Copy()
+
+# Run a pre-defined station program (in RoboDK) to replace the two tables
+prog_reset = RDK.Item('Replace objects')
+prog_reset.RunProgram()
+
+# Call custom procedure to remove old objects
+cleanup_balls([frame1, frame2])
+
+# Make a list of positions to place the objects
+frame1_list = pyramid_calc(4)
+frame2_list = pyramid_calc(4)
+
+# Programmatically place the objects with a custom-made procedure
+balls_setup(frame1, frame1_list)
+
+# Delete previously generated tools
+for tool in robot_tools:
+    if tool.Name().startswith('TCP'):
+        tool.Delete()
+        
+# Calculate tool frames for the suction cup tool of 6 suction cups
+TCP_list = []
+for i in range(nTCPs):
+    TCPi_pose = transl(0,0,100)*rotz((360/nTCPs)*i*pi/180)*transl(125,0,0)*roty(pi/2)
+    TCPi = robot.AddTool(TCPi_pose, 'TCP %i' % (i+1))
+    TCP_list.append(TCPi)
+
+TCP_0 = TCP_list[0]
+
+# Turn on automatic rendering
+RDK.Render(True)
+
+# Move balls    
+robot.setPoseTool(TCP_list[0])
+nballs_frame1 = len(frame1_list)
+nballs_frame2 = len(frame2_list)
+idTake = nballs_frame1 - 1
+idLeave = 0
+idTCP = 0
+target_app_frame = transl(2*BALL_DIAMETER, 2*BALL_DIAMETER, 4*BALL_DIAMETER)*roty(pi)*transl(0,0,-APPROACH)
+
+while idTake &gt;= 0:
+    # ------------------------------------------------------------------
+    # first priority: grab as many balls as possible
+    # the tool is empty at this point, so take as many balls as possible (up to a maximum of 6 -&gt; nTCPs)
+    ntake = min(nTCPs, idTake + 1)
+
+    # approach to frame 1
+    robot.setPoseFrame(frame1)
+    robot.setPoseTool(TCP_0)
+    robot.MoveJ([0,0,0,0,10,-200])
+    robot.MoveJ(target_app_frame)
+
+    # grab ntake balls from frame 1
+    for i in range(ntake):
+        TCPi = TCP_list[i]
+        robot.setPoseTool(TCPi)
+        # calculate target wrt frame1: rotation about Y is needed since Z and X axis are inverted
+        target = transl(frame1_list[idTake])*roty(pi)*rotx(30*pi/180)
+        target_app = target*transl(0,0,-APPROACH)
+        idTake = idTake - 1        
+        robot.MoveL(target_app)
+        robot.MoveL(target)
+        TCP_On(TCPi, i)
+        robot.MoveL(target_app)
+ 
+    # ------------------------------------------------------------------
+    # second priority: unload the tool     
+    # approach to frame 2 and place the tool balls into table 2
+    robot.setPoseTool(TCP_0)
+    robot.MoveJ(target_app_frame)
+    robot.MoveJ([0,0,0,0,10,-200])
+    robot.setPoseFrame(frame2)    
+    robot.MoveJ(target_app_frame)
+    for i in range(ntake):
+        TCPi = TCP_list[i]
+        robot.setPoseTool(TCPi)
+        if idLeave &gt; nballs_frame2-1:
+            raise Exception("No room left to place objects in Table 2")
+        
+        # calculate target wrt frame1: rotation of 180 about Y is needed since Z and X axis are inverted
+        target = transl(frame2_list[idLeave])*roty(pi)*rotx(30*pi/180)
+        target_app = target*transl(0,0,-APPROACH)
+        idLeave = idLeave + 1        
+        robot.MoveL(target_app)
+        robot.MoveL(target)
+        TCP_Off(TCPi, i, frame2)
+        robot.MoveL(target_app)
+
+    robot.MoveJ(target_app_frame)
+
+# Move home when the robot finishes
+robot.MoveJ([0,0,0,0,10,-200])
+</pre>
+<p></p><br />Lua << <a href='Lua.html'>Previous</a> <a href='學號抽點.html'>Next</a> >> 學號抽點</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        

@@ -2769,7 +2769,86 @@ animate();
 <h4>For Nginx:</h4>
 <p style="padding-left: 30px;"><a href="https://github.com/openresty/lua-nginx-module">https://github.com/openresty/lua-nginx-module</a></p>
 <h4>For Deep Learning:</h4>
-<p style="padding-left: 30px;"><a href="https://github.com/torch/torch7">https://github.com/torch/torch7</a> </p><h2>學號抽點</h2>
+<p style="padding-left: 30px;"><a href="https://github.com/torch/torch7">https://github.com/torch/torch7</a> </p><h2>RoboDK</h2>
+<p>利用 RoboDK Free 版本學習 Python:</p>
+<p>下載 RoboDK 免費版本 (無存檔功能) 的可攜程式套件後, 就可以利用 Python 3.9 控制模擬環境中的 Robot. 從中學習如何應用 Python 於自動化製造流程.</p>
+<p style="padding-left: 30px;"><a href="http://a.kmol.info:88/kmol2021_spring_v4_robodk.7z">http://a.kmol.info:88/kmol2021_spring_v4_robodk.7z</a> (下載可攜 RoboDK)</p>
+<p style="padding-left: 30px;"><a href="/downloads/pidk_and_place.7z">pidk_and_place.7z</a></p>
+<p style="padding-left: 30px;"><a href="https://robodk.com/Python-API-examples">https://robodk.com/Python-API-examples</a></p>
+<p style="padding-left: 30px;"><a href="/downloads/6-axis-serial-robot-2.pdf">6-axis-serial-robot-2.pdf</a></p>
+<p style="padding-left: 30px;"><a href="https://github.com/zenetio/RoboND-Kinematics-Project">https://github.com/zenetio/RoboND-Kinematics-Project</a></p>
+<p style="padding-left: 30px;"><a href="https://github.com/lanius/tinyik">https://github.com/lanius/tinyik</a></p>
+<p style="padding-left: 30px;"><a href="https://github.com/Phylliade/ikpy">https://github.com/Phylliade/ikpy</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Draw a hexagon around Target 1
+from robolink import *    # RoboDK's API
+from robodk import *      # Math toolbox for robots
+ 
+# Start the RoboDK API:
+RDK = Robolink()
+ 
+# Get the robot (first robot found):
+robot = RDK.Item('', ITEM_TYPE_ROBOT)
+ 
+# Get the reference target by name:
+target = RDK.Item('Target 1')
+target_pose = target.Pose()
+xyz_ref = target_pose.Pos()
+ 
+# Move the robot to the reference point:
+robot.MoveJ(target)
+ 
+# Draw a hexagon around the reference target:
+for i in range(7):
+    ang = i*2*pi/6 # Angle = 0,60,120,...,360
+    R = 200        # Polygon radius
+    
+    # Calculate the new position:
+    x = xyz_ref[0] + R*cos(ang) # new X coordinate
+    y = xyz_ref[1] + R*sin(ang) # new Y coordinate
+    z = xyz_ref[2]              # new Z coordinate
+    target_pose.setPos([x,y,z])
+    
+    # Move to the new target:
+    robot.MoveL(target_pose)
+ 
+# Trigger a program call at the end of the movement
+robot.RunInstruction('Program_Done')
+ 
+# Move back to the reference target:
+robot.MoveL(target)
+</pre>
+<p>Pick Object:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># This macro shows how to generate a station event to pick a specific object with a specific tool
+# Using a macro like this one is an alternative to the Event instruction. 
+# By default, the Event instruction in RoboDK picks the closest object within a certain distance
+
+# Set the tool to use as a gripper
+TOOL_NAME = 'Tool Gripper'
+
+# Set the object to pick
+OBJECT_PICK = 'Part'
+
+#---------------------------------------------------
+# Start the RoboDK API
+from robolink import *   
+RDK = Robolink()
+
+# Select the tool and object, then, grab it
+tool = RDK.Item(TOOL_NAME, ITEM_TYPE_TOOL)
+obj = RDK.Item(OBJECT_PICK, ITEM_TYPE_OBJECT)
+
+# Maintain the absolute position of the object
+obj.setParentStatic(tool)
+
+# Keep the relative position of the object (existing relationship)
+#obj.setParent(tool)
+
+# Example to set the relative position
+#obj.setPose(transl(0,0,0)*rotz(pi))
+
+# Example to set the absolute position
+#obj.setPoseAbs(transl(0,0,0)*rotz(pi))</pre>
+<p></p><h2>學號抽點</h2>
 <p>為了編寫能夠進行修課學員學號抽點的程式, 提出下列兩種可行方案:</p>
 <p style="padding-left: 30px;">將原本按照順序排列的學號次序弄亂, 然後按所需抽點的人數,  從已經弄亂的學號中一一取出</p>
 <p style="padding-left: 30px;">依據所要抽點的人數, 建立一個由亂數組成的資料,  然後從順序排列的學號中抽出所要</p>
@@ -5529,6 +5608,8 @@ set path_miketex=%Disk%:\miktex-portable\texmfs\install\miktex\bin\x64;</pre>
 <p style="padding-left: 30px;">啟動路徑設定: set path_miktex=%Disk%:\miktex-portable\texmfs\install\miktex\bin\x64;</p>
 <p><a href="/downloads/latex教學.pdf">latex教學.pdf</a></p>
 <p><a href="/downloads/latex2e_1.4.pdf">latex2e_1.4.pdf</a></p>
+<p><a href="/downloads/lshort.pdf">lshort.pdf</a></p>
+<p><a href="/downloads/lshort-zh-tw.pdf">/downloads/lshort-zh-tw.pdf</a></p>
 <p><a href="/downloads/latex_graphics.pdf">latex_graphics.pdf</a></p><h2>網際 PDF 檔案管理</h2>
 <h4>Project</h4>
 <p>Build an online pdf file manipulation system.</p>
