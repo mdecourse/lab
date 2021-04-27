@@ -36,6 +36,7 @@
 <v t="yen.20200517195040.1"><vh>@edit blogger_api_add_2.py</vh></v>
 </v>
 </v>
+<v t="yen.20210427105116.1"><vh>操作方法</vh></v>
 <v t="yen.20170108171733.1"><vh>@path ../</vh>
 <v t="leo.20180115150519.1"><vh>@edit index.html</vh></v>
 <v t="yen.20170108171733.3"><vh>@edit README.md</vh></v>
@@ -257,6 +258,7 @@
 </v>
 </v>
 <v t="leo.20210314151746.1"><vh>@clean 20210427.md</vh>
+<v t="yen.20210427094921.1"><vh>機械還能唸嗎?</vh></v>
 <v t="yen.20210427104221.1"><vh>kblog</vh>
 <v t="yen.20210427104206.1"><vh>2900432582354829524</vh></v>
 </v>
@@ -264,7 +266,6 @@
 <v t="yen.20210427104259.1"><vh>807842597159004219</vh></v>
 </v>
 </v>
-<v t="yen.20210427094921.1"><vh>機械還能唸嗎?</vh></v>
 </v>
 </v>
 </v>
@@ -3017,7 +3018,7 @@ from googleapiclient.discovery import build
 #from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../yen_gm_blogger_token.dat', 'rb') as credentials_dat:
+with open('./../../yen_gm_blogger_token_mac.dat', 'rb') as credentials_dat:
     credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 
@@ -3605,7 +3606,7 @@ from googleapiclient.discovery import build
 #from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../yen_gm_blogger_token.dat', 'rb') as credentials_dat:
+with open('./../../yen_gm_blogger_token_mac.dat', 'rb') as credentials_dat:
     credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 
@@ -3828,5 +3829,11 @@ sudo systemctl restart squid 重新啟動.
 <t tx="yen.20210427104221.1"></t>
 <t tx="yen.20210427104259.1"></t>
 <t tx="yen.20210427104308.1"></t>
+<t tx="yen.20210427105116.1">local-blog 必須 go to script 後再點按 button
+
+add-to-kblogger 或 edit-to-kblogger 
+則必須滑鼠停在 ＠clean 主 outline 上
+
+add-to 可以直接點按, 但 edit-to 則需要有 blog id 在 ＠clean 最後 outline 上</t>
 </tnodes>
 </leo_file>
