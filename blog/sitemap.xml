@@ -5,35 +5,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./</loc>
-<lastmod>2021-03-17T03:34:20-00:00</lastmod>
+<lastmod>2021-04-27T10:50:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./archives.html</loc>
-<lastmod>2021-03-17T03:34:20-00:00</lastmod>
+<lastmod>2021-04-27T10:50:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./tags.html</loc>
-<lastmod>2021-03-17T03:34:20-00:00</lastmod>
+<lastmod>2021-04-27T10:50:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./categories.html</loc>
-<lastmod>2021-03-17T03:34:20-00:00</lastmod>
+<lastmod>2021-04-27T10:50:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./pages/about/</loc>
-<lastmod>2021-02-09T22:45:00+08:00</lastmod>
+<lastmod>2021-04-27T08:57:50+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>./2021-kmol-about-mechanical-engineering.html</loc>
+<lastmod>2021-04-27T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -214,6 +221,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>./category/mechanical.html</loc>
+<lastmod>2021-04-27T11:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>./category/network.html</loc>
 <lastmod>2020-06-11T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -244,6 +258,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>./category/windows.html</loc>
 <lastmod>2020-05-12T11:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>./tag/202104.html</loc>
+<lastmod>2021-04-27T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -341,7 +362,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./author/yen.html</loc>
-<lastmod>2021-03-06T12:00:00+08:06</lastmod>
+<lastmod>2021-04-27T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

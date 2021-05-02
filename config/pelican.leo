@@ -15,12 +15,8 @@
 <v t="yen.20200517142620.1"><vh>blog content</vh></v>
 <v t="yen.20200517131657.1"><vh>python ref</vh></v>
 <v t="yen.20200517233837.1"><vh>Blogger 按鈕</vh>
-<v t="yen.20200518055330.1"><vh>@button add_to_kblogger</vh>
-<v t="yen.20200611222850.1"><vh>@edit ./../../blogger.dat</vh></v>
-</v>
-<v t="yen.20200608205522.1"><vh>@button add_to_mblogger</vh>
-<v t="yen.20200611222924.1"><vh>@edit ./../../blogger.dat</vh></v>
-</v>
+<v t="yen.20200518055330.1"><vh>@button add_to_kblogger</vh></v>
+<v t="yen.20200608205522.1"><vh>@button add_to_mblogger</vh></v>
 <v t="leo.20200907150705.1"><vh>@button add_to_c4f</vh>
 <v t="leo.20200907150705.2"><vh>@edit ./../../blogger.dat</vh></v>
 </v>
@@ -40,6 +36,7 @@
 <v t="yen.20200517195040.1"><vh>@edit blogger_api_add_2.py</vh></v>
 </v>
 </v>
+<v t="yen.20210427105116.1"><vh>操作方法</vh></v>
 <v t="yen.20170108171733.1"><vh>@path ../</vh>
 <v t="leo.20180115150519.1"><vh>@edit index.html</vh></v>
 <v t="yen.20170108171733.3"><vh>@edit README.md</vh></v>
@@ -260,8 +257,14 @@
 <v t="leo.20210306153326.1"><vh>8048058378627697211</vh></v>
 </v>
 </v>
-<v t="leo.20210314151746.1"><vh>@@clean 20210314.md</vh>
-<v t="leo.20210314151949.1"><vh>Fossil SCM 研究</vh></v>
+<v t="leo.20210314151746.1"><vh>@clean 20210427.md</vh>
+<v t="yen.20210427094921.1"><vh>機械還能唸嗎?</vh></v>
+<v t="yen.20210427104221.1"><vh>kblog</vh>
+<v t="yen.20210427104206.1"><vh>2900432582354829524</vh></v>
+</v>
+<v t="yen.20210427104308.1"><vh>mblog</vh>
+<v t="yen.20210427104259.1"><vh>807842597159004219</vh></v>
+</v>
 </v>
 </v>
 </v>
@@ -1695,45 +1698,19 @@ Author: yen
 <t tx="leo.20210306153329.1"></t>
 <t tx="leo.20210314151746.1">@language md
 ---
-Title: Fossil SCM 研究
-Date: 2021-03-14 12:00
-Category: Fossil_SCM
-Tags: 202103
-Slug: 2021-kmol-fossil-scm-study
+Title: 機械還能唸嗎?
+Date: 2021-04-27 11:00
+Category: Mechanical
+Tags: 202104
+Slug: 2021-kmol-about-mechanical-engineering
 Author: yen
 ---
 
-[Fossil SCM] 是一套分散式版次管理系統, 專門為了管理 [SQLite] 而寫.
+許多人都在問: 機械這個領域還能唸嗎?
 
 &lt;!-- PELICAN_END_SUMMARY --&gt;
 
 @others
-</t>
-<t tx="leo.20210314151949.1">[Fossil SCM] 利用 C89 ANSI C 所寫, 其中使用 [Tcl] 作為 command language.
-
-當然寫到這裡, 仍然很難體會 [Tcl] 究竟在 [Fossil SCM] 的開發中扮演什麼角色? 但是在 1990 年代 [Python] 啟動開發之際, 也仰賴 [Tcl], 可見這套所謂的 Tool Command Language 在 1980-1990 年代具有舉足輕重的地位.
-
-從 &lt;https://en.wikipedia.org/wiki/Tcl&gt; 可以得知, Tcl is commonly used embedded into C applications, for rapid prototyping, scripted applications, GUIs, and testing.
-
-Tcl 發展歷史
-----
-
-&lt;http://www.tcl.tk/about/history.html&gt;
-
-編譯 Tcl
-----
-
-&lt;https://wiki.tcl-lang.org/page/Building+Tcl+and+Tk+for+Windows+with+MSYS2&gt;
-
-&lt;https://github.com/waddella/Tclbuild&gt;
-
-&lt;http://wookie.tcl.tk/14828&gt;
-
-
-[Fossil SCM]: https://fossil-scm.org
-[SQLite]: https://www.sqlite.org
-[Tcl]: https://www.tcl-lang.org/
-[Python]: https://www.python.org
 </t>
 <t tx="leo.20210317023310.1"></t>
 <t tx="leo.20210317023351.1"></t>
@@ -2258,9 +2235,10 @@ from googleapiclient.discovery import build
 #from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../yen_gm_blogger_token.dat', 'rb') as credentials_dat:
+with open('./../../yen_gm_blogger_token_mac.dat', 'rb') as credentials_dat:
     credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
+
 
 def get_cat_tag_content(data):
     # 請注意, 因為 data 來自 .md 的檔案 內容, 第1行為 ---
@@ -3040,7 +3018,7 @@ from googleapiclient.discovery import build
 #from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../yen_gm_blogger_token.dat', 'rb') as credentials_dat:
+with open('./../../yen_gm_blogger_token_mac.dat', 'rb') as credentials_dat:
     credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 
@@ -3421,15 +3399,15 @@ from google.auth.transport.requests import Request
 SCOPES = ['https://www.googleapis.com/auth/blogger', ]
 
 # we check if the file tBo store the credentials exists
-if not os.path.exists('./../../yen_gm_blogger_token.dat'):
+if not os.path.exists('./../../yen_gm_blogger_token_mac.dat'):
 
     flow = InstalledAppFlow.from_client_secrets_file('./../../yen_gm_blogger_secrets.json', SCOPES)
     credentials = flow.run_local_server()
 
-    with open('yen_gm_blogger_token.dat', 'wb') as credentials_dat:
+    with open('yen_gm_blogger_token_mac.dat', 'wb') as credentials_dat:
         pickle.dump(credentials, credentials_dat)
 else:
-    with open('yen_gm_blogger_token.dat', 'rb') as credentials_dat:
+    with open('yen_gm_blogger_token_mac.dat', 'rb') as credentials_dat:
         credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 g.es(service)</t>
@@ -3528,7 +3506,7 @@ from googleapiclient.discovery import build
 #from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../yen_gm_blogger_token.dat', 'rb') as credentials_dat:
+with open('./../../yen_gm_blogger_token_mac.dat', 'rb') as credentials_dat:
     credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 
@@ -3628,7 +3606,7 @@ from googleapiclient.discovery import build
 #from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../yen_gm_blogger_token.dat', 'rb') as credentials_dat:
+with open('./../../yen_gm_blogger_token_mac.dat', 'rb') as credentials_dat:
     credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 
@@ -3838,5 +3816,24 @@ sudo systemctl restart squid 重新啟動.
 <t tx="yen.20200611221647.1"></t>
 <t tx="yen.20200611221718.1"></t>
 <t tx="yen.20200611223454.1"></t>
+<t tx="yen.20210427094921.1">答案是: 能, 但不是像現在用大量課程轟炸式的唸法, 而應該是解題導向式的唸法, 應該是大量注入電腦科技, 網路技術, 讓年輕人及早了解各種理論實際用途的唸法.
+
+辦得到嗎? 可以, 但是工程學院必須不分系才行, 每個既有科系的課程與研究團隊, 必須跟餐廳裡的自助攤位一樣, 各自端出最具專長的教學, 讓負責解題的學生自行組合.
+
+學生想要設計一台自行車, 從腳踏改為電動, 再加上太陽能, 下坡自動充電, 可以上路擷取路面實況與環境影像, 回到室內可以採虛擬或擴增實境模式, 成為運動健身器材. 過程中所需要的零組件都能從學校的福利材料部門中簽單領取. 上課時則針對整體設計製造所牽涉的原理進行協同研討......
+
+哈哈! 不要作夢了! 
+
+</t>
+<t tx="yen.20210427104206.1"></t>
+<t tx="yen.20210427104221.1"></t>
+<t tx="yen.20210427104259.1"></t>
+<t tx="yen.20210427104308.1"></t>
+<t tx="yen.20210427105116.1">local-blog 必須 go to script 後再點按 button
+
+add-to-kblogger 或 edit-to-kblogger 
+則必須滑鼠停在 ＠clean 主 outline 上
+
+add-to 可以直接點按, 但 edit-to 則需要有 blog id 在 ＠clean 最後 outline 上</t>
 </tnodes>
 </leo_file>
