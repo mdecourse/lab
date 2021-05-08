@@ -242,7 +242,8 @@ execargs=/usr/bin/fossil http /home/kmol2020/repository/ --https --nojail --notf
 <p style="padding-left: 60px;"><a href="https://drive.google.com/open?id=17S_Bb1O7JiMYGHdU6sQ4CYwAhHPC5E8B">利用資料結構與演算法解題.pdf </a>(Python)</p>
 <h4>Reference:</h4>
 <p style="padding-left: 30px;"><a href="https://github.com/TryItOnline/tryitonline">https://github.com/TryItOnline/tryitonline</a></p><h2>CMSiMDE</h2>
-<p>你需要一個 World Wide Web Page, 帶有分門別類的標題與內容, 能夠紀錄日誌, 可以直接在瀏覽器上進行簡報, 無論是在廣域網路, 區域網路或單一電腦上.</p>
+<p>CMSiMDE 參考資料: <a href="https://mde.tw/cmstemplate">https://mde.tw/cmstemplate</a></p>
+<p>每一位工程師都需要一個 World Wide Web Page, 帶有分門別類的標題與內容, 能夠紀錄日誌, 可以直接在瀏覽器上進行簡報, 無論是在廣域網路, 區域網路或單一電腦上.</p>
 <p><a href="https://github.com/mdecourse/cmsimde.git">CMSiMDE</a> 就是因應機械設計工程師需要建立上述</p>
 <p style="padding-left: 30px;">網頁 (Web Page)</p>
 <p style="padding-left: 30px;">簡報 (Web Presentation)</p>
@@ -264,6 +265,7 @@ execargs=/usr/bin/fossil http /home/kmol2020/repository/ --https --nojail --notf
 <p style="padding-left: 30px;">CMSMDE 的網站標題與管理者密碼可以透過動態網站編輯表單中的 config 按鈕修改.</p>
 <h4>將 CMSiMDE 倉儲設為子模組</h4>
 <p style="padding-left: 30px;">git submodule add <a href="https://github.com/mdecourse/cmsimde.git">https://github.com/mdecourse/cmsimde.git</a> cmsimde</p>
+<p>建立 CMSiMDE 倉儲與網站最方便的方法, 就是登入 Github 後, 連線至 <a href="https://github.com/mdecourse/cmstemplate">https://github.com/mdecourse/cmstemplate</a> 利用 template 建立對應的倉儲後, 再將 main 分支設為倉儲 Github Pages 的根目錄.</p>
 <h4>直接取用 CMSiMDE 程式內容</h4>
 <p style="padding-left: 30px;">git clone https://github.com/mdecourse/cmsimde.git</p>
 <h4>建立 CMSiMDE 伺服器</h4>
@@ -2779,6 +2781,31 @@ animate();
 <p style="padding-left: 30px;"><a href="https://github.com/zenetio/RoboND-Kinematics-Project">https://github.com/zenetio/RoboND-Kinematics-Project</a></p>
 <p style="padding-left: 30px;"><a href="https://github.com/lanius/tinyik">https://github.com/lanius/tinyik</a></p>
 <p style="padding-left: 30px;"><a href="https://github.com/Phylliade/ikpy">https://github.com/Phylliade/ikpy</a></p>
+<h4>利用 Python 開啟 RoboDK, 加入六軸機械臂以及其他 stl 零組件:</h4>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from robodk import *
+from robolink import *
+        
+# Connect to the RoboDK API
+RDK = Robolink(robodk_path="C:/robodk522_portable/bin/RoboDK.exe", args=["-NEWINSTANCE", "-SKIPINI", "-EXIT_LAST_COM"])
+
+# Add a reference frame
+RDK.AddFrame("參考座標")
+# Add robot
+robot = RDK.AddFile(r'C:/robodk522_portable/Library/ABB-IRB-120-3-0-6.robot')
+# Add stl object
+for i in range(500):
+    item = RDK.AddFile(r'C:/tmp/untitled.stl')
+    # set Pose for item
+    item.setPose(rotz(pi/2*i/6)*rotx(pi/5)*transl(200,50*i,900))
+
+# Retrieve all items and print their names (just a reference frame)
+list_items = RDK.ItemList()
+for item in list_items:
+    print(item.Name())   
+    
+# Close RoboDK
+#RDK.CloseRoboDK()</pre>
+<h4>利用 Python 程式控制六軸機械臂繪製特定幾何圖形:</h4>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Draw a hexagon around Target 1
 from robolink import *    # RoboDK's API
 from robodk import *      # Math toolbox for robots
@@ -5714,17 +5741,33 @@ print(ga.run())</pre>
 <p style="padding-left: 30px;">如何針對既有工具所提供的資料再變化 (臨時調課) 或利用 (找出多人可用的共同時段) - Google Calendar 安排會議的衝突檢查</p>
 <p>Google Calendar API</p>
 <p style="padding-left: 30px;">活動排程 (Scheduling)</p>
-<p>自己從學校主機撈出與課程相關的歷史資料, 建立統計數據表, 提供之後的選課參考</p><h2>解微積分</h2>
+<p>自己從學校主機撈出與課程相關的歷史資料, 建立統計數據表, 提供之後的選課參考</p><h2>運算應用</h2>
+<p><a href="/downloads/ScipyLectures-simple.pdf">ScipyLectures-simple.pdf</a> </p>
+<h4>解微積分</h4>
 <p>計算機程式協助解微積分問題  - 利用圖表協助了解問題</p>
 <p>計算機程式解數學問題 - 利用圖表了解問題與解題意義</p>
+<p><a href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">Python Programming and Numerical Methods</a></p>
+<p><a href="https://www.yu.edu/sites/default/files/inline-files/Lec14_sympy.pdf">Symbolic Python</a></p>
+<p><a href="/downloads/elementary_calculus.pdf">elementary_calculus.pdf</a></p>
+<p><a href="/downloads/single_variable_calculus.pdf">single_variable_calculus.pdf</a></p>
+<p><a href="/downloads/single_and_multivariable_calculus.pdf">single_and_multivariable_calculus.pdf</a></p>
+<p><a href="https://people.math.wisc.edu/~angenent/Free-Lecture-Notes/">https://people.math.wisc.edu/~angenent/Free-Lecture-Notes/</a></p>
+<p><a href="/downloads/introduction_to_scientific_computing_with_python.pdf">introduction_to_scientific_computing_with_python.pdf</a></p>
+<p><a href="/downloads/Introduction to Scientific Computing in Python.pdf">Introduction to Scientific Computing in Python.pdf</a></p>
+<p><a href="/downloads/ProgrammingandMathematicalThinking.pdf">ProgrammingandMathematicalThinking.pdf</a></p>
 <p><a href="https://www.math.wisc.edu/~angenent/Free-Lecture-Notes/">https://www.math.wisc.edu/~angenent/Free-Lecture-Notes/</a></p>
 <p><a href="https://blog.gtwang.org/useful-tools/sympy-python-library-for-symbolic-mathematics/3/">https://blog.gtwang.org/useful-tools/sympy-python-library-for-symbolic-mathematics/3/</a></p>
 <p><a href="https://betterexplained.com/articles/a-gentle-introduction-to-learning-calculus/">https://betterexplained.com/articles/a-gentle-introduction-to-learning-calculus/</a></p>
 <p><a href="https://towardsdatascience.com/taking-derivatives-in-python-d6229ba72c64">https://towardsdatascience.com/taking-derivatives-in-python-d6229ba72c64</a></p>
 <p><a href="https://in.pycon.org/cfp/workshops-2019/proposals/learning-calculus-with-python~av3gb/">https://in.pycon.org/cfp/workshops-2019/proposals/learning-calculus-with-python~av3gb/</a></p>
 <p><a href="/downloads/first_semester_calculus.pdf">first semester calculus.pdf</a></p>
+<p style="padding-left: 30px;"><a href="/downloads/first_semester_calculus_tex_and_python_srouces.zip">first_semester_calculus_tex_and_python_srouces.zip</a></p>
 <p><a href="/downloads/second_semester_calculus.pdf">second semester calculus.pdf</a></p>
+<p style="padding-left: 30px;"><a href="/downloads/second_semester_calculus_tex_and_python_srouces.zip">second_semester_calculus_tex_and_python_srouces.zip</a></p>
 <p><a href="/downloads/programming_and_mathematical_thinking_python.pdf">programming_and_mathematical_thinking_python.pdf</a></p>
+<p><a href="/downloads/complexnumbers.pdf">complexnumbers.pdf</a></p>
+<p><a href="/downloads/read_analysis.pdf">read_analysis.pdf</a></p>
+<p style="padding-left: 30px;"><a href="/downloads/real_analysis_latex.zip">real_analysis_latex.zip</a></p>
 <p><a href="/downloads/computational_physics_python.pdf">computational_physics_python.pdf</a></p><h2>活動管理</h2>
 <p>寄送活動通知 - 利用 Gmail API 收發信件</p>
 <p style="padding-left: 30px;"><a href="https://blog.mailtrap.io/send-emails-with-gmail-api/">https://blog.mailtrap.io/send-emails-with-gmail-api/</a> </p>
@@ -5994,18 +6037,10 @@ final_file_object.close()
 <p style="padding-left: 30px;">自走式自動充電吸塵機器人</p>
 <p>S — Science（科學）<br/>T — Technology（技術）<br/>E — Engineering（工程）<br/>M — Mathematics（數學）</p>
 <p></p><h2>兩人一組產品開發</h2>
-<p>兩人共同快速 (一週) 開發一組產品設計與實作 (分組自評與互評, 說明遭遇問題與解決方法)</p>
-<p>報告與檢討 (一週)</p>
-<h2>四人一組產品開發</h2>
-<p>四人共同快速 (兩週) 開發一組產品設計與實作</p>
-<p>報告與檢討 (一週)</p>
-<h2>八人一組產品開發</h2>
-<p>八人共同快速 (三週) 開發一組產品設計與實作</p>
-<p>報告與檢討 (一週) 期中考週</p>
-<h2>十六人一組產品開發</h2>
-<p>十六人共同快速 (三週) 開發一組產品設計與實作</p>
-<p>報告與檢討 (一週)</p>
-<h2>三十二人一組產品開發</h2>
-<p>三十二人共同快速 (四週) 開發一組產品設計與實作</p>
-<p>報告與檢討 (一週) 期末考週</p>
-<p></p>
+<p>W1 - 協同產品設計實習課程簡介, 學員建立倉儲與網站.</p>
+<p>兩人共同快速 (W2-W3) 開發一組產品設計與實作 (分組自評與互評, 說明遭遇問題與解決方法)</p>
+<p>報告與檢討 (W4)</p><h2>四人一組產品開發</h2>
+<p>四人共同快速 (W5-W8) 開發一組產品設計與實作</p>
+<p>報告與檢討 (W9)</p><h2>八人一組產品開發</h2>
+<p>八人共同快速 (W10-W16) 開發一組產品設計與實作</p>
+<p>報告與檢討 (W17-W18) </p>
