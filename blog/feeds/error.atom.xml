@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>mde.tw/lab 網誌 - Error</title><link href="./" rel="alternate"></link><link href=".%5Cfeeds/error.atom.xml" rel="self"></link><id>./</id><updated>2021-05-11T11:00:00+08:00</updated><entry><title>都是中文模式惹的禍</title><link href=".%5C2021-kmol-all-errors-come-to-using-chinese-mode.html" rel="alternate"></link><published>2021-05-11T11:00:00+08:00</published><updated>2021-05-11T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:None,2021-05-11:.\2021-kmol-all-errors-come-to-using-chinese-mode.html</id><summary type="html">&lt;p&gt;前幾天有一位學生問, 為甚麼在他的筆電無法開啟 FreeCAD?&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;前幾天有一位學生問, 為甚麼在他的筆電無法開啟 FreeCAD?&lt;/p&gt;
+
+
+&lt;p&gt;原因有二, 其一是將 FreeCAD 解開於中文目錄名稱下, 其二則是使用中文帳號名稱登入 Windows. 只要將這兩個地方改為英文就可以順利開啟 FreeCAD.&lt;/p&gt;
+&lt;p&gt;另外一個錯誤是, 當使用者在 Windows 10, 處於中文輸入模式下, 首次開啟 Leo Editor 時, 由於 Leo Editor 跳出的視窗等待使用者輸入用戶辨識字串時, 不接受中文輸入, 且按下 shift 希望轉為英文輸入模式時, Leo Editor 會判定使用者無法輸入有效的字串而進入無限迴圈. &lt;/p&gt;
+&lt;p&gt;要避開 Leo Editor 在中文模式下無法正確開啟的方法就是, 首次開啟 Leo Editor 時要先將輸入模式調整為英文模式, 如此就可以順利建立 home/.leo/.leoID.txt 必要檔案.&lt;/p&gt;</content><category term="Error"></category><category term="202105"></category></entry></feed>

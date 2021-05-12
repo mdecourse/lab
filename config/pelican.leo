@@ -266,6 +266,9 @@
 <v t="yen.20210427104259.1"><vh>807842597159004219</vh></v>
 </v>
 </v>
+<v t="leo.20210511091839.1"><vh>@clean 20210511.md</vh>
+<v t="leo.20210511092657.1"><vh>都是中文模式惹的禍</vh></v>
+</v>
 </v>
 </v>
 </v>
@@ -1716,6 +1719,30 @@ Author: yen
 <t tx="leo.20210317023351.1"></t>
 <t tx="leo.20210317023355.1"></t>
 <t tx="leo.20210317102957.1"></t>
+<t tx="leo.20210511091839.1">@language md
+---
+Title: 都是中文模式惹的禍
+Date: 2021-05-11 11:00
+Category: Error
+Tags: 202105
+Slug: 2021-kmol-all-errors-come-to-using-chinese-mode
+Author: yen
+---
+
+前幾天有一位學生問, 為甚麼在他的筆電無法開啟 FreeCAD?
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20210511092657.1">原因有二, 其一是將 FreeCAD 解開於中文目錄名稱下, 其二則是使用中文帳號名稱登入 Windows. 只要將這兩個地方改為英文就可以順利開啟 FreeCAD.
+
+另外一個錯誤是, 當使用者在 Windows 10, 處於中文輸入模式下, 首次開啟 Leo Editor 時, 由於 Leo Editor 跳出的視窗等待使用者輸入用戶辨識字串時, 不接受中文輸入, 且按下 shift 希望轉為英文輸入模式時, Leo Editor 會判定使用者無法輸入有效的字串而進入無限迴圈. 
+
+要避開 Leo Editor 在中文模式下無法正確開啟的方法就是, 首次開啟 Leo Editor 時要先將輸入模式調整為英文模式, 如此就可以順利建立 home/.leo/.leoID.txt 必要檔案.
+
+
+
+</t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/
