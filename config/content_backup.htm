@@ -3175,6 +3175,8 @@ for i in range(len(balls_list)):
     else:
         balls[i].setColor([0, 0, 1])
 </pre>
+<p>上述 Python API 程式若使用可攜 RoboDK, 必須額外在 RDK = Robolink(args=["-NEWINSTANCE", "-SKIPINI", "-EXIT_LAST_COM"]) 利用 robodk_path 宣告 RoboDK.exe 所在位置, 例如: RDK = Robolink(robodk_path = "y:/robodk522/bin/RoboDK.exe", args=["-NEWINSTANCE", "-SKIPINI", "-EXIT_LAST_COM"]). 所完成的 station 畫面如下:</p>
+<p><img alt="" height="299" src="/images/robodk_all_in_python.png" width="500"/></p>
 <p></p><h2>學號抽點</h2>
 <p>為了編寫能夠進行修課學員學號抽點的程式, 提出下列兩種可行方案:</p>
 <p style="padding-left: 30px;">將原本按照順序排列的學號次序弄亂, 然後按所需抽點的人數,  從已經弄亂的學號中一一取出</p>
