@@ -3179,9 +3179,179 @@ for i in range(len(balls_list)):
 <p><img caption="false" height="335" src="/images/robodk_all_in_python.png" width="560"/></p>
 <h4>實體 FANUC M710iC/50 機械手臂工作影片:</h4>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/zw-JK9yFt9Y" title="YouTube video player" width="560"></iframe></p>
-<h3>FANUC M710iC50</h3>
+<p>使用 Cam2d 範例:</p>
+<p><a href="/downloads/robodk/Control of a UR5e robotic arm through a simulate 2D camera.pdf">Control of a UR5e robotic arm through a simulate 2D camera.pdf</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from robolink import *
+from robodk import *
+
+# Calculate pyramid coordinate
+def pyramid_calc(BALLS_SIDE=4):
+    """Calculate a list of points (ball center) as if the balls were place in a pyramid"""
+    #the number of balls can be calculated as: int(BALLS_SIDE*(BALLS_SIDE+1)*(2*BALLS_SIDE+1)/6)
+    BALL_DIAMETER = 100
+    xyz_list = []
+    sqrt2 = 2**(0.5)
+    for h in range(BALLS_SIDE):
+        for i in range(BALLS_SIDE-h):
+            for j in range(BALLS_SIDE-h):
+                height = h*BALL_DIAMETER/sqrt2 + BALL_DIAMETER/2
+                xyz_list = xyz_list + [[i*BALL_DIAMETER + (h+1)*BALL_DIAMETER*0.5, j*BALL_DIAMETER + (h+1)*BALL_DIAMETER*0.5, height]]
+    return xyz_list
+    
+
+# Make a list of positions to place the objects
+balls_list = pyramid_calc(4)
+
+#print(len(frame1_list))
+# 4*4 = 16
+# 3*3 = 9
+# 2*2 = 4
+# 1+4+9+16 = 30
+
+# height 50*sqrt(2)
+'''
+[
+
+[50.0, 50.0, 50.0], [50.0, 150.0, 50.0], [50.0, 250.0, 50.0], [50.0, 350.0, 50.0], 
+
+[150.0, 50.0, 50.0], [150.0, 150.0, 50.0], [150.0, 250.0, 50.0], [150.0, 350.0, 50.0], 
+
+[250.0, 50.0, 50.0], [250.0, 150.0, 50.0], [250.0, 250.0, 50.0], [250.0, 350.0, 50.0], 
+
+[350.0, 50.0, 50.0], [350.0, 150.0, 50.0], [350.0, 250.0, 50.0], [350.0, 350.0, 50.0], 
+
+
+[100.0, 100.0, 120.71067811865474], [100.0, 200.0, 120.71067811865474], [100.0, 300.0, 120.71067811865474], 
+
+[200.0, 100.0, 120.71067811865474], [200.0, 200.0, 120.71067811865474], [200.0, 300.0, 120.71067811865474], 
+
+[300.0, 100.0, 120.71067811865474], [300.0, 200.0, 120.71067811865474], [300.0, 300.0, 120.71067811865474], 
+
+
+[150.0, 150.0, 191.42135623730948], [150.0, 250.0, 191.42135623730948], 
+
+[250.0, 150.0, 191.42135623730948], [250.0, 250.0, 191.42135623730948], 
+
+
+[200.0, 200.0, 262.13203435596427]
+
+]
+
+'''
+# https://github.com/RoboDK/RoboDK-API/blob/master/Python/robolink.py
+# robodk_path variable to specify location of RoboDK.exe
+RDK = Robolink(args=["-NEWINSTANCE", "-SKIPINI", "-EXIT_LAST_COM"])
+
+# Add robot and the accompanied Base coordinate
+robot = RDK.AddFile('Fanuc-M-710iC-50.robot')
+# Get the default robot base frame
+robot_frame = RDK.Item('Fanuc M-710iC/50 Base')
+# Move the base frame to the origin
+robot_frame.setPose(transl(0,0,0))
+
+# Add a tool to an existing robot:
+tool = RDK.AddFile('MainTool.tool', robot)
+
+# Add table 1
+table1_frame = RDK.AddFrame('Table 1')
+table1_frame.setPose(transl(807.766544,-963.699898,41.478944))
+table1_stl = RDK.AddFile('Table.stl', table1_frame)
+
+# Add table 2
+table2_frame = RDK.AddFrame('Table 2')
+table2_frame.setPose(transl(926.465508,337.151529,94.871928))
+table2_stl = RDK.AddFile('Table.stl', table2_frame)
+
+# Add balls
+# create a list with 30 elements
+balls = [None for _ in range(30)]
+layer = [16, 9, 4, 1]
+count = 0
+for i in range(len(balls_list)):
+    # transl(balls_list)
+    balls[i] = RDK.AddFile('ball.stl', table1_frame)
+    balls[i].setPose(transl(balls_list[i]))
+    count = count + 1
+    if count &lt;= 16:
+        balls[i].setColor([1, 0, 0])
+    elif count &gt; 16 and count &lt;= 25:
+        balls[i].setColor([0, 1, 0])
+    elif count &gt; 25 and count &lt;=29:
+        balls[i].setColor([1, 1, 0])
+    else:
+        balls[i].setColor([0, 0, 1])
+
+'''
+# take screen snapshot
+file_path = "/Users/yen/tmp/test.jpg"
+print("Saving image to: " + file_path)
+cmd = "Snapshot"
+#cmd = "SnapshotWhite" # Snapshot with white background
+#cmd = "SnapshotWhiteNoTextNoFrames" # Snapshot with white background, no text or coordinate systems
+returned = RDK.Command(cmd, file_path)
+'''
+
+# Close any open 2D camera views
+RDK.Cam2D_Close()
+
+#camref = RDK.Item('Camera Reference',ITEM_TYPE_FRAME)
+camref = RDK.ItemUserPick('Select the Camera location (reference, tool or object')
+
+# set parameters in mm and degrees:
+# FOV: Field of view in degrees (atan(0.5*height/distance) of the sensor
+# FOCAL_LENGHT: focal lenght in mm
+# FAR_LENGHT: maximum working distance (in mm)
+# SIZE: size of the sensor in pixels
+# BG_COLOR: background color (rgb color or named color: AARRGGBB)
+# LIGHT_AMBIENT: ambient color (rgb color or named color: AARRGGBB)
+# LIGHT_SPECULAR: specular color (rgb color or named color: AARRGGBB)
+# LIGHT_DIFFUSE: diffuse color (rgb color or named color: AARRGGBB)
+# DEPTH: Add this flag to create a 32 bit depth map
+
+
+# cam_id = RDK.Cam2D_Add(camref, 'FOCAL_LENGHT=6 FOV=32 FAR_LENGHT=1000 SIZE=640x480 BG_COLOR=black')
+# cam_id = RDK.Cam2D_Add(camref, 'FOCAL_LENGHT=6 FOV=32 FAR_LENGHT=1000 SIZE=640x480')
+# cam_id = RDK.Cam2D_Add(camref, 'FOCAL_LENGHT=6 FOV=32 FAR_LENGHT=1000 SIZE=640x480 BG_COLOR=black LIGHT_AMBIENT=red LIGHT_DIFFUSE=#FF00FF00 LIGHT_SPECULAR=black')
+# cam_id = RDK.Cam2D_Add(camref, 'FOCAL_LENGHT=6 FOV=32 FAR_LENGHT=1000 SIZE=640x480 DEPTH')
+cam_id = RDK.Cam2D_Add(camref, 'FOCAL_LENGHT=30 FOV=80 FAR_LENGHT=3000 SIZE=640x480 BG_COLOR=black LIGHT_AMBIENT=red LIGHT_DIFFUSE=black LIGHT_SPECULAR=white')
+
+
+# cam_id = RDK.Cam2D_Add(camref, 'FOCAL_LENGHT=6 FOV=32 FAR_LENGHT=1000 SIZE=640x480 LIGHT_AMBIENT=red')
+
+# Provoke a popup and allow the user to enter some parameters
+# cam_id = RDK.Cam2D_Add(camref, 'POPUP')
+
+# Example to take a snapshot from the camera
+# RDK.Cam2D_Snapshot(RDK.getParam('PATH_OPENSTATION') + "/sample_image.png", cam_id)
+
+#RDK.Cam2D_Snapshot("c:/tmp/test_image.png")
+
+def WaitPartCamera():
+    if RDK.RunMode() == RUNMODE_SIMULATE:        
+        if True:
+            # Pure simulation option:
+            # Simulate the camera by waiting for an object to be within the camera zone
+            while True:
+               # Iterate through all the objects that can be picked:
+                for part in check_objects:
+                    # Calculate the position of the part with respect to the camera reference
+                    part_pose = invH(camera_pose_abs) * part.PoseAbs()
+                    tx,ty,tz,rx,ry,rz = pose_2_xyzrpw(part_pose)
+                   # X,Y,Theta = tx,ty,rz -&gt;  tx, ty is in mm, rz is in degrees
+                    if abs(tx) &lt; 400 and ty &lt; 50 and abs(tz) &lt; 400:
+                        print('Part detected: TX,TY,TZ=%.1f,%.1f,%.1f' % (tx,ty,rz))
+                        return tx, ty, rz
+        else:
+            # Apply image processing (simulation within RoboDK):
+            image_file = RDK.getParam('PATH_OPENSTATION') + "/Image-Camera-Simulation.png"
+            print("Saving camera snapshot to file:" + image_file)            
+            RDK.Cam2D_Snapshot(image_file)
+            
+</pre>
+<p></p><h3>FANUC M710iC50</h3>
+<p><a href="https://www.fanucamerica.com/products/robots/series/m-710/m-710ic-50">https://www.fanucamerica.com/products/robots/series/m-710/m-710ic-50</a> </p>
 <p><a href="https://www.ebay.com/itm/293870668499">https://www.ebay.com/itm/293870668499</a> (US 34900)</p>
-<p><a href="https://robodk.com/robot/Fanuc/M-710iC-50">https://robodk.com/robot/Fanuc/M-710iC-50</a> </p>
+<p><a href="https://robodk.com/robot/Fanuc/M-710iC-50">https://robodk.com/robot/Fanuc/M-710iC-50</a></p>
 <p><img alt="" height="400" src="/images/fanuc_m710ic_50_0.jpg" width="600"/></p>
 <p><img alt="" height="400" src="/images/fanuc_m710ic_50_1.jpg" width="600"/></p>
 <p><img alt="" height="400" src="/images/fanuc_m710ic_50_2.jpg" width="600"/></p>
