@@ -3176,8 +3176,24 @@ for i in range(len(balls_list)):
         balls[i].setColor([0, 0, 1])
 </pre>
 <p>上述 Python API 程式若使用可攜 RoboDK, 必須額外在 RDK = Robolink(args=["-NEWINSTANCE", "-SKIPINI", "-EXIT_LAST_COM"]) 利用 robodk_path 宣告 RoboDK.exe 所在位置, 例如: RDK = Robolink(robodk_path = "y:/robodk522/bin/RoboDK.exe", args=["-NEWINSTANCE", "-SKIPINI", "-EXIT_LAST_COM"]). 所完成的 station 畫面如下:</p>
-<p><img alt="" height="299" src="/images/robodk_all_in_python.png" width="500"/></p>
-<p></p><h2>學號抽點</h2>
+<p><img caption="false" height="335" src="/images/robodk_all_in_python.png" width="560"/></p>
+<h4>實體 FANUC M710iC/50 機械手臂工作影片:</h4>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/zw-JK9yFt9Y" title="YouTube video player" width="560"></iframe></p>
+<h3>FANUC M710iC50</h3>
+<p><a href="https://www.ebay.com/itm/293870668499">https://www.ebay.com/itm/293870668499</a> (US 34900)</p>
+<p><a href="https://robodk.com/robot/Fanuc/M-710iC-50">https://robodk.com/robot/Fanuc/M-710iC-50</a> </p>
+<p><img alt="" height="400" src="/images/fanuc_m710ic_50_0.jpg" width="600"/></p>
+<p><img alt="" height="400" src="/images/fanuc_m710ic_50_1.jpg" width="600"/></p>
+<p><img alt="" height="400" src="/images/fanuc_m710ic_50_2.jpg" width="600"/></p>
+<p><img alt="" height="400" src="/images/fanuc_m710ic_50_3.jpg" width="600"/></p>
+<p><img alt="" height="400" src="/images/fanuc_m710ic_50_4.jpg" width="600"/></p>
+<p><img alt="" height="400" src="/images/fanuc_m710ic_50_5.jpg" width="600"/></p>
+<p><img alt="" height="400" src="/images/fanuc_m710ic_50_6.jpg" width="600"/></p>
+<p><img alt="" height="400" src="/images/fanuc_m710ic_50_7.jpg" width="600"/></p>
+<p><img alt="" height="400" src="/images/fanuc_m710ic_50_8.jpg" width="600"/></p>
+<p><img alt="" height="400" src="/images/fanuc_m710ic_50_9.jpg" width="600"/></p>
+<p><img alt="" height="400" src="/images/fanuc_m710ic_50_10.jpg" width="600"/></p>
+<p><img alt="" height="400" src="/images/fanuc_m710ic_50_11.jpg" width="600"/></p><h2>學號抽點</h2>
 <p>為了編寫能夠進行修課學員學號抽點的程式, 提出下列兩種可行方案:</p>
 <p style="padding-left: 30px;">將原本按照順序排列的學號次序弄亂, 然後按所需抽點的人數,  從已經弄亂的學號中一一取出</p>
 <p style="padding-left: 30px;">依據所要抽點的人數, 建立一個由亂數組成的資料,  然後從順序排列的學號中抽出所要</p>
