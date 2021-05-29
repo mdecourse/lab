@@ -11,7 +11,9 @@
 <v t="yen.20170108171605.3"><vh>@string initial_split_orientation = horizontal</vh></v>
 </v>
 <v t="yen.20200517131340.1"><vh>About blogger</vh>
-<v t="yen.20200529224039.1"><vh>create credential token</vh></v>
+<v t="yen.20200529224039.1"><vh>create credential token</vh>
+<v t="leo.20210524091059.1"><vh>blogs</vh></v>
+</v>
 <v t="yen.20200517142620.1"><vh>blog content</vh></v>
 <v t="yen.20200517131657.1"><vh>python ref</vh></v>
 <v t="yen.20200517233837.1"><vh>Blogger 按鈕</vh>
@@ -268,6 +270,15 @@
 </v>
 <v t="leo.20210511091839.1"><vh>@clean 20210511.md</vh>
 <v t="leo.20210511092657.1"><vh>都是中文模式惹的禍</vh></v>
+<v t="leo.20210524012836.1"><vh>mb_blog</vh>
+<v t="leo.20210524012816.1"><vh>9033832246839984185</vh></v>
+</v>
+<v t="leo.20210524012907.1"><vh>kb_blog</vh>
+<v t="leo.20210524012857.1"><vh>213498558455543978</vh></v>
+</v>
+</v>
+<v t="leo.20210524201113.1"><vh>@clean 20210524.md</vh>
+<v t="leo.20210524201409.1"><vh>製作可攜程式系統</vh></v>
 </v>
 </v>
 </v>
@@ -1743,6 +1754,231 @@ Author: yen
 
 
 </t>
+<t tx="leo.20210524012816.1"></t>
+<t tx="leo.20210524012836.1"></t>
+<t tx="leo.20210524012857.1"></t>
+<t tx="leo.20210524012907.1"></t>
+<t tx="leo.20210524091059.1">https://mdecourse.blogspot.com/ 
+
+login 
+
+get secrets from https://console.developers.google.com
+
+執行 create_credential token 時,  Python 3.8 會自動取用系統的 Proxy, 必須關閉才能正確取得 token
+
+</t>
+<t tx="leo.20210524201113.1">@language md
+---
+Title: 可攜程式系統製作
+Date: 2021-05-24 11:00
+Category: Portable
+Tags: 202105
+Slug: 2021-kmol-portable-programming-system
+Author: yen
+---
+
+每隔一段期間, 都要重新根據最新版本製作 Windows 環境的可攜程式系統. 這裡紀錄一下詳細的製作過程.
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20210524201409.1">安裝 gcc
+----
+
+因為 [msys2] 所下載的 .exe 檔案無法直接解開壓縮, 必須透過安裝才可以取得 [msys2] 的基本系統檔案. 而目前所下載配置的是 20210419 的版本. 根據網路上 [msys2 說明], 基本的 C++ 編譯環境, 可以啟動 mingw64.exe 後, 利用:
+
+&lt;pre class="brush: jscript"&gt;
+pacman -Syu
+
+pacman -Sy
+
+pacman -S mingw-w64-x86_64-toolchain
+&lt;/pre&gt;
+
+安裝 [msys2] 環境下的 gcc 系統.
+
+可攜啟動批次檔案
+----
+
+&lt;pre class="brush: jscript"&gt;
+@echo off
+set Disk=y
+subst %Disk%: "data"
+
+%Disk%:
+
+set HomePath=%Disk%:\home_ipv6
+set HomeDrive=%Disk%:\home_ipv6
+set Home=%Disk%:\home_ipv6
+set USERPROFILE=%Disk%:\home_ipv6
+
+REM 將系統 Python 程式的 io 設為 utf-8
+set PYTHONIOENCODING="utf-8"
+
+set PYTHONPATH=%Disk%:\Python395\DLLs;%Disk%:\Python395\Lib;%Disk%:\Python395\Lib\site-packages;
+set PYTHONHOME=%Disk%:\Python395
+
+REM for putty
+set GIT_SSH=%Disk%:\putty\plink.exe
+
+REM for Java and Android SDK
+set java_home=%Disk%:\java\jdk8u222-b10
+set ANDROID_SDK_home=%Disk%:\home_ipv6
+set GRADLE_USER_home=%Disk%:\home_ipv6
+set ANDROID_SDK_ROOT=%Disk%:\android\sdk
+set ANDROID_Home=%Disk%:\android\sdk
+set REPO_OS_OVERRIDE=windows
+
+REM for Range3
+REG IMPORT %Disk%:\range3.reg
+
+REM 設定跟 Python 有關的命令搜尋路徑
+set path_python=%Disk%:\Python395;%Disk%:\Python395\Scripts;
+REM 設定跟Git 有關的命令搜尋路徑
+set path_git=%Disk%:\portable_2.31.1\bin;
+REM 設定 msys2 64 位元的執行路徑
+set path_msys2=%Disk%:\msys64_20210419\mingw64\bin;
+REM set for LaTeX
+set path_miketex=%Disk%:\miktex-portable\texmfs\install\miktex\bin\x64;
+REM Flutter path
+set path_flutter=%Disk%:\flutter\bin;%java_home%\bin;%Disk%:\Android\sdk;%Disk%:\Android\sdk\tools;%Disk%:\Android\sdk\tools\bin;%Disk%:\Android\sdk\emulator;%Disk%:\Android\sdk\platform-tools;%Disk%:\flutter\bin\cache\dart-sdk\bin;%Disk%:\vscode;
+set path_node=%Disk%:\node-v14.15.4-win-x64;
+set path_tcc=%Disk%:\tmp\tcc\win32;
+rem set path_tcc=%Disk%:\tcc;
+set path_heroku=%Disk%:\heroku\bin;
+set path_postgresql=%Disk%:\postgresql13\bin;
+set path_range=%Disk%:\Range3\bin;
+set path_lua=%Disk%:\lua-5.4.3\;
+
+REM 加入 PostgreSQL 所需的環境變數設定
+
+@SET PGDATA=%Disk%:\postgresql13\data
+@SET PGDATABASE=postgres
+@SET PGUSER=postgres
+@SET PGPORT=5432
+@SET PGLOCALEDIR=%Disk%:\postgresql13\share\locale
+
+REM for heroku login
+REM can not use with fossil scm
+REM set HTTP_PROXY=http://kmolab:kmolab10@a.kmol.info:3128
+REM set HTTPS_PROXY=http://kmolab:kmolab10@a.kmol.info:3128
+
+path=%Disk%:;%path_python%;%path_git%;%path_msys2%;%path_miketex%;%path_flutter%;%path_node%;%path_tcc%;%path_heroku%;%path_postgresql%;%path_range%;%path_lua%;%path%;
+
+start /MIN cmd.exe
+start /MIN cmd.exe
+start /MIN cmd.exe
+start /MIN cmd.exe
+
+start /MIN %Disk%:\wScite502\SciTE.exe
+start /MIN %Disk%:\wScite502\SciTE.exe
+
+Exit
+&lt;/pre&gt;
+
+可攜關閉批次檔
+----
+
+&lt;pre class="brush: jscript"&gt;
+@echo off
+set Disk=y
+path=%PATH%;
+
+taskkill /IM python.exe /F
+taskkill /IM pythonw.exe /F
+taskkill /IM adb.exe /F
+taskkill /IM scite.exe /F
+taskkill /IM range.exe /F
+
+REM 終止虛擬硬碟與目錄的對應
+subst %Disk%: /D
+REM 關閉 cmd 指令視窗
+taskkill /IM cmd.exe /F
+
+EXIT
+&lt;/pre&gt;
+
+home_ipv6 目錄
+----
+
+為了配合 Windows 尋找隨身程式系統 home_ipv6 目錄下的 Desktop, 因此額外建立此一目錄, 以免 Windows 操作系統跳出警告訊息.
+
+編譯 Lua
+----
+
+從 [Lua] 下載原始碼, 解開壓縮後可直接進行編譯:
+
+&lt;pre class="brush: jscript"&gt;
+mingw32-make mingw
+&lt;/pre&gt;
+
+編譯 SciTE
+----
+
+首先必須確認 y:\portable\bin 中 sh.exe 已經改名, 因為 shell 指令將取自 MSYS2 系統中的對應指令.
+
+分別 git clone scite 與 scintilla, 兩個目錄並列.
+
+git clone https://github.com/mirror/scite.git 
+
+git clone https://github.com/mirror/scintilla.git
+
+cd scintilla\win32
+
+mingw32-make
+
+get Scintilla.dll and SciLexer.dll under scintilla\bin
+
+cd scite\win32
+
+mingw32-make
+
+get SciTE.exe under scite\bin
+
+need extra libgcc_s_seh-1.dll, libstdc++-6.dll and libwinpthread-1.dll along with Scintilla.dll and SciLexer.dll to execute SciTE.exe
+
+編譯 Solvespace
+----
+
+[Solvespace] 是一套小巧開源的 3D 參數繪圖軟體
+
+編譯 Range3
+----
+
+為了 compile Range3, Msys2 除了mingw-w64-x86_64-toolchain 還必須加裝:
+
+pacman -Sy mingw-w64-x86_64-qt5
+pacman -Sy mingw-w64-x86_64-qt5-static
+pacman -Sy mingw-w64-x86_64-ffmpeg
+
+接著編譯 Range3:
+
+start Y:\msys64\mingw64.exe
+
+cd /y/tmp/range3
+
+./scripts/build.sh --clean &amp;&amp; ./scripts/create_package.sh
+
+而為了讓 svg 格式的 icons 能夠正確顯示, 必須納入 Qt5Svg.dll
+
+安裝 RoboDK
+----
+
+[RoboDK] 目前應該是最適合用於工業機械手臂在線與離線模擬的套件.
+
+安裝 CoppeliaSim
+----
+
+[CoppeliaSim] 儘管使用授權沒有 [Webots] 寬廣, 但是容量不到 500MB 只有 [Webots] 的 1/5 是其最大的優點.
+
+
+
+[CoppeliaSim]: https://www.coppeliarobotics.com/
+[Solvespace]: https://github.com/solvespace/solvespace
+[RoboDK]: https://robodk.com/
+[Lua]: http://www.lua.org/
+[msys2]: https://www.msys2.org/
+[msys2 說明]: https://michaelchen.tech/windows-programming/mingw-msys/</t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/
@@ -2262,7 +2498,7 @@ from googleapiclient.discovery import build
 #from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../yen_gm_blogger_token_mac.dat', 'rb') as credentials_dat:
+with open('./../../yen_gm_blogger_token.dat', 'rb') as credentials_dat:
     credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 
@@ -3426,15 +3662,15 @@ from google.auth.transport.requests import Request
 SCOPES = ['https://www.googleapis.com/auth/blogger', ]
 
 # we check if the file tBo store the credentials exists
-if not os.path.exists('./../../yen_gm_blogger_token_mac.dat'):
+if not os.path.exists('./../../yen_gm_blogger_token.dat'):
 
     flow = InstalledAppFlow.from_client_secrets_file('./../../yen_gm_blogger_secrets.json', SCOPES)
     credentials = flow.run_local_server()
 
-    with open('yen_gm_blogger_token_mac.dat', 'wb') as credentials_dat:
+    with open('yen_gm_blogger_token.dat', 'wb') as credentials_dat:
         pickle.dump(credentials, credentials_dat)
 else:
-    with open('yen_gm_blogger_token_mac.dat', 'rb') as credentials_dat:
+    with open('yen_gm_blogger_token.dat', 'rb') as credentials_dat:
         credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 g.es(service)</t>
@@ -3533,7 +3769,7 @@ from googleapiclient.discovery import build
 #from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../yen_gm_blogger_token_mac.dat', 'rb') as credentials_dat:
+with open('./../../yen_gm_blogger_token.dat', 'rb') as credentials_dat:
     credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 
