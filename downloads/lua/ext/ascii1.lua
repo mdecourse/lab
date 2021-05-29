@@ -1,3 +1,6 @@
+function ascii1()
+    -- 多行字串可以利用兩個中括號圈起
+    return [[
 function AsciiTable()
 	local overrides = { [0]="(Null)", [9]="(Tab)",[10]="(\\n Newline)", [13]="(\\r Return)", [32]="(Space)"}
 	local c
@@ -7,3 +10,9 @@ function AsciiTable()
 	end
 end
 AsciiTable()
+print("up key: 2007")
+print("down key: 2008")
+print("left key: 2009")
+print("right key: 2010")
+  ]]
+end
