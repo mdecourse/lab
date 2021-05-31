@@ -279,6 +279,21 @@
 </v>
 <v t="leo.20210524201113.1"><vh>@clean 20210524.md</vh>
 <v t="leo.20210524201409.1"><vh>製作可攜程式系統</vh></v>
+<v t="leo.20210531091052.1"><vh>kblog</vh>
+<v t="leo.20210531091041.1"><vh>36654417746253286</vh></v>
+</v>
+<v t="leo.20210531091117.1"><vh>mblog</vh>
+<v t="leo.20210531091114.1"><vh>6438502095164685010</vh></v>
+</v>
+</v>
+<v t="leo.20210531083628.1"><vh>@clean 20210531.md</vh>
+<v t="leo.20210531084219.1"><vh>挖礦者與 Gitlab Pages</vh></v>
+<v t="leo.20210531091135.1"><vh>kblog</vh>
+<v t="leo.20210531091132.1"><vh>3950876764932197032</vh></v>
+</v>
+<v t="leo.20210531091150.1"><vh>mblog</vh>
+<v t="leo.20210531091148.1"><vh>3084152329644691609</vh></v>
+</v>
 </v>
 </v>
 </v>
@@ -1979,6 +1994,46 @@ cd /y/tmp/range3
 [Lua]: http://www.lua.org/
 [msys2]: https://www.msys2.org/
 [msys2 說明]: https://michaelchen.tech/windows-programming/mingw-msys/</t>
+<t tx="leo.20210531083628.1">@language md
+---
+Title: 挖礦者與 Gitlab Pages
+Date: 2021-05-31 11:00
+Category: Portable
+Tags: 202105
+Slug: 2021-kmol-crypto-miner-and-gitlab-pages
+Author: yen
+---
+
+現在 是 2021年 5 月的最後一天, 對於許多現代人來說, 往後的日子, 不會再跟之前相同了.
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20210531084219.1">2021 年 5 月 14 日 Gitlab 宣布: 由於 CI/CD 受到加密挖礦者的濫用, 即日起新建帳號, 要免費使用連續整合與部署者, 必須先付上信用卡或簽帳卡號付費進行認證.
+
+這項消息代表由於少數人的絕私行為, 讓原先利用這項免費資源產生 Gitlab Pages 的使用者, 通通遭殃.
+
+幾乎在同一時間, Github 也發出許多禁止特定帳號公開存取 Github Pages 的 Flag, 原因是: 利用學號當作帳號的用戶, 被認定是一人申請多個帳號, 疑似違反使用規定.
+
+這些問題恐怕就此斷送許多原先可以免費使用雲端資源的機會, 往後的教育單位若沒有自行扛起這樣的責任, 網際大美好的日子, 應該就此結束, 不會再回來了.
+
+後記: 利用 Pelican 建立 CMSiMDE 中的 blog, 同時利用 Python 與 Leo Editor 將網誌同步到 Blogger, 過程中必須要確定系統已經安裝所需的模組:
+
+pip install google-api-python-client oauth2client
+
+並且 CMSiMDE 中的 pelican.leo 也要讀取 tmp 目錄上的認證檔案.
+
+並且在 Windows 10 安裝 Python 模組時還必須暫時關閉 Web based Proxy 設定, 整個環節只有一點沒有做到, 資料就無法如預期出現在多個網誌系統中.
+
+</t>
+<t tx="leo.20210531091041.1"></t>
+<t tx="leo.20210531091052.1"></t>
+<t tx="leo.20210531091114.1"></t>
+<t tx="leo.20210531091117.1"></t>
+<t tx="leo.20210531091132.1"></t>
+<t tx="leo.20210531091135.1"></t>
+<t tx="leo.20210531091148.1"></t>
+<t tx="leo.20210531091150.1"></t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/
