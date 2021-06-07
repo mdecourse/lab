@@ -2129,7 +2129,7 @@ Fossil SCM 網際登錄 app
 
 任務解決了一半, 接下來則希望建立一組網際程式, 採用 Google Oauth2 讓使用者透過學校配發的 @gm 帳號登入, 然後自選管理密碼後, [Fossil SCM] 伺服器就能設法配置好能讓使用者提交推送的 [Github] 倉儲, 展示出 [CMSiMDE] 倉儲中的靜態網頁.
 
-初步建立 fossilapp 的流程請參考＜http://mde.tw/cd2021/content/fossilapp.html＞.
+初步建立 fossilapp 的流程請參考: &lt;http://mde.tw/cd2021/content/fossilapp.html&gt;.
 
 
 [gogs]: https://gogs.io/
@@ -3444,7 +3444,7 @@ from googleapiclient.discovery import build
 #from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../yen_gm_blogger_token_mac.dat', 'rb') as credentials_dat:
+with open('./../../yen_gm_blogger_token.dat', 'rb') as credentials_dat:
     credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 
@@ -4032,7 +4032,7 @@ from googleapiclient.discovery import build
 #from google.auth.transport.requests import Request
 
 os.environ['TZ'] = 'Asia/Taipei'
-with open('./../../yen_gm_blogger_token_mac.dat', 'rb') as credentials_dat:
+with open('./../../yen_gm_blogger_token.dat', 'rb') as credentials_dat:
     credentials = pickle.load(credentials_dat)
 service = build('blogger', 'v3', credentials=credentials)
 
