@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-  <title>挖礦者與 Gitlab Pages</title>
+  <title>為何需要分散式版次管理系統?</title>
 
 
   <meta name="HandheldFriendly" content="True" />
@@ -40,9 +40,9 @@
   <![endif]-->
 
 
-    <link href="./2021-kmol-crypto-miner-and-gitlab-pages.html" rel="canonical" />
+    <link href="./2021-kmol-why-we-need-distributed-version-control-system.html" rel="canonical" />
 
-        <meta name="description" content="現在 是 2021年 5 月的最後一天, 對於許多現代人來說, 往後的日子, 不會再跟之前相同了.">
+        <meta name="description" content="上過 KMOLab 課程的學員應該就知道, 過去幾年由知識管理與最佳化應用實驗室所開列的課程 , 已經不舉行點狀的考試, 而是透過分散式版次管理系統中的倉儲紀錄與網站內容進行評分.">
 
         <meta name="author" content="yen">
 
@@ -53,15 +53,15 @@
 
 <!-- Open Graph -->
 <meta property="og:site_name" content="mde.tw/lab 網誌"/>
-<meta property="og:title" content="挖礦者與 Gitlab Pages"/>
-<meta property="og:description" content="現在 是 2021年 5 月的最後一天, 對於許多現代人來說, 往後的日子, 不會再跟之前相同了."/>
+<meta property="og:title" content="為何需要分散式版次管理系統?"/>
+<meta property="og:description" content="上過 KMOLab 課程的學員應該就知道, 過去幾年由知識管理與最佳化應用實驗室所開列的課程 , 已經不舉行點狀的考試, 而是透過分散式版次管理系統中的倉儲紀錄與網站內容進行評分."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="./2021-kmol-crypto-miner-and-gitlab-pages.html"/>
+<meta property="og:url" content="./2021-kmol-why-we-need-distributed-version-control-system.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2021-05-31 11:00:00+08:00"/>
-<meta property="article:modified_time" content="2021-05-31 09:16:07.998487+08:00"/>
+<meta property="article:published_time" content="2021-05-31 12:00:00+08:00"/>
+<meta property="article:modified_time" content="2021-05-31 15:10:44.495070+08:00"/>
 <meta property="article:author" content="./author/yen.html">
-<meta property="article:section" content="Gitlab"/>
+<meta property="article:section" content="DVCS"/>
 <meta property="article:tag" content="202105"/>
 <meta property="og:image" content="./theme/images/post-bg.jpg">
 
@@ -71,18 +71,18 @@
 {
   "@context": "http://schema.org",
   "@type": "Article",
-  "name": "挖礦者與 Gitlab Pages",
-  "headline": "挖礦者與 Gitlab Pages",
-  "datePublished": "2021-05-31 11:00:00+08:00",
-  "dateModified": "2021-05-31 09:16:07.998487+08:00",
+  "name": "為何需要分散式版次管理系統?",
+  "headline": "為何需要分散式版次管理系統?",
+  "datePublished": "2021-05-31 12:00:00+08:00",
+  "dateModified": "2021-05-31 15:10:44.495070+08:00",
   "author": {
     "@type": "Person",
     "name": "yen",
     "url": "./author/yen.html"
   },
   "image": "./theme/images/post-bg.jpg",
-  "url": "./2021-kmol-crypto-miner-and-gitlab-pages.html",
-  "description": "現在 是 2021年 5 月的最後一天, 對於許多現代人來說, 往後的日子, 不會再跟之前相同了."
+  "url": "./2021-kmol-why-we-need-distributed-version-control-system.html",
+  "description": "上過 KMOLab 課程的學員應該就知道, 過去幾年由知識管理與最佳化應用實驗室所開列的課程 , 已經不舉行點狀的考試, 而是透過分散式版次管理系統中的倉儲紀錄與網站內容進行評分."
 }
 </script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
@@ -197,7 +197,7 @@ init_mathjax();
             <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
           </span>
         </nav>
-        <h1 class="post-title">挖礦者與 Gitlab Pages</h1>
+        <h1 class="post-title">為何需要分散式版次管理系統?</h1>
         <!-- TODO : Proper class for headline -->
         <span class="post-meta">
                 <a href="./author/yen.html">Yen</a>
@@ -224,28 +224,27 @@ init_mathjax();
         <article class="post">
         <div class="inner">
             <section class="post-content">
-                <p>現在 是 2021年 5 月的最後一天, 對於許多現代人來說, 往後的日子, 不會再跟之前相同了.</p>
+                <p>上過 <a href="http://mde.tw">KMOLab</a> 課程的學員應該就知道, 過去幾年由知識管理與最佳化應用實驗室所開列的課程 ,  已經不舉行點狀的考試, 而是透過分散式版次管理系統中的倉儲紀錄與網站內容進行評分.</p>
 
 
-<p>2021 年 5 月 14 日 Gitlab 宣布: 由於 CI/CD 受到加密挖礦者的濫用, 即日起新建帳號, 要免費使用連續整合與部署者, 必須先付上信用卡或簽帳卡號付費進行認證.</p>
-<p>這項消息代表由於少數人的絕私行為, 讓原先利用這項免費資源產生 Gitlab Pages 的使用者, 通通遭殃.</p>
-<p>幾乎在同一時間, Github 也發出許多禁止特定帳號公開存取 Github Pages 的 Flag, 原因是: 利用學號當作帳號的用戶, 被認定是一人申請多個帳號, 疑似違反使用規定.</p>
-<p>這些問題恐怕就此斷送許多原先可以免費使用雲端資源的機會, 往後的教育單位若沒有自行扛起這樣的責任, 網際大美好的日子, 應該就此結束, 不會再回來了.</p>
-<p>後記: 利用 Pelican 建立 CMSiMDE 中的 blog, 同時利用 Python 與 Leo Editor 將網誌同步到 Blogger, 過程中必須要確定系統已經安裝所需的模組:</p>
-<p>pip install google-api-python-client oauth2client</p>
-<p>並且 CMSiMDE 中的 pelican.leo 也要讀取 tmp 目錄上的認證檔案.</p>
-<p>並且在 Windows 10 安裝 Python 模組時還必須暫時關閉 Web based Proxy 設定, 整個環節只有一點沒有做到, 資料就無法如預期出現在多個網誌系統中.</p>
+<h2>學習歷程必須有第三方公證</h2>
+<p>原因很簡單: 各學員歷程的累積帶有時間註記與每次改版的詳細記錄, 從一個倉儲的改版歷程, 可以看出特定學員投入該課程主題的心力, 至於雲端網站內容無遠弗屆, 可以讓任何人從任何地方擷取, 進行學習或引為警惕.</p>
+<p>學習歷程的公正性源自第三方的公證, 同一份解題資料出現在同一課程的不同學員倉儲與網頁中, 可以輕易透過電腦程式進行比對, 從建立的時間與內容改版歷程, 判定學習價值的高低. 假如採取點狀的文書報告進行評量, 在缺乏資料創建歷程細節的佐證, 評閱者將會很難分辨內容產生的順序與因果關係.</p>
+<h2>只有將資料利用雲端分散存放, 才有機會永續</h2>
+<p>分散式版次管理的功能, 不僅在於版次管理, 另外一個目的是將資料分散在不同的雲端主機上, 參與協同的組員每人近端都有一份版本, 而雲端則再同步幾處, 如此可以降低資料在單一主機上丟失的風險.</p>
+<h2>分散式版次管理應該是使用電腦與網路的基本技能</h2>
+<p>當任何人在 2005 年 Git 與許多能夠免費使用的分散式版次管理系統出現之後, 利用電腦建立第一份文字資料開始, 就應該要使用分散式版次管理來存放歷程資料.</p>
             </section>
 
             <section class="post-info">
                 <div class="post-share">
-                    <a class="twitter" href="https://twitter.com/share?text=挖礦者與 Gitlab Pages&amp;url=./2021-kmol-crypto-miner-and-gitlab-pages.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <a class="twitter" href="https://twitter.com/share?text=為何需要分散式版次管理系統?&amp;url=./2021-kmol-why-we-need-distributed-version-control-system.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
                     </a>
-                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=./2021-kmol-crypto-miner-and-gitlab-pages.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=./2021-kmol-why-we-need-distributed-version-control-system.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
                     </a>
-                    <a class="googleplus" href="https://plus.google.com/share?url=./2021-kmol-crypto-miner-and-gitlab-pages.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <a class="googleplus" href="https://plus.google.com/share?url=./2021-kmol-why-we-need-distributed-version-control-system.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
                     </a>
                     <div class="clear"></div>
@@ -261,18 +260,18 @@ init_mathjax();
 
 
                 <aside class="post-nav">
-                    <a class="post-nav-next" href="./2021-kmol-why-we-need-distributed-version-control-system.html">
+                    <a class="post-nav-next" href="./2021-kmol-after-github-account-being-flagged.html">
                         <section class="post-nav-teaser">
                             <i class="ic ic-arrow-left"></i>
-                                <h2 class="post-nav-title">為何需要分散式版次管理系統?</h2>
-                            <p class="post-nav-excerpt">上過 KMOLab 課程的學員應該就知道, 過去幾年由知識管理與最佳化應用實驗室所開列的課程 , 已經不舉行點狀的考試, 而是透過分散式版次管理系統中的倉儲紀錄與網站內容進行評分.</p>
+                                <h2 class="post-nav-title">Github account flagged 之後</h2>
+                            <p class="post-nav-excerpt">目前KMOLab 的所有課程都架構在 Github 與 Gitlab 的網際雲端服務之上, 幾個禮拜前由於大量用戶透過免費的 CI/CD 服務進行數位貨幣挖礦,...</p>
                         </section>
                     </a>
-                    <a class="post-nav-prev" href="./2021-kmol-portable-programming-system.html">
+                    <a class="post-nav-prev" href="./2021-kmol-crypto-miner-and-gitlab-pages.html">
                         <section class="post-nav-teaser">
                             <i class="ic ic-arrow-right"></i>
-                                <h2 class="post-nav-title">可攜程式系統製作</h2>
-                            <p class="post-nav-excerpt">每隔一段期間, 都要重新根據最新版本製作 Windows 環境的可攜程式系統. 這裡紀錄一下詳細的製作過程.</p>
+                                <h2 class="post-nav-title">挖礦者與 Gitlab Pages</h2>
+                            <p class="post-nav-excerpt">現在 是 2021年 5 月的最後一天, 對於許多現代人來說, 往後的日子, 不會再跟之前相同了.</p>
                         </section>
                     </a>
                     <div class="clear"></div>

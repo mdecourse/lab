@@ -295,6 +295,24 @@
 <v t="leo.20210531091148.1"><vh>3084152329644691609</vh></v>
 </v>
 </v>
+<v t="leo.20210531064143.1"><vh>@clean 20210531-1.md</vh>
+<v t="leo.20210531064521.1"><vh>為何需要分散式版次管理系統?</vh></v>
+<v t="leo.20210531071007.1"><vh>kblog</vh>
+<v t="leo.20210531071000.1"><vh>3277026408208392841</vh></v>
+</v>
+<v t="leo.20210531071033.1"><vh>mblog</vh>
+<v t="leo.20210531071030.1"><vh>5754558563405564265</vh></v>
+</v>
+</v>
+<v t="leo.20210607091721.1"><vh>@clean 20210607.md</vh>
+<v t="leo.20210607092640.1"><vh>Github account flagged</vh></v>
+<v t="leo.20210607101639.1"><vh>kblog</vh>
+<v t="leo.20210607101634.1"><vh>59643002015771588</vh></v>
+</v>
+<v t="leo.20210607101659.1"><vh>mblog</vh>
+<v t="leo.20210607101653.1"><vh>8367273516198516992</vh></v>
+</v>
+</v>
 </v>
 </v>
 </v>
@@ -1994,11 +2012,52 @@ cd /y/tmp/range3
 [Lua]: http://www.lua.org/
 [msys2]: https://www.msys2.org/
 [msys2 說明]: https://michaelchen.tech/windows-programming/mingw-msys/</t>
+<t tx="leo.20210531064143.1">@language md
+---
+Title: 為何需要分散式版次管理系統?
+Date: 2021-05-31 12:00
+Category: DVCS
+Tags: 202105
+Slug: 2021-kmol-why-we-need-distributed-version-control-system
+Author: yen
+---
+
+上過 [KMOLab] 課程的學員應該就知道, 過去幾年由知識管理與最佳化應用實驗室所開列的課程 ,  已經不舉行點狀的考試, 而是透過分散式版次管理系統中的倉儲紀錄與網站內容進行評分.
+
+[KMOLab]: http://mde.tw
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20210531064521.1">學習歷程必須有第三方公證
+----
+
+原因很簡單: 各學員歷程的累積帶有時間註記與每次改版的詳細記錄, 從一個倉儲的改版歷程, 可以看出特定學員投入該課程主題的心力, 至於雲端網站內容無遠弗屆, 可以讓任何人從任何地方擷取, 進行學習或引為警惕.
+
+學習歷程的公正性源自第三方的公證, 同一份解題資料出現在同一課程的不同學員倉儲與網頁中, 可以輕易透過電腦程式進行比對, 從建立的時間與內容改版歷程, 判定學習價值的高低. 假如採取點狀的文書報告進行評量, 在缺乏資料創建歷程細節的佐證, 評閱者將會很難分辨內容產生的順序與因果關係.
+
+只有將資料利用雲端分散存放, 才有機會永續
+----
+
+分散式版次管理的功能, 不僅在於版次管理, 另外一個目的是將資料分散在不同的雲端主機上, 參與協同的組員每人近端都有一份版本, 而雲端則再同步幾處, 如此可以降低資料在單一主機上丟失的風險.
+
+分散式版次管理應該是使用電腦與網路的基本技能
+----
+
+當任何人在 2005 年 Git 與許多能夠免費使用的分散式版次管理系統出現之後, 利用電腦建立第一份文字資料開始, 就應該要使用分散式版次管理來存放歷程資料.
+
+
+
+</t>
+<t tx="leo.20210531071000.1"></t>
+<t tx="leo.20210531071007.1"></t>
+<t tx="leo.20210531071030.1"></t>
+<t tx="leo.20210531071033.1"></t>
 <t tx="leo.20210531083628.1">@language md
 ---
 Title: 挖礦者與 Gitlab Pages
 Date: 2021-05-31 11:00
-Category: Portable
+Category: Gitlab
 Tags: 202105
 Slug: 2021-kmol-crypto-miner-and-gitlab-pages
 Author: yen
@@ -2034,6 +2093,55 @@ pip install google-api-python-client oauth2client
 <t tx="leo.20210531091135.1"></t>
 <t tx="leo.20210531091148.1"></t>
 <t tx="leo.20210531091150.1"></t>
+<t tx="leo.20210607091721.1">@language md
+---
+Title: Github account flagged 之後
+Date: 2021-06-07 11:00
+Category: github
+Tags: 202106
+Slug: 2021-kmol-after-github-account-being-flagged
+Author: yen
+---
+
+目前[KMOLab] 的所有課程都架構在 [Github] 與 [Gitlab] 的網際雲端服務之上, 幾個禮拜前由於大量用戶透過免費的 CI/CD 服務進行數位貨幣挖礦, 導致許多採取學號連號建立的 Github 帳號莫名被禁用, 而 2021.05.14 之後所建立的 [Gitlab] 帳號也必須提供簽帳卡或信用卡號, 經過認證才能使用 CI/CD 服務.
+
+[KMOLab]: http://mde.tw
+[Github]: https://github.com
+[Gitlab]: https://gitlab.com
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20210607092640.1">面對這個突如其來的事件, 不僅這些被禁用的帳號倉儲無法公開顯示提交歷程 (有些帳號向 [Github] 反應後已經解禁, 但仍有帳號無法解禁), 必須透過 CI/CD 轉為 Github Pages 或 Gitlab Pages 的服務也無法執行. 因此只能在工作站室中的伺服器設法提供類似的服務補救.
+
+自行架構網際伺服器
+----
+
+由於在 2017 年, 曾經利用電腦輔助設計室汰換電腦時所移出的許多舊電腦, 執行過 [gogs] 與 [Fossil SCM] 服務, 這時正好可以利用 [gogs] 展開原先推送到 [Github] 的倉儲提交歷程, 而 [Fossil SCM] 伺服器中的 [Project Documentation] 功能則正好可以用來取代 Github Pages, 讓使用者展示倉儲中各版本的靜態網頁.
+
+理論上很簡單, 只要分別下載 [gogs] 與 [Fossil SCM] 的套件, 然後設法找一台虛擬主機安裝配置即可.
+但若希望透過程式方法, 幫這許多用戶設定帳號與密碼, 就必須要建立一組網際程式套件, 讓各學員自行登入系統建立所需的帳號或倉儲.
+
+[gogs] 伺服器原本就提供使用者自行註冊帳號的功能, 因此問題較小, 比較大的問題是: [gogs] 好像只支援 IPv4,  因為時間緊迫, 沒有多花時間在這上面, 只能找了一個 IP, 設定符號名稱, 利用 [Stunnel] 與 [Letsencrypt] 讓 [gogs] 伺服器可以採 https 協定上線, 如此使用者就能自行登錄帳號, 將 [Github] 倉儲的提交歷程在 [gogs] 伺服器中展開.
+
+Fossil SCM 網際登錄 app
+----
+
+任務解決了一半, 接下來則希望建立一組網際程式, 採用 Google Oauth2 讓使用者透過學校配發的 @gm 帳號登入, 然後自選管理密碼後, [Fossil SCM] 伺服器就能設法配置好能讓使用者提交推送的 [Github] 倉儲, 展示出 [CMSiMDE] 倉儲中的靜態網頁.
+
+初步建立 fossilapp 的流程請參考＜http://mde.tw/cd2021/content/fossilapp.html＞.
+
+
+[gogs]: https://gogs.io/
+[Fossil SCM]: https://www.fossil-scm.org
+[Stunnel]: https://www.stunnel.org/
+[Letsencrypt]: https://letsencrypt.org/
+[CMSiMDE]: https://github.com/mdecourse/cmsimde.git
+[Project Documentation]: https://www.fossil-scm.org/home/doc/trunk/www/embeddeddoc.wiki</t>
+<t tx="leo.20210607101634.1"></t>
+<t tx="leo.20210607101639.1"></t>
+<t tx="leo.20210607101653.1"></t>
+<t tx="leo.20210607101659.1"></t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/

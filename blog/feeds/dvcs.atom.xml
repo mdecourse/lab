@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>mde.tw/lab 網誌 - DVCS</title><link href="./" rel="alternate"></link><link href="./feeds/dvcs.atom.xml" rel="self"></link><id>./</id><updated>2021-05-31T15:10:44+08:00</updated><entry><title>為何需要分散式版次管理系統?</title><link href="./2021-kmol-why-we-need-distributed-version-control-system.html" rel="alternate"></link><published>2021-05-31T12:00:00+08:00</published><updated>2021-05-31T15:10:44+08:00</updated><author><name>yen</name></author><id>tag:None,2021-05-31:./2021-kmol-why-we-need-distributed-version-control-system.html</id><summary type="html">&lt;p&gt;上過 &lt;a href="http://mde.tw"&gt;KMOLab&lt;/a&gt; 課程的學員應該就知道, 過去幾年由知識管理與最佳化應用實驗室所開列的課程 ,  已經不舉行點狀的考試, 而是透過分散式版次管理系統中的倉儲紀錄與網站內容進行評分.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;上過 &lt;a href="http://mde.tw"&gt;KMOLab&lt;/a&gt; 課程的學員應該就知道, 過去幾年由知識管理與最佳化應用實驗室所開列的課程 ,  已經不舉行點狀的考試, 而是透過分散式版次管理系統中的倉儲紀錄與網站內容進行評分.&lt;/p&gt;
+
+
+&lt;h2&gt;學習歷程必須有第三方公證&lt;/h2&gt;
+&lt;p&gt;原因很簡單: 各學員歷程的累積帶有時間註記與每次改版的詳細記錄, 從一個倉儲的改版歷程, 可以看出特定學員投入該課程主題的心力, 至於雲端網站內容無遠弗屆, 可以讓任何人從任何地方擷取, 進行學習或引為警惕.&lt;/p&gt;
+&lt;p&gt;學習歷程的公正性源自第三方的公證, 同一份解題資料出現在同一課程的不同學員倉儲與網頁中, 可以輕易透過電腦程式進行比對, 從建立的時間與內容改版歷程, 判定學習價值的高低. 假如採取點狀的文書報告進行評量, 在缺乏資料創建歷程細節的佐證, 評閱者將會很難分辨內容產生的順序與因果關係.&lt;/p&gt;
+&lt;h2&gt;只有將資料利用雲端分散存放, 才有機會永續&lt;/h2&gt;
+&lt;p&gt;分散式版次管理的功能, 不僅在於版次管理, 另外一個目的是將資料分散在不同的雲端主機上, 參與協同的組員每人近端都有一份版本, 而雲端則再同步幾處, 如此可以降低資料在單一主機上丟失的風險.&lt;/p&gt;
+&lt;h2&gt;分散式版次管理應該是使用電腦與網路的基本技能&lt;/h2&gt;
+&lt;p&gt;當任何人在 2005 年 Git 與許多能夠免費使用的分散式版次管理系統出現之後, 利用電腦建立第一份文字資料開始, 就應該要使用分散式版次管理來存放歷程資料.&lt;/p&gt;</content><category term="DVCS"></category><category term="202105"></category></entry></feed>
