@@ -7,7 +7,7 @@
 &lt;p&gt;但說短話也行: 這就是愛用國貨的代價.&lt;/p&gt;
 &lt;p&gt;接下來要問的是: 我們能夠在沒有自架主機的環境中上課嗎?&lt;/p&gt;
 &lt;h2&gt;計算機程式&lt;/h2&gt;
-&lt;p&gt;利用 http://mde.tw/lab/content/Python.html 可以直接利用網頁練習基本的 Python 語法, 其他的程式主題可以在 https://mde.tw/cmstemplate 中的 Windows 10 可攜程式系統中執行練習. 若再配合 https://kaggle.com, 各學員所寫的程式碼可以在網路上進行分享與協同.&lt;/p&gt;
+&lt;p&gt;利用 &lt;a href="http://mde.tw/lab/content/Python.html"&gt;http://mde.tw/lab/content/Python.html&lt;/a&gt; 可以直接利用網頁練習基本的 Python 語法, 其他的程式主題可以在 &lt;a href="https://mde.tw/cmstemplate"&gt;https://mde.tw/cmstemplate&lt;/a&gt; 中的 Windows 10 可攜程式系統中執行練習. 若再配合 &lt;a href="https://kaggle.com"&gt;https://kaggle.com&lt;/a&gt;, 各學員所寫的程式碼可以在網路上進行分享與協同.&lt;/p&gt;
 &lt;p&gt;因此在沒有自架主機的情況下, 要發布下載項目, 可以掛到 @gm 帳號下的 Google Drive, 5T 的容量配合上課應該已經足夠.&lt;/p&gt;
 &lt;p&gt;線上示範或學員操作的影片則一律存入 Google Meet 對應的 G Drive 空間, 另外還可以配合 OBS + Youtube 直播進行互動或錄製開會影片.&lt;/p&gt;
 &lt;p&gt;結論是: 在沒有自架主機進行計算機程式的線上課程, 沒有任何問題. 但是評分呢? 假如 Github Education 能夠讓所有的帳號使用基本倉儲存放與 Github Pages, 那麼原先上課所採用的歷程資料評量依然可行, 但期中與期末的評分將會花上三堂課, 規劃在線上輪流由組員進行直播, 報告自己在學習過程中的各項操作內容與成果, 然後設法建置一個 Google Form 讓所有的學員在時效內針對各學員的報告內容評分.&lt;/p&gt;
@@ -15,6 +15,5 @@
 &lt;p&gt;假如各學員的電腦記憶體大於 8GB, 應該仍然可以透過 Virtualbox 在 Windows 10 操作系統中安裝虛擬主機, 只是一般用戶的電腦要設定為連外 IPv6 位址, 或許會碰到一些挑戰, 假如可以分組只在上課時段, 由分組虛擬主機設法上網, 針對各種網際伺服器的安裝配置進行實習.&lt;/p&gt;
 &lt;p&gt;靜態網頁的部分仍然可以在 Github Pages 與 Heroku 平台上展示, 至於網際 Python 也可以送到 Heroku 執行,  牽涉 PostgreSQL 資料庫的系統也能視情況導入. 唯一無法進行展示的就是 Fossil SCM, 因為沒有主機代管, Stunnel 就無法配合安裝. 但仍可設法在各分組的虛擬主機上進行配置實習.&lt;/p&gt;
 &lt;p&gt;所以結論是: 在沒有自架主機進行計算機程式的線上課程, 有些挑戰, 但是仍有機會克服.&lt;/p&gt;
-&lt;p&gt;電腦輔助設計實習&lt;/p&gt;
-&lt;hr&gt;
+&lt;h2&gt;電腦輔助設計實習&lt;/h2&gt;
 &lt;p&gt;假如完全採用 Onshape  繪圖, 之後將零組件轉入 RoboDK, CoppeliaSim 與 Webots 進行機電資模擬, 而且相關機制與計算機程式及網際內容管理相同, 那麼加上協同產品設計實習等這兩門課程, 在沒有自架主機的情況下, 可以全時讓所有學員在線上課.&lt;/p&gt;</content><category term="workstation"></category><category term="202106"></category></entry></feed>
