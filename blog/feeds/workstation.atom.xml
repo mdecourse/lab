@@ -16,4 +16,9 @@
 &lt;p&gt;靜態網頁的部分仍然可以在 Github Pages 與 Heroku 平台上展示, 至於網際 Python 也可以送到 Heroku 執行,  牽涉 PostgreSQL 資料庫的系統也能視情況導入. 唯一無法進行展示的就是 Fossil SCM, 因為沒有主機代管, Stunnel 就無法配合安裝. 但仍可設法在各分組的虛擬主機上進行配置實習.&lt;/p&gt;
 &lt;p&gt;所以結論是: 在沒有自架主機進行計算機程式的線上課程, 有些挑戰, 但是仍有機會克服.&lt;/p&gt;
 &lt;h2&gt;電腦輔助設計實習&lt;/h2&gt;
-&lt;p&gt;假如完全採用 Onshape  繪圖, 之後將零組件轉入 RoboDK, CoppeliaSim 與 Webots 進行機電資模擬, 而且相關機制與計算機程式及網際內容管理相同, 那麼加上協同產品設計實習等這兩門課程, 在沒有自架主機的情況下, 可以全時讓所有學員在線上課.&lt;/p&gt;</content><category term="workstation"></category><category term="202106"></category></entry></feed>
+&lt;p&gt;假如完全採用 Onshape  繪圖, 之後將零組件轉入 RoboDK, CoppeliaSim 與 Webots 進行機電資模擬, 而且相關機制與計算機程式及網際內容管理相同, 那麼加上協同產品設計實習等這兩門課程, 在沒有自架主機的情況下, 可以全時讓所有學員在線上課.&lt;/p&gt;
+&lt;p&gt;假如再恢復實體上課&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;假如所有學員都能夠在遠端進行上列的線上課程, 那麼實體回到電腦輔助設計室上課, 在不啟動工作站室中伺服器的情況下, 可不可能僅用一台虛擬代理主機讓 60 台電腦採用純 IPv6 網路設定穩穩上網? 一台壓力可能比較大, 教室中必須要有一台安裝四片網卡的電腦, 啟動四台虛擬代理主機, 使用四個 IPv4 網址並設定 domain names, 這樣應該就能在上課時段採同步啟動這四台虛擬代理主機的情況下, 實體上課.&lt;/p&gt;
+&lt;h2&gt;真的需要上滿 18 週?&lt;/h2&gt;
+&lt;p&gt;台灣已經有些學校一個 semester 採行 16 週, 其實以目前的學習密度而言, 16 週仍然太長, 假如我們能夠決定, 一個學期 14 週就已經足夠. 前面五週熱身, 第六週進行任務交付, 隨後的六週執行分組協同任務, 然後在最後兩週進行同儕線上成果發表及評分.&lt;/p&gt;</content><category term="workstation"></category><category term="202106"></category></entry></feed>
