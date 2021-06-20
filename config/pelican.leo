@@ -2807,6 +2807,15 @@
 <v t="yen.20210612080009.1"><vh>6532216227154065044</vh></v>
 </v>
 </v>
+<v t="yen.20210620225615.1"><vh>@clean 20210620.md</vh>
+<v t="yen.20210620230149.1"><vh>Msys2 環境下的可攜 Rust 程式環境</vh></v>
+<v t="yen.20210620232503.1"><vh>kbloger</vh>
+<v t="yen.20210620232456.1"><vh>8123775716717312772</vh></v>
+</v>
+<v t="yen.20210620232543.1"><vh>mbloger</vh>
+<v t="yen.20210620232519.1"><vh>8386779993329402294</vh></v>
+</v>
+</v>
 </v>
 </v>
 <v t="yen.20170108171733.83"><vh>產生 .key 與 .crt 指令</vh></v>
@@ -7802,6 +7811,11 @@ Author: yen
 ----
 
 台灣已經有些學校一個 semester 採行 16 週, 其實以目前的學習密度而言, 16 週仍然太長, 假如我們能夠決定, 一個學期 14 週就已經足夠. 前面五週熱身, 第六週進行任務交付, 隨後的六週執行分組協同任務, 然後在最後兩週進行同儕線上成果發表及評分.
+
+後記: 逐漸崛起的 [Pijul] 採用歐洲最大的 Datacenter 寄存伺服器, 幾個月前[發生火災], 造成部分資料丟失, 起火的原因就是 UPS. 因此假如能夠在不需親自維護 24 小時運作的伺服器下進行實體或線上課程, 應該是未來的最佳方案.
+
+[Pijul]: https://pijul.org
+[發生火災]: https://pijul.org/posts/2021-06-03-on-fires/
 </t>
 <t tx="yen.20210612081616.193"></t>
 <t tx="yen.20210612081616.194"></t>
@@ -18577,5 +18591,40 @@ Many users will want to change the settings in the Fonts section, especially the
 <t tx="yen.20210612081822.997"></t>
 <t tx="yen.20210612081822.998"></t>
 <t tx="yen.20210612081822.999"></t>
+<t tx="yen.20210620225615.1">@language md
+---
+Title: Msys2 環境下的可攜 Rust 程式環境
+Date: 2021-06-20 11:00
+Category: Rust
+Tags: 202106
+Slug: 2021-kmol-portalbe-rust-for-msys2
+Author: yen
+---
+
+在 [如何建立可攜 Rust] 與 [msys2 環境下的 Rust] 等兩篇討論的導引下, 可以建立 Windows 10 環境下的可攜帶 Rust 程式環境.
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others
+
+[如何建立可攜 Rust]: https://stackoverflow.com/questions/53928194/how-do-i-get-a-portable-installation-of-the-rust-programming-language 
+[msys2 環境下的 Rust]: https://stackoverflow.com/questions/47379214/step-by-step-instruction-to-install-rust-and-cargo-for-mingw-with-msys2</t>
+<t tx="yen.20210620230149.1">使用[可攜系統]中的 Msys2
+----
+
+先前建立的 [cmstemplate] 已經帶有可攜 Msys 系統, 因此只要在 start_ipv6.bat 中關閉先前 http_proxy 與 https_proxy 的設定, 然後將 Msys2 與相關路徑指定後, 在執行 rustup-init.exe 時, 選擇安裝 x86_64-pc-windows-gnu 版本即可.
+
+最後只要在 [The Rust Programming Language] 電子書的導引下, 就可以開始學習使用 Rust 了.
+
+有了 Python 還需要 Rust 的說明在[這裡](https://developers.redhat.com/blog/2017/11/16/speed-python-using-rust#example), 至於最新版的 Rust 程式與 Python 綁定的套件, 可以採用 [PyO3].
+
+[可攜系統]: http://mde.tw/cmstemplate/content/%E5%8F%AF%E6%94%9C%E7%B3%BB%E7%B5%B1.html
+[cmstemplate]: https://mde.tw/cmstemplate
+[The Rust Programming Language]: https://lise-henry.github.io/books/trpl2.pdf
+[PyO3]: https://github.com/PyO3/pyo3</t>
+<t tx="yen.20210620232456.1"></t>
+<t tx="yen.20210620232503.1"></t>
+<t tx="yen.20210620232519.1"></t>
+<t tx="yen.20210620232543.1"></t>
 </tnodes>
 </leo_file>

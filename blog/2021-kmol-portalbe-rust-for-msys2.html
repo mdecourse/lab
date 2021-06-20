@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+      <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-  <title>mde.tw/lab 網誌 - Categories</title>
+  <title>Msys2 環境下的可攜 Rust 程式環境</title>
 
 
   <meta name="HandheldFriendly" content="True" />
@@ -18,6 +18,7 @@
 
   <!-- Feed -->
         <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="mde.tw/lab 網誌 Full Atom Feed" />
+          <link href="./feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="mde.tw/lab 網誌 Categories Atom Feed" />
 
   <link href="./theme/css/style.css" type="text/css" rel="stylesheet" />
 
@@ -38,6 +39,52 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
+
+    <link href="./2021-kmol-portalbe-rust-for-msys2.html" rel="canonical" />
+
+        <meta name="description" content="在 如何建立可攜 Rust 與 msys2 環境下的 Rust 等兩篇討論的導引下, 可以建立 Windows 10 環境下的可攜帶 Rust 程式環境.">
+
+        <meta name="author" content="yen">
+
+        <meta name="tags" content="202106">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="mde.tw/lab 網誌"/>
+<meta property="og:title" content="Msys2 環境下的可攜 Rust 程式環境"/>
+<meta property="og:description" content="在 如何建立可攜 Rust 與 msys2 環境下的 Rust 等兩篇討論的導引下, 可以建立 Windows 10 環境下的可攜帶 Rust 程式環境."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./2021-kmol-portalbe-rust-for-msys2.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-06-20 11:00:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/yen.html">
+<meta property="article:section" content="Rust"/>
+<meta property="article:tag" content="202106"/>
+<meta property="og:image" content="./theme/images/post-bg.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Msys2 環境下的可攜 Rust 程式環境",
+  "headline": "Msys2 環境下的可攜 Rust 程式環境",
+  "datePublished": "2021-06-20 11:00:00+08:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "yen",
+    "url": "./author/yen.html"
+  },
+  "image": "./theme/images/post-bg.jpg",
+  "url": "./2021-kmol-portalbe-rust-for-msys2.html",
+  "description": "在 如何建立可攜 Rust 與 msys2 環境下的 Rust 等兩篇討論的導引下, 可以建立 Windows 10 環境下的可攜帶 Rust 程式環境."
+}
+</script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
@@ -133,9 +180,14 @@ init_mathjax();
     </ul>
   </div>
 </nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header id="blog-header" class="has-cover">
+    <header id="post-header" class="has-cover">
       <div class="inner">
         <nav id="navigation">
             <span id="home-button" class="nav-button">
@@ -145,7 +197,13 @@ init_mathjax();
             <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
           </span>
         </nav>
-        <h1 class="post-title">mde.tw/lab 網誌 - Categories</h1>
+        <h1 class="post-title">Msys2 環境下的可攜 Rust 程式環境</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="./author/yen.html">Yen</a>
+            | <time datetime="Sun 20 June 2021">Sun 20 June 2021</time>
+        </span>
+        <!-- TODO : Modified check -->
             <div class="post-cover cover" style="background-image: url('./theme/images/post-bg.jpg')">
       </div>
     </header>
@@ -159,81 +217,58 @@ init_mathjax();
     </form>
 </section>
 
-    <article class="post">
-      <div class="inner">
-        <a href="./category/dvcs.html">DVCS</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="./category/error.html">Error</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="./category/git.html">git</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="./category/github.html">github</a> (3)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="./category/gitlab.html">Gitlab</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="./category/leo-editor.html">Leo Editor</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="./category/mechanical.html">Mechanical</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="./category/network.html">Network</a> (2)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="./category/portable.html">Portable</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="./category/rust.html">Rust</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="./category/ubuntu.html">ubuntu</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="./category/wcm.html">WCM</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="./category/weblog.html">Weblog</a> (13)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="./category/windows.html">Windows</a> (1)
-      </div>
-    </article>
-    <article class="post">
-      <div class="inner">
-        <a href="./category/workstation.html">workstation</a> (1)
-      </div>
-    </article>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <p>在 <a href="https://stackoverflow.com/questions/53928194/how-do-i-get-a-portable-installation-of-the-rust-programming-language">如何建立可攜 Rust</a> 與 <a href="https://stackoverflow.com/questions/47379214/step-by-step-instruction-to-install-rust-and-cargo-for-mingw-with-msys2">msys2 環境下的 Rust</a> 等兩篇討論的導引下, 可以建立 Windows 10 環境下的可攜帶 Rust 程式環境.</p>
+
+
+<h2>使用<a href="http://mde.tw/cmstemplate/content/%E5%8F%AF%E6%94%9C%E7%B3%BB%E7%B5%B1.html">可攜系統</a>中的 Msys2</h2>
+<p>先前建立的 <a href="https://mde.tw/cmstemplate">cmstemplate</a> 已經帶有可攜 Msys 系統, 因此只要在 start_ipv6.bat 中關閉先前 http_proxy 與 https_proxy 的設定, 然後將 Msys2 與相關路徑指定後, 在執行 rustup-init.exe 時, 選擇安裝 x86_64-pc-windows-gnu 版本即可.</p>
+<p>最後只要在 <a href="https://lise-henry.github.io/books/trpl2.pdf">The Rust Programming Language</a> 電子書的導引下, 就可以開始學習使用 Rust 了.</p>
+<p>有了 Python 還需要 Rust 的說明在<a href="https://developers.redhat.com/blog/2017/11/16/speed-python-using-rust#example">這裡</a>, 至於最新版的 Rust 程式與 Python 綁定的套件, 可以採用 <a href="https://github.com/PyO3/pyo3">PyO3</a>.</p>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=Msys2 環境下的可攜 Rust 程式環境&amp;url=./2021-kmol-portalbe-rust-for-msys2.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=./2021-kmol-portalbe-rust-for-msys2.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=./2021-kmol-portalbe-rust-for-msys2.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="./tag/202106.html">202106</a>                </aside>
+
+                <div class="clear"></div>
+
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <a class="post-nav-prev" href="./2021-kmol-workstation-shutdown.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-right"></i>
+                                <h2 class="post-nav-title">工作站電腦關機</h2>
+                            <p class="post-nav-excerpt">早上第二校區斷電一個小時, 稍早已經將所有遠端的電腦通通關機.</p>
+                        </section>
+                    </a>
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
       <!-- TODO : Body class -->
     <div id="body-class" style="display: none;" class=""></div>
 
