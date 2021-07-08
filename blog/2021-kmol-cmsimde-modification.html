@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-  <title>2021 Spring</title>
+  <title>cmsimde 修改</title>
 
 
   <meta name="HandheldFriendly" content="True" />
@@ -40,9 +40,9 @@
   <![endif]-->
 
 
-    <link href="./2021-kmol-2021-spring.html" rel="canonical" />
+    <link href="./2021-kmol-cmsimde-modification.html" rel="canonical" />
 
-        <meta name="description" content="2021 年 5 月中開始, 由於疫情緊張, 台灣各大學陸續課程宣布採線上教學, 當時正是 W13 開端, 距離 Spring 學期結束, 還有六週.">
+        <meta name="description" content="過去使用 CMSimple 與 CMSimple XH 當作網際內容管理系統好長一段時間, 主要看重的是它不需要資料庫系統, 只利用 Ｈ1, H2 與 H3 等三個 html 標註進行分頁, 架構非常簡單. 之後用 Python 與 CherryPy 改寫後,...">
 
         <meta name="author" content="yen">
 
@@ -53,12 +53,12 @@
 
 <!-- Open Graph -->
 <meta property="og:site_name" content="mde.tw/lab 網誌"/>
-<meta property="og:title" content="2021 Spring"/>
-<meta property="og:description" content="2021 年 5 月中開始, 由於疫情緊張, 台灣各大學陸續課程宣布採線上教學, 當時正是 W13 開端, 距離 Spring 學期結束, 還有六週."/>
+<meta property="og:title" content="cmsimde 修改"/>
+<meta property="og:description" content="過去使用 CMSimple 與 CMSimple XH 當作網際內容管理系統好長一段時間, 主要看重的是它不需要資料庫系統, 只利用 Ｈ1, H2 與 H3 等三個 html 標註進行分頁, 架構非常簡單. 之後用 Python 與 CherryPy 改寫後,..."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="./2021-kmol-2021-spring.html"/>
+<meta property="og:url" content="./2021-kmol-cmsimde-modification.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2021-07-08 11:00:00+08:00"/>
+<meta property="article:published_time" content="2021-07-08 12:00:00+08:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="./author/yen.html">
 <meta property="article:section" content="KMOLab"/>
@@ -71,9 +71,9 @@
 {
   "@context": "http://schema.org",
   "@type": "Article",
-  "name": "2021 Spring",
-  "headline": "2021 Spring",
-  "datePublished": "2021-07-08 11:00:00+08:00",
+  "name": "cmsimde 修改",
+  "headline": "cmsimde 修改",
+  "datePublished": "2021-07-08 12:00:00+08:00",
   "dateModified": "",
   "author": {
     "@type": "Person",
@@ -81,8 +81,8 @@
     "url": "./author/yen.html"
   },
   "image": "./theme/images/post-bg.jpg",
-  "url": "./2021-kmol-2021-spring.html",
-  "description": "2021 年 5 月中開始, 由於疫情緊張, 台灣各大學陸續課程宣布採線上教學, 當時正是 W13 開端, 距離 Spring 學期結束, 還有六週."
+  "url": "./2021-kmol-cmsimde-modification.html",
+  "description": "過去使用 CMSimple 與 CMSimple XH 當作網際內容管理系統好長一段時間, 主要看重的是它不需要資料庫系統, 只利用 Ｈ1, H2 與 H3 等三個 html 標註進行分頁, 架構非常簡單. 之後用 Python 與 CherryPy 改寫後,..."
 }
 </script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
@@ -197,7 +197,7 @@ init_mathjax();
             <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
           </span>
         </nav>
-        <h1 class="post-title">2021 Spring</h1>
+        <h1 class="post-title">cmsimde 修改</h1>
         <!-- TODO : Proper class for headline -->
         <span class="post-meta">
                 <a href="./author/yen.html">Yen</a>
@@ -223,32 +223,48 @@ init_mathjax();
         <article class="post">
         <div class="inner">
             <section class="post-content">
-                <p>2021 年 5 月中開始, 由於疫情緊張, 台灣各大學陸續課程宣布採線上教學, 當時正是 W13 開端, 距離 Spring 學期結束, 還有六週.</p>
+                <p>過去使用 <a href="https://www.cmsimple.org/">CMSimple</a> 與 <a href="https://www.cmsimple-xh.org/">CMSimple XH</a> 當作網際內容管理系統好長一段時間, 主要看重的是它不需要資料庫系統, 只利用 Ｈ1, H2 與 H3 等三個 html 標註進行分頁, 架構非常簡單. 之後用 Python 與 <a href="https://github.com/cherrypy/cherrypy">CherryPy</a> 改寫後, 又用了一陣子, 直到框架換成 <a href="https://flask.palletsprojects.com/en/2.0.x/">Flask</a>, 並且納入 [Pelican] Blog 與 <a href="https://revealjs.com/">Reveal.js</a> 後, 改為目前的 <a href="https://github.com/mdecourse/cmsimde">cmsimde</a>.</p>
 
 
-<h2>疫情帶來的考驗</h2>
-<p>當時, Github 與 Gitlab 正遭到數位挖礦者的濫用, 而大舉透過程式 flag 許多上課用戶, 因為多年來大一上課第一週, 都會要求學生以學號當作帳號, 申請 Github account, 沒想到因此讓查驗程式誤判為一人申請多帳號, 而遭到禁用.</p>
-<p>由於 <a href="https://mde.tw">KMOLab</a> 所有的課程都能全部在線上進行, 課程也沒有考試, 評量主要依據來自學員 Github 提交歷程, 分組專題貢獻度, 以及參考同儕互評. 因此即便突然由實體上課轉為線上, 就授課的部分而言, 沒有任何問題.</p>
-<p>但是不少學員的 Github 帳號遭 flag, 以及突然讓學生在寄宿地或回到家裡進行線上課程, 就會是一個大問題. 因為實體上課, 每週會有 3-4 堂課在綜合第一工程館八樓的電腦輔助設計室上課, 每個學生都有相同的電腦硬體與網路環境, 無論是執行倉儲改版, 程式編寫, 或者機電系統的配置與控制, 學習機會與環境均等, 但貿然將實體課程轉為線上, 每位學員實際的電腦硬體與網路環境的情況都不相同, 這時課程的評量就面臨考驗.</p>
-<h2>緊急因應</h2>
-<p>2020 年的台灣是全球防疫優等生, 但是潛藏在每個角落的失心, 在疫情緊急下, 問題一一浮現.  其實去年 Spring, 前後就有三個禮拜, <a href="https://mde.tw">KMOLab</a> 就已經實施線上課程的演練, 當時就特別要求每位同學要同時申請 Github, Gitlab 與 Heroku 帳號, 而且也告知每一位學員必須要徹底了解家裡或住宿地的網路連線情況, 必須要準備堪用的電腦麥克風與 webcam, 可能的話也要爭取學校宿舍網路的使用環境, 能與電腦輔助設計室相同, 使用純 IPv6 上網, 而且能正確擷取所需使用軟體套件的網路授權, 其中包含學校必須提供 IPv6 協定下的 Windows 10 認證. 但時至今日, 這樣的基本要求仍無法達成.</p>
-<p>於是, 就想起大約十年前, 曾經提出每年擁有超過 500 名新生入學的工學院, 若能在入學階段就輔導學員, “配發"一台堪用四年的筆電, 其中安裝各階段課程會使用到的軟體套件, 如此各電腦教室只需要少量的伺服器與拆機測試用的桌機與筆電, 剩下來的就只要將學校的網路環境安裝與配置, 設法推廣到宿舍與外部學生寄宿地, 所謂的數位延伸校園一旦成形, 後續許多課程內外事務的推動, 將可事半功倍......</p>
-<p>當然, 這樣的夢想早就落空, 每一屆的新生每年都還是問: 要不要買電腦? 買什麼電腦? 筆電還是桌機? 要不要事先安裝什麼 XX 軟體......</p>
-<h2>疫情下的教育</h2>
-<p>2021 年不只經常被笑是紙紮屋的 X 國, 整棟大樓會應聲倒下, 幾乎每位歷任總統都下獄的 X 韓也會, 世界強國的渡假區海邊, 蓋在濕地上的大樓, 也無法倖免. 世界各地一個月前的旱災, 轉眼就可能變成水災......</p>
-<p>假如稍有年紀的世代, 看到許多國家年輕一輩視疫情如無物, 終日把飲料盡歡, 其實也無需過度苛責, 因為大家在全球情勢彼此牽動, 大自然反撲, 貧富如此懸殊的社會, 能夠順心過完一天, 就應該算是幸福的. </p>
-<p>年長一輩的頂多只能勸說, 希望大家能夠設身處地, 互相換位思考, 在群體中的任何一個份子, 都應該有當負起的責任, 其中包括掃下不稱職的民意代表與制度. 並且勇於解決問題, 因為歷史上從來就不會有當權者願意主動放棄既得利益, 疫情下的教育, 是教會年輕的世代, 要積極爭取屬於自己的權益.</p>
+<h2>與 bug 共存</h2>
+<p><a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 中採用 Tinymce 4.X 作為網際編輯器, 目前雖然已經修改為能夠與 IPv6 網際環境相容, 但是其中的 plugin 已經與最新的 Tinymce 5.X 不相容, 亦即, 假如這些 Javascript 套件發生問題, 就必須自己動手修改. 已經沒有官方原始碼或 cdn 可以引用. 但由於當年所使用的 Javascript, 有些是 minimized 過的版本, 所以某些情況下, 無法進入修正的部分, 就必須設法與 bug 共存.</p>
+<p><a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 是在 2013 年 Fall, 一行一行從無到有刻出來的, 照理說每一個程式功能都可以任意修改, 但在今天想要讓三個倉儲的動態網頁同時利用不同的埠號開啟, 卻吃了閉門羹. 該不會這裡又存在另外一個 bug.</p>
+<h2>確實沒有完全弄清楚</h2>
+<p>經常掛在嘴邊的是: 對技術越熟的所謂專家, 其實大多都是非常謙虛的. 因為每天幾乎都碰到許多暫時無解的問題. 何況現在科技日新月異, 真相撲朔迷離, 而且網路上的垃圾比有用的資料多上許多, 因此各行業所謂專家的有效期都非常短. 不管上不上台唱歌, 稍有不慎, 就會從神壇跌落.</p>
+<p>好了, <a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 在今天改版之前, 只要同時在一個瀏覽器上啟動兩個以上的動態網頁, 其中一個網站的登入狀態, 會因為另外一個不同埠號的 <a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 登入而退出. 追查原因, 是瀏覽器中名稱為 session 的 cookie 值改變, 讓其先前已經登入的  <a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 因近端的登入 cookie 值改變而自動 logout.</p>
+<p>第一個想到的是, 在近端與遠端同一端的情況下, 會不會只要將登入後對應 session 的 key 附加一個隨機字串, 或可達到多 <a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 同時登入編輯模式的目標. 但是, 卻行不通. 無論如何更改 key 的值, 仍然第二套動態 <a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 登入, 該 session 值就會變更, 導致同時只能一套 <a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 保持在登入狀態.</p>
+<h2>session 與 cookie 的實況</h2>
+<p>為了設法達到上述多個 <a href="https://github.com/mdecourse/cmsimde">cmsimde</a> 可以同時保持登入狀態的功能, 只能重新讀了 <a href="https://www.valentinog.com/blog/cookies/">re-introduction to HTTP-cookie</a> 以及 <a href="https://flask.palletsprojects.com/en/2.0.x/">Flask</a> 原始碼. 想要找到這個名稱為 session 的 cookie 到底從何而來.</p>
+<p>終於在 <a href="https://leoeditor.com/">Leo Editor</a> recursive importer 的協助下, 找到 <a href="https://github.com/pallets/flask/blob/7a73171edc3bcffef96ef6367977ab3ae9af9350/src/flask/app.py#L335">Flask app.py 第 335 行</a> 中確實有個名稱為 session 的 cookie. 接下來則是要找看看, 到底這個  cookie 是如何設定.</p>
+<p>而 <a href="https://leoeditor.com/">Leo Editor</a> 中的 recursive importer 是這樣寫的:</p>
+<pre class="brush: python">
+'''Recursively import all python files in a directory and clean the result.'''
+
+c.recursiveImport(
+    dir_ = r'./',
+    kind = '@clean', # The new best practice.
+    safe_at_file = True,
+    theTypes = ['.py']
+)
+</pre>
+
+<p>搜尋 Flask 程式碼, 也可以發現 <a href="https://github.com/pallets/flask/blob/7a73171edc3bcffef96ef6367977ab3ae9af9350/src/flask/sessions.py#L98">Flask session.py 第 98 行</a> 明確寫著, 假如沒有設定 secret_key, 網際系統的 session 就無法產生. 從 [Flask session.py 第 353 行] 也可以發現 session 的值來自 get_signing_serializer(app), 而 <a href="https://github.com/pallets/flask/blob/7a73171edc3bcffef96ef6367977ab3ae9af9350/src/flask/sessions.py#L335">Flask session.py 第 335 行</a> 則清楚標示, 原來 cookie key 為 session 的 value 取決於 secret_key.</p>
+<p>經過上述的搜尋, 只要將 cmsimde 的 secret_key 在近端需要同時開啟多個動態網頁時, 給予定值, 就可以達到目的. 但是若在遠端執行時, 則仍必須回復動態值如下, 以保障伺服器與客戶端資料傳輸的安全性.</p>
+<pre class="brush: python">
+secret_key = os.urandom(24).hex()
+app.secret_key = secret_key
+</pre>
             </section>
 
             <section class="post-info">
                 <div class="post-share">
-                    <a class="twitter" href="https://twitter.com/share?text=2021 Spring&amp;url=./2021-kmol-2021-spring.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <a class="twitter" href="https://twitter.com/share?text=cmsimde 修改&amp;url=./2021-kmol-cmsimde-modification.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
                     </a>
-                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=./2021-kmol-2021-spring.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=./2021-kmol-cmsimde-modification.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
                     </a>
-                    <a class="googleplus" href="https://plus.google.com/share?url=./2021-kmol-2021-spring.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <a class="googleplus" href="https://plus.google.com/share?url=./2021-kmol-cmsimde-modification.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
                     </a>
                     <div class="clear"></div>
@@ -264,18 +280,11 @@ init_mathjax();
 
 
                 <aside class="post-nav">
-                    <a class="post-nav-next" href="./2021-kmol-cmsimde-modification.html">
-                        <section class="post-nav-teaser">
-                            <i class="ic ic-arrow-left"></i>
-                                <h2 class="post-nav-title">cmsimde 修改</h2>
-                            <p class="post-nav-excerpt">過去使用 CMSimple 與 CMSimple XH 當作網際內容管理系統好長一段時間, 主要看重的是它不需要資料庫系統, 只利用 Ｈ1, H2 與 H3 等三個...</p>
-                        </section>
-                    </a>
-                    <a class="post-nav-prev" href="./2021-kmol-portalbe-rust-for-msys2.html">
+                    <a class="post-nav-prev" href="./2021-kmol-2021-spring.html">
                         <section class="post-nav-teaser">
                             <i class="ic ic-arrow-right"></i>
-                                <h2 class="post-nav-title">Msys2 環境下的可攜 Rust 程式環境</h2>
-                            <p class="post-nav-excerpt">在 如何建立可攜 Rust 與 msys2 環境下的 Rust 等兩篇討論的導引下, 可以建立 Windows 10 環境下的可攜帶 Rust 程式環境.</p>
+                                <h2 class="post-nav-title">2021 Spring</h2>
+                            <p class="post-nav-excerpt">2021 年 5 月中開始, 由於疫情緊張, 台灣各大學陸續課程宣布採線上教學, 當時正是 W13 開端, 距離 Spring 學期結束, 還有六週.</p>
                         </section>
                     </a>
                     <div class="clear"></div>
