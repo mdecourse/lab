@@ -15505,7 +15505,7 @@ app.secret_key = secret_key
 [re-introduction to HTTP-cookie]: https://www.valentinog.com/blog/cookies/
 [Flask app.py 第 335 行]: https://github.com/pallets/flask/blob/7a73171edc3bcffef96ef6367977ab3ae9af9350/src/flask/app.py#L335
 [Flask session.py 第 98 行]: https://github.com/pallets/flask/blob/7a73171edc3bcffef96ef6367977ab3ae9af9350/src/flask/sessions.py#L98
-[Flask session.py 第 367 行]: https://github.com/pallets/flask/blob/7a73171edc3bcffef96ef6367977ab3ae9af9350/src/flask/sessions.py#L353
+[Flask session.py 第 353 行]: https://github.com/pallets/flask/blob/7a73171edc3bcffef96ef6367977ab3ae9af9350/src/flask/sessions.py#L353
 [Flask session.py 第 335 行]: https://github.com/pallets/flask/blob/7a73171edc3bcffef96ef6367977ab3ae9af9350/src/flask/sessions.py#L335</t>
 <t tx="yen.20210708163021.1"></t>
 <t tx="yen.20210708163024.1"></t>

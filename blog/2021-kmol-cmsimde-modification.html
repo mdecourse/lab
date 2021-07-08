@@ -248,7 +248,7 @@ c.recursiveImport(
 )
 </pre>
 
-<p>搜尋 Flask 程式碼, 也可以發現 <a href="https://github.com/pallets/flask/blob/7a73171edc3bcffef96ef6367977ab3ae9af9350/src/flask/sessions.py#L98">Flask session.py 第 98 行</a> 明確寫著, 假如沒有設定 secret_key, 網際系統的 session 就無法產生. 從 [Flask session.py 第 353 行] 也可以發現 session 的值來自 get_signing_serializer(app), 而 <a href="https://github.com/pallets/flask/blob/7a73171edc3bcffef96ef6367977ab3ae9af9350/src/flask/sessions.py#L335">Flask session.py 第 335 行</a> 則清楚標示, 原來 cookie key 為 session 的 value 取決於 secret_key.</p>
+<p>搜尋 Flask 程式碼, 也可以發現 <a href="https://github.com/pallets/flask/blob/7a73171edc3bcffef96ef6367977ab3ae9af9350/src/flask/sessions.py#L98">Flask session.py 第 98 行</a> 明確寫著, 假如沒有設定 secret_key, 網際系統的 session 就無法產生. 從 <a href="https://github.com/pallets/flask/blob/7a73171edc3bcffef96ef6367977ab3ae9af9350/src/flask/sessions.py#L353">Flask session.py 第 353 行</a> 也可以發現 session 的值來自 get_signing_serializer(app), 而 <a href="https://github.com/pallets/flask/blob/7a73171edc3bcffef96ef6367977ab3ae9af9350/src/flask/sessions.py#L335">Flask session.py 第 335 行</a> 則清楚標示, 原來 cookie key 為 session 的 value 取決於 secret_key.</p>
 <p>經過上述的搜尋, 只要將 cmsimde 的 secret_key 在近端需要同時開啟多個動態網頁時, 給予定值, 就可以達到目的. 但是若在遠端執行時, 則仍必須回復動態值如下, 以保障伺服器與客戶端資料傳輸的安全性.</p>
 <pre class="brush: python">
 secret_key = os.urandom(24).hex()
