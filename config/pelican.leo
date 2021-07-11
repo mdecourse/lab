@@ -15366,11 +15366,11 @@ c.recursiveImport(
 
 [Literate Programming] 的目的, 就是希望程式師在操控電腦的過程能夠更加人性化, 使用一般人方便了解的方式建構, 除了有助於多人協同, 方便流傳延續, 也能避開電腦硬體快速變遷所帶來的知識障礙.
 
-這樣的概念, 假如再加上[Computer-aided Design as Language] 論文的加持, 為何研究 [Leo Editor] 應該就不難找出答案! 因為在 [Leo Editor] 上工作, 就是依賴許多 Python 巨集程式在進行知識管理, 而且是採用電腦容易解讀, 具有邏輯結構意義的 XML 樹狀圖在描述所創建的知識. 
+這樣的概念, 假如再加上 [Computer-aided Design as Language] 論文的加持, 為何研究 [Leo Editor] 應該就不難找出答案! 因為在 [Leo Editor] 上工作, 就是依賴許多 Python 巨集程式在進行知識管理, 而且是採用電腦容易解讀, 具有邏輯結構意義的 XML 樹狀圖在描述所創建的知識. 
 
 若有朝一日, 真可透過機械設計工程師的討論言說來進行電腦輔助設計, 最近這幾年科技的進展, 就是為了此一目標在努力.
 
-[Computer-aided Design as Language]  目前是透過 Google 提出的 [Protobuf] 格式, 儲存電腦深度學習辨識 2D 設計圖所得到的結果. 其實所謂的機械設計工程圖, 主要邏輯就是在設計目標的驅使下, 由許多繪圖元件加上各種約束條件所組成, 而 [DeepMind] 與 [Onshape] 這兩個公司提出了一種能夠自動生成產品設計工程圖的機器學習模型. 最終所得到的結果 [Protobuf] 就是 XML.
+[Computer-aided Design as Language] 目前是透過 Google 提出的 [Protobuf] 格式, 儲存電腦深度學習辨識 2D 設計圖所得到的結果. 其實所謂的機械設計工程圖, 主要邏輯就是在設計目標的驅使下, 由許多繪圖元件加上各種約束條件所組成, 而 [DeepMind] 與 [Onshape] 這兩個公司提出了一種能夠自動生成產品設計工程圖的機器學習模型. 最終所得到的結果 [Protobuf] 就是 XML.
 
 [KMOlab] 目前想做的其實只有一個小小的目標, 就是讓 [Leo Editor] 當作 MCAD (Mechanical Computer Aided Design] 套件與  [CoppeliaSim] 中的資料轉換工具, 可以用來解讀或建立相關機電整合系統模型. 能夠派上用場的 MCAD 是開源的 [Solvespace], 而 [CoppeliaSim] 與 [Webots] 可以採用 XML 格式建立模型的特性正好可以與 [Solvespace] 結合應用.
 
@@ -15393,6 +15393,7 @@ c.recursiveImport(
 [lark]: https://github.com/lark-parser/lark
 [URDF]: http://wiki.ros.org/urdf
 [STL]: https://en.wikipedia.org/wiki/STL_(file_format)
+[CoppeliaSim]: https://www.coppeliarobotics.com/
 </t>
 <t tx="yen.20210711132540.1"></t>
 <t tx="yen.20210711132544.1"></t>
