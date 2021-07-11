@@ -15357,7 +15357,43 @@ c.recursiveImport(
 
 [core/leoCommands.py 中的 recursiveImport() 方法]: https://github.com/leo-editor/leo-editor/blob/e46e9315f61a1c378900d3ba7fbadf39c5d9fb5b/leo/core/leoCommands.py#L3787
 
-[core/leoGlobals.py 中的 es 方法]: https://github.com/leo-editor/leo-editor/blob/e46e9315f61a1c378900d3ba7fbadf39c5d9fb5b/leo/core/leoGlobals.py#L6390</t>
+[core/leoGlobals.py 中的 es 方法]: https://github.com/leo-editor/leo-editor/blob/e46e9315f61a1c378900d3ba7fbadf39c5d9fb5b/leo/core/leoGlobals.py#L6390
+
+為何要研究 [Leo Editor]?
+----
+
+假如您仔細了解 [Leo Editor] 創建的初衷, 是源自於實現 [Donald Knuth] 教授所提出的 [Literate Programming] 概念, 也就是希望能夠讓計算機程式的編寫, 可採用自然語言並穿插巨集段落與傳統原始碼的方式來解說邏輯. 而且從中可以產生能編譯的程式碼.
+
+[Literate Programming] 的目的, 就是希望程式師在操控電腦的過程能夠更加人性化, 使用一般人方便了解的方式建構, 除了有助於多人協同, 方便流傳延續, 也能避開電腦硬體快速變遷所帶來的知識障礙.
+
+這樣的概念, 假如再加上[Computer-aided Design as Language] 論文的加持, 為何研究 [Leo Editor] 應該就不難找出答案! 因為在 [Leo Editor] 上工作, 就是依賴許多 Python 巨集程式在進行知識管理, 而且是採用電腦容易解讀, 具有邏輯結構意義的 XML 樹狀圖在描述所創建的知識. 
+
+若有朝一日, 真可透過機械設計工程師的討論言說來進行電腦輔助設計, 最近這幾年科技的進展, 就是為了此一目標在努力.
+
+[Computer-aided Design as Language]  目前是透過 Google 提出的 [Protobuf] 格式, 儲存電腦深度學習辨識 2D 設計圖所得到的結果. 其實所謂的機械設計工程圖, 主要邏輯就是在設計目標的驅使下, 由許多繪圖元件加上各種約束條件所組成, 而 [DeepMind] 與 [Onshape] 這兩個公司提出了一種能夠自動生成產品設計工程圖的機器學習模型. 最終所得到的結果 [Protobuf] 就是 XML.
+
+[KMOlab] 目前想做的其實只有一個小小的目標, 就是讓 [Leo Editor] 當作 MCAD (Mechanical Computer Aided Design] 套件與  [CoppeliaSim] 中的資料轉換工具, 可以用來解讀或建立相關機電整合系統模型. 能夠派上用場的 MCAD 是開源的 [Solvespace], 而 [CoppeliaSim] 與 [Webots] 可以採用 XML 格式建立模型的特性正好可以與 [Solvespace] 結合應用.
+
+理想的狀況下, 產品設計師利用 [lark] 自行定義基本的 2D 或 3D 產品描述語言, 經由 [Solvespace] 建立所需的零組件後, 將檔案轉為 [STL] 或 [URDF] , 接著再由 [Leo Editor] 居中引入零組件檔案, 並組合成能夠直接由 [CoppeliaSim] 及 [Webots] 使用的機電整合模型後, 再進行後續的控制系統設計與模擬.
+
+
+[Donald Knuth]: https://en.wikipedia.org/wiki/Donald_Knuth
+[Literate Programming]: https://en.wikipedia.org/wiki/Literate_programming
+[Protobuf]: https://opensource.google/projects/protobuf
+[Protobuf on Github]: https://github.com/protocolbuffers/protobuf
+[Protobuf for developer]: https://developers.google.com/protocol-buffers/
+[Computer-aided Design as Language]: https://arxiv.org/pdf/2105.02769.pdf
+[Python Markup]: https://docs.python.org/3/library/markup.html
+[Python XML]: https://docs.python.org/3/library/xml.etree.elementtree.html
+[DeepMind]: https://deepmind.com/
+[Onshape]: https://onshape.com
+[KMOLab]: https://mde.tw
+[Solvespace]: https://solvespace.com
+[Webots]: https://cyberbotics.com/
+[lark]: https://github.com/lark-parser/lark
+[URDF]: http://wiki.ros.org/urdf
+[STL]: https://en.wikipedia.org/wiki/STL_(file_format)
+</t>
 <t tx="yen.20210711132540.1"></t>
 <t tx="yen.20210711132544.1"></t>
 <t tx="yen.20210711132601.1"></t>
