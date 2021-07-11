@@ -4,7 +4,7 @@
 
 
 &lt;h2&gt;Leo Editor 的 replace-all&lt;/h2&gt;
-&lt;p&gt;無法在  Mac 如 Windows 上操作 replace-all 的原因是, 不明原因下, Mac 平台上無法使用如 Windows 版的 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt;, 直接在 Find Tab 上的表單操作, 而必須使用 Minibuffer, 以指令與特定按鍵順序操作.&lt;/p&gt;
+&lt;p&gt;無法在  Mac 如 Windows 上順利操作 replace-all 的原因是,  Mac 平台上無法使用如 Windows 版的 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt;, 直接在 Find Tab 上的表單操作, 而必須使用 Minibuffer, 以指令與特定按鍵順序操作.&lt;/p&gt;
 &lt;p&gt;在 Mac 的 replace-all 操作順序必須採:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;將滑鼠停在 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 下方的 Minibuffer 欄位處, 表示要執行 Minibuffer 指令.&lt;/li&gt;

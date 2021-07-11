@@ -15538,7 +15538,7 @@ Author: yen
 <t tx="yen.20210711122607.1">Leo Editor 的 replace-all
 ----
 
-無法在  Mac 如 Windows 上操作 replace-all 的原因是, 不明原因下, Mac 平台上無法使用如 Windows 版的 [Leo Editor], 直接在 Find Tab 上的表單操作, 而必須使用 Minibuffer, 以指令與特定按鍵順序操作.
+無法在  Mac 如 Windows 上順利操作 replace-all 的原因是,  Mac 平台上無法使用如 Windows 版的 [Leo Editor], 直接在 Find Tab 上的表單操作, 而必須使用 Minibuffer, 以指令與特定按鍵順序操作.
 
 在 Mac 的 replace-all 操作順序必須採:
 
