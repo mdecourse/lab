@@ -15,7 +15,50 @@
 &lt;/ol&gt;
 &lt;h2&gt;Leo Editro 操作系統間的差異&lt;/h2&gt;
 &lt;p&gt;由於 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 的開發者堅持要讓 Python2 與 Python3 的用戶都能使用, 而且大多數開發者都只使用英文輸入介面, 目前已知在 Windows 操作系統, 若輸入停留在中文環境, 就會因為無法建立 .leo/.leoID.txt 而無法通過首次開啟流程, 造成無法正常使用. 應對方法就是在 Windows 首次開啟 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 時, 必須先將環境選擇英文輸入, 才能正常建立 .leo/leoID.txt.&lt;/p&gt;
-&lt;p&gt;而且 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 在 Windows 與 Mac 的操作表單也不完全相同, 不知是否因為 Mac 操作系統內仍有 Python2, 且 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 的 Exit 必須透過 Python 下拉式表單的 Quit Python 操作, Mac File 下拉式功能表中並沒有 Exit.&lt;/p&gt;</content><category term="KMOLab"></category><category term="202107"></category></entry><entry><title>cmsimde 修改</title><link href="./2021-kmol-cmsimde-modification.html" rel="alternate"></link><published>2021-07-08T12:00:00+08:00</published><updated>2021-07-08T12:00:00+08:00</updated><author><name>yen</name></author><id>tag:None,2021-07-08:./2021-kmol-cmsimde-modification.html</id><summary type="html">&lt;p&gt;過去使用 &lt;a href="https://www.cmsimple.org/"&gt;CMSimple&lt;/a&gt; 與 &lt;a href="https://www.cmsimple-xh.org/"&gt;CMSimple XH&lt;/a&gt; 當作網際內容管理系統好長一段時間, 主要看重的是它不需要資料庫系統, 只利用 Ｈ1, H2 與 H3 等三個 html 標註進行分頁, 架構非常簡單. 之後用 Python 與 &lt;a href="https://github.com/cherrypy/cherrypy"&gt;CherryPy&lt;/a&gt; 改寫後, 又用了一陣子, 直到框架換成 &lt;a href="https://flask.palletsprojects.com/en/2.0.x/"&gt;Flask&lt;/a&gt;, 並且納入 [Pelican] Blog 與 &lt;a href="https://revealjs.com/"&gt;Reveal.js&lt;/a&gt; 後, 改為目前的 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;cmsimde&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;而且 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 在 Windows 與 Mac 的操作表單也不完全相同, 不知是否因為 Mac 操作系統內仍有 Python2, 且 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 的 Exit 必須透過 Python 下拉式表單的 Quit Python 操作, Mac File 下拉式功能表中並沒有 Exit.&lt;/p&gt;
+&lt;h2&gt;Leo Editor 的設定檔&lt;/h2&gt;
+&lt;p&gt;根據 &lt;a href="https://www.leoeditor.com/customizing.html"&gt;Leo Editor settings&lt;/a&gt; 中的說明, &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 共有四種設定檔案: &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 的設定存在 @settings 節點指令中, 開啟 .leo 檔案時,  &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 不僅會在檔案中的節點樹尋找 @settings, 也會在 leoSettings.leo 檔案中搜尋相關設定. 主要的設定包括:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;每一操作系統中或特定安裝時所選擇的設定.&lt;/li&gt;
+&lt;li&gt;每位用戶所選擇的設定.&lt;/li&gt;
+&lt;li&gt;每個目錄所選擇的設定.&lt;/li&gt;
+&lt;li&gt;每個檔案所選擇的設定.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因此, &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 合計共有四種設定檔案:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;名稱為 leoSettings.leo 的內建設定檔案.&lt;/li&gt;
+&lt;li&gt;名稱為 myLeoSettings.leo 的個人設定檔案.&lt;/li&gt;
+&lt;li&gt;名稱為 LeoSettings.leo, 可以位於各相關目錄的機器設定檔案.&lt;/li&gt;
+&lt;li&gt;名稱為 .leo 且內容包含 stylesheets 與其他顯示設定相關設定的主題檔案..&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;而各設定檔案則分別存在:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;設定檔案儲存目錄為各用戶目錄中的 .leo 子目錄.&lt;/li&gt;
+&lt;li&gt;leo 安裝目錄下的 config 目錄.&lt;/li&gt;
+&lt;li&gt;各用戶目錄中 .leo 目錄中的 MACHINE 目錄, 而此 MACHINE 可以是電腦的主機名稱.&lt;/li&gt;
+&lt;li&gt;主題設定檔案則可以儲存在任何存放 .leo 的目錄中.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;當使用者開啟 .leo 檔案時, 系統所採用的設定檔案將會顯示在 log 區域.&lt;/p&gt;
+&lt;p&gt;而目前已經知道, 在 Mac 中, 若 leoSettings.leo 或 myLeoSettings.leo 中的 @settings 沒有設定, 開啟 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 後將會只有 Python 下拉式功能表, 但並不會顯示任何與 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 有關的其他功能表.&lt;/p&gt;
+&lt;h2&gt;&lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 設定讀取順序&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 讀取設定檔案的順序將從系統安裝目錄下的 config 開始搜尋讀取, 各設定檔案的搜尋順序都相同. 亦即, 若在 leo/config 與使用者 .leo 目錄中各有一個 leoSettings.leo, 則 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 會先讀取系統的設定後, 再讀取使用者目錄下 .leo 目錄中的同名設定, 而且若兩個檔案皆有相同節點設定, 該節點的設定將以較後讀取的設定為主.&lt;/p&gt;
+&lt;h2&gt;閱讀 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 原始碼&lt;/h2&gt;
+&lt;p&gt;由於 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 的開發歷程已經超過 25 年 (1995 至今), 從早期的 C++ 版本到 Python Tkinter, 直到現在採用 PyQT 的版本, 過程中有許多轉折與考量, 因此原始碼中有許多學習的地方, 所以設法利用 recursive importer 展開, 希望逐一摘要出相關重點.&lt;/p&gt;
+&lt;p&gt;所使用的 recursive importer:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+'''Recursively import all python files in a directory and clean the result.'''
+
+c.recursiveImport(
+    dir_ = r'./',
+    kind = '@clean', # The new best practice.
+    safe_at_file = True,
+    theTypes = ['.py']
+)
+&lt;/pre&gt;
+
+&lt;p&gt;上述的 c 是 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 程式碼中的 commander. 只要透過 c 物件中的 recursiveImport() 就可以採遞迴的方式, 將所需的檔案導入節點內容中. 而此一功能位於 &lt;a href="https://github.com/leo-editor/leo-editor/blob/e46e9315f61a1c378900d3ba7fbadf39c5d9fb5b/leo/core/leoCommands.py#L3787"&gt;core/leoCommands.py 中的 recursiveImport() 方法&lt;/a&gt;中. 而 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 不僅可以採用 @clean 直接將物件與方法逐一展為樹狀節點, 可以用 @edit 展開全部檔案內容, 或者在導入後將節點編輯指令前加入 @@ 令其只存在 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 節點中, 而切斷與外部檔案的連結, 專門充作研究註解用. 其他還有 clone 節點的功能, 能夠針對同一個節點內容, 同步出現在不同的節點位置中.&lt;/p&gt;
+&lt;p&gt;而 g 則是 core/leoGlobals.py 的簡稱, 其中 &lt;a href="https://github.com/leo-editor/leo-editor/blob/e46e9315f61a1c378900d3ba7fbadf39c5d9fb5b/leo/core/leoGlobals.py#L6390"&gt;core/leoGlobals.py 中的 es 方法&lt;/a&gt; 就是 g.es() 中的由來, 也是 &lt;a href="https://leoeditor.com/"&gt;Leo Editor&lt;/a&gt; 中的 echo string 方法.&lt;/p&gt;</content><category term="KMOLab"></category><category term="202107"></category></entry><entry><title>cmsimde 修改</title><link href="./2021-kmol-cmsimde-modification.html" rel="alternate"></link><published>2021-07-08T12:00:00+08:00</published><updated>2021-07-08T12:00:00+08:00</updated><author><name>yen</name></author><id>tag:None,2021-07-08:./2021-kmol-cmsimde-modification.html</id><summary type="html">&lt;p&gt;過去使用 &lt;a href="https://www.cmsimple.org/"&gt;CMSimple&lt;/a&gt; 與 &lt;a href="https://www.cmsimple-xh.org/"&gt;CMSimple XH&lt;/a&gt; 當作網際內容管理系統好長一段時間, 主要看重的是它不需要資料庫系統, 只利用 Ｈ1, H2 與 H3 等三個 html 標註進行分頁, 架構非常簡單. 之後用 Python 與 &lt;a href="https://github.com/cherrypy/cherrypy"&gt;CherryPy&lt;/a&gt; 改寫後, 又用了一陣子, 直到框架換成 &lt;a href="https://flask.palletsprojects.com/en/2.0.x/"&gt;Flask&lt;/a&gt;, 並且納入 [Pelican] Blog 與 &lt;a href="https://revealjs.com/"&gt;Reveal.js&lt;/a&gt; 後, 改為目前的 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;cmsimde&lt;/a&gt;.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;過去使用 &lt;a href="https://www.cmsimple.org/"&gt;CMSimple&lt;/a&gt; 與 &lt;a href="https://www.cmsimple-xh.org/"&gt;CMSimple XH&lt;/a&gt; 當作網際內容管理系統好長一段時間, 主要看重的是它不需要資料庫系統, 只利用 Ｈ1, H2 與 H3 等三個 html 標註進行分頁, 架構非常簡單. 之後用 Python 與 &lt;a href="https://github.com/cherrypy/cherrypy"&gt;CherryPy&lt;/a&gt; 改寫後, 又用了一陣子, 直到框架換成 &lt;a href="https://flask.palletsprojects.com/en/2.0.x/"&gt;Flask&lt;/a&gt;, 並且納入 [Pelican] Blog 與 &lt;a href="https://revealjs.com/"&gt;Reveal.js&lt;/a&gt; 後, 改為目前的 &lt;a href="https://github.com/mdecourse/cmsimde"&gt;cmsimde&lt;/a&gt;.&lt;/p&gt;
 
 

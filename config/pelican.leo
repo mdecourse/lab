@@ -53,21 +53,6 @@
 <v t="yen.20210612081822.42"><vh>@bool enable-abbreviations = True</vh></v>
 <v t="yen.20210612081822.43"><vh>@bool scripting-abbreviations = False</vh></v>
 <v t="yen.20210612081822.44"><vh>@data abbreviations</vh></v>
-<v t="yen.20210612081822.45"><vh>@data abbreviations-subst-env</vh>
-<v t="yen.20210612081822.46"><vh>ask</vh></v>
-<v t="yen.20210612081822.47"><vh>close_xml</vh></v>
-<v t="yen.20210612081822.48"><vh>django_tag</vh></v>
-<v t="yen.20210612081822.49"><vh>do</vh></v>
-<v t="yen.20210612081822.50"><vh>file_name</vh></v>
-<v t="yen.20210612081822.51"><vh>get</vh></v>
-<v t="yen.20210612081822.52"><vh>get_language</vh></v>
-<v t="yen.20210612081822.53"><vh>html_tag</vh></v>
-<v t="yen.20210612081822.54"><vh>in_class</vh></v>
-<v t="yen.20210612081822.55"><vh>insert</vh></v>
-<v t="yen.20210612081822.56"><vh>long_word</vh></v>
-<v t="yen.20210612081822.57"><vh>param_doc</vh></v>
-<v t="yen.20210612081822.58"><vh>user_name</vh></v>
-</v>
 <v t="yen.20210612081822.59"><vh>@data global-abbreviations</vh></v>
 <v t="yen.20210612081822.60"><vh>@outline-data tree-abbreviations</vh>
 <v t="yen.20210612081822.61"><vh>importer;;</vh>
@@ -2212,7 +2197,7 @@
 <v t="yen.20200518055330.1"><vh>@button add_to_kblogger</vh></v>
 <v t="yen.20200608205522.1"><vh>@button add_to_mblogger</vh></v>
 <v t="leo.20200907150705.1"><vh>@button add_to_c4f</vh>
-<v t="leo.20200907150705.2"><vh>@edit ./../../blogger.dat</vh></v>
+<v t="leo.20200907150705.2"><vh>@@edit ./../../blogger.dat</vh></v>
 </v>
 <v t="yen.20200518110700.1"><vh>@button edit_to_kblogger</vh></v>
 <v t="yen.20200608205624.1"><vh>@button edit_to_mblogger</vh></v>
@@ -2850,6 +2835,7 @@ except(client.AccessTokenRefreshError):
     g.es("error")
 
 </t>
+<t tx="leo.20200907150705.2"></t>
 <t tx="leo.20200907151131.1"></t>
 <t tx="leo.20210210034636.1"></t>
 <t tx="leo.20210210040142.1"></t>
@@ -9896,59 +9882,6 @@ class/method/function names) changes.
 True:  Leo attempts to create directories if they do not exist.
 False: Leo never attempts to create directories.</t>
 <t tx="yen.20210612081822.449"></t>
-<t tx="yen.20210612081822.45"># EKR 2013/09/25: revised docstring and improved get_user().
-# EKR 2015/04/28: added insert() and do(). Split this node into pieces.
-
-@language python
-
-"""
-
-**Important**: scripting abbreviations are in effect only if the following
-setting is in effect::
-    
-    @bool enable-abbreviations = True
-    
-and one (or both) of the following are in effect::
-    
-    @bool scripting-at-script-nodes = True
-    @bool scripting-abbreviations = True
-
-This node defines the environment in which substitution scripts are
-evaluated. For example, if this node contains `import time`, then an
-abbreviation like::
-
-    date;;={|{import time;x=time.asctime()}|}
-
-can be written more simply as::
-
-    date;;={|{x=time.asctime()}|}
-
-The environment will contain the following pre-defined values:
-
-- `c` and `g`, as usual.
-- `values`: a dict. see ask() and get() below.
-- `_abr`, the abbreviation being expanded.
-
-"""
-
-# helpful imports
-import os
-import sys
-import time
-import datetime
-
-# globals
-try:
-    import pwd  # for full name of user in templates
-except:
-    pwd = None
-try:
-    _user_name = os.environ['LOGNAME']
-    if pwd and _user_name:
-        _user_name = pwd.getpwnam(_user_name).pw_gecos.rstrip(',')
-except KeyError:
-    _user_name = None
-</t>
 <t tx="yen.20210612081822.450">True: report unchanged files when saving a .leo file.</t>
 <t tx="yen.20210612081822.451">
 </t>
@@ -9982,17 +9915,6 @@ https://github.com/leo-editor/leo-editor/issues/262
 </t>
 <t tx="yen.20210612081822.458"></t>
 <t tx="yen.20210612081822.459">True: run Pyflakes on each saved files, but only if it has been changed.</t>
-<t tx="yen.20210612081822.46">def ask(s, default="", prompt=None):
-    """Ask, always, for a value for template field 's'"""
-    x = g.app.gui.runAskOkCancelStringDialog(
-        c,
-        title = s,
-        message = prompt or s,
-        default = default,
-    )
-    _values[s] = x
-    return x or ''
-</t>
 <t tx="yen.20210612081822.460">True: write check messages to Leo's log pane as well as the console.
 
 Note: check-outline always writes error messages to both log and console.</t>
@@ -10056,29 +9978,6 @@ The .leo file will contain the following line::
 
 **Note**: if x is empty, Leo will retain any xml-stylesheet line in the .leo file.
 </t>
-<t tx="yen.20210612081822.47">def close_xml():
-    """simple, but usually right, code to close open XML tags"""
-    tCurPosition = c.frame.body.widget.textCursor().position()    
-    i = tCurPosition - len(_abr)
-    b = c.p.b
-    skips = 1
-    while i and skips:
-        s = []
-        while i and b[i] != '&gt;':
-            i -= 1
-        i -= 1
-        while i and (b[i] != '&lt;' or (s and b[i] == '&lt;' and s[0] == '/')):
-            s[0:0] = b[i]
-            i -= 1
-            if s and s[0] == '&lt;' and len(s) &gt; 1 and s[1] == '/':
-                skips += 1  # a closed tag indicates search one more tag
-        skips -= 1
-    s = ''.join([i if i.isalpha() else ' ' for i in s])
-    if s.strip():
-        return "&lt;/%s&gt;" % (s.split(None, 1)[0])
-    else:
-        return "&lt;/"
-</t>
 <t tx="yen.20210612081822.470"></t>
 <t tx="yen.20210612081822.471"></t>
 <t tx="yen.20210612081822.472"></t>
@@ -10112,43 +10011,6 @@ is true (and recent_files_omit_directories is False)
 <t tx="yen.20210612081822.477"></t>
 <t tx="yen.20210612081822.478"></t>
 <t tx="yen.20210612081822.479"></t>
-<t tx="yen.20210612081822.48">def django_tag():
-    """expand {block content} to 
-       {% block content %}\n{% end_block content %} with proper
-       indentation (for Django web templates)"""
-    from leo.core.leoQt import QtCore
-    widget = c.frame.body.widget
-    scrollPosition = widget.getYScrollPosition()
-    textCursor = widget.textCursor()
-    tCurPosition = textCursor.position()  
-    i = tCurPosition - len(_abr)
-    b = c.p.b
-    s = []
-    while i and b[i] != '{':
-        s[0:0] = b[i]
-        i -= 1
-    start = i
-    s = ''.join(s)
-    s_close = s.split()[0]
-    indent = 0
-    while i and b[i] != '\n':
-        indent += 1
-        i -= 1
-    if indent:
-        indent -= 1
-    def later(c=c, indent=indent, b=b, s=s, _abr=_abr):
-        offset = len("%s{%% %s %%}\n    %s" % (b[:start], s, ' '*indent))
-        c.p.b = "%s{%% %s %%}\n    %s\n%s{%% end%s %%}%s" % (
-            b[:start], s, ' '*indent, ' '*indent, s_close, b[start+len(s)+len(_abr):]
-        )
-        widget.setYScrollPosition(scrollPosition)
-        textCursor.setPosition(offset)
-        widget.setTextCursor(textCursor)
-        c.bodyWantsFocusNow()
-        
-    QtCore.QTimer.singleShot(0, later)
-
-</t>
 <t tx="yen.20210612081822.480">
 </t>
 <t tx="yen.20210612081822.481">True:  Scroll the find tab ensure find input field visible. (fixes bug 1254861)
@@ -10222,10 +10084,6 @@ N.B. Leo requires utf-8 encoding for any non-ascii characters.
 
 </t>
 <t tx="yen.20210612081822.489"></t>
-<t tx="yen.20210612081822.49">def do(commandName):
-    '''Execute a command by name.'''
-    c.k.simulateCommand(commandName,event=None)
-</t>
 <t tx="yen.20210612081822.490">These settings determine whether the corresponding checkbox is checked by default.</t>
 <t tx="yen.20210612081822.491">Despite its name, this setting affects the default value of the Show Context checkbox.</t>
 <t tx="yen.20210612081822.492">When checked, the Find and Change commands ignore the case of alphabetic characters when determining matches.
@@ -10253,12 +10111,6 @@ The pattern "^*$" matches any line at all.</t>
 </t>
 <t tx="yen.20210612081822.499"></t>
 <t tx="yen.20210612081822.5">Leo's traditional tree color.</t>
-<t tx="yen.20210612081822.50">def file_name():
-    """dafault name of this file if implied by headline"""
-    if c.p.h.endswith(".py"):
-        return g.os_path_split(c.p.h)[-1]
-    return ".py"
-</t>
 <t tx="yen.20210612081822.500"></t>
 <t tx="yen.20210612081822.501">If neither is checked, Leo searches the entire outline.</t>
 <t tx="yen.20210612081822.502"></t>
@@ -10289,13 +10141,6 @@ want the visual clutter of repeated class / file names.</t>
 **Note**: The importer will copy only the first line of a multiline decorator.</t>
 <t tx="yen.20210612081822.509">False: (recommended) Enable import parsing for @shadow and @auto
 True: @shadow and @auto create a single node for the entire file.</t>
-<t tx="yen.20210612081822.51">def get(s, default='', prompt=''):
-    """Ask for template field 's' only if not already known"""
-    if s in _values:
-        return _values[s]
-    else:
-        return ask(s, default=default, prompt=prompt) or ''
-</t>
 <t tx="yen.20210612081822.510"># typedef names, one per line
 
 # These fix #545:
@@ -10416,19 +10261,6 @@ table
 <t tx="yen.20210612081822.517"></t>
 <t tx="yen.20210612081822.518"></t>
 <t tx="yen.20210612081822.519">These are needed to handle shortcuts for the find panel!</t>
-<t tx="yen.20210612081822.52">def get_language():
-    '''Get a language name, and set name and cap_name in the namespace.'''
-    x = g.app.gui.runAskOkCancelStringDialog(
-        c,
-        title = 'Language',
-        message = 'Enter language name. Case does not matter.',
-    )
-    # g.trace('===== x:', repr(x))
-    if not x: x = 'no-language!'
-    _values = c.abbrev_subst_env['name'] = x.lower()
-    _values = c.abbrev_subst_env['cap_name'] = x.capitalize()
-    return x.lower()
-</t>
 <t tx="yen.20210612081822.520"></t>
 <t tx="yen.20210612081822.521">True: plain keys in the outline pane search for headlines.
 False: Ignore plain keys in the outline pane.
@@ -10447,41 +10279,6 @@ True:  Replace the Meta key with the Alt Key.
 <t tx="yen.20210612081822.527"></t>
 <t tx="yen.20210612081822.528"></t>
 <t tx="yen.20210612081822.529"></t>
-<t tx="yen.20210612081822.53">def html_tag():
-    """expand &lt;tag&gt; to 
-       &lt;tag&gt;\n&lt;/tag&gt; with proper indendation"""
-    from leo.core.leoQt import QtCore
-    widget = c.frame.body.widget
-    scrollPosition = widget.getYScrollPosition()
-    textCursor = widget.textCursor()
-    tCurPosition = textCursor.position()  
-    i = tCurPosition - len(_abr)
-    b = c.p.b
-    s = []
-    while i and b[i] != '&lt;':
-        s[0:0] = b[i]
-        i -= 1
-    start = i
-    s = ''.join(s)
-    s_close = s.split()[0]
-    indent = 0
-    while i and b[i] != '\n':
-        indent += 1
-        i -= 1
-    if indent:
-        indent -= 1
-    def later(c=c, indent=indent, b=b, s=s, _abr=_abr):
-        offset = len("%s&lt;%s&gt;\n%s    " % (b[:start], s, ' '*indent))
-        c.p.b = "%s&lt;%s&gt;\n%s    \n%s&lt;/%s&gt;%s" % (
-            b[:start], s, ' '*indent, ' '*indent, s_close, b[start+len(s)+len(_abr):]
-        )
-        widget.setYScrollPosition(scrollPosition)
-        textCursor.setPosition(offset)
-        widget.setTextCursor(textCursor)
-        c.bodyWantsFocusNow()
-        
-    QtCore.QTimer.singleShot(0, later)
-</t>
 <t tx="yen.20210612081822.530">@nocolor
 
 This setting determines the initial binding for otherwise-unbound keystrokes
@@ -11000,13 +10797,6 @@ full-command                = :
     # :%s/foo/bar Substitute on entire file.
     # :y Yank the current line.
 </t>
-<t tx="yen.20210612081822.54">def in_class():  # return "self, " if in a class definition
-    """return "self" if in a class definition (from headline)"""
-    for nd in c.p.self_and_parents_iter():
-        if nd.h.startswith('class'):
-            return "self, "
-    return ""
-</t>
 <t tx="yen.20210612081822.540"># q in vim bindings.
 # The mode prompt is everything following the ::
 # Allows temporary rebindings without interfering with typical bindings.
@@ -11349,16 +11139,6 @@ tab-cycle-next      = Ctrl-Tab
 # focus-to-tree     = Ctrl-T
 edit-setting        = Ctrl+Key-0
 </t>
-<t tx="yen.20210612081822.55">def insert(s):
-    '''Insert the string s in the current widget.'''
-    try:
-        w = c.abbrevCommands.w
-        if w:
-            i = w.getInsertPoint()
-            w.insert(i,s)
-    except AttributeError:
-        pass
-</t>
 <t tx="yen.20210612081822.550"># For testing only.
 
 start-ipython           = Alt-Ctrl-Shift-i
@@ -11484,25 +11264,6 @@ The valid values are::
 ignore:  Leo ignores the key (like Vim).
 insert:  Leo inserts the key at the cursor (like Emacs)
 overwrite: Leo replaces the character at the cursor.</t>
-<t tx="yen.20210612081822.56">def long_word():
-    """example of an abbreviation substitution which inspects
-    the current content of the body text, see `;;;` example
-    in @@data abbreviations-examples
-    """
-    words = c.p.b.split()
-    tCurPosition = c.frame.body.widget.textCursor().position() 
-    i = tCurPosition - len(_abr)
-    b = c.p.b
-    s = []
-    while i and b[i].isalpha():
-        s[0:0] = b[i]
-        i -= 1
-    s = ''.join(s)
-    for i in words:
-        if i.startswith(s) and i != s:
-            return i[len(s):]
-    return ''
-</t>
 <t tx="yen.20210612081822.560">To enable vim emulation, place a copy of this node (and its sub-nodes) into
 your myLeoSettings.leo file under the "@settings" node.
 </t>
@@ -11983,20 +11744,6 @@ enter-body-shift-z-mode           = Shift-z         #ZZ command - Save file and 
 --&gt; edit-headline
 --&gt; exit-named-mode
 </t>
-<t tx="yen.20210612081822.57">def param_doc(k=None):
-    """make an epydoc / rst style parameter documentation block"""
-    if not k:
-        k = "Params, comma sep."
-        indent = '    '
-    else:  # assume in an __init__ def'n
-        indent = '        '
-    if k in _values and _values[k]:
-        return "\n\n%s:Parameters:\n%s" % (indent, '\n'.join(
-            ["%s- `%s`: &lt;|describe %s|&gt;" % (
-                indent, i.split('=',1)[0].strip(), i.split('=',1)[0].strip()
-             ) for i in _values[k].split(',')]))
-    return ""
-</t>
 <t tx="yen.20210612081822.570">#Redo last headline edit
 #Bind: Ctrl-r
 #Note: redo only seems to work from body pane
@@ -12067,13 +11814,6 @@ exit-leo = return</t>
 enter-tree-command-revert-mode   = e
 enter-tree-command-save-mode     = w
 enter-tree-command-quit-mode     = q
-</t>
-<t tx="yen.20210612081822.58">def user_name():
-    """get user's full name if available"""
-    global _user_name
-    if not _user_name:
-        _user_name = ask('LOGNAME','LOGNAME')
-    return _user_name
 </t>
 <t tx="yen.20210612081822.580">#Reload current file
 #Bind: :e&lt;cr&gt;
@@ -15556,7 +15296,68 @@ Leo Editro 操作系統間的差異
 由於 [Leo Editor] 的開發者堅持要讓 Python2 與 Python3 的用戶都能使用, 而且大多數開發者都只使用英文輸入介面, 目前已知在 Windows 操作系統, 若輸入停留在中文環境, 就會因為無法建立 .leo/.leoID.txt 而無法通過首次開啟流程, 造成無法正常使用. 應對方法就是在 Windows 首次開啟 [Leo Editor] 時, 必須先將環境選擇英文輸入, 才能正常建立 .leo/leoID.txt.
 
 而且 [Leo Editor] 在 Windows 與 Mac 的操作表單也不完全相同, 不知是否因為 Mac 操作系統內仍有 Python2, 且 [Leo Editor] 的 Exit 必須透過 Python 下拉式表單的 Quit Python 操作, Mac File 下拉式功能表中並沒有 Exit.
-</t>
+
+Leo Editor 的設定檔
+----
+
+根據 [Leo Editor settings] 中的說明, [Leo Editor] 共有四種設定檔案: 
+
+[Leo Editor] 的設定存在 @settings 節點指令中, 開啟 .leo 檔案時,  [Leo Editor] 不僅會在檔案中的節點樹尋找 @settings, 也會在 leoSettings.leo 檔案中搜尋相關設定. 主要的設定包括:
+
+1. 每一操作系統中或特定安裝時所選擇的設定.
+2. 每位用戶所選擇的設定.
+3. 每個目錄所選擇的設定.
+4. 每個檔案所選擇的設定.
+
+因此, [Leo Editor] 合計共有四種設定檔案:
+
+1. 名稱為 leoSettings.leo 的內建設定檔案.
+2. 名稱為 myLeoSettings.leo 的個人設定檔案.
+3. 名稱為 LeoSettings.leo, 可以位於各相關目錄的機器設定檔案.
+4. 名稱為 .leo 且內容包含 stylesheets 與其他顯示設定相關設定的主題檔案..
+
+而各設定檔案則分別存在:
+
+1. 設定檔案儲存目錄為各用戶目錄中的 .leo 子目錄.
+2. leo 安裝目錄下的 config 目錄.
+3. 各用戶目錄中 .leo 目錄中的 MACHINE 目錄, 而此 MACHINE 可以是電腦的主機名稱.
+4. 主題設定檔案則可以儲存在任何存放 .leo 的目錄中.
+
+當使用者開啟 .leo 檔案時, 系統所採用的設定檔案將會顯示在 log 區域.
+
+而目前已經知道, 在 Mac 中, 若 leoSettings.leo 或 myLeoSettings.leo 中的 @settings 沒有設定, 開啟 [Leo Editor] 後將會只有 Python 下拉式功能表, 但並不會顯示任何與 [Leo Editor] 有關的其他功能表.
+[Leo Editor settings]: https://www.leoeditor.com/customizing.html
+
+[Leo Editor] 設定讀取順序
+----
+
+[Leo Editor] 讀取設定檔案的順序將從系統安裝目錄下的 config 開始搜尋讀取, 各設定檔案的搜尋順序都相同. 亦即, 若在 leo/config 與使用者 .leo 目錄中各有一個 leoSettings.leo, 則 [Leo Editor] 會先讀取系統的設定後, 再讀取使用者目錄下 .leo 目錄中的同名設定, 而且若兩個檔案皆有相同節點設定, 該節點的設定將以較後讀取的設定為主.
+
+閱讀 [Leo Editor] 原始碼
+----
+
+由於 [Leo Editor] 的開發歷程已經超過 25 年 (1995 至今), 從早期的 C++ 版本到 Python Tkinter, 直到現在採用 PyQT 的版本, 過程中有許多轉折與考量, 因此原始碼中有許多學習的地方, 所以設法利用 recursive importer 展開, 希望逐一摘要出相關重點.
+
+所使用的 recursive importer:
+
+&lt;pre class="brush: python"&gt;
+'''Recursively import all python files in a directory and clean the result.'''
+ 
+c.recursiveImport(
+    dir_ = r'./',
+    kind = '@clean', # The new best practice.
+    safe_at_file = True,
+    theTypes = ['.py']
+)
+&lt;/pre&gt;
+
+上述的 c 是 [Leo Editor] 程式碼中的 commander. 只要透過 c 物件中的 recursiveImport() 就可以採遞迴的方式, 將所需的檔案導入節點內容中. 而此一功能位於 [core/leoCommands.py 中的 recursiveImport() 方法]中. 而 [Leo Editor] 不僅可以採用 @clean 直接將物件與方法逐一展為樹狀節點, 可以用 @edit 展開全部檔案內容, 或者在導入後將節點編輯指令前加入 @@ 令其只存在 [Leo Editor] 節點中, 而切斷與外部檔案的連結, 專門充作研究註解用. 其他還有 clone 節點的功能, 能夠針對同一個節點內容, 同步出現在不同的節點位置中.
+
+而 g 則是 core/leoGlobals.py 的簡稱, 其中 [core/leoGlobals.py 中的 es 方法] 就是 g.es() 中的由來, 也是 [Leo Editor] 中的 echo string 方法.
+
+[core/leoCommands.py 中的 recursiveImport() 方法]: https://github.com/leo-editor/leo-editor/blob/e46e9315f61a1c378900d3ba7fbadf39c5d9fb5b/leo/core/leoCommands.py#L3787
+
+[core/leoGlobals.py 中的 es 方法]: https://github.com/leo-editor/leo-editor/blob/e46e9315f61a1c378900d3ba7fbadf39c5d9fb5b/leo/core/leoGlobals.py#L6390</t>
 <t tx="yen.20210711132540.1"></t>
 <t tx="yen.20210711132544.1"></t>
 <t tx="yen.20210711132601.1"></t>
