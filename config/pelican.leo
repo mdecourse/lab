@@ -15376,7 +15376,7 @@ c.recursiveImport(
 
 理想的狀況下, 產品設計師利用 [lark] 自行定義基本的 2D 或 3D 產品描述語言, 經由 [Solvespace] 建立所需的零組件後, 將檔案轉為 [STL] 或 [URDF] , 接著再由 [Leo Editor] 居中引入零組件檔案, 並組合成能夠直接由 [CoppeliaSim] 及 [Webots] 使用的機電整合模型後, 再進行後續的控制系統設計與模擬.
 
-
+[CoppeliaSim]: https://www.coppeliarobotics.com/
 [Donald Knuth]: https://en.wikipedia.org/wiki/Donald_Knuth
 [Literate Programming]: https://en.wikipedia.org/wiki/Literate_programming
 [Protobuf]: https://opensource.google/projects/protobuf
@@ -15393,7 +15393,6 @@ c.recursiveImport(
 [lark]: https://github.com/lark-parser/lark
 [URDF]: http://wiki.ros.org/urdf
 [STL]: https://en.wikipedia.org/wiki/STL_(file_format)
-[CoppeliaSim]: https://www.coppeliarobotics.com/
 </t>
 <t tx="yen.20210711132540.1"></t>
 <t tx="yen.20210711132544.1"></t>
